@@ -45,8 +45,6 @@ $$x_1 = {-b + \sqrt{b^2-4ac} \over 2a}$$
 
 $$x_2 = {-b - \sqrt{b^2-4ac} \over 2a} \notag$$
 
-$$\dif \p \bold{E}$$
-
 ### Mermaid
 
 ```mermaid
