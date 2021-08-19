@@ -49,6 +49,10 @@ $$
 x_2 = {-b - \sqrt{b^2-4ac} \over 2a} \notag
 $$
 
+$$
+\dif \p \bold{E}
+$$
+
 ### Mermaid
 
 ```mermaid
