@@ -1,7 +1,7 @@
 ---
 layout: post
-title: A Example Post
-date: 2019-01-01 00:00:00 +0800
+title: A Test Post
+date: 2021-08-19 20:16:00 +0800
 category: tutorial
 thumbnail: /style/image/thumbnail.png
 icon: book
@@ -14,7 +14,7 @@ mermaid: true
 * content
 {:toc}
 
-Test Excerpt
+Test Excerpt. 测试摘要
 <!--more-->
 
 ## sub title
@@ -29,12 +29,15 @@ add the thumbnail url
 
 such as book, code, web, chat, note, game, link, design, image
 
-# Test Enhancement
+## Test Markdown Enhancement
 
 When $a \ne 0$, there are two solutions to $ax^2 + bx + c = 0$ and they are
 
 $$x_1 = {-b + \sqrt{b^2-4ac} \over 2a}$$
+
 $$x_2 = {-b - \sqrt{b^2-4ac} \over 2a} \notag$$
+
+$$\dif \p \bold{E}$$
 
 ```mermaid
 graph TB;
