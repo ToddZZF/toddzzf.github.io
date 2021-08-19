@@ -16,12 +16,6 @@ exclude: ['README.md', 'Gemfile.lock', 'Gemfile', 'Rakefile']
 # Markdown
 highlighter: rouge
 markdown: kramdown
-kramdown:
-  syntax_highlighter: rouge
-  syntax_highlighter_opts:
-    block:
-      line_numbers: true
-      start_line: 1
 
 
 # Comments 评论
