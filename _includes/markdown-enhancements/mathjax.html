@@ -9,8 +9,17 @@ source0=site.mathjax_autoNumber source1=page.mathjax_autoNumber -%}
 <script>
     MathJax = {
         tex: {
-            inlineMath: [['$', '$']],
-            processEscapes: true
+            inlineMath: [['$', '$'], ['\\(', '\\)']],
+            displayMath: [['$$', '$$'], ['\[', '\]']],
+            {% if _mathjax_autoNumber == true %}
+                tags: 'all',
+            {% endif %}
+            processEscapes: true,
+            macros: {
+                dif: '\mathop{}\!\mathrm{d}',
+                p: '\partial',
+                bold: '\boldsymbol'
+            }
         }
     };
 </script>
