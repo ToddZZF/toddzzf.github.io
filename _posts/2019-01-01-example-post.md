@@ -29,7 +29,15 @@ add the thumbnail url
 
 such as book, code, web, chat, note, game, link, design, image
 
+## test code
+
+```python
+print("Hello, world!")
+```
+
 ## Test Markdown Enhancement
+
+### Mathjax
 
 When $a \ne 0$, there are two solutions to $ax^2 + bx + c = 0$ and they are
 
@@ -38,6 +46,8 @@ $$x_1 = {-b + \sqrt{b^2-4ac} \over 2a}$$
 $$x_2 = {-b - \sqrt{b^2-4ac} \over 2a} \notag$$
 
 $$\dif \p \bold{E}$$
+
+### Mermaid
 
 ```mermaid
 graph TB;
@@ -49,6 +59,8 @@ graph TB;
     C--no-->B;
     C--yes-->B;
 ```
+
+### Chart
 
 ```chart
 {
