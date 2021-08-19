@@ -11,6 +11,9 @@ icon: book
 * content
 {:toc}
 
+Test Excerpt
+<!--more-->
+
 ## sub title
 
 page...

@@ -1,3 +1,4 @@
+# basic 基础
 name: Todd's Blog
 author: Todd Zhou
 url: https://toddzzf.github.io
@@ -20,3 +21,8 @@ comments :
     repo : toddzzf.github.io
     owner : ToddZZF
     admin : ToddZZF
+
+
+# excerpt 摘要
+excerpt_separator: <!--more--> # 摘要的分隔符
+excerpt_max_num: 128 # 摘要的最大长度
