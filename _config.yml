@@ -1,4 +1,4 @@
-# basic 基础
+# Basic 基础
 name: Todd's Blog
 author: Todd Zhou
 url: https://toddzzf.github.io
@@ -14,6 +14,9 @@ paginate_path: "/page/:num/"
 exclude: ['README.md', 'Gemfile.lock', 'Gemfile', 'Rakefile']
 highlighter: rouge
 markdown: kramdown
+
+
+# Comments 评论
 comments :
   gitalk :
     clientID : 46466568edd862a59169
@@ -23,6 +26,20 @@ comments :
     admin : ToddZZF
 
 
-# excerpt 摘要
+# Excerpt 摘要
 excerpt_separator: <!--more--> # 摘要的分隔符
 excerpt_max_num: 128 # 摘要的最大长度
+
+# Markdown Enhancement 扩展 markdown
+sources: bootcdn # bootcdn 或 jsdelivr
+
+## Mathjax
+mathjax: false
+mathjax_autoNumber: false
+
+## Mermaid
+mermaid: false
+
+## Chart
+chart: false
+

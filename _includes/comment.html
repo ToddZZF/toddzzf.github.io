@@ -1,5 +1,14 @@
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
-<script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+{% if page.key and
+  site.comments.gitalk.clientID and
+  site.comments.gitalk.clientSecret and
+  site.comments.gitalk.repository and
+  site.comments.gitalk.owner and
+  site.comments.gitalk.admin %}
+
+{% include snippets/get-sources.html %}
+{% assign _sources = __return %}
+<link rel="stylesheet" href="{{ _sources.gitalk.css }}">
+<script src="{{ _sources.gitalk.js }}"></script>
 <div id="gitalk-container"></div>
 
 <script data-no-instant type="text/javascript">
@@ -9,9 +18,11 @@ const gitalk = new Gitalk({
   repo: '{{ site.comments.gitalk.repo }}',
   owner: '{{ site.comments.gitalk.owner }}',
   admin: ['{{ site.comments.gitalk.admin }}'],
-  id: location.pathname,      // Ensure uniqueness and length less than 50
+  id: '{{ page.key }}',      // Ensure uniqueness and length less than 50
   distractionFreeMode: true  // Facebook-like distraction free mode
 })
 
 gitalk.render('gitalk-container')
 </script>
+
+{% endif %}
