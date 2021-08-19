@@ -1,0 +1,22 @@
+name: Todd's Blog
+author: Todd Zhou
+url: https://toddzzf.github.io
+baseurl: 
+resume_site: https://toddzzf.github.io
+description: Thought.Knowledege.Life.
+github_username: ToddZZF
+github: https://github.com/ToddZZF
+plugins: [jekyll-paginate]
+permalink: /:year-:month-:day/:title
+paginate: 12
+paginate_path: "/page/:num/"
+exclude: ['README.md', 'Gemfile.lock', 'Gemfile', 'Rakefile']
+highlighter: rouge
+markdown: kramdown
+comments :
+  gitalk :
+    clientID : 46466568edd862a59169
+    clientSecret : 4796ee89765c241e2cc6acc378eec7d6199c027c
+    repo : toddzzf.github.io
+    owner : ToddZZF
+    admin : ToddZZF
