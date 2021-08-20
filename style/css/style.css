@@ -844,7 +844,7 @@ textarea:-ms-input-placeholder {
   padding: 8px 25px;
   background-color: #eee;
 }
-.navbar-mobile-menu:checked > ul {
+.navbar-mobile-menu:focus > ul {
   overflow: inherit;
   clip: inherit;
   -webkit-transition: -webkit-transform 0.3s;
