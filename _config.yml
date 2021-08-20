@@ -11,8 +11,7 @@ paginate: 12
 paginate_path: "/page/:num/"
 exclude: ['README.md', 'Gemfile.lock', 'Gemfile', 'Rakefile']
 
-# Social
-
+# Social 社交
 github_username: ToddZZF
 github: https://github.com/ToddZZF
 bilibili: https://space.bilibili.com/14158798
