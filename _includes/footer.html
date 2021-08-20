@@ -2,11 +2,37 @@
     <div class="footer-social">
         <div class="footer-container clearfix">
             <div class="social-list">
-                <a href="{{ '/' | prepend: site.baseurl }}"><span class='iconfont icon-home'></span>&nbsp;&nbsp;HOME</a>
+                <a href="{{ '/' | prepend: site.baseurl }}"><span class='iconfont icon-home-heart-fill'></span>&nbsp;&nbsp;HOME</a>
+                {% if site.github %}
                 <a rel="nofollow" target="_blank" href="{{site.github}}"><span
-                        class='iconfont icon-github'></span>&nbsp;&nbsp;Github</a>
-                <a target="_blank" href="{{ '/feed.xml' | prepend: site.baseurl }}"><span
-                        class='iconfont icon-rss'></span>&nbsp;&nbsp;RSS</a>
+                        class='iconfont icon-github-fill'></span>&nbsp;&nbsp;Github</a>
+                {% endif%}
+                {% if site.bilibili %}
+                        <a rel="nofollow" target="_blank" href="{{site.bilibili}}"><span
+                        class='iconfont icon-bilibili-fill'></span>&nbsp;&nbsp;Bilibili</a>
+                {% endif%}
+                {% if site.qq %}
+                        <a rel="nofollow" target="_blank" href="{{site.qq}}"><span
+                        class='iconfont icon-qq-fill'></span>&nbsp;&nbsp;QQ</a>
+                {% endif%}
+                {% if site.wechat %}
+                        <a rel="nofollow" target="_blank" href="{{site.wechat}}"><span
+                        class='iconfont icon-wechat-fill'></span>&nbsp;&nbsp;WeChat</a>
+                {% endif%}
+                {% if site.nintendo %}
+                        <a rel="nofollow" target="_blank" href="{{site.nintendo}}"><span
+                        class='iconfont icon-switch-fill'></span>&nbsp;&nbsp;Nintendo</a>
+                {% endif%}
+                {% if site.xbox %}
+                        <a rel="nofollow" target="_blank" href="{{site.xbox}}"><span
+                        class='iconfont icon-bilibili-fill'></span>&nbsp;&nbsp;Github</a>
+                {% endif%}
+                {% if site.mail %}
+                        <a rel="nofollow" target="_blank" href="{{site.mail}}"><span
+                        class='iconfont icon-mail-fill'></span>&nbsp;&nbsp;Mail</a>
+                {% endif%}
+                        <a target="_blank" href="{{ '/feed.xml' | prepend: site.baseurl }}"><span
+                        class='iconfont icon-rss-fill'></span>&nbsp;&nbsp;RSS</a>
             </div>
         </div>
     </div>

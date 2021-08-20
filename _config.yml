@@ -5,13 +5,22 @@ url: https://toddzzf.github.io
 baseurl: 
 resume_site: https://toddzzf.github.io
 description: Thought.Knowledege.Life.
-github_username: ToddZZF
-github: https://github.com/ToddZZF
 plugins: [jekyll-paginate]
 permalink: /:year-:month-:day/:title
 paginate: 12
 paginate_path: "/page/:num/"
 exclude: ['README.md', 'Gemfile.lock', 'Gemfile', 'Rakefile']
+
+# Social
+
+github_username: ToddZZF
+github: https://github.com/ToddZZF
+bilibili: https://space.bilibili.com/14158798
+mail: mailto:toddzzf@outlook.com
+wechat:
+qq:
+nintendo:
+xbox:
 
 # Markdown
 highlighter: rouge
