@@ -3,6 +3,7 @@ layout: post
 title: About Me 关于我
 ---
 
+* content
 {:toc}
 
 ## Who am I 我是啥
@@ -16,8 +17,8 @@ title: About Me 关于我
 
 ## Achievement 成就
 
-* My Biggest Achievement: Single for 20 years
-* Fund [SCUTEEE.com](https://scuteee.com), a web for EE learning. 创立了 [SCUTEEE.com](https://scuteee.com)，电子科学相关的网站
+* My Biggest Achievement: Single for 20 years 专业单身20年
+* Fund [SCUTEEE.com](https://scuteee.com), a web for EE learning. 创立了 [SCUTEEE.com](https://scuteee.com)，一个电子科学相关的网站
 
 ## Play with me 来玩呗
 
