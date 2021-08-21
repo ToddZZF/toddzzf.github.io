@@ -86,8 +86,8 @@ mermaid: false
 
 1. 有序列表
 2. 有序列表
-  1. 有序列表
-  2. 有序列表
+   1. 有序列表
+   2. 有序列表
 
 - [ ] Uncheck
   * 无序列表
@@ -95,7 +95,7 @@ mermaid: false
 - [x] Check
   - [ ] Uncheck
   - [x] Check
-- [ x] Check
+- [x] Check
   1. 有序列表
   2. 有序列表
 

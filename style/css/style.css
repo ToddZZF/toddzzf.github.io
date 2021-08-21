@@ -2429,21 +2429,26 @@ a.navbar-logo span {
 
 ul.task-list
 {
-  margin-left: 0;
+  margin-left: -20px;
   list-style-type: none;
 }
 
 .task-list ul
 {
-  margin-left: 30px;
+  margin-left: 20px;
 }
 
 .task-list ol
 {
-  margin-left: 30px;
+  margin-left: 20px;
+}
+
+.task-list ul.task-list
+{
+  margin-left: 0px;
 }
 
 .task-list-item-checkbox
 {
-  margin: 0 5px 0 0;
+  margin: 0 8px 0 0;
 }
