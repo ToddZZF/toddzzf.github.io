@@ -76,6 +76,29 @@ mermaid: false
 <!--more-->
 ```
 
+### Markdown 基础测试
+
+- 无序列表
+- 无序列表
+  - 无序列表
+  - 无序列表
+- 无序列表
+
+1. 有序列表
+2. 有序列表
+  1. 有序列表
+  2. 有序列表
+
+- [ ] Uncheck
+  * 无序列表
+  * 无序列表
+- [x] Check
+  - [ ] Uncheck
+  - [x] Check
+- [ x] Check
+  1. 有序列表
+  2. 有序列表
+
 ### Markdown 扩展
 
 #### Mathjax
