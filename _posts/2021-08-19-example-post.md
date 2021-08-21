@@ -1,6 +1,6 @@
 ---
 layout: post
-title: A Test Post
+title: 测试文章
 date: 2021-08-19 20:16:00 +0800
 category: tutorial
 thumbnail: /assets/image/thumbnail/rainbow_dash.png
@@ -90,7 +90,11 @@ $$
 x_2 = {-b - \sqrt{b^2-4ac} \over 2a} \notag
 $$
 
-注意我设置了三个缩写：\dif, \p, \bold
+注意我设置了三个缩写：\dif, \p, \bold，效果如下：
+
+$$
+\dif, \p, \bold{B}
+$$
 
 #### Mermaid
 
