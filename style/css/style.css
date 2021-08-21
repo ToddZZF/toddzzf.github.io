@@ -2426,3 +2426,13 @@ a.navbar-logo span {
     width: 100%;
   }
 }
+
+.task-list-item{
+  list-style-type: none;
+  padding-left: 20px;
+}
+
+.task-list-item-checkbox
+{
+  margin: 0 1em 0 0;
+}
