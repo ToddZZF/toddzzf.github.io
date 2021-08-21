@@ -28,13 +28,13 @@ kramdown:
   toc_levels: 1..3
 
 # Comments 评论
-comments :
-  gitalk :
-    clientID : 46466568edd862a59169
-    clientSecret : 4796ee89765c241e2cc6acc378eec7d6199c027c
-    repo : toddzzf.github.io
-    owner : ToddZZF
-    admin : ToddZZF
+comments:
+  gitalk:
+    clientID: 46466568edd862a59169
+    clientSecret: 4796ee89765c241e2cc6acc378eec7d6199c027c
+    repo: toddzzf.github.io
+    owner: ToddZZF
+    admin: ToddZZF
 
 
 # Excerpt 摘要
