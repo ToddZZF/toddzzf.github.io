@@ -13,7 +13,7 @@
     <meta name="description" content="{{site.meta_description}}">
     <link rel="shortcut icon" href="{{ '/style/image/favicon.png' | prepend: site.baseurl }}">
     <link rel="apple-touch-icon" href="{{ '/style/image/favicon.png' | prepend: site.baseurl }}" />
-    
+
     <link rel="stylesheet" href="/ppt/dist/reset.css">
     <link rel="stylesheet" href="/ppt/dist/reveal.css">
     <link rel="stylesheet" href="/ppt/dist/theme/white.css">
@@ -28,27 +28,28 @@
     <script src="/ppt/plugin/notes/notes.js"></script>
     <script src="/ppt/plugin/markdown/markdown.js"></script>
     <script src="/ppt/plugin/highlight/highlight.js"></script>
-    <script src="/ppt/plugin/math/math.js"></script>
+    <script src="/ppt/plugin/math3/math3.js"></script>
     <script>
         // More info about initialization & config:
         // - https://revealjs.com/initialization/
         // - https://revealjs.com/config/
         Reveal.initialize({
             hash: true,
-            math: {
-                mathjax: 'https://cdn.jsdelivr.net/gh/mathjax/mathjax@2.7.8/MathJax.js',
-                config: 'TeX-AMS_HTML-full',
-                // pass other options into `MathJax.Hub.Config()`
-                TeX: {
-                    tex2jax: {
-                        inlineMath: [['$', '$'], ['\\(', '\\)']]
-                    },
-                    Macros: { RR: "{\\bf R}" }
+            math3: {
+                tex: {
+                    inlineMath: [['$', '$'], ['\\(', '\\)']],
+                    displayMath: [['$$', '$$'], ['\\[', '\\]']],
+                    processEscapes: true,
+                    macros: {
+                        dif: '\\mathop{}\\!\\mathrm{d}',
+                        p: '\\partial',
+                        bold: '\\boldsymbol'
+                    }
                 }
             },
 
             // Learn about plugins: https://revealjs.com/plugins/
-            plugins: [RevealMarkdown, RevealHighlight, RevealNotes, RevealMath]
+            plugins: [RevealMarkdown, RevealHighlight, RevealNotes, RevealMath3]
         });
     </script>
 </body>
