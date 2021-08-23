@@ -2470,8 +2470,8 @@ column-gap: 1em;
 .item {
   display: inline-block;
   background: #fff;
-  padding: 1em;
-  margin: 0 0 1.5em;
+  padding: 0.5em;
+  margin: 0 0 1em;
   width: 100%;
 -webkit-transition:1s ease all;
   box-sizing: border-box;
