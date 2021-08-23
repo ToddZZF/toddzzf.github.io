@@ -15,3 +15,9 @@
 {%- if __return == true -%}
   {%- include markdown-enhancements/mermaid.html -%}
 {%- endif -%}
+
+{%- if page.waterfall -%}
+  {% for grid in page.waterfall.grids%}
+    waterfall('.{{ grid }}');
+  {% endfor %}
+{%- endif -%}

@@ -8,6 +8,8 @@ icon: book
 mathjax: true
 chart: true
 mermaid: true
+waterfall:
+    grids: [my-grid-1, my-grid-2]
 key: 2021-08-19-test-article
 ---
 
@@ -35,6 +37,7 @@ key: 2021-08-19-test-article
   - [x] Mathjax 3.x 公式支持
   - [x] Mermaid 流程图支持
   - [x] Chart 图表支持
+- [x] PPT 支持
 - [ ] 特殊页面
   - [ ] 追番
   - [ ] 读书
@@ -99,6 +102,37 @@ mermaid: false
 - [x] Check
   1. 有序列表
   2. 有序列表
+
+### 图片瀑布
+
+要使用图片瀑布，需要在 YAML 中加入：
+
+```yaml
+waterfall:
+    grids: [my-grid-1]
+```
+
+然后在文中用 html 输入：
+
+```html
+<div class="my-grid-1">
+    <div class="item"><img src="/assets/image/thumbnail/rainbow_dash.png"></div>
+    <div class="item"><img src="/assets/image/thumbnail/apple_jack.png"></div>
+    <div class="item"><img src="/assets/image/thumbnail/twilight_sparkle.png"></div>
+    <div class="item"><img src="/assets/image/thumbnail/rarity.png"></div>
+    <div class="item"><img src="/assets/image/thumbnail/fluttershy.png"></div>
+</div>
+```
+
+效果如下：
+
+<div class="my-grid-1">
+    <div class="item"><img src="/assets/image/thumbnail/rainbow_dash.png"></div>
+    <div class="item"><img src="/assets/image/thumbnail/apple_jack.png"></div>
+    <div class="item"><img src="/assets/image/thumbnail/twilight_sparkle.png"></div>
+    <div class="item"><img src="/assets/image/thumbnail/rarity.png"></div>
+    <div class="item"><img src="/assets/image/thumbnail/fluttershy.png"></div>
+</div>
 
 ### Markdown 扩展
 

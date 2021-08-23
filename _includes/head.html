@@ -14,5 +14,8 @@
 	<link rel="stylesheet" href="{{ '/style/css/iconfont/iconfont.css' | prepend: site.baseurl }}">
     <script>
         {% include scripts/lib/lazyload.min.js %}
+        {% if page.waterfall.grids}
+            {% include scripts/lib/waterfall.min.js %}
+        {% endif %}
     </script>
 </head>
