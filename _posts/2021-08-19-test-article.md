@@ -8,8 +8,6 @@ icon: book
 mathjax: true
 chart: true
 mermaid: true
-waterfall:
-    grids: [my-grid-1]
 key: 2021-08-19-test-article
 ---
 
@@ -115,24 +113,23 @@ waterfall:
 然后在文中用 html 输入：
 
 ```html
-<div class="my-grid-1">
+<div class="masonry">
     <div class="item"><img src="/assets/image/thumbnail/rainbow_dash.png"></div>
     <div class="item"><img src="/assets/image/thumbnail/apple_jack.png"></div>
     <div class="item"><img src="/assets/image/thumbnail/twilight_sparkle.png"></div>
-    <div class="item"><img src="/assets/image/thumbnail/rarity.png"></div>
+    <div class="item"><img src="/assets/image/thumbnail/rarity.jpg"></div>
     <div class="item"><img src="/assets/image/thumbnail/fluttershy.png"></div>
 </div>
 ```
 
 效果如下：
 
-<div class="my-grid-1">
-    <div class="grid-sizer"></div>
-    <div class="grid-item"><img src="/assets/image/thumbnail/rainbow_dash.png"></div>
-    <div class="grid-item"><img src="/assets/image/thumbnail/apple_jack.png"></div>
-    <div class="grid-item"><img src="/assets/image/thumbnail/twilight_sparkle.png"></div>
-    <div class="grid-item"><img src="/assets/image/thumbnail/rarity.jpg"></div>
-    <div class="grid-item"><img src="/assets/image/thumbnail/fluttershy.png"></div>
+<div class="masonry">
+    <div class="item"><img src="/assets/image/thumbnail/rainbow_dash.png"></div>
+    <div class="item"><img src="/assets/image/thumbnail/apple_jack.png"></div>
+    <div class="item"><img src="/assets/image/thumbnail/twilight_sparkle.png"></div>
+    <div class="item"><img src="/assets/image/thumbnail/rarity.jpg"></div>
+    <div class="item"><img src="/assets/image/thumbnail/fluttershy.png"></div>
 </div>
 
 ### Markdown 扩展
