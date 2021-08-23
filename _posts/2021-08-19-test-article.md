@@ -9,7 +9,7 @@ mathjax: true
 chart: true
 mermaid: true
 waterfall:
-    grids: [my-grid-1, my-grid-2]
+    grids: [my-grid-1]
 key: 2021-08-19-test-article
 ---
 
