@@ -2452,3 +2452,9 @@ ul.task-list
 {
   margin: 0 8px 0 0;
 }
+
+/* 元素宽度为布局空间宽度的20% */
+.grid-sizer,
+.grid-item { width: 20%; }
+/* 40% */
+.grid-item--width2 { width: 40%; }

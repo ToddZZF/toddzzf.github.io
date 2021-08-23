@@ -23,8 +23,10 @@
   {% for grid in page.waterfall.grids%}
     // init Masonry
     var $grid = $('.{{ grid }}').masonry({
-      columnWidth: 200,
-      itemSelector: '.item'
+      itemSelector: '.grid-item',
+      // use element for option
+      columnWidth: '.grid-sizer',
+      percentPosition: true
     });
     // layout Masonry after each image loads
     $grid.imagesLoaded().progress( function() {
