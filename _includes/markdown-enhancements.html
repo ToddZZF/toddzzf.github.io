@@ -17,7 +17,17 @@
 {%- endif -%}
 
 {%- if page.waterfall -%}
+<script type="text/javascript">
   {% for grid in page.waterfall.grids%}
-  <script type="text/javascript">waterfall('.{{ grid }}');</script>
+    // init Masonry
+    var $grid = $('.{{ grid }}').masonry({
+      columnWidth: 200,
+      itemSelector: '.item'
+    });
+    // layout Masonry after each image loads
+    $grid.imagesLoaded().progress( function() {
+      $grid.masonry('layout');
+    });
   {% endfor %}
+</script>
 {%- endif -%}
