@@ -18,6 +18,6 @@
 
 {%- if page.waterfall -%}
   {% for grid in page.waterfall.grids%}
-    waterfall('.{{ grid }}');
+  <script type="text/javascript">waterfall('.{{ grid }}');</script>
   {% endfor %}
 {%- endif -%}
