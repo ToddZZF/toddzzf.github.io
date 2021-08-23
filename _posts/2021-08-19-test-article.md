@@ -127,11 +127,11 @@ waterfall:
 效果如下：
 
 <div class="my-grid-1">
-    <div class="item"><img src="/assets/image/thumbnail/rainbow_dash.png" width="64"></div>
-    <div class="item"><img src="/assets/image/thumbnail/apple_jack.png" width="93"></div>
-    <div class="item"><img src="/assets/image/thumbnail/twilight_sparkle.png" width="115"></div>
-    <div class="item"><img src="/assets/image/thumbnail/rarity.jpg" width="90"></div>
-    <div class="item"><img src="/assets/image/thumbnail/fluttershy.png" width="69"></div>
+    <div class="item"><img src="/assets/image/thumbnail/rainbow_dash.png"></div>
+    <div class="item"><img src="/assets/image/thumbnail/apple_jack.png"></div>
+    <div class="item"><img src="/assets/image/thumbnail/twilight_sparkle.png"></div>
+    <div class="item"><img src="/assets/image/thumbnail/rarity.jpg"></div>
+    <div class="item"><img src="/assets/image/thumbnail/fluttershy.png"></div>
 </div>
 
 ### Markdown 扩展
