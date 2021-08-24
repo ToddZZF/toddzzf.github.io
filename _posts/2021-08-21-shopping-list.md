@@ -3,7 +3,7 @@ layout: post
 title: 购物清单
 date: 2021-08-21 17:31:00 +0800
 category: personal
-thumbnail: /assets/image/thumbnail/rarity.jpg
+thumbnail: /assets/image/thumbnail/rarity.png
 icon: note
 ---
 

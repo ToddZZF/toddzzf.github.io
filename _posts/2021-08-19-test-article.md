@@ -103,21 +103,14 @@ mermaid: false
 
 ### 图片瀑布
 
-要使用图片瀑布，需要在 YAML 中加入：
-
-```yaml
-waterfall:
-    grids: [my-grid-1]
-```
-
-然后在文中用 html 输入：
+在文中用 html 输入：
 
 ```html
 <div class="masonry">
     <div class="item"><img src="/assets/image/thumbnail/rainbow_dash.png"></div>
     <div class="item"><img src="/assets/image/thumbnail/apple_jack.png"></div>
     <div class="item"><img src="/assets/image/thumbnail/twilight_sparkle.png"></div>
-    <div class="item"><img src="/assets/image/thumbnail/rarity.jpg"></div>
+    <div class="item"><img src="/assets/image/thumbnail/rarity.png"></div>
     <div class="item"><img src="/assets/image/thumbnail/fluttershy.png"></div>
 </div>
 ```
@@ -128,7 +121,7 @@ waterfall:
     <div class="item"><img src="/assets/image/thumbnail/rainbow_dash.png"></div>
     <div class="item"><img src="/assets/image/thumbnail/apple_jack.png"></div>
     <div class="item"><img src="/assets/image/thumbnail/twilight_sparkle.png"></div>
-    <div class="item"><img src="/assets/image/thumbnail/rarity.jpg"></div>
+    <div class="item"><img src="/assets/image/thumbnail/rarity.png"></div>
     <div class="item"><img src="/assets/image/thumbnail/fluttershy.png"></div>
 </div>
 
