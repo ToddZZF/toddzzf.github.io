@@ -22,7 +22,7 @@ sources:
   jsdelivr:
     font_awesome: https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15/css/all.min.css
     chart: 'https://cdn.jsdelivr.net/npm/chart.js@3.5.1/dist/chart.min.js'
-    jquenry: 'https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js'
+    jquery: 'https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js'
     gitalk:
       js: 'https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js'
       css: 'https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css'
