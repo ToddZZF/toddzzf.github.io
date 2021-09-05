@@ -3,7 +3,7 @@ layout: post
 title: 测试文章
 date: 2021-08-19 20:16:00 +0800
 category: document
-thumbnail: /assets/image/thumbnail/rainbow_dash.png
+thumbnail: /assets/images/thumbnail/rainbow_dash.png
 icon: book
 mathjax: true
 chart: true
@@ -107,22 +107,22 @@ mermaid: false
 
 ```html
 <div class="masonry">
-    <div class="item"><img src="/assets/image/thumbnail/rainbow_dash.png"></div>
-    <div class="item"><img src="/assets/image/thumbnail/apple_jack.png"></div>
-    <div class="item"><img src="/assets/image/thumbnail/twilight_sparkle.png"></div>
-    <div class="item"><img src="/assets/image/thumbnail/rarity.png"></div>
-    <div class="item"><img src="/assets/image/thumbnail/fluttershy.png"></div>
+    <div class="item"><img src="/assets/images/thumbnail/rainbow_dash.png"></div>
+    <div class="item"><img src="/assets/images/thumbnail/apple_jack.png"></div>
+    <div class="item"><img src="/assets/images/thumbnail/twilight_sparkle.png"></div>
+    <div class="item"><img src="/assets/images/thumbnail/rarity.png"></div>
+    <div class="item"><img src="/assets/images/thumbnail/fluttershy.png"></div>
 </div>
 ```
 
 效果如下：
 
 <div class="masonry">
-    <div class="item"><img src="/assets/image/thumbnail/rainbow_dash.png"></div>
-    <div class="item"><img src="/assets/image/thumbnail/apple_jack.png"></div>
-    <div class="item"><img src="/assets/image/thumbnail/twilight_sparkle.png"></div>
-    <div class="item"><img src="/assets/image/thumbnail/rarity.png"></div>
-    <div class="item"><img src="/assets/image/thumbnail/fluttershy.png"></div>
+    <div class="item"><img src="/assets/images/thumbnail/rainbow_dash.png"></div>
+    <div class="item"><img src="/assets/images/thumbnail/apple_jack.png"></div>
+    <div class="item"><img src="/assets/images/thumbnail/twilight_sparkle.png"></div>
+    <div class="item"><img src="/assets/images/thumbnail/rarity.png"></div>
+    <div class="item"><img src="/assets/images/thumbnail/fluttershy.png"></div>
 </div>
 
 ### Markdown 扩展
