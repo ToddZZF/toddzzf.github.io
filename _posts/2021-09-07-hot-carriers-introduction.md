@@ -23,9 +23,9 @@ excerpt: 简单介绍热载流子产生、注入、退化的机理
       </section>
       <section>
       <blockquote>
-        <p>
+        <p><small>
         参考：<a href="https://eesemi.com/hotcarriers.htm">[1] Hot Carriers; Hot Electrons - www.EESemi.com</a>
-        </p>
+        </small></p>
       </blockquote>
       </section>
     </section>
@@ -37,9 +37,9 @@ excerpt: 简单介绍热载流子产生、注入、退化的机理
       </section>
       <section>
       <blockquote>
-        <p>
+        <p><small>
         参考：[2] A. Acovic, G. La Rosa, and Y.-C. Sun, “A review of hot-carrier degradation mechanisms in MOSFETs,” Microelectronics Reliability, vol. 36, no. 7–8, pp. 845–869, Jul. 1996, doi: 10.1016/0026-2714(96)00022-4.
-        </p>
+        </small></p>
       </blockquote>
       </section>
     </section>
@@ -49,9 +49,9 @@ excerpt: 简单介绍热载流子产生、注入、退化的机理
         <h3>四种热载流子的产生机理</h3>
         <p>沟道热电子（CHE）、漏雪崩热载流子（DAHC）、衬底热电子（SHE）、漏雪崩热载流子（DAHC）</p>
         <img src="/assets/images/hot-carrier/热载流子的产生.jpg" width="500">
-        <blockquote><p>
+        <blockquote><p><small>
         参考：[3] N. Arora, MOSFET Modeling for VLSI Simulation: Theory and Practice, vol. 0. WORLD SCIENTIFIC, 2007. doi: 10.1142/6157.
-        </p></blockquote>
+        </small></p></blockquote>
       </section>
       <section>
         <p><strong>沟道热电子（CHE）</strong> 当 $V_{gs}=V_{ds}$ 时，漏端附近的沟道区中的电子被加热，形成幸运电子（“幸运”指电子），幸运电子注入到栅氧化层形成了栅电流 $I_g$</p>
@@ -91,10 +91,10 @@ excerpt: 简单介绍热载流子产生、注入、退化的机理
       </section>
       <section>
       <blockquote>
-        <p>
+        <p><small>
         参考：[4]J. Kim, K. Hong, H. Shim, H. Rhee, and H. Shin, “Comparative Analysis of Hot Carrier Degradation (HCD) in 10-nm Node nMOS/pMOS FinFET Devices,” IEEE Trans. Electron Devices, vol. 67, no. 12, pp. 5396–5402, Dec. 2020, doi: 10.1109/TED.2020.3031246.<br>
         [5]I. Polishchuk, Yee-Chia Yeo, Qiang Lu, Tsu-Jae King, and Chenming Hu, “Hot-carrier reliability of p-MOSFET with ultra-thin silicon nitride gate dielectric,” in 2001 IEEE International Reliability Physics Symposium Proceedings. 39th Annual (Cat. No.00CH37167), Orlando, FL, USA, 2001, pp. 425–430. doi: 10.1109/RELPHY.2001.922937.
-        </p>
+        </small></p>
       </blockquote>
       </section>
     </section>
@@ -102,8 +102,40 @@ excerpt: 简单介绍热载流子产生、注入、退化的机理
     <section>
         <section>
         <h3>热载流子对器件性能的影响</h3>
-        导致器件参数偏移，如：threshold voltage ($\Delta V_T$), transconductance ($\Delta g_m$), subthreshold slope($\Delta S$), linear ($\Delta I_\text{DLIN}$) and saturation ($\Delta I_\text{DSAT}$) drain current, gate-to-drain capacitance ($\Delta C_{GD}$),
+        <p>导致器件参数偏移，如：<p>
+        <ul>
+          <li>threshold voltage ($\Delta V_T$)</li>
+          <li>transconductance ($\Delta g_m$)</li>
+          <li>subthreshold slope($\Delta S$)</li>
+          <li>linear drain current ($\Delta I_\text{DLIN}$)</li>
+          <li>saturation drain current ($\Delta I_\text{DSAT}$)</li>
+          <li>gate-to-drain capacitance($\Delta C_{GD}$)</li>
+        </ul> 
         </section>
+        <section>
+          <p>实验结果<sup>[5]</sup>：</p>
+          <p>寿命定义为 $\Delta I_\text{DSAT}$ 减少 10% 所需时间</p>
+          <img src="/assets/images/hot-carrier/Idsat的退化.jpg">
+          <blockquote><p><small>[5]E. Amat et al., “Channel hot-carrier degradation in pMOS and nMOS short channel transistors with high-k dielectric stack,” Microelectronic Engineering, vol. 87, no. 1, pp. 47–50, Jan. 2010, doi: 10.1016/j.mee.2009.05.013.
+          </small></p></blockquote>
+        </section>
+        <section>
+          <p>热载流子对 $I_{ds}$ 的影响<sup>[6]</sup></p>
+          <img src="/assets/images/hot-carrier/Ids的退化.gif">
+          <blockquote><p><small>[6]M. Jin et al., “Hot carrier reliability characterization in consideration of self-heating in FinFET technology,” in 2016 IEEE International Reliability Physics Symposium (IRPS), Pasadena, CA, USA, Apr. 2016, pp. 2A-2-1-2A-2–5. doi: 10.1109/IRPS.2016.7574505.
+          </small></p></blockquote>
+        </section>
+        <section>
+          <p>热载流子对I-V特性的影响<sup>[7]</sup></p>
+          <img src="/assets/images/hot-carrier/IV特性的退化.jpg">
+          <blockquote><p><small>[7]T. A. Karatsori, C. G. Theodorou, S. Haendler, N. Planes, G. Ghibaudo, and C. A. Dimitriadis, “Hot-carrier degradation model for nanoscale ultra-thin body ultra-thin box SOI MOSFETs suitable for circuit simulators,” Microelectronic Engineering, vol. 159, pp. 9–16, Jun. 2016, doi: 10.1016/j.mee.2016.01.035.
+          </small></p></blockquote>
+        </section>
+    </section>
+    <section>
+      <section>
+       <h3>热载流子效应</h3>
+      </section>
     </section>
   </div>
 </div>
