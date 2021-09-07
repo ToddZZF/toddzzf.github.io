@@ -29,20 +29,21 @@ excerpt: 简单介绍热载流子产生、注入、退化的机理
     <section>
       <h3>热载流子退化的过程</h3>
       <img src="/assets/images/hot-carrier/热载流子退化的过程.jpg">
-      <blockquote><p>
-        参考：[2] [1]A. Acovic, G. La Rosa, and Y.-C. Sun, “A review of hot-carrier degradation mechanisms in MOSFETs,” Microelectronics Reliability, vol. 36, no. 7–8, pp. 845–869, Jul. 1996, doi: 10.1016/0026-2714(96)00022-4.
-
-      </blockquote></p>
+      <blockquote>
+        <p>
+        参考：[2] A. Acovic, G. La Rosa, and Y.-C. Sun, “A review of hot-carrier degradation mechanisms in MOSFETs,” Microelectronics Reliability, vol. 36, no. 7–8, pp. 845–869, Jul. 1996, doi: 10.1016/0026-2714(96)00022-4.
+        </p>
+      </blockquote>
     </section>
     <!-- 热载流子的产生机理 -->
     <section>
       <section>
         <h3>四种热载流子的产生机理</h3>
-        <p>沟道热电子（CHE）、漏雪崩热载流子（DAHC）、</p>
+        <p>沟道热电子（CHE）、漏雪崩热载流子（DAHC）、衬底热电子（SHE）、漏雪崩热载流子（DAHC）</p>
         <img src="/assets/images/hot-carrier/热载流子的产生.jpg">
         <blockquote><p>
         参考：[3] N. Arora, MOSFET Modeling for VLSI Simulation: Theory and Practice, vol. 0. WORLD SCIENTIFIC, 2007. doi: 10.1142/6157.
-        </blockquote></p>
+        </p></blockquote>
       </section>
       <section>
         <p><strong>沟道热电子（CHE）</strong> 当 $V_{gs}=V_{ds}$ 时，漏端附近的沟道区中的电子被加热，形成幸运电子（“幸运”指电子），幸运电子注入到栅氧化层形成了栅电流 $I_g$</p>
@@ -60,6 +61,31 @@ excerpt: 简单介绍热载流子产生、注入、退化的机理
         <p><strong>二次产生的热电子（SGHE）</strong> 由衬底电流的二次碰撞电离产生的二次少子。漏端附近的雪崩过程形成了衬底空穴电流，该空穴电流又通过碰撞电离形成了二次电子-空穴对。这些二次电子与 SHE 一样会被注入到栅氧层。在栅氧层较薄、背栅偏压较大的情况下，二次电子注入效应特别严重。</p>
         <img src="/assets/images/hot-carrier/热载流子的产生（c）.jpg">
       </section>
+    </section>
+    <!-- 热载流子产生陷阱的过程 -->
+    <section>
+      <h3>热载流子退化的机制</h3>
+      <ul>
+        <li><strong>Negative oxide charge trapping</strong></li>
+        <ul>
+          <li>
+          电子被漏区附近的氧化层陷阱捕获，导致有效沟道长度变短，p-MOSFET 驱动电流增加
+          </li>
+        </ul>
+        <li><strong>Positive oxide charge trapping</strong></li>
+        <li><strong>Generation of interface states by hot holes</strong>，有两种机制</li>
+        <ul>
+          <li><strong>single particle(SP)</strong> causes Si–H bond dissociation due to the interaction of carriers with high energy</li>
+          <li><strong>multiple particle(MP)</strong> carriers with low energy that can excite the vibrational modes of the bonds followed by hydrogen release from the last bonded level to the transport state</li>
+        </ul>
+      </ul>
+      <blockquote>
+        <p>
+        参考：[4]J. Kim, K. Hong, H. Shim, H. Rhee, and H. Shin, “Comparative Analysis of Hot Carrier Degradation (HCD) in 10-nm Node nMOS/pMOS FinFET Devices,” IEEE Trans. Electron Devices, vol. 67, no. 12, pp. 5396–5402, Dec. 2020, doi: 10.1109/TED.2020.3031246.<br>
+        [5]I. Polishchuk, Yee-Chia Yeo, Qiang Lu, Tsu-Jae King, and Chenming Hu, “Hot-carrier reliability of p-MOSFET with ultra-thin silicon nitride gate dielectric,” in 2001 IEEE International Reliability Physics Symposium Proceedings. 39th Annual (Cat. No.00CH37167), Orlando, FL, USA, 2001, pp. 425–430. doi: 10.1109/RELPHY.2001.922937.
+
+        </p>
+      </blockquote>
     </section>
   </div>
 </div>
