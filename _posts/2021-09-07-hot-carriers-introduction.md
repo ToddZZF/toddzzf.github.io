@@ -17,30 +17,38 @@ excerpt: 简单介绍热载流子产生、注入、退化的机理
     </section>
     <!-- 热载流子的定义 -->
     <section>
+      <section>
       <h3>热载流子的定义</h3>
       <p>在半导体器件（尤其是MOS）中，载流子经过强电场的加速获得极高的动能，由于载流子的能量可以用 $kT$ 来表示，$T$ 表示温度。因此我们将高能载流子称为“热载流子”</p>
+      </section>
+      <section>
       <blockquote>
         <p>
         参考：<a href="https://eesemi.com/hotcarriers.htm">[1] Hot Carriers; Hot Electrons - www.EESemi.com</a>
         </p>
       </blockquote>
+      </section>
     </section>
     <!-- 热载流子退化的过程 -->
     <section>
+      <section>
       <h3>热载流子退化的过程</h3>
-      <img src="/assets/images/hot-carrier/热载流子退化的过程.jpg">
+      <img src="/assets/images/hot-carrier/热载流子退化的过程.jpg" width="500">
+      </section>
+      <section>
       <blockquote>
         <p>
         参考：[2] A. Acovic, G. La Rosa, and Y.-C. Sun, “A review of hot-carrier degradation mechanisms in MOSFETs,” Microelectronics Reliability, vol. 36, no. 7–8, pp. 845–869, Jul. 1996, doi: 10.1016/0026-2714(96)00022-4.
         </p>
       </blockquote>
+      </section>
     </section>
     <!-- 热载流子的产生机理 -->
     <section>
       <section>
         <h3>四种热载流子的产生机理</h3>
         <p>沟道热电子（CHE）、漏雪崩热载流子（DAHC）、衬底热电子（SHE）、漏雪崩热载流子（DAHC）</p>
-        <img src="/assets/images/hot-carrier/热载流子的产生.jpg">
+        <img src="/assets/images/hot-carrier/热载流子的产生.jpg" width="500">
         <blockquote><p>
         参考：[3] N. Arora, MOSFET Modeling for VLSI Simulation: Theory and Practice, vol. 0. WORLD SCIENTIFIC, 2007. doi: 10.1142/6157.
         </p></blockquote>
@@ -64,6 +72,7 @@ excerpt: 简单介绍热载流子产生、注入、退化的机理
     </section>
     <!-- 热载流子产生陷阱的过程 -->
     <section>
+      <section>
       <h3>热载流子退化的机制</h3>
       <ul>
         <li><strong>Negative oxide charge trapping</strong></li>
@@ -73,19 +82,28 @@ excerpt: 简单介绍热载流子产生、注入、退化的机理
           </li>
         </ul>
         <li><strong>Positive oxide charge trapping</strong></li>
-        <li><strong>Generation of interface states by hot holes</strong>，有两种机制</li>
+        <li><strong>Generation of interface states by hot holes</strong></li>
         <ul>
           <li><strong>single particle(SP)</strong> causes Si–H bond dissociation due to the interaction of carriers with high energy</li>
           <li><strong>multiple particle(MP)</strong> carriers with low energy that can excite the vibrational modes of the bonds followed by hydrogen release from the last bonded level to the transport state</li>
         </ul>
       </ul>
+      </section>
+      <section>
       <blockquote>
         <p>
         参考：[4]J. Kim, K. Hong, H. Shim, H. Rhee, and H. Shin, “Comparative Analysis of Hot Carrier Degradation (HCD) in 10-nm Node nMOS/pMOS FinFET Devices,” IEEE Trans. Electron Devices, vol. 67, no. 12, pp. 5396–5402, Dec. 2020, doi: 10.1109/TED.2020.3031246.<br>
         [5]I. Polishchuk, Yee-Chia Yeo, Qiang Lu, Tsu-Jae King, and Chenming Hu, “Hot-carrier reliability of p-MOSFET with ultra-thin silicon nitride gate dielectric,” in 2001 IEEE International Reliability Physics Symposium Proceedings. 39th Annual (Cat. No.00CH37167), Orlando, FL, USA, 2001, pp. 425–430. doi: 10.1109/RELPHY.2001.922937.
-
         </p>
       </blockquote>
+      </section>
+    </section>
+    <!-- 热载流子对器件性能的影响 -->
+    <section>
+        <section>
+        <h3>热载流子对器件性能的影响</h3>
+        导致器件参数偏移，如：threshold voltage ($\Delta V_T$), transconductance ($\Delta g_m$), subthreshold slope($\Delta S$), linear ($\Delta I_\text{DLIN}$) and saturation ($\Delta I_\text{DSAT}$) drain current, gate-to-drain capacitance ($\Delta C_{GD}$),
+        </section>
     </section>
   </div>
 </div>
