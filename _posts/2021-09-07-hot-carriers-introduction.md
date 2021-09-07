@@ -102,7 +102,7 @@ excerpt: 简单介绍热载流子产生、注入、退化的机理
     <section>
         <section>
         <h3>热载流子对器件性能的影响</h3>
-        <p>导致器件参数偏移，如：<p>
+        <p>导致器件参数偏移，如：</p>
         <ul>
           <li>threshold voltage ($\Delta V_T$)</li>
           <li>transconductance ($\Delta g_m$)</li>
@@ -134,7 +134,11 @@ excerpt: 简单介绍热载流子产生、注入、退化的机理
     </section>
     <section>
       <section>
-       <h3>热载流子效应</h3>
+       <h3>热载流子效应对电路的影响</h3>
+       <ul>
+         <li>数字电路：栅电容、驱动电流导致时序变化</li>
+         <li>模拟电路：I-V特性变化导致失配</li>
+       </ul>
       </section>
     </section>
   </div>
