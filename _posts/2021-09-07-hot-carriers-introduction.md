@@ -47,18 +47,18 @@ excerpt: 简单介绍热载流子产生、注入、退化的机理
     <section>
       <section>
         <h3>四种热载流子的产生机理</h3>
-        <p>沟道热电子（CHE）、漏雪崩热载流子（DAHC）、衬底热电子（SHE）、漏雪崩热载流子（DAHC）</p>
+        <p>沟道热电子（CHE）、漏极雪崩热载流子（DAHC）、衬底热电子（SHE）、二次产生的热电子（SGHE）</p>
         <img src="/assets/images/hot-carrier/热载流子的产生.jpg" width="500">
         <blockquote><p><small>
         参考：[3] N. Arora, MOSFET Modeling for VLSI Simulation: Theory and Practice, vol. 0. WORLD SCIENTIFIC, 2007. doi: 10.1142/6157.
         </small></p></blockquote>
       </section>
       <section>
-        <p><strong>沟道热电子（CHE）</strong> 当 $V_{gs}=V_{ds}$ 时，漏端附近的沟道区中的电子被加热，形成幸运电子（“幸运”指电子），幸运电子注入到栅氧化层形成了栅电流 $I_g$</p>
+        <p><strong>沟道热电子（CHE）</strong> 当 $V_{gs}=V_{ds}$ 时，漏端附近的沟道区中的电子被加热，形成幸运电子（“幸运”指满足注入条件的电子），幸运电子注入到栅氧化层形成了栅电流 $I_g$</p>
         <img src="/assets/images/hot-carrier/热载流子的产生（a）.jpg">
       </section>
       <section>
-        <p><strong>漏雪崩热载流子（DAHC）</strong> 漏端强电场导致雪崩倍增效应，电子从沟道电场中获得足够高的能量，经碰撞电离后产生电子-空穴对，电子-空穴对也会碰撞电离产生更多的电子-空穴对，形成雪崩过程。由于电子和空穴同时注入到栅氧化层，DAHC 注入引起的器件退化更为严重。</p>
+        <p><strong>漏极雪崩热载流子（DAHC）</strong> 漏端强电场导致雪崩倍增效应，电子从沟道电场中获得足够高的能量，经碰撞电离后产生电子-空穴对，电子-空穴对也会碰撞电离产生更多的电子-空穴对，形成雪崩过程。由于电子和空穴同时注入到栅氧化层，DAHC 注入引起的器件退化更为严重。</p>
         <img src="/assets/images/hot-carrier/热载流子的产生（b）.jpg">
       </section>
       <section>
