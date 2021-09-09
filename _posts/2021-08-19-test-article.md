@@ -125,6 +125,16 @@ mermaid: false
     <div class="item"><img src="/assets/images/thumbnail/fluttershy.png"></div>
 </div>
 
+### 音乐
+
+```html
+<p>/assets/audio/Bohemian%20Rhapsody.mp3</p>
+```
+
+效果如下：
+
+<p>/assets/audio/Bohemian%20Rhapsody.mp3</p>
+
 ### Markdown 扩展
 
 #### Mathjax
