@@ -15,6 +15,9 @@ excerpt: 简单介绍热载流子产生、注入、退化的机理
       grid-gap: 10px;
       text-align: center;
     }
+    p {
+      font-size: 80%;
+    }
 </style>
 
 <div class="reveal">
@@ -208,7 +211,7 @@ excerpt: 简单介绍热载流子产生、注入、退化的机理
           </div>
           <div>
             <p style="text-align:left">长沟道，nMOS 的 HCD 比 pMOS 更严重</p>
-            <ul style="text-align:left">
+            <ul style="text-align:left;font-size: 50%">
               <li>Holes have lower evergy than electrons because the mean free path of holes is shorter.</li>
               <li>The carrier evergy decreases as the temperature increases because phonon scattering becomes more active</li>
             </ul>
@@ -224,7 +227,7 @@ excerpt: 简单介绍热载流子产生、注入、退化的机理
               </div>
               <div>
                 <p style="text-align:left">短沟道，pMOS 的 HCD 比 nMOS 更严重</p>
-                <ul style="text-align:left">
+                <ul style="text-align:left;font-size: 50%">
                   <li>self-heating effect (SHE): Especially for pFinFETs, alloy scattering that occurs in SiGe reduces the thermal conductivity</li>
                   <li>negative bias temperature instability (NBTI): due to the interface traps generated through reaction–diffusion (RD)</li>
                 </ul>
