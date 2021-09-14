@@ -193,7 +193,7 @@ excerpt: 简单介绍热载流子产生、注入、退化的机理
     <p>
     \[\begin{aligned}
     AR =& C_1 \cdot (\frac{I_{ds}}{W})^{a_1} \cdot (\frac{I_{bs}}{I_{ds}})^m + C_2 \cdot (\frac{I_{ds}}{W})^{a_2} \cdot (\frac{I_{bs}}{I_{ds}})^m\\
-    &+C_3 \cdot (\frac{I_{ds}}{W})^{a_3}
+    &+C_3 \cdot (\frac{I_{ds}}{W})^{a_3}\\
     P =& P_0 \cdot \lfloor 1+D_p \cdot (AR \cdot t)^{n_p} \rfloor
     \end{aligned} \]
     </p>
@@ -216,26 +216,20 @@ excerpt: 简单介绍热载流子产生、注入、退化的机理
         </div>
       </section>
       <section>
-        <div class="r-stack">
-          <div class="fragment">
             <h3>长沟道/短沟道 HCD 不同</h3>
             <div class="twocolumn">
               <div>
                 <img src="/assets/images/hot-carrier/长沟道的热载流子退化.jpg">
+                <img src="/assets/images/hot-carrier/NBTI在HCD中的占比.jpg">
               </div>
               <div>
                 <p style="text-align:left">短沟道，pMOS 的 HCD 比 nMOS 更严重</p>
                 <ul style="text-align:left">
-                  <li>self-heating effect (SHE): Especially for pFinFETs, SiGe is used as the source/drain (S/D) materials to increase the current level by enhancing the hole mobility in the channel. However, alloy scattering that occurs in SiGe reduces the thermal conductivity</li>
+                  <li>self-heating effect (SHE): Especially for pFinFETs, alloy scattering that occurs in SiGe reduces the thermal conductivity</li>
                   <li>negative bias temperature instability (NBTI): due to the interface traps generated through reaction–diffusion (RD)</li>
                 </ul>
               </div>
             </div>
-          </div>
-          <div class="fragment">
-            <img src="/assets/images/hot-carrier/NBTI在HCD中的占比.jpg">
-          </div>
-        </div>
       </section>
       <section>
         <blockquote>
@@ -246,20 +240,20 @@ excerpt: 简单介绍热载流子产生、注入、退化的机理
       </section>
     </section>
     <section>
-      <div class="fragment">
+      <section>
         <h3>改善HCD的方法</h3>
-        <p>漏极工程：调节漏极的掺杂分布来降低漏附近的高电场</p>
+        <p style="text-align:left">漏极工程：调节漏极的掺杂分布来降低漏附近的高电场</p>
         <ul>
           <li>DDD(Double Diffused Drain) 结构</li>
           <li>LDD(Lightly Doped Drain) 结构</li>
         </ul>
         <img src="/assets/images/hot-carrier/改善HCD的器件结构.jpg">
-      </div>
-      <div class="fragment">
+      </section>
+      <section>
         <h3>改善HCD的方法</h3>
         <p style="text-align:left">采用特殊的电路结构：随着 M1 退化，其 $\Delta I_{ds}/\Delta V_{ds}$ 增加，引起 M3 上的电压降增加，使得 M1 的有效源漏电压下降，从而抵消 M1 $\Delta I_{ds}/\Delta V_{ds}$ 的增加</p>
         <img src="/assets/images/hot-carrier/改善HCD的电路结构.jpg">
-      </div>
+      </section>
     </section>
   </div>
 </div>
