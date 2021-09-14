@@ -27,7 +27,6 @@ excerpt: 简单介绍热载流子产生、注入、退化的机理
       <h2>热载流子损伤效应</h2>
       <h3>Hot Carrier Degradation</h3>
       <p>周镇峰</p>
-      <small>This PPT is available at todd.scuteee.com</small>
     </section>
     <!-- 热载流子的定义 -->
     <section>
@@ -200,7 +199,7 @@ excerpt: 简单介绍热载流子产生、注入、退化的机理
     P =& P_0 \cdot \lfloor 1+D_p \cdot (AR \cdot t)^{n_p} \rfloor
     \end{aligned} \]
     </p>
-    <blockquote><small>[1]F. Cacho et al., “Hot Carrier Injection degradation induced dispersion: Model and circuit-level measurement,” in 2011 IEEE International Integrated Reliability Workshop Final Report, South Lake Tahoe, CA, USA, Oct. 2011, pp. 137–141. doi: 10.1109/IIRW.2011.6142609.</small></blockquote>
+    <blockquote><small>[8]F. Cacho et al., “Hot Carrier Injection degradation induced dispersion: Model and circuit-level measurement,” in 2011 IEEE International Integrated Reliability Workshop Final Report, South Lake Tahoe, CA, USA, Oct. 2011, pp. 137–141. doi: 10.1109/IIRW.2011.6142609.</small></blockquote>
     </section>
     <section>
       <section>
@@ -257,6 +256,9 @@ excerpt: 简单介绍热载流子产生、注入、退化的机理
         <p style="text-align:left">采用特殊的电路结构：随着 M1 退化，其 $\Delta I_{ds}/\Delta V_{ds}$ 增加，引起 M3 上的电压降增加，使得 M1 的有效源漏电压下降，从而抵消 M1 $\Delta I_{ds}/\Delta V_{ds}$ 的增加</p>
         <img src="/assets/images/hot-carrier/改善HCD的电路结构.jpg">
       </section>
+    </section>
+    <section>
+    谢谢聆听
     </section>
   </div>
 </div>
