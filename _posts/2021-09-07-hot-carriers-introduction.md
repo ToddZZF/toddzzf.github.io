@@ -160,7 +160,7 @@ excerpt: 简单介绍热载流子产生、注入、退化的机理
         </section>
         <section>
           <p>实验结果<sup>[5]</sup>：</p>
-          <p>寿命定义为 $\Delta I_\text{DSAT}$ 减少 10% 所需时间</p>
+          <p style="text-align:left">不同 $V_G$ 对寿命的影响（寿命定义为 $\Delta I_\text{DSAT}$ 减少 10% 所需时间）</p>
           <img src="/assets/images/hot-carrier/Idsat的退化.jpg">
           <blockquote><p><small>[5]E. Amat et al., “Channel hot-carrier degradation in pMOS and nMOS short channel transistors with high-k dielectric stack,” Microelectronic Engineering, vol. 87, no. 1, pp. 47–50, Jan. 2010, doi: 10.1016/j.mee.2009.05.013.
           </small></p></blockquote>
@@ -182,24 +182,20 @@ excerpt: 简单介绍热载流子产生、注入、退化的机理
       <section>
        <h3>热载流子效应对电路的影响</h3>
        <ul>
-         <li>数字电路：栅电容、驱动电流导致时序变化</li>
-         <li>模拟电路：I-V特性变化导致失配</li>
+         <li>数字电路：电流驱动能力下降导致传输延迟增加</li>
+         <li>模拟电路：输出电阻、跨导退化导致增益、频率响应等性能下降</li>
        </ul>
       </section>
     </section>
     <section>
     <h3>HCD建模</h3>
-    <p>用 <em>age rate</em> $AR$ 来表征器件参数 $P$ 的退化（$P$ 可以是阈值电压、线性区电流等）</p>
+    <p style="text-align:left">用 <em>age rate</em> $AR$ 来表征器件参数 $P$ 的退化（$P$ 可以是阈值电压、线性区电流等）</p>
     <p>
     \[\begin{aligned}
     AR =& C_1 \cdot (\frac{I_{ds}}{W})^{a_1} \cdot (\frac{I_{bs}}{I_{ds}})^m + C_2 \cdot (\frac{I_{ds}}{W})^{a_2} \cdot (\frac{I_{bs}}{I_{ds}})^m\\
     &+C_3 \cdot (\frac{I_{ds}}{W})^{a_3}
+    P =& P_0 \cdot \lfloor 1+D_p \cdot (AR \cdot t)^{n_p} \rfloor
     \end{aligned} \]
-    </p>
-    <p>
-    \[
-      P = P_0 \cdot \lfloor 1+D_p \cdot (AR \cdot t)^{n_p} \rfloor
-    \]
     </p>
     <blockquote><small>[1]F. Cacho et al., “Hot Carrier Injection degradation induced dispersion: Model and circuit-level measurement,” in 2011 IEEE International Integrated Reliability Workshop Final Report, South Lake Tahoe, CA, USA, Oct. 2011, pp. 137–141. doi: 10.1109/IIRW.2011.6142609.</small></blockquote>
     </section>
@@ -211,6 +207,7 @@ excerpt: 简单介绍热载流子产生、注入、退化的机理
             <img src="/assets/images/hot-carrier/短沟道的热载流子退化.jpg">
           </div>
           <div>
+            <p style="text-align:left">长沟道，nMOS 的 HCD 比 pMOS 更严重</p>
             <ul style="text-align:left">
               <li>Holes have lower evergy than electrons because the mean free path of holes is shorter.</li>
               <li>The carrier evergy decreases as the temperature increases because phonon scattering becomes more active</li>
@@ -219,22 +216,50 @@ excerpt: 简单介绍热载流子产生、注入、退化的机理
         </div>
       </section>
       <section>
-        <h3>长沟道/短沟道 HCD 不同</h3>
-        <div class="twocolumn">
-          <div>
-            <img src="/assets/images/hot-carrier/长沟道的热载流子退化.jpg">
+        <div class="r-stack">
+          <div class="fragment">
+            <h3>长沟道/短沟道 HCD 不同</h3>
+            <div class="twocolumn">
+              <div>
+                <img src="/assets/images/hot-carrier/长沟道的热载流子退化.jpg">
+              </div>
+              <div>
+                <p style="text-align:left">短沟道，pMOS 的 HCD 比 nMOS 更严重</p>
+                <ul style="text-align:left">
+                  <li>self-heating effect (SHE): Especially for pFinFETs, SiGe is used as the source/drain (S/D) materials to increase the current level by enhancing the hole mobility in the channel. However, alloy scattering that occurs in SiGe reduces the thermal conductivity</li>
+                  <li>negative bias temperature instability (NBTI): due to the interface traps generated through reaction–diffusion (RD)</li>
+                </ul>
+              </div>
+            </div>
           </div>
-          <div>
-            <ul style="text-align:left">
-              <li>self-heating effect (SHE)</li>
-              <li>negative bias temperature instability</li>
-            </ul>
+          <div class="fragment">
+            <img src="/assets/images/hot-carrier/NBTI在HCD中的占比.jpg">
           </div>
         </div>
       </section>
+      <section>
+        <blockquote>
+          <p><small>
+          参考：[4]J. Kim, K. Hong, H. Shim, H. Rhee, and H. Shin, “Comparative Analysis of Hot Carrier Degradation (HCD) in 10-nm Node nMOS/pMOS FinFET Devices,” IEEE Trans. Electron Devices, vol. 67, no. 12, pp. 5396–5402, Dec. 2020, doi: 10.1109/TED.2020.3031246.<br>
+          </small></p>
+        </blockquote>
+      </section>
     </section>
     <section>
-      <h3></h3>
+      <div class="fragment">
+        <h3>改善HCD的方法</h3>
+        <p>漏极工程：调节漏极的掺杂分布来降低漏附近的高电场</p>
+        <ul>
+          <li>DDD(Double Diffused Drain) 结构</li>
+          <li>LDD(Lightly Doped Drain) 结构</li>
+        </ul>
+        <img src="/assets/images/hot-carrier/改善HCD的器件结构.jpg">
+      </div>
+      <div class="fragment">
+        <h3>改善HCD的方法</h3>
+        <p style="text-align:left">采用特殊的电路结构：随着 M1 退化，其 $\Delta I_{ds}/\Delta V_{ds}$ 增加，引起 M3 上的电压降增加，使得 M1 的有效源漏电压下降，从而抵消 M1 $\Delta I_{ds}/\Delta V_{ds}$ 的增加</p>
+        <img src="/assets/images/hot-carrier/改善HCD的电路结构.jpg">
+      </div>
     </section>
   </div>
 </div>
