@@ -30,6 +30,9 @@ excerpt: 简单介绍热载流子产生、注入、退化的机理
     </section>
     <!-- 热载流子的定义 -->
     <section>
+    <p>前几周的工作：根据MOS器件中HCI（PMOSFET）效应产生的机理，从电路的实际工作过程出发，研究电路中HCI（pMOSFET）效应产生的过程。</p>
+    </section>
+    <section>
       <section>
       <h3>热载流子的定义</h3>
       <p>在半导体器件（尤其是MOS）中，载流子经过强电场的加速获得极高的动能，由于载流子的动能可以写成 $kT_e$ 来表示，$T_e$ 可高达 1000~10000K，远高于晶格温度，所以称为<strong>热载流子</strong></p>
@@ -256,6 +259,9 @@ excerpt: 简单介绍热载流子产生、注入、退化的机理
         <p style="text-align:left">采用特殊的电路结构：随着 M1 退化，其 $\Delta I_{ds}/\Delta V_{ds}$ 增加，引起 M3 上的电压降增加，使得 M1 的有效源漏电压下降，从而抵消 M1 $\Delta I_{ds}/\Delta V_{ds}$ 的增加</p>
         <img src="/assets/images/hot-carrier/改善HCD的电路结构.jpg">
       </section>
+    </section>
+    <section>
+    <p>未来工作：建立HCI效应的老化模型</p>
     </section>
     <section>
     谢谢聆听
