@@ -25,7 +25,7 @@ excerpt: 简单介绍热载流子产生、注入、退化的机理
     <!-- 标题 -->
     <section>
       <h2>热载流子损伤效应</h2>
-      <h3>Hot Carrier Degradation</h3>
+      <h3>工作报告</h3>
       <p>周镇峰</p>
     </section>
     <!-- 热载流子的定义 -->
