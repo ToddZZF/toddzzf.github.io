@@ -90,10 +90,12 @@ https://www.zhihu.com/question/288241922)
   |6|20:00 - 22:00|
 * 评价：
   * [广州塔上去要钱吗？上面有什么好玩的吗？ - Bronze的回答 - 知乎](https://www.zhihu.com/question/281711161/answer/443775109)
-  * [广州塔一日游VLOG|400块一张门票值不值？|488米的广州长什么样子](https://www.bilibili.com/video/BV1zv41167G5)
+  * [广州塔一日游VLOG/400块一张门票值不值？](https://www.bilibili.com/video/BV1zv41167G5)
   * [陈子豪随拍系列：带大家参观小蛮腰"广州塔"！](https://www.bilibili.com/video/BV1HJ411C7TQ)
 
-<iframe src="//player.bilibili.com/player.html?aid=245132173&bvid=BV1zv41167G5&cid=254694331&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" width="100%" height="500"></iframe>
+<div style="position: relative; padding: 30% 45%;">
+<iframe style="position: absolute; width: 100%; height: 100%; left: 0; top: 0;" src="//player.bilibili.com/player.html?aid=245132173&bvid=BV1zv41167G5&cid=254694331&page=1&as_wide=1&high_quality=1&danmaku=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"></iframe>
+</div>
 
 ### 沙面
 
@@ -109,7 +111,9 @@ https://www.zhihu.com/question/288241922)
 * 评价：
   * [去广州「沙面」有哪些实用攻略和好的建议？ - Anna Christina的回答 - 知乎](https://www.zhihu.com/question/337571679/answer/801341035)
 
-<iframe src="//player.bilibili.com/player.html?aid=63195472&bvid=BV1b4411D7YJ&cid=109751929&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" width="100%" height="500"></iframe>
+<div style="position: relative; padding: 30% 45%;">
+<iframe style="position: absolute; width: 100%; height: 100%; left: 0; top: 0;" src="//player.bilibili.com/player.html?aid=63195472&bvid=BV1b4411D7YJ&cid=109751929&page=1&as_wide=1&high_quality=1&danmaku=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"></iframe>
+</div>
 
 ### 石室圣心大教堂
 
@@ -125,7 +129,9 @@ https://www.zhihu.com/question/288241922)
   * 原开放时间：周二到周五8:30-11:30，14:30-17:00；周六、周日8:30-17:00，周一不开放
 * 交通：地铁 6 号线到【一德路站】A 出口步行 470 米即到；地铁 2 号线到【海珠广场站】B2 出口步行590米即到。哥特式建筑十分显眼。
 
-<iframe src="//player.bilibili.com/player.html?aid=375136830&bvid=BV1Yo4y1f7xA&cid=326822455&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" width="100%" height="500"></iframe>
+<div style="position: relative; padding: 30% 45%;">
+<iframe style="position: absolute; width: 100%; height: 100%; left: 0; top: 0;" src="//player.bilibili.com/player.html?aid=375136830&bvid=BV1Yo4y1f7xA&cid=326822455&page=1&as_wide=1&high_quality=1&danmaku=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"></iframe>
+</div>
 
 ### 陈家祠
 
@@ -140,9 +146,63 @@ https://www.zhihu.com/question/288241922)
   * 所有国内外观众（包括按相关规定享受优惠政策的观众）均需通过微信“广东民间工艺博物馆服务号” 网络实名制预约购票。我馆不再提供现场购票服务。
   * 预订了优惠票的观众，在进馆时除了身份证以外还需出示学生证、老人证、军官证、残疾人证等相应优惠证件供检票人员查验后进馆。
 * 开放时间：9：00——17：30（17：00停止售票，17：00停止入馆，17：15清场，17：30闭馆）。除每月最后一周的周一为闭馆检修日外（如遇国家法定假日，则顺延），全年开放。
+* 交通：乘坐地铁 1 号线在【陈家祠站】下车。
 * 历史：[《陈家祠的故事》](https://www.bilibili.com/video/BV1Kt4y167KH)
 
-<iframe src="//player.bilibili.com/player.html?aid=26005578&bvid=BV1hs411G74H&cid=90338879&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" width="100%" height="500"></iframe>
+<div style="position: relative; padding: 30% 45%;">
+<iframe style="position: absolute; width: 100%; height: 100%; left: 0; top: 0;" src="//player.bilibili.com/player.html?aid=26005578&bvid=BV1hs411G74H&cid=90338879&page=1&as_wide=1&high_quality=1&danmaku=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"></iframe>
+</div>
+
+### 广东省博物馆
+
+<a data-fancybox="景点" data-src="/assets/images/trip/guangzhou/广东省博物馆.jpg">
+  <img src="/assets/images/trip/guangzhou/广东省博物馆.jpg" />
+</a>
+
+* 官网：[http://www.gdmuseum.com/](http://www.gdmuseum.com/)
+* 门票：免费
+  * 所有观众均需预约（微信公众号“广东省博物馆”），预约成功后，请在预约时段内持预约实体证件至博物馆西门
+  * 最多可预约七天内门票（含当天）
+  * 每张有效身份证件每天限定预约一次，每个账号每天最多实名预约5人。
+* 开放时间：全年 周二至周日 09:00-17:00 周一 不开放；中国法定节假日 09:00-17:00
+* 交通：地铁3号线【珠江新城站】B1出口，向前行至广州歌剧院，再沿临江大道向东行200米；或地铁5号线【猎德站】D出口，向前行至冼村路，再向左沿冼村路南方向行约200米。APM【大剧院站】B出口，乘扶梯至花城广场，右行到博物馆西门。
+* 其他：
+  * [参观线路推荐](http://www.gdmuseum.com/gdmuseum/_300882/_300886/371115/index.html)
+  * [广东省博物馆怎么样？值得去吗？ - 韩德雨的回答 - 知乎](https://www.zhihu.com/question/333885951/answer/1569342398) 
+
+<div style="position: relative; padding: 30% 45%;">
+<iframe style="position: absolute; width: 100%; height: 100%; left: 0; top: 0;" src="//player.bilibili.com/player.html?aid=416776290&bvid=BV15V411q7JA&cid=299809370&page=1&as_wide=1&high_quality=1&danmaku=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"></iframe>
+</div>
+
+### 广州海洋馆
+
+<a data-fancybox="景点" data-src="/assets/images/trip/guangzhou/广州海洋馆.jpg">
+  <img src="/assets/images/trip/guangzhou/广州海洋馆.jpg" />
+</a>
+
+* 官网：[https://www.gzzoo.com/](https://www.gzzoo.com/)
+* 门票：120元
+* 地址：广东省广州市越秀区先烈中路120号广州动物园内
+* 开放时间：08:00-16:00(北门) 08:00-15:30(南门) 
+* 交通：广州地铁5号线【动物园站】、广州地铁6号线【黄花岗站】
+
+### 广州正佳极地海洋世界
+
+<a data-fancybox="景点" data-src="/assets/images/trip/guangzhou/广州正佳海洋馆.jpg">
+  <img src="/assets/images/trip/guangzhou/广州正佳海洋馆.jpg" />
+</a>
+
+* 门票：成人票220元/人（学生票有优惠）
+* 地址：天河区天河路228号正佳购物广场4层
+* 开放时间：全年 10:00-22:00(最晚入园21:30)；营业时间日场10：00-18：00，夜场18：00-22：00，21：30停止检票入园。
+* 交通： 乘坐地铁1号线，在【体育中心站】下车，从D3口出站
+* 其他：
+  * [广州正佳海洋馆美人鱼表演完整版](https://www.bilibili.com/video/BV1L5411t7bL?share_source=copy_web)
+  * [广州正佳极地海洋世界游玩攻略](http://www.mafengwo.cn/gonglve/ziyouxing/242698.html)
+
+<div style="position: relative; padding: 30% 45%;">
+<iframe style="position: absolute; width: 100%; height: 100%; left: 0; top: 0;" src="//player.bilibili.com/player.html?aid=89913504&bvid=BV1S74117713&cid=153564366&page=1&as_wide=1&high_quality=1&danmaku=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"></iframe>
+</div>
 
 ### 其他参考
 
