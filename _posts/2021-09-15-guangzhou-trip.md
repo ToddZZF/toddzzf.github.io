@@ -115,6 +115,20 @@ https://www.zhihu.com/question/288241922)
 <iframe style="position: absolute; width: 100%; height: 100%; left: 0; top: 0;" src="//player.bilibili.com/player.html?aid=63195472&bvid=BV1b4411D7YJ&cid=109751929&page=1&as_wide=1&high_quality=1&danmaku=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"></iframe>
 </div>
 
+### 越秀公园
+
+<a data-fancybox="景点" data-src="/assets/images/trip/guangzhou/越秀公园.jpg">
+  <img src="/assets/images/trip/guangzhou/越秀公园.jpg" />
+</a>
+
+> 越秀公园是广州城市中心公园，是新世纪羊城八景之一，它与白云山联成广州城北的屏障。海拨70余米。历史上又称粤秀山、越王山。明朝永乐年间，山上曾建观音阁，所以又称观音山。越秀山早在西汉时期便是登临胜地。到了近代，孙中山先生曾提出，要把越秀山建成一座大公园。解放后，人民政府把设想变成了现实。
+
+* 官网：[http://www.yuexiupark-gz.com/](http://www.yuexiupark-gz.com/)
+* 门票：免费，中山纪念堂是10元门票
+* 交通：地铁二号线【越秀公园站】
+* 评价：
+  * [越秀公园+中山纪念馆 - 鱼书房的文章 - 知乎](https://zhuanlan.zhihu.com/p/39455711)
+
 ### 石室圣心大教堂
 
 <a data-fancybox="景点" data-src="/assets/images/trip/guangzhou/石室圣心大教堂.jpg">
@@ -183,7 +197,7 @@ https://www.zhihu.com/question/288241922)
 * 官网：[https://www.gzzoo.com/](https://www.gzzoo.com/)
 * 门票：120元
 * 地址：广东省广州市越秀区先烈中路120号广州动物园内
-* 开放时间：08:00-16:00(北门) 08:00-15:30(南门) 
+* 开放时间：（目前貌似闭馆）08:00-16:00(北门) 08:00-15:30(南门) 
 * 交通：广州地铁5号线【动物园站】、广州地铁6号线【黄花岗站】
 
 ### 广州正佳极地海洋世界
@@ -204,16 +218,82 @@ https://www.zhihu.com/question/288241922)
 <iframe style="position: absolute; width: 100%; height: 100%; left: 0; top: 0;" src="//player.bilibili.com/player.html?aid=89913504&bvid=BV1S74117713&cid=153564366&page=1&as_wide=1&high_quality=1&danmaku=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"></iframe>
 </div>
 
-### 其他参考
+### 北京路商业步行街
 
-* [广州本地人绝对不会去的十大景点 - 阿丽菜的文章 - 知乎](https://zhuanlan.zhihu.com/p/36252222)
+<a data-fancybox="景点" data-src="/assets/images/trip/guangzhou/北京路.jpg">
+  <img src="/assets/images/trip/guangzhou/北京路.jpg" />
+</a>
+
+* 交通：6号线到【北京路站】B口或2号线、1号线【公园前站】C出口、D出口
+* 小吃：
+  * 陈添记鱼皮
+  * 北京路一直往下走，右转有条惠福东路，整条路都是小吃街。
+  * [广州北京路，老字号和人气网红美食都扎堆于此！](https://zhuanlan.zhihu.com/p/36786922)
+  * [广州游玩必去的北京路，本地人会带你吃哪些馆子？ - 半岛便利店的文章 - 知乎](https://zhuanlan.zhihu.com/p/35563988)
+
+### 上下九步行街
+
+<a data-fancybox="景点" data-src="/assets/images/trip/guangzhou/上下九步行街.jpg">
+  <img src="/assets/images/trip/guangzhou/上下九步行街.jpg" />
+</a>
+
+> 上下九步行街地处广州市荔湾区（俗称西关）的上九路、下九路、第十甫路之间，是广州市三大传统繁荣商业中心之一。全长约1237米，共有各类商业店铺238间和数千商户。在漫长的历史长河中，逐步形成了当今商业步行街中西合璧的四大西关风情特色，并构筑成一副独特的、绚丽多姿的西关风情画，营造出亮丽的旅游风景线。 
+
+* 交通：6号线到【文化公园站】E口
+* 小吃：
+  * [2019.4.6 上下九步行街吃 - 家宏的文章 - 知乎](https://zhuanlan.zhihu.com/p/61573628)
+
+### 其他
+
+* [广州本地人绝对不会去的十大景点 - 阿丽菜的文章 - 知乎](https://zhuanlan.zhihu.com/p/36252222) 广州塔、上下九、北京路、白云山、陈家祠、石室圣心大教堂、越秀公园、黄埔军校旧址、天河北商圈、珠江夜游
 
 ## 广州饮食
 
-我没怎么去外面下馆子，因此我也不清楚广州有哪些正宗的粤菜。不过我倒是知道顺德有一些很好的餐厅。
+我没怎么去外面下馆子，因此我也不清楚广州有哪些正宗的粤菜馆，下面这些都是从网上找的。为了方便旅途中查找，我这里按店铺位置分类（而非菜品）。为了方便打卡，另外列出菜品：
+
+- [ ] 云吞面、竹升面
+- [ ] 肠粉
+- [ ] 河粉
+- [ ] 牛杂
+- [ ] 烧腊（烧鸭、烧鹅、叉烧）
+- [ ] 煲仔饭
+- [ ] 鱼皮
+- [ ] 艇仔粥
+- [ ] 双皮奶
+- [ ] 姜撞奶
+- [ ] （早茶）凤爪、虾饺、牛肚
 
 参考：
 
 * [知乎：广州著名小食有哪些？地道的店在哪里？](https://www.zhihu.com/question/19752381)
 
-##  
+### 越秀区
+
+### 海珠区
+
+### 天河区
+
+
+## 行程安排
+
+### Day 1 (Oct. 3rd)
+
+上午 11:00 左右到白云机场，然后乘坐地铁到燕塘（约1h），在燕塘附近找点吃的（待搜），吃完大概 13:00，然后去民宿，放好行李后（大概 13:30 去我的学校逛一下，晚饭也顺带一起解决，吃饱后去海心沙散步，看一下广州塔，然后回民宿休息。
+
+可以在华工面点买第二天的早餐（可以尝试一下黑暗料理：叉烧菠萝包）。
+
+下午逛学校会不会太晒？
+
+### Day 2 (Oct. 4th)
+
+7:00 早起去沙面（人少好拍照），然后去石室圣心大教堂，看完预计 10:00，然后去上下九或北京路逛，中午饭也一起解决（记得早点排队，避免餐馆太多人）。
+
+下午去省博物馆（避免太晒），晚上回民宿休息（如果不累的话可以再去市中心逛一下）
+
+### Day 3 (Oct. 5th)
+
+早上去喝早茶，然后去越秀公园逛一下，下午休息。
+
+### Day 4 (Oct. 6th)
+
+早起，打车去机场（希望凌晨有车）
