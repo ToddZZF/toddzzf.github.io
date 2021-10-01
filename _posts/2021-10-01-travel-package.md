@@ -125,3 +125,9 @@ icon: note
 - [ ] 感冒药
 - [ ] 止泻药
 - [ ] 个人疾病常备药
+
+### ？？？
+
+- [ ] condom（If you travel with your girlfriend……）
+
+## 祝旅途愉快！
