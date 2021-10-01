@@ -44,4 +44,4 @@ icon: note
   - 水杯
   - 花露水
   - 一点点现金
-  - condom?
+  - ~~condom~~
