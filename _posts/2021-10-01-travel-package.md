@@ -128,6 +128,8 @@ icon: note
 
 ### ？？？
 
-- [ ] condom（If you travel with your girlfriend……）
+- [ ] condom（If you travel with your girlfriend and she agrees😀）
+
+Well, as a straight guy, I do lust for my girlfriend's body, but I also understand that girls are conservative on sex. Therefore I won't push it (even though I really wanna try)
 
 ## 祝旅途愉快！
