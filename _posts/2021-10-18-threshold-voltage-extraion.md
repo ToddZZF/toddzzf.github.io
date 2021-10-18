@@ -61,7 +61,7 @@ excerpt: 介绍多种提取阈值电压的方法
             \text{电子-声子散射}\\
             \text{电子-电子散射}
         \end{cases}\\
-        \updownarrow \text{energy distribution function}
+        \updownarrow \text{energy distribution function}\\
         \text{MP}
         \end{cases}
         \]
