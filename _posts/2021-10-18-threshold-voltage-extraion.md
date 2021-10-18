@@ -51,6 +51,8 @@ excerpt: 介绍多种提取阈值电压的方法
         <p>
         \[
         \text{HCD}
+        \leftrightarrow
+        \text{Si-H}
         \begin{cases}
         \text{SP}
         \begin{cases}
@@ -59,6 +61,7 @@ excerpt: 介绍多种提取阈值电压的方法
             \text{电子-声子散射}\\
             \text{电子-电子散射}
         \end{cases}\\
+        \updownarrow \text{energy distribution function}
         \text{MP}
         \end{cases}
         \]
@@ -70,14 +73,10 @@ excerpt: 介绍多种提取阈值电压的方法
             <div>
               <p>
                 \[
-                R_{SP} \sim \int_{E_{th}}^\infty F(E)P(E)\sigma(E)\;\mathrm{d} E
-                \]
-              </p>
-            </div>
-            <div>
-              <p>
-              \[
+                \begin{cases}
+                R_{SP} \sim \int_{E_{th}}^\infty F(E)P(E)\sigma(E)\;\mathrm{d} E\\
                 R_{MP} = \left(\frac{E_B}{\hbar \omega}+1\right)\left[P_d+\exp(\frac{-\hbar \omega}{k_BT_L})\right]\left[\frac{P_u+\omega_e}{P_d+\exp(-\hbar \omega/k_BT_L)}\right]^{-E_B/\hbar \omega}
+                \end{cases}
               \]
               </p>
             </div>
