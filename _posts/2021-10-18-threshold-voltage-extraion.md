@@ -28,7 +28,6 @@ excerpt: 介绍多种提取阈值电压的方法
       <h2>热载流子损伤(HCD)建模</h2>
       <h3>10/18 工作报告</h3>
       <h4>周镇峰</h4>
-      <p>\newcommand{\tx}{\text}</p>
     </section>
     <section>
       <h3>目录</h3>
