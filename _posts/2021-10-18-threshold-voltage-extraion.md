@@ -156,11 +156,6 @@ excerpt: 介绍多种提取阈值电压的方法
         </section>
         <section>
           <h3>跨导线性外推法</h3>
-          <div class="twocolumn">
-            <div>
-              <img src="/assets/images/hot-carrier/测阈值电压：常数电流法.jpg">
-            </div>
-            <div>
               <p>
               在低漏压时，跨导的微分 $\dif g_m / \dif V_{gs}$ 取最大值时所对应的栅压即为阈值电压。此方法得到的阈值电压与下式定义的阈值电压非常接近：
               </p>
@@ -168,8 +163,6 @@ excerpt: 介绍多种提取阈值电压的方法
               \[\phi_{st} = 2\phi_f+V_\tx{th}\]
               </p>
               <p>由于在该方法中，需要考虑漏电流的二级效应，故其很容易受噪声影响。</p>
-            </div>
-          </div>
         </section>
         <section>
             <p>主要参考文献</p>
