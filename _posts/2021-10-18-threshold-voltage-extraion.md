@@ -182,6 +182,13 @@ excerpt: 介绍多种提取阈值电压的方法
         </section>
     </section>
     <section>
+      <h3>未来工作安排</h3>
+      <ul>
+        <li>熟悉实验仪器的使用、实验数据处理</li>
+        <li>进一步了解模型</li>
+      </ul>
+    </section>
+    <section>
       <p>谢谢聆听</p>
     </section>
   </div>
