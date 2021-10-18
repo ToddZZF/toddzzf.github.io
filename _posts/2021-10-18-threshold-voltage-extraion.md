@@ -167,10 +167,9 @@ excerpt: 介绍多种提取阈值电压的方法
         <section>
             <p>主要参考文献</p>
             <ol>
-                <li>S. Tyaginov and T. Grasser, “Modeling of hot-carrier degradation: Physics and controversial issues”</li>
-                <li>R. H. Tu et al., “Berkeley reliability tools-BERT”</li>
-                <li>H. Yonezawa et al., “Ratio based hot-carrier degradation modeling for aged timing simulation of millions of transistors digital circuits”</li>
-                <li><a href="https://www.iue.tuwien.ac.at/phd/starkov/starkov.html">Ivan Starkov, "Comprehensive Physical Modeling of Hot-Carrier Induced Degradation"</a></li>
+                <li> 薛峰. 65nm工艺下MOSFET阈值电压提取方法研究[J]. 赤峰学院学报（自然科学版）,2015(7):46-48. DOI:10.3969/j.issn.1673-260X.2015.07.017.</li>
+                <li>A. Bazigos, M. Bucher, J. Assenmacher, S. Decker, W. Grabinski and Y. Papananos, "An Adjusted Constant-Current Method to Determine Saturated and Linear Mode Threshold Voltage of MOSFETs," in IEEE Transactions on Electron Devices, vol. 58, no. 11, pp. 3751-3758, Nov. 2011, doi: 10.1109/TED.2011.2164080.</li>
+                <li> O. F. Siebel, M. C. Schneider, and C. Galup-Montoro, “MOSFET threshold voltage: Definition, extraction, and some applications,” Microelectronics Journal, vol. 43, no. 5, pp. 329–336, May 2012, doi: 10.1016/j.mejo.2012.01.004.</li>
             </ol>
         </section>
     </section>
