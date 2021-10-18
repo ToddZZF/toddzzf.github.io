@@ -27,7 +27,8 @@ excerpt: 介绍多种提取阈值电压的方法
     <section>
       <h2>热载流子损伤(HCD)建模</h2>
       <h3>10/18 工作报告</h3>
-      <p>周镇峰</p>
+      <h4>周镇峰</h4>
+      <p>\newcommand{\tx}{\text}</p>
     </section>
     <section>
       <h3>目录</h3>
@@ -39,12 +40,71 @@ excerpt: 介绍多种提取阈值电压的方法
     </section>
     <!-- 物理模型 -->
     <section>
-    <h3>HCD物理模型</h3>
-    <ol>
-        <li><strong>Hess Model</strong>：introduce single- and multiple-carrier processes; HCD is controlled by the distribution function(DF)</li>
-        <li><strong>Energy Driven Paradigm by Rauch and LaRosa</strong>：The fundamental driving force of HCD changes from the maximum electric field to the energy deposited by carriers.</li>
-        <li><strong>Bravaix Model</strong>：inherits the main features of both the Hess and the Rauch/LaRosa approaches: the interplay between SP- and MP-mechanisms and the idea that HCD is defined by the carrier DF.</li>
-    </ol>
+      <section>
+        <h3>HCD物理模型</h3>
+        <ol>
+            <li><strong>Hess Model</strong>：introduce single- and multiple-carrier processes; HCD is controlled by the distribution function(DF)</li>
+            <li><strong>Energy Driven Paradigm by Rauch and LaRosa</strong>：The fundamental driving force of HCD changes from the maximum electric field to the energy deposited by carriers.</li>
+            <li><strong>Bravaix Model</strong>：inherits the main features of both the Hess and the Rauch/LaRosa approaches: the interplay between SP- and MP-mechanisms and the idea that HCD is defined by the carrier DF.</li>
+        </ol>
+      </section>
+      <section>
+        <p>
+        \[
+        \text{HCD}
+        \begin{cases}
+        \text{SP}
+        \begin{cases}
+            \text{碰撞电离}\\
+            \text{俄歇复合}\\
+            \text{电子-声子散射}\\
+            \text{电子-电子散射}
+        \end{cases}\\
+        \text{MP}
+        \end{cases}
+        \]
+        </p>
+      </section>
+      <section>
+        <h3>Hess Model</h3>
+        <div class="twocolumn">
+            <div>
+              <p>
+                \[
+                R_{SP} \sim \int_{E_{th}}^\infty F(E)P(E)\sigma(E)\;\mathrm{d} E
+                \]
+              </p>
+            </div>
+            <div>
+              <p>
+              \[
+                R_{MP} = \left(\frac{E_B}{\hbar \omega}+1\right)\left[P_d+\exp(\frac{-\hbar \omega}{k_BT_L})\right]\left[\frac{P_u+\omega_e}{P_d+\exp(-\hbar \omega/k_BT_L)}\right]^{-E_B/\hbar \omega}
+              \]
+              </p>
+            </div>
+          </div>
+          <p>
+          \[
+            R = \sum_{i=0}^{N_l} \left[ \frac{I_df_v + \omega_e \exp  (-\hbar\omega/k_BT_L)}{I_d f_v + \omega_e} \right]^i A^i I_d f_d
+          \]
+          </p>
+      </section>
+      <section>
+        <p>
+          Hess模型因为提出了很多开创性概念而出名，但它也有很多缺点。首先，界面陷阱是在微观层面上考虑的，没有与器件层面相联。在Hess模型中，器件的寿命定义为缺陷浓度$N_{it}$达到阈值，这会导致对寿命的错误估计，因为HCD是一种强烈不均匀的现象，在相同应力时间下，会在器件的不同区域产生不同的浓度$N_{it}$。
+        </p>
+      </section>
+      <section>
+        <p>参考文献：</p>
+        <ul>
+          <li>
+          W. McMahon, K. Matsuda, J. Lee, K. Hess, J. Lyding, The effects of a multiple carrier model of interface states generation of lifetime extraction for MOSFETs, in Proceedings of the International Conference on Modelling and Simulation Micro, vol. 1, 2002, pp. 576–579
+          </li>
+          <li>
+          W. McMahon, A. Haggag, K. Hess, Reliability scaling issues for nanoscale devices. IEEE Trans. Nanotechnol. 2(1), 33–38 (2003)
+          </li>
+        </ul>
+      </section>
     </section>
     <section>
         <section>
