@@ -1,0 +1,130 @@
+---
+layout: ppt
+title: (PPT)阈值电压的提取
+date: 2021-10-18 15:47:00 +0800
+category: document
+thumbnail: /assets/images/thumbnail/twilight_sparkle.png
+icon: book
+excerpt: 介绍多种提取阈值电压的方法
+---
+
+<style>
+    .twocolumn {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-gap: 10px;
+      text-align: center;
+    }
+    p {
+      font-size: 80%;
+      text-align: left;
+    }
+</style>
+
+<div class="reveal">
+  <div class="slides">
+    <!-- 标题 -->
+    <section>
+      <h2>热载流子损伤(HCD)建模</h2>
+      <h3>10/18 工作报告</h3>
+      <p>周镇峰</p>
+    </section>
+    <section>
+      <h3>目录</h3>
+      <ol>
+        <li>了解主要的HCD物理模型</li>
+        <li>熟悉实验仪器</li>
+        <li>实验数据处理：提取阈值电压</li>
+      </ol>
+    </section>
+    <!-- 物理模型 -->
+    <section>
+    <h3>HCD物理模型</h3>
+    <ol>
+        <li><strong>Hess Model</strong>：introduce single- and multiple-carrier processes; HCD is controlled by the distribution function(DF)</li>
+        <li><strong>Energy Driven Paradigm by Rauch and LaRosa</strong>：The fundamental driving force of HCD changes from the maximum electric field to the energy deposited by carriers.</li>
+        <li><strong>Bravaix Model</strong>：inherits the main features of both the Hess and the Rauch/LaRosa approaches: the interplay between SP- and MP-mechanisms and the idea that HCD is defined by the carrier DF.</li>
+    </ol>
+    </section>
+    <section>
+        <section>
+          <h3>熟悉实验仪器: 安捷伦B1500A</h3>
+          <img src="/assets/images/hot-carrier/仪器b1500a.jpg">
+          <img src="/assets/images/hot-carrier/仪器b1500a接口.jpg">
+        </section>
+        <section>
+          <h3>熟悉实验软件: EasyEXPERT</h3>
+          <img src="/assets/images/hot-carrier/EasyEXPERT界面.jpg">
+        </section>
+    </section>
+    <section>
+        <section>
+          <h3>阈值电压的提取</h3>
+          <p>有多种方法提取阈值电压，但采用不同方法得到的 $V_\tx{th}$ 不同。这些方法主要依赖静态转移特性曲线 $I_d-V_{gs}$。在提取过程中会受到源漏寄生串联电阻和沟道载流子迁移率降低效应的影响，故如何消除这些影响是准确提取 $V_\tx{th}$ 关键。</p>
+        </section>
+        <section>
+          <h3>常数电流法(CC)</h3>
+          <div class="twocolumn">
+            <div>
+              <img src="/assets/images/hot-carrier/测阈值电压：常数电流法.jpg">
+            </div>
+            <div>
+              <p>与规定的 $I_d$ 对应的 $V_g$ 即为 $V_\tx{th}$. $I_\tx{th}$ 一般取 $10^{-6}-10^{-9}\tx{A}$</p>
+              <ul>
+                <li>优点：直接、快速</li>
+                <li>缺点：当 $I_\tx{th}$ 取不同值时，得到的 $V_\tx{th}$ 不同；存在短沟道效应；</li>
+              </ul>
+            </div>
+          </div>
+        </section>
+        <section>
+          <h3>线性外推法(ELR)</h3>
+          <div class="twocolumn">
+            <div>
+              <img src="/assets/images/hot-carrier/测阈值电压：线性外推法.jpg">
+            </div>
+            <div>
+              <p>
+              通过对 $I_d-V_{gs}$ 特性曲线的最大斜率点展开线性外推，并将外推曲线与 $I_d=0$ 时的 $V_g$ 作为 $V_\tx{th}$
+              </p>
+              <p>
+              \[I_d = \mu C_\tx{ox} \left(\frac{W}{L}\right)\left[V_{gs}-V_\tx{th}-\frac{1}{2}\alpha V_{ds}\right] V_{ds}\]
+              </p>
+              <p>
+              该方程说明，$I_d$ 与 $V_{gs}$ 之间是线性相关，并且与 $V_{gs}$ 轴交于 $V_\tx{th}+\frac{1}{2}\alpha V_{ds}$. 参数 $\alpha$ 与背偏置电压有关，一般取 $1.1-1.5$，由于通常 $V_{ds}\leq 0.1\tx{V}$，一般情况下可以假设 $\alpha=1$，这一假设引起的误差小于 2%。这样一来，在计算 $V_\tx{th}$ 时，必须从外推得到的结果中再减去 $V_\tx{ds}$ 的一半。
+              </p>
+            </div>
+          </div>
+        </section>
+        <section>
+          <h3>跨导线性外推法</h3>
+          <div class="twocolumn">
+            <div>
+              <img src="/assets/images/hot-carrier/测阈值电压：常数电流法.jpg">
+            </div>
+            <div>
+              <p>
+              在低漏压时，跨导的微分 $\dif g_m / \dif V_{gs}$ 取最大值时所对应的栅压即为阈值电压。此方法得到的阈值电压与下式定义的阈值电压非常接近：
+              </p>
+              <p>
+              \[\phi_{st} = 2\phi_f+V_\tx{th}\]
+              </p>
+              <p>由于在该方法中，需要考虑漏电流的二级效应，故其很容易受噪声影响。</p>
+            </div>
+          </div>
+        </section>
+    </section>
+    <section>
+      <p>主要参考文献</p>
+      <ol>
+        <li>S. Tyaginov and T. Grasser, “Modeling of hot-carrier degradation: Physics and controversial issues”</li>
+        <li>R. H. Tu et al., “Berkeley reliability tools-BERT”</li>
+        <li>H. Yonezawa et al., “Ratio based hot-carrier degradation modeling for aged timing simulation of millions of transistors digital circuits”</li>
+        <li><a href="https://www.iue.tuwien.ac.at/phd/starkov/starkov.html">Ivan Starkov, "Comprehensive Physical Modeling of Hot-Carrier Induced Degradation"</a></li>
+      </ol>
+    </section>
+    <section>
+      <p>谢谢聆听</p>
+    </section>
+  </div>
+</div>
