@@ -3,7 +3,7 @@ layout: ppt
 title: (PPT)阈值电压的提取
 date: 2021-10-18 15:47:00 +0800
 category: document
-thumbnail: /assets/images/thumbnail/twilight_sparkle.png
+thumbnail: /assets/images/hot-carrier/仪器b1500a.jpg
 icon: book
 excerpt: 介绍多种提取阈值电压的方法
 ---

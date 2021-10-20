@@ -3,7 +3,7 @@ layout: ppt
 title: (PPT)热载流子损伤效应
 date: 2021-09-07 09:32:00 +0800
 category: document
-thumbnail: /assets/images/thumbnail/twilight_sparkle.png
+thumbnail: /assets/images/hot-carrier/热载流子的产生.jpg
 icon: book
 excerpt: 简单介绍热载流子产生、注入、退化的机理
 ---

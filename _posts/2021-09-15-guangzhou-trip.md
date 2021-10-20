@@ -3,7 +3,7 @@ layout: post
 title: 广州旅游指南（多图预警）
 date: 2021-09-16 11:36:00 +0800
 category: document
-thumbnail: /assets/images/thumbnail/apple_jack.png
+thumbnail: /assets/images/trip/guangzhou/广州市区.jpg
 icon: note
 ---
 
@@ -29,7 +29,7 @@ icon: note
 
 冷知识：广州最好吃的雪糕是“五羊牌”雪糕。
 
-![](../assets/images/trip/guangzhou/广州市区.jpg)
+![](/assets/images/trip/guangzhou/广州市区.jpg)
 
 ### 行政划分
 
