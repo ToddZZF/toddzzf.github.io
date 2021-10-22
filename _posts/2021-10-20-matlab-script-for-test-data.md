@@ -1,7 +1,7 @@
 ---
 layout: post
 title: 实验用的matlab脚本
-date: 2021-10-16 22:20:00 +0800
+date: 2021-10-20 22:20:00 +0800
 category: document
 thumbnail: /assets/images/review/pad/ipad_series.jpg
 icon: note
@@ -44,3 +44,4 @@ function p = fit_plot(x,y,n)
     disp('系数（高到低）');
     disp(p);
 ```
+
