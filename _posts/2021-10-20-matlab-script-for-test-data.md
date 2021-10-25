@@ -14,16 +14,23 @@ icon: note
 
 <!--more-->
 
+## 清场
+
+```matlab
+close all; clear; clc;
+```
+
 ## 读取数据
 
 ### xlsx
+
+好像需要依赖 Microsoft Office（无法用 WPS 替代），但我
 
 ### csv
 
 ## 数据拟合
 
 MATLAB自带的拟合函数：
-
 
 ```matlab
 %多项式拟合

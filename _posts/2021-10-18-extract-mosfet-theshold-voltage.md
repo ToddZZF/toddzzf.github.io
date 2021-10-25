@@ -27,7 +27,7 @@ MOSFET的阈值电压 $V_\tx{th}$ 是衡量 MOSFET 的一个重要参数，当 $
 
 下面简要列举几种方法。
 
-## 常数电流法
+## 常数电流法(CC)
 
 这种方法定义当 $V_d<0.1\tx{V}$ 时，与规定的 $I_d$ 对应的 $V_g$ 即为 $V_\tx{th}$。即：
 
@@ -41,7 +41,7 @@ $$
 
 缺点是：$I_\tx{th}$ 的取值有一定任意性，其典型值在 $10^{-6}-10^{-9}\tx{A}$ 之间，当取不同值时，得到的 $V_\tx{th}$ 不同。
 
-## 线性外推法
+## 线性外推法/最大gm法
 
 这种方法通过对 $I_d-V_{gs}$ 特性曲线的最大斜率点展开线性外推，并将外推曲线与 $I_d=0$ 时的 $V_g$ 作为 $V_\tx{th}$。最大斜率点对应跨导最大的点。
 
@@ -97,3 +97,68 @@ $$
 1. [薛峰. 65nm工艺下MOSFET阈值电压提取方法研究](http://dx.chinadoi.cn/10.3969/j.issn.1673-260X.2015.07.017)[J]. 赤峰学院学报（自然科学版）,2015(7):46-48. DOI:10.3969/j.issn.1673-260X.2015.07.017.
 2. A. Bazigos, M. Bucher, J. Assenmacher, S. Decker, W. Grabinski and Y. Papananos, "[An Adjusted Constant-Current Method to Determine Saturated and Linear Mode Threshold Voltage of MOSFETs](https://ieeexplore.ieee.org/document/6003772)," in IEEE Transactions on Electron Devices, vol. 58, no. 11, pp. 3751-3758, Nov. 2011, doi: 10.1109/TED.2011.2164080.
 3. O. F. Siebel, M. C. Schneider, and C. Galup-Montoro, “[MOSFET threshold voltage: Definition, extraction, and some applications](https://doi.org/10.1016/j.mejo.2012.01.004),” Microelectronics Journal, vol. 43, no. 5, pp. 329–336, May 2012, doi: 10.1016/j.mejo.2012.01.004.
+
+
+## Matlab 处理脚本
+
+由于实验获取的数据是离散的，所以我们需要使用内插函数 `interp1k` 获取特定 $I_d$ 对应的 $V_g$。另外由于实验数据可能会有缺陷，所以内插之前需要对数据进行预处理。我们将上述过程封装为如下函数：
+
+```matlab
+function C = interp1k(A,B,Id)
+    %A：Id_test
+    %B：Vg_test
+    
+    %获取非NAN元素
+    indx = ~isnan(A) & ~isnan(B);
+    A = A(indx);
+    B = B(indx);
+
+    %获取唯一元素
+    [y,i] = unique(A); %返回列表y和下标i按元素大小升序排序
+    A1 = A(sort(i)); %将下标恢复原来的顺序
+    B1 = B(sort(i));
+    
+    C = interp1(A1,B1,Id); %线性内插，获取 Id 对应的值 Vg
+    
+end
+```
+
+对于常数电流法，我们只需要通过内插得到与规定的 $I_d$ 对应的 $V_g$，即：
+
+```matlab
+function Vth = Vth_Extraction_CC(Id_test, Vg_test, Id)
+    Vth = interp1k(Id_test, Vg_test, Id);
+
+    %画出转移特性曲线
+    plot(Vg_test,Id_test,'color','b'); hold on;
+    plot([min(Vg_test),max(Vg_test)],[Id,Id],'color','r','linestyle','--');
+end
+```
+
+---
+
+而对于线性外推法，我们需要先求 $I_d$ 对 $V_g$ 的导数，由于数据是离散的，所以我们用差分近似求导：
+
+```matlab
+function [Vgm, gm] = derivative_me_verilength(Vg_test, Id_test)
+    gm = gradient(Id_test)./gradient(Vg_test);
+    Vgm = Vg_test;
+end
+```
+
+然后根据斜率，外推到 $I_d=0$ 对应的 $V_g$
+
+```matlab
+function Vth = Vth_Extraction_Max_gm(Id_test, Vg_test)
+    [Vgm,gm] = derivative_me_verilength(Vg,Id); 
+    max_gm = max(gm);
+    indx = find(gm == max(gm)); indx =indx(1);
+    Vth = Vg(indx) - Id(indx)/max(gm);
+
+    %画出转移特性曲线
+    plot(Vg_test,Id_test,Vg_test,gm); hold on;
+    plot([Vth,Vg(indx)],[0,Id(indx)],':','linewidth',2,'color','red');
+    plot([min(Vg),max(Vg)],[0,0],':','color','red'); 
+    plot(Vth,0,'s','MarkerSize',8,'color','red');
+end
+```
