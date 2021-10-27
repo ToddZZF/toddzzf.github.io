@@ -55,4 +55,5 @@ excerpt: 我个人的go语言练手项目
 
 &emsp;&emsp;我将从漫画开始实现，因为我的漫画还挺多了，再不整理就要挤爆我的手机了。
 
-&emsp;&emsp;第一步是读取图片并显示到网页上。
+&emsp;&emsp;第一步是读取图片并显示到网页上👉[Photoweb](https://github.com/ToddZZF/Go-Note/tree/main/Projects/photoweb)
+
