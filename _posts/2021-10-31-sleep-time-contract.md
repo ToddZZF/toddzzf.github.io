@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: resume
 title: 作息合同书
 date: 2021-10-31 16:36:00 +0800
 category: document
