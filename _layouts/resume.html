@@ -25,7 +25,13 @@
 
     <body class="bg-grey" gtools_scp_screen_capture_injected="true">
 
-    {{ content }}
+        {% include header.html %}
+
+        <article class="post-content">
+            {{ content }}
+        </article>
+        
+        {% include footer.html %}
 
   </body>
 </html>
