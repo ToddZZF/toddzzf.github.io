@@ -1,11 +1,11 @@
 ---
 layout: ppt
 title: (PPT)NBTI数据处理
-date: 2021-10-18 15:47:00 +0800
+date: 2021-11-01 13:47:00 +0800
 category: document
 thumbnail: /assets/images/hot-carrier/仪器b1500a.jpg
 icon: book
-excerpt: 介绍多种提取阈值电压的方法
+excerpt: 介绍NBTI数据处理
 ---
 
 <style>
@@ -128,7 +128,8 @@ excerpt: 介绍多种提取阈值电压的方法
         <p>
         平均载流子能量低但载流子密度高的则对应于MP，器件寿命可以描述为：<br>
         \[
-        1/\tau_\text{MP} \sim [(qV_{ds}-\hbar \omega)^{1/2}(I_{sub}/W)]^{E_B/\hbar \omega} \exp (-E_\text{emi}/k_B T_L)\approx [V_{ds}^{1/2}(I_d/W)]^{E_B/\hbar \omega}
+        1/\tau_\text{MP} \sim [(qV_{ds}-\hbar \omega)^{1/2}(I_{sub}/W)]^{E_B/\hbar \omega} \exp (-E_\text{emi}/k_B T_L)\\
+        \approx [V_{ds}^{1/2}(I_d/W)]^{E_B/\hbar \omega}
         \]
         </p>
       </section>
