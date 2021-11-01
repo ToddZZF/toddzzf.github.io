@@ -128,8 +128,10 @@ excerpt: 介绍NBTI数据处理
         <p>
         平均载流子能量低但载流子密度高的则对应于MP，器件寿命可以描述为：<br>
         \[
-        1/\tau_\text{MP} \sim [(qV_{ds}-\hbar \omega)^{1/2}(I_{sub}/W)]^{E_B/\hbar \omega} \exp (-E_\text{emi}/k_B T_L)\\
-        \approx [V_{ds}^{1/2}(I_d/W)]^{E_B/\hbar \omega}
+          \begin{aligned}
+          1/\tau_\text{MP} \sim& [(qV_{ds}-\hbar \omega)^{1/2}(I_{sub}/W)]^{E_B/\hbar \omega} \exp (-E_\text{emi}/k_B T_L)\\
+          &\approx [V_{ds}^{1/2}(I_d/W)]^{E_B/\hbar \omega}
+          \end{aligned}
         \]
         </p>
       </section>
@@ -160,8 +162,8 @@ excerpt: 介绍NBTI数据处理
               <img src="/assets/images/hot-carrier/探针台.jpg">
             </div>
             <div>
-              <img src="/assets/images/hot-carrier/压针.jpg" width="81%">
-              <img src="/assets/images/hot-carrier/压针后.jpg" width="81%">
+              <img src="/assets/images/hot-carrier/压针.jpg" width="70%">
+              <img src="/assets/images/hot-carrier/压针后.jpg" width="70%">
             </div>
           </div>
         </section>
