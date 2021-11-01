@@ -206,18 +206,18 @@ excerpt: 介绍多种提取阈值电压的方法
         红色部分为需要拟合的参数。
         </p>
         </section>
-        <section>
-        <h3>应力作用时间影响因子p的提取</h3>
-          <p>
-            \[
-              \begin{aligned}
-              \ln(\Delta V_t) =& \ln \left[ A (1/W)^n \times (1/L)^m \exp(-C/V_{GS}) \times \exp(-E_a/kT) \right] \\
-              &+ p\ln t
-              \end{aligned}
-            \]
-          </p>
-          <img src="/assets/images/hot-carrier/应力作用时间影响因子.jpg">
-        </section>
+          <section>
+          <h3>应力作用时间影响因子p的提取</h3>
+            <p>
+              \[
+                \begin{aligned}
+                \ln(\Delta V_t) =& \ln \left[ A (1/W)^n \times (1/L)^m \exp(-C/V_{GS}) \times \exp(-E_a/kT) \right] \\
+                &+ p\ln t
+                \end{aligned}
+              \]
+            </p>
+            <img src="/assets/images/hot-carrier/应力作用时间影响因子.jpg">
+          </section>
         <section>
         <h3>激活能Ea的提取</h3>
           <p>
@@ -242,11 +242,22 @@ excerpt: 介绍多种提取阈值电压的方法
           </p>
           <img src="/assets/images/hot-carrier/电场加速因子的提取.jpg">
         </section>
+        <section>
+        <h3>系数的提取</h3>
+          <p>
+            \[
+              \begin{aligned}
+              \ln \Delta V_{th} =& \ln \left[ {\color{red} A\times f(W,L)} \times \exp(-5.3062/V_{gs}) \times \exp(-0.209/kT) \right]\\
+              &+0.27094 \ln t
+              \end{aligned}
+            \]
+          </p>
+        </section>
     </section>
     <section>
       <h3>未来工作安排</h3>
       <ul>
-        <li>熟悉实验仪器的使用、实验数据处理</li>
+        <li>对28nm样品进行测试</li>
         <li>进一步了解模型</li>
       </ul>
     </section>
