@@ -225,7 +225,7 @@ excerpt: 介绍NBTI数据处理
             \[
               \begin{aligned}
               -p\ln t =& \ln \left[ A(1/W)^n\times(1/L)^m \exp(-C/V_{GS}/\Delta V_T) \right] \\
-              &-\frac{{\color{red}E_a}}{k}\times \frac{1}{T}
+              &-\frac{ {\color{red}E_a} }{k}\times \frac{1}{T}
               \end{aligned}
             \]
           </p>
