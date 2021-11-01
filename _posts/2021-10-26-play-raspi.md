@@ -73,7 +73,7 @@ docker run -d \
   -v ~/Docker/wikijs/config:/config \
   -v ~/Docker/wikijs/data:/data \
   --restart unless-stopped \
-  lscr.io/linuxserver/wikijs
+  lscr.io/linuxserver/wikijs #or linuxserver/wikijs
 ```
 
 &emsp;&emsp;然后访问 ip:3000，根据指引注册管理员账号。
@@ -92,7 +92,7 @@ docker run -d \
   -p 8888:8443 \
   -v ~/Docker/code-server/config:/config \
   --restart unless-stopped \
-  lscr.io/linuxserver/code-server
+  lscr.io/linuxserver/code-server #or linuxserver/code-server
 ```
 
 &emsp;&emsp;然后访问 ip:8888，开始安装一些编程语言。

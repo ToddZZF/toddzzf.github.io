@@ -2016,7 +2016,6 @@
   .post-container {
     position: relative;
     text-align: justify;
-    padding-left: 249px;
     width: 1084px;
     display: inline-block;
   }
@@ -2029,7 +2028,6 @@
   }
   .post-container .post-content {
     display: inline-block;
-    width: 819px;
     text-align: left;
     background: #fff;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
@@ -2426,7 +2424,7 @@ a.md-inner-link {
     color: #3b78e7;
 }
 
-h1 {
+.post-content h1 {
     font-family: "Inter", "思源黑体 CN";
     padding-bottom: .1em;
     font-size: 22px;
@@ -2434,7 +2432,7 @@ h1 {
     text-align: center;
 }
 
-h2{
+.post-content h2{
     min-height: 32px;
     line-height: 28px;
     color: rgb(12, 12, 12);
@@ -2456,7 +2454,7 @@ h2{
     justify-content: center;
 }
 
-h3{
+.post-content h3{
     margin: 1.2em 0 1em;
     font-size: 18px;
     padding: 0;
@@ -2465,11 +2463,11 @@ h3{
     border-left: 2px solid rgb(12, 12, 12);
 }
 
-h4{
+.post-content h4{
     font-size: 16px;
 }
 
-h1, h2, h3, h4, h5, h6 {
+.post-content h1, .post-content h2, .post-content h3, .post-content h4, .post-content h5, .post-content h6 {
     position: relative;
     margin-top: 1rem;
     margin-bottom: 1rem;
@@ -2483,42 +2481,42 @@ h1:hover a.anchor, h2:hover a.anchor, h3:hover a.anchor, h4:hover a.anchor, h5:h
     text-decoration: none;
 }
 
-h1 tt, h1 code {
+.post-content h1 tt,.post-content h1 code {
     font-size: inherit;
 }
 
-h2 tt, h2 code {
+.post-content h2 tt,.post-content h2 code {
     font-size: inherit;
 }
 
-h3 tt, h3 code {
+.post-content h3 tt, .post-content h3 code {
     font-size: inherit;
 }
 
-h4 tt, h4 code {
+.post-content h4 tt, .post-content h4 code {
     font-size: inherit;
 }
 
-h5 tt, h5 code {
+.post-content h5 tt, .post-content h5 code {
     font-size: inherit;
 }
 
-h6 tt, h6 code {
+.post-content h6 tt, .post-content h6 code {
     font-size: inherit;
 }
 
 
-h1 strong {
+.post-content h1 strong {
     font-weight: 800;
 }
 
-li.active {
+.post-content li.active {
     background-color: #000;
     color: #fff;
 }
 
 
-p, blockquote, ul, ol, dl, table {
+.post-content p, blockquote, ul, ol, dl, table {
     margin: 0.8em 0;
 }
 
@@ -2526,7 +2524,7 @@ li>ol, li>ul {
     margin: 0 0;
 }
 
-hr {
+.post-content hr {
     height: 2px;
     padding: 0;
     margin: 16px 0;
@@ -2536,11 +2534,11 @@ hr {
     box-sizing: content-box;
 }
 
-li p.first {
+.post-content li p.first {
     display: inline-block;
 }
 
-ul, ol {
+.post-content ul, ol {
     padding-left: 30px;
 }
 
@@ -2557,7 +2555,7 @@ a>span>code {
     text-decoration: none!important;
 }
 
-blockquote {
+.post-content blockquote {
     border-radius: 4px;
     padding: 12px 16px;
     background-color: #f4f7f8;
@@ -2565,7 +2563,7 @@ blockquote {
     color: #252d34;
 }
 
-blockquote code {
+.post-content blockquote code {
     background-color: transparent;
 }
 
@@ -2577,26 +2575,26 @@ h2:hover:before, h1:hover:before, h3:hover:before {
     opacity: 0.1;
 }
 
-blockquote blockquote {
+.post-content blockquote blockquote {
     padding-right: 0;
 }
 
-table {
+.post-content table {
     padding: 0;
     word-break: initial;
 }
 
-table tr {
+.post-content table tr {
     border-top: 1px solid #dfe2e5;
     margin: 0;
     padding: 0;
 }
 
-table tr:nth-child(2n), thead {
+.post-content table tr:nth-child(2n),.post-content thead {
     background-color: #f8f8f8;
 }
 
-table tr th {
+.post-content table tr th {
     font-weight: bold;
     border: 1px solid #dfe2e5;
     border-bottom: 0;
@@ -2604,17 +2602,17 @@ table tr th {
     padding: 6px 13px;
 }
 
-table tr td {
+.post-content table tr td {
     border: 1px solid #dfe2e5;
     margin: 0;
     padding: 6px 13px;
 }
 
-table tr th:first-child, table tr td:first-child {
+.post-content table tr th:first-child,.post-content table tr td:first-child {
     margin-top: 0;
 }
 
-table tr th:last-child, table tr td:last-child {
+.post-content table tr th:last-child,.post-content table tr td:last-child {
     margin-bottom: 0;
 }
 
@@ -2629,14 +2627,14 @@ table tr th:last-child, table tr td:last-child {
     box-shadow: 0 25.6px 57.6px 0 rgba(0, 0, 0, .22), 0 4.8px 14.4px 0 rgba(0, 0, 0, .18)!important;
 }
 
-code, tt {
+.post-content code,.post-content tt {
     border-radius: 4px;
     padding: 2px 4px 0px 4px;
     font-size: 0.9em;
     font-family: 'Jetbrains Mono', '思源黑体 CN';
 }
 
-code {
+.post-content code {
     color: #37474f;
     font-weight: 600;
     background-color: #f4f7f8;
@@ -2647,7 +2645,7 @@ code {
 }
 
 
-mark {
+.post-content mark {
     border-radius: 4px;
     color: #141001;
     font-weight: inherit;
@@ -2660,7 +2658,7 @@ mark {
     margin-right: 2px;
 }
 
-del {
+.post-content del {
     border-radius: 4px;
     color: #d4d4d4;
     font-weight: inherit;
