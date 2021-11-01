@@ -19,6 +19,9 @@ excerpt: 介绍多种提取阈值电压的方法
       font-size: 80%;
       text-align: left;
     }
+    table {
+      font-size: 80%;
+    }
 </style>
 
 <div class="reveal">
@@ -151,13 +154,13 @@ excerpt: 介绍多种提取阈值电压的方法
         </section>
         <section>
           <h3>探针台</h3>
-          <div class="two-column">
+          <div class="twocolumn">
             <div>
               <img src="/assets/images/hot-carrier/探针台.jpg">
             </div>
             <div>
-              <img src="/assets/images/hot-carrier/压针.jpg">
-              <img src="/assets/images/hot-carrier/压针后.jpg">
+              <img src="/assets/images/hot-carrier/压针.jpg" width="81%">
+              <img src="/assets/images/hot-carrier/压针后.jpg" width="81%">
             </div>
           </div>
         </section>
@@ -199,44 +202,41 @@ excerpt: 介绍多种提取阈值电压的方法
             </table>
         </p>
         <p>
-        公式：<br>
-        \[
-            \Delta V_T = {\color{red} A (1/W)^n \times (1/L)^m} \exp(-{\color{red} C}/V_{GS}) \times \exp(-{\color{red} E_a}/kT)\times t^{\color{red} p}
-        \]
+        公式：$\Delta V_T = {\color{red} A (1/W)^n \times (1/L)^m} \exp(-{\color{red} C}/V_{GS}) \times \exp(-{\color{red} E_a}/kT)\times t^{\color{red} p}$<br>
         红色部分为需要拟合的参数。
         </p>
         </section>
           <section>
-          <h3>应力作用时间影响因子p的提取</h3>
+          <h3>应力作用时间影响因子$p$的提取</h3>
             <p>
               \[
                 \begin{aligned}
                 \ln(\Delta V_t) =& \ln \left[ A (1/W)^n \times (1/L)^m \exp(-C/V_{GS}) \times \exp(-E_a/kT) \right] \\
-                &+ p\ln t
+                &+ {\color{red}p}\ln t
                 \end{aligned}
               \]
             </p>
             <img src="/assets/images/hot-carrier/应力作用时间影响因子.jpg">
           </section>
         <section>
-        <h3>激活能Ea的提取</h3>
+        <h3>激活能$Ea$的提取</h3>
           <p>
             \[
               \begin{aligned}
               -p\ln t =& \ln \left[ A(1/W)^n\times(1/L)^m \exp(-C/V_{GS}/\Delta V_T) \right] \\
-              &-\frac{E_a}{k}\times \frac{1}{T}
+              &-\frac{{\color{red}E_a}}{k}\times \frac{1}{T}
               \end{aligned}
             \]
           </p>
           <img src="/assets/images/hot-carrier/激活能的提取.jpg">
         </section>
         <section>
-        <h3>电场加速因子C的提取</h3>
+        <h3>电场加速因子$C$的提取</h3>
           <p>
             \[
               \begin{aligned}
               -p\ln t =& \ln\left[ A(1/W)^n \times (1/L)^m \times \exp(-E_a/kT)/\Delta V_T \right] \\
-              &- C\times\frac{1}{V_{GS}}
+              &- {\color{red}C}\times\frac{1}{V_{GS}}
               \end{aligned}
             \]
           </p>
@@ -247,11 +247,12 @@ excerpt: 介绍多种提取阈值电压的方法
           <p>
             \[
               \begin{aligned}
-              \ln \Delta V_{th} =& \ln \left[ {\color{red} A\times f(W,L)} \times \exp(-5.3062/V_{gs}) \times \exp(-0.209/kT) \right]\\
-              &+0.27094 \ln t
+              \ln \Delta V_{th} =& \ln \left[ {\color{red} A\times f(W,L)} \times \exp(-C/V_{gs}) \times \exp(-E_a/kT) \right]\\
+              &+p \ln t
               \end{aligned}
             \]
           </p>
+          <img src="/assets/images/hot-carrier/应力作用时间影响因子.jpg">
         </section>
     </section>
     <section>
