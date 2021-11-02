@@ -5,10 +5,21 @@ date: 2021-10-31 16:36:00 +0800
 category: document
 thumbnail: /assets/images/thumbnail/合同.jpg
 icon: note
+password: Todd&Molly
 ---
 
 <!--more-->
 
+<style>
+   post-content {
+    background-image: url('/assets/images/other/parchment_background.jpg');
+    background-attachment: fixed;
+    background-size: cover;
+   }
+</style>
+
+<img src="/assets/images/other/banner.png"
+     style="position: absolute;clip: rect(0px,250px,200px,50px);width:100%">
 
 # 作息合同书
 
@@ -94,7 +105,6 @@ icon: note
 本合同期限届满之前，如果发生以下情形之一，一方（“通知方”）可随时向对方发出书面通知后终止本合同。
 
 1. 不可抗力（如下文定义）事件或其影响持续超过七（7）天，且双方无法按照 *不可抗力的后果* 的条款达成一项公正的解决方案
-2. 
 
 ## BREACH OF CONTRACT 违约
 
@@ -172,10 +182,10 @@ icon: note
 <div class="twocolumn">
 <div>
 甲方签名：<br><br>
-<img src="/assets/images/review/测试.PNG">
+<img src="/assets/images/other/测试.png">
 </div>
 <div>
 乙方签名：<br><br>
-<img src="/assets/images/review/测试.PNG">
+<img src="/assets/images/other/测试.png">
 </div>
 </div>
