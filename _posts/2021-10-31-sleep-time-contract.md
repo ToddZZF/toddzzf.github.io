@@ -11,17 +11,16 @@ password: Todd&Molly
 <!--more-->
 
 <style>
-   post-content {
+   .post-content {
     background-image: url('/assets/images/other/parchment_background.jpg');
     background-attachment: fixed;
     background-size: cover;
    }
 </style>
 
-<img src="/assets/images/other/banner.png"
-     style="position: absolute;clip: rect(0px,250px,200px,50px);width:100%">
 
-# 作息合同书
+<center><img src="/assets/images/other/banner.png" width="800px"/></center>
+<center><h1>作息合同书</h1></center>
 
 {:toc}
 
