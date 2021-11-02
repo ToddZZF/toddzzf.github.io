@@ -10,14 +10,6 @@ password: Todd&Molly
 
 <!--more-->
 
-<style>
-   .post-container .post-content {
-    background-image: url('/assets/images/other/parchment_background.jpg');
-    background-attachment: fixed;
-    background-size: cover;
-   }
-</style>
-
 
 <center><img src="/assets/images/other/banner.png" width="100%"/></center>
 <center><h1>作息合同书</h1></center>
@@ -51,6 +43,8 @@ password: Todd&Molly
 ## OPERATIVE CLAUSES 具体操作条款
 
 ### 作息条款
+
+双方的作息应遵循如下条款：
 
 1. ‌双方每晚至少要有6小时的睡眠时长，每天至少要有7个小时的睡眠时长。睡眠时长从入睡开始算起，至清醒时结束。时间短于20分钟的睡眠活动不计入睡眠时长。
 2. ‌双方入睡时间不得晚于晚上12时（00:00）
@@ -181,10 +175,10 @@ password: Todd&Molly
 <div class="twocolumn">
 <div>
 甲方签名：<br><br>
-<img src="/assets/images/other/测试.png">
+<img src="/assets/images/other/周美琳.jpg" width="80%">
 </div>
 <div>
 乙方签名：<br><br>
-<img src="/assets/images/other/测试.png">
+<img src="/assets/images/other/周镇峰.png" width="80%">
 </div>
 </div>
