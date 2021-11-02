@@ -11,7 +11,7 @@ password: Todd&Molly
 <!--more-->
 
 <style>
-   .post-content {
+   .post-container .post-content {
     background-image: url('/assets/images/other/parchment_background.jpg');
     background-attachment: fixed;
     background-size: cover;
@@ -19,7 +19,7 @@ password: Todd&Molly
 </style>
 
 
-<center><img src="/assets/images/other/banner.png" width="800px"/></center>
+<center><img src="/assets/images/other/banner.png" width="100%"/></center>
 <center><h1>作息合同书</h1></center>
 
 {:toc}
