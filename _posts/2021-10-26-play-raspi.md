@@ -25,6 +25,8 @@ icon: note
 &emsp;&emsp;为了追求性能最大化，我采用SSD启动（参见：[树莓派4 SSD 启动](https://zhuanlan.zhihu.com/p/336932291)），使用的系统是 [Debian-Pi-Aarch64](https://github.com/openfans-community-offical/Debian-Pi-Aarch64/blob/master/README_zh.md)
 
 
+&emsp;&emsp;但在试错阶段，依然采用 micro-SD 卡启动。
+
 ## 服务
 
 &emsp;&emsp;账号大部分是：`pi`，密码一律是 `toddraspi`（which is short for todd's rasberry pi）
