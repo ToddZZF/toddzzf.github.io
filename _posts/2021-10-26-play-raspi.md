@@ -129,7 +129,9 @@ go version
 go env
 ```
 
-相应地，需要在 vscode 中安装 golang 官方的插件 `Go`
+相应地，需要在 vscode 中安装 golang 官方的插件 `Go`，但是在安装完后，根据插件提示安装一系列时 go tools 出现安装失败的问题：上面设置的 `GOPROXY` 不起作用，怀疑是 docker 内的 bash 运行时不会读取 `/etc/profile`。于是尝试在创建 docker 就将该环境变量用 `-e` 的方式传入，发现安装成功。
+
+
 
 ##### c/c++
 
