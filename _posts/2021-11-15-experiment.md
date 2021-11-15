@@ -1,7 +1,7 @@
 ---
 layout: ppt
 title: (PPT)测试过程
-date: 2021-11-01 13:47:00 +0800
+date: 2021-11-15 14:47:00 +0800
 category: document
 thumbnail: /assets/images/hot-carrier/仪器b1500a.jpg
 icon: book
@@ -48,6 +48,7 @@ excerpt: 介绍NBTI数据处理
     </ol>
     </section>
     <section>
+      <section>
         <p>
         \[
         \text{HCD}
@@ -66,6 +67,10 @@ excerpt: 介绍NBTI数据处理
         \end{cases}
         \]
         </p>
+      </section>
+      <section>
+        <img src="/assets/images/hot-carrier/SVE%20vs%20MVE.jpg">
+      </section>
     </section>
     <section>
       <section>
@@ -85,7 +90,7 @@ excerpt: 介绍NBTI数据处理
       </section>
       <section>
         <h4>同位素效应 4（多电子）SHO 的共振激发</h4>
-        <p>SHO 阶梯上的激发可能涉及与键共振耦合的电子，即暂时将该键电离到新的 PES。原子核将沿着新的 PES 演化，直到进入的电子离开临时轨道。与同位素效应 2 相似，这里存在与离子加速相关的同位素效应。</p>
+        <p>SHO 阶梯上的激发可能涉及与键共振耦合的电子，即暂时将该键电离到新的 PES（potential energy surface）。原子核将沿着新的 PES 演化，直到进入的电子离开临时轨道。与同位素效应 2 相似，这里存在与离子加速相关的同位素效应。</p>
       </section>
       <section>
         <h4>同位素效应 5（多电子）声子耦合</h4>
@@ -102,6 +107,18 @@ excerpt: 介绍NBTI数据处理
         <li>P. Avouris, R.E. Walkup, A.R. Rossi, T.-C. Shen, G.C. Abeln, J.R. Tucker, J.W. Lyding, STM-induced H atom desorption from Si(100): isotope effects and site selectivity. Chem. Phy. Lett.257, 148 (1996)</li>
         <li>C.G. Van de Walle, W.B. Jackson, Comment on reduction of hot electron degradation in metal oxide semiconductor transistors by deuterium processing. App. Phys. Lett. 69, 2441 (1996)</li>
       </ul>
+      </section>
+    </section>
+    <section>
+      <section>
+        <h3>从DC应力中获得AC模型</h3>
+        <h4>准静态近似（QSA）</h4>
+        <p>假设DC模型可在电压上积分</p>
+        <p>
+          \[
+            \% I_{dsat}(t+dt)^{1/n} = \% I_{dsat}(t)^{1/n}
+          \]
+        </p>
       </section>
     </section>
     <section>
@@ -143,7 +160,7 @@ excerpt: 介绍NBTI数据处理
     <section>
       <h3>未来工作安排</h3>
       <ul>
-        <li>对28nm样品进行测试</li>
+        <li>熟悉探针台与B1500的使用</li>
         <li>进一步了解模型</li>
       </ul>
     </section>
