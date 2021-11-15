@@ -33,6 +33,18 @@ close all; clear; clc;
 
 ### csv
 
+csv 开头一般会有一些文字信息，而 csvread 只能读取数字，所以需要指定行号：
+
+```matlab
+M = csvread('filename', row, col)
+M = csvread('filename', row, col, range)
+
+% row, col：开始读取的行列，相当于下面的 R1, C1
+% range = [R1 C1 R2 C2]: 读取区域的左上与右下坐标
+```
+
+但注意的是，行号和列号都是从 0 开始的（这也太割裂了……）
+
 ## 数据拟合
 
 MATLAB自带的拟合函数：
