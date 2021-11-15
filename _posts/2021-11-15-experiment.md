@@ -110,20 +110,8 @@ excerpt: 介绍NBTI数据处理
       </section>
     </section>
     <section>
-      <section>
-        <h3>从DC应力中获得AC模型</h3>
-        <h4>准静态近似（QSA）</h4>
-        <p>假设DC模型可在电压上积分</p>
-        <p>
-          \[
-            \% I_{dsat}(t+dt)^{1/n} = \% I_{dsat}(t)^{1/n}
-          \]
-        </p>
-      </section>
-    </section>
-    <section>
         <section>
-          <h3>实验仪器: 安捷伦B1500A</h3>
+          <h3>实验仪器: 安捷伦B1500</h3>
           <img src="/assets/images/hot-carrier/仪器b1500a.jpg" width="400">
           <img src="/assets/images/hot-carrier/仪器b1500a接口.jpg" width="500">
         </section>
