@@ -19,7 +19,7 @@ excerpt: 介绍NBTI数据处理
       font-size: 80%;
       text-align: left;
     }
-    table {
+    table, ul, ol {
       font-size: 80%;
     }
 </style>
@@ -69,83 +69,6 @@ excerpt: 介绍NBTI数据处理
     </section>
     <section>
       <section>
-        <h3>Hess Model</h3>
-        <div class="twocolumn">
-            <div>
-              <p>
-                \[
-                \begin{cases}
-                R_{SP} \sim \int_{E_{th}}^\infty F(E)P(E)\sigma(E)\;\mathrm{d} E\\
-                R_{MP} = \left(\frac{E_B}{\hbar \omega}+1\right)\left[P_d+\exp(\frac{-\hbar \omega}{k_BT_L})\right]\left[\frac{P_u+\omega_e}{P_d+\exp(-\hbar \omega/k_BT_L)}\right]^{-E_B/\hbar \omega}
-                \end{cases}
-              \]
-              </p>
-            </div>
-          </div>
-          <p>
-          \[
-            R = \sum_{i=0}^{N_l} \left[ \frac{I_df_v + \omega_e \exp  (-\hbar\omega/k_BT_L)}{I_d f_v + \omega_e} \right]^i A^i I_d f_d
-          \]
-          </p>
-      </section>
-      <section>
-        <p>
-          Hess模型因为提出了很多开创性概念而出名，但它也有很多缺点。首先，界面陷阱是在微观层面上考虑的，没有与器件层面相联。在Hess模型中，器件的寿命定义为缺陷浓度$N_{it}$达到阈值，这会导致对寿命的错误估计，因为HCD是一种强烈不均匀的现象，在相同应力时间下，会在器件的不同区域产生不同的浓度$N_{it}$。
-        </p>
-      </section>
-      <section>
-        <p>参考文献：</p>
-        <ul>
-          <li>
-          W. McMahon, K. Matsuda, J. Lee, K. Hess, J. Lyding, The effects of a multiple carrier model of interface states generation of lifetime extraction for MOSFETs, in Proceedings of the International Conference on Modelling and Simulation Micro, vol. 1, 2002, pp. 576–579
-          </li>
-          <li>
-          W. McMahon, A. Haggag, K. Hess, Reliability scaling issues for nanoscale devices. IEEE Trans. Nanotechnol. 2(1), 33–38 (2003)
-          </li>
-        </ul>
-      </section>
-    </section>
-    <section>
-      <section>
-        <h3>Bravaix Model</h3>
-        <p>
-          总的器件寿命时间为：<br>
-          \[
-            1/\tau_d = K_\text{SP}/\tau_\text{SP}+K_\text{EES}/\tau_\text{EES}+K_\text{MP}/\tau_\text{MP}
-          \]
-        </p>
-      </section>
-      <section>
-        <p>
-        平均载流子能量高的应力电压所对应的HCD机制是SP，可以用幸运电子模型描述，器件寿命可以描述为：<br>
-        \[
-        1/\tau_\text{SP} \sim (I_d/W)(I_{sub}/I_d)^m
-        \]
-        </p>
-      </section>
-      <section>
-        <p>
-        平均载流子能量低但载流子密度高的则对应于MP，器件寿命可以描述为：<br>
-        \[
-          \begin{aligned}
-          1/\tau_\text{MP} \sim& [(qV_{ds}-\hbar \omega)^{1/2}(I_{sub}/W)]^{E_B/\hbar \omega} \exp (-E_\text{emi}/k_B T_L)\\
-          &\approx [V_{ds}^{1/2}(I_d/W)]^{E_B/\hbar \omega}
-          \end{aligned}
-        \]
-        </p>
-      </section>
-      <section>
-        <p>
-        平均载流子能量中等、载流子密度中等时，则对应EES，相应寿命为：<br>
-        \[
-        1/\tau_\text{EES} \sim (I_d/W)^2(I_\text{sub}/I_d)^m
-        \]<br>
-        式中的平方是由“碰撞电离”引入的，虽然碰撞电离只会产生冷载流子，但它们可以通过EES转化为高能粒子，然后通过SP引发键断裂。
-        </p>
-      </section>
-    </section>
-    <section>
-      <section>
         <h3>模型中的同位素效应</h3>
       </section>
       <section>
@@ -172,6 +95,14 @@ excerpt: 介绍NBTI数据处理
         <h4>同位素效应 6：氢和氘的不同扩散速率</h4>
         <p>氢和氘的不同质量会影响它们的相对扩散速率，并可能导致到达 Si/SiO2 界面钝化悬空键的效率不同。类似地，氢使硅悬挂键去钝化的尝试频率由 SHO 模式频率给出，因此即使在假定去钝化纯粹是电场诱导的（与同位素无关的）势垒高度降低的函数的热化学模型中，也可能存在同位素效应。</p>
       </section>
+      <section>
+      <ul>
+        <li>McMahon W., Mamy-Randriamihaja Y., Vaidyanathan B., Nigam T., Pimparkar N. (2015) From Atoms to Circuits: Theoretical and Empirical Modeling of Hot Carrier Degradation. In: Grasser T. (eds) Hot Carrier Degradation in Semiconductor Devices. Springer, Cham. https://doi.org/10.1007/978-3-319-08994-2_1</li>
+        <li>W. McMahon, Atomic-Scale Statistical Models of Semiconductor Device Reliability. PhD. Thesis, University of Illinois at Urbana-Champaign, 2001</li>
+        <li>P. Avouris, R.E. Walkup, A.R. Rossi, T.-C. Shen, G.C. Abeln, J.R. Tucker, J.W. Lyding, STM-induced H atom desorption from Si(100): isotope effects and site selectivity. Chem. Phy. Lett.257, 148 (1996)</li>
+        <li>C.G. Van de Walle, W.B. Jackson, Comment on reduction of hot electron degradation in metal oxide semiconductor transistors by deuterium processing. App. Phys. Lett. 69, 2441 (1996)</li>
+      </ul>
+      </section>
     </section>
     <section>
         <section>
@@ -190,8 +121,8 @@ excerpt: 介绍NBTI数据处理
               <img src="/assets/images/hot-carrier/探针台.jpg">
             </div>
             <div>
-              <img src="/assets/images/hot-carrier/压针.jpg" width="70%">
-              <img src="/assets/images/hot-carrier/压针后.jpg" width="70%">
+              <img src="/assets/images/hot-carrier/压针.jpg">
+              <img src="/assets/images/hot-carrier/压针后.jpg">
             </div>
           </div>
         </section>
