@@ -5,7 +5,7 @@ date: 2021-11-15 14:47:00 +0800
 category: document
 thumbnail: /assets/images/hot-carrier/仪器b1500a.jpg
 icon: book
-excerpt: 介绍NBTI数据处理
+excerpt: 描述测量晶体管特性曲线的过程
 ---
 
 <style>
@@ -126,8 +126,8 @@ excerpt: 介绍NBTI数据处理
               <img src="/assets/images/hot-carrier/探针台.jpg">
             </div>
             <div>
-              <img src="/assets/images/hot-carrier/压针.jpg">
-              <img src="/assets/images/hot-carrier/压针后.jpg">
+              <img src="/assets/images/hot-carrier/压针.jpg" width="70%">
+              <img src="/assets/images/hot-carrier/压针后.jpg" width="70%">
             </div>
           </div>
         </section>
@@ -139,10 +139,10 @@ excerpt: 介绍NBTI数据处理
           </ul>
         </section>
         <section>
-          <img src="/assets/images/hot-carrier/1115-数据处理2.jpg" width="70%">
+          <img src="/assets/images/hot-carrier/1115-数据处理2.jpg">
         </section>
         <section>
-          <img src="/assets/images/hot-carrier/1115-数据处理1.jpg" width="70%">
+          <img src="/assets/images/hot-carrier/1115-数据处理1.jpg">
         </section>
     </section>
     <section>
