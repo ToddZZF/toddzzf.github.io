@@ -2,7 +2,7 @@
 layout: post
 title: MOSFET阈值电压的提取
 date: 2021-10-18 10:12:00 +0800
-category: document
+category: work
 thumbnail: /assets/images/thumbnail/twilight_sparkle.png
 icon: note
 mathjax: true

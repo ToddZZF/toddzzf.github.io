@@ -5,9 +5,9 @@ date: 2021-11-10 11:16:00 +0800
 category: document
 thumbnail: /assets/images/thumbnail/twilight_sparkle.png
 icon: note
+excerpt: 关于买电子产品的一点点思考
 ---
 
-关于买电子产品的一点点思考
 <!--more-->
 
 > 11/11 修改部分语气词，以显得我没这么嗲。
@@ -54,7 +54,6 @@ icon: note
 - R1plus：199
 - Maix Dock：约120
 - Lichee Zero：81（实际只出了不到20）
-- r4s：518
 
 零零散散加起来也接近 2000 元了，但知识是无价的，只要能从中学到东西，就值了。
 
