@@ -2,7 +2,7 @@
 layout: ppt
 title: (PPT)测试过程
 date: 2021-11-15 14:47:00 +0800
-category: document
+category: work
 thumbnail: /assets/images/hot-carrier/仪器b1500a.jpg
 icon: book
 excerpt: 描述测量晶体管特性曲线的过程
