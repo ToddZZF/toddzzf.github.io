@@ -1,3 +1,15 @@
+---
+layout: post
+title: 国庆旅游简记
+date: 2021-11-20 17:22:00 +0800
+category: document
+thumbnail: /assets/images/thumbnail/rainbow_dash.png
+icon: note
+excerpt: 陪女票游玩广州
+---
+
+<!--more-->
+
 > 抱歉，拖延症犯了，拖了一个月才写完……
 
 

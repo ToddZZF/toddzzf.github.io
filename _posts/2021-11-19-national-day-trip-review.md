@@ -2,10 +2,10 @@
 layout: post
 title: 国庆旅游简记
 date: 2021-11-19 17:22:00 +0800
-category: work
+category: document
 thumbnail: /assets/images/thumbnail/rainbow_dash.png
 icon: note
-excerpt: 国庆女票来广州玩
+excerpt: 陪女票游玩广州
 ---
 
 <!--more-->
