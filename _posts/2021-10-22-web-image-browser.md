@@ -3,7 +3,7 @@ layout: post
 title: 在线图片浏览器的开发
 date: 2021-10-22 15:20:00 +0800
 category: document
-thumbnail: /assets/images/thumbnail/twilight_sparkle.png
+thumbnail: /assets/images/thumbnail/golang.png
 icon: note
 excerpt: 我个人的go语言练手项目
 ---

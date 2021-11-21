@@ -3,7 +3,7 @@ layout: post
 title: 论电子产品的购买
 date: 2021-11-10 11:16:00 +0800
 category: document
-thumbnail: /assets/images/thumbnail/twilight_sparkle.png
+thumbnail: /assets/images/thumbnail/开发板.jpg
 icon: note
 excerpt: 关于买电子产品的一点点思考
 ---
