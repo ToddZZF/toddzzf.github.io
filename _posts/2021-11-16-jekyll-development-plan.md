@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Jekyll开发
+title: Jekyll开发规划
 date: 2021-11-16 15:28:00 +0800
 category: work
 thumbnail: /assets/images/thumbnail/rainbow_dash.png
@@ -20,7 +20,11 @@ excerpt: 博客的自定义
 
 &emsp;&emsp;除此之外，CSS、Javascript 也是不可或缺的。但用其编写静态网站的方法与传统网页也有所不同，这里我们更需要保持层次化。因此我们还需要 scss 等其他语言。
 
-&emsp;&emsp;以上所提的这些都需要一边学习，一边实践。不过我感觉我缺的东西有点多，估计要学完需要很长时间。
+&emsp;&emsp;以上所提的这些都需要一边学习，一边实践。不过我感觉我缺的东西有点多，估计要学完需要很长时间。学完后，最终会利用Jekyll来渲染博客网站的静态部分。
+
+## Jekyll
+
+[Jekyll 文档](http://jekyllcn.com/docs/home/)
 
 ## Liquid
 
@@ -31,3 +35,4 @@ excerpt: 博客的自定义
   - 新建数组并添加元素 [Make array and add element in liquid](https://twpower.github.io/228-make-array-and-add-element-in-jekyll-liquid-en)
 - 别人的开发笔记
   - [Jekyll 之修改 liquid 代码：去重、排序以及其它](https://yo1995.github.io/html/jekyll-edit-liquid-1/)
+
