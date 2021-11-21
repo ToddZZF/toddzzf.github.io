@@ -3,7 +3,7 @@ layout: post
 title: Jekyll开发规划
 date: 2021-11-16 15:28:00 +0800
 category: work
-thumbnail: /assets/images/thumbnail/rainbow_dash.png
+thumbnail: /assets/images/thumbnail/jekyll.png
 icon: note
 excerpt: 博客的自定义
 ---

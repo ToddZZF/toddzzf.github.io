@@ -3,7 +3,7 @@ layout: post
 title: 国庆旅游简记
 date: 2021-11-20 17:22:00 +0800
 category: document
-thumbnail: /assets/images/thumbnail/rainbow_dash.png
+thumbnail: /assets/images/thumbnail/合影.jpg
 icon: note
 excerpt: 陪女票游玩广州
 password: Todd&Molly

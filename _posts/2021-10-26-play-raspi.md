@@ -3,7 +3,7 @@ layout: post
 title: 重玩树莓派
 date: 2021-10-26 16:54:00 +0800
 category: document
-thumbnail: /assets/images/thumbnail/twilight_sparkle.png
+thumbnail: /assets/images/thumbnail/raspberrypi.png
 icon: note
 ---
 
