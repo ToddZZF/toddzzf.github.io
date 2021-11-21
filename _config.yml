@@ -54,3 +54,8 @@ mermaid: false
 ## Chart
 chart: false
 
+## 集合
+collections:
+  my_ppt:
+    output: true
+    permalink: /:year-:month-:day/:title
