@@ -12,7 +12,7 @@ layout: default
                     {% assign ppt_post = ppt_post|push:post %}
                     {% endif %}
                 {% endfor %}
-                {% for post in ppt_post %}
+                {% for post in site.my_ppt %}
                     {% assign prev_i = forloop.index0 | minus: 1 %}
                     {% capture this_year %}{{ post.date | date: "%Y" }}{% endcapture %}
                     {% capture this_month %}{{ post.date | date: "%B" }}{% endcapture %}

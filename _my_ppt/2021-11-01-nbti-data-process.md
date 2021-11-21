@@ -2,7 +2,7 @@
 layout: ppt
 title: (PPT)NBTI数据处理
 date: 2021-11-01 13:47:00 +0800
-category: work
+category: ppt
 thumbnail: /assets/images/hot-carrier/仪器b1500a.jpg
 icon: book
 excerpt: 介绍NBTI数据处理
