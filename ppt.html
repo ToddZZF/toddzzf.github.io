@@ -6,12 +6,6 @@ layout: default
     <div class="categorys-item">
         <div class="post-lists">
             <div class="post-lists-body">
-                {% assign ppt_post = ""|split:',' %}
-                {% for post in site.my_ppt %}
-                    {% if post.category == "ppt" %}
-                    {% assign ppt_post = ppt_post|push:post %}
-                    {% endif %}
-                {% endfor %}
                 {% for post in site.my_ppt %}
                     {% assign prev_i = forloop.index0 | minus: 1 %}
                     {% capture this_year %}{{ post.date | date: "%Y" }}{% endcapture %}
