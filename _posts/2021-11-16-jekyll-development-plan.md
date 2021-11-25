@@ -22,11 +22,26 @@ excerpt: 博客的自定义
 
 &emsp;&emsp;以上所提的这些都需要一边学习，一边实践。不过我感觉我缺的东西有点多，估计要学完需要很长时间。学完后，最终会利用Jekyll来渲染博客网站的静态部分。
 
-## Jekyll
+## 理想博客
+
+&emsp;&emsp;这里说说我对理想博客的一些想法。因为是边学边想的，所以可能会变化，甚至前后矛盾。待到我实践过后，再进行筛选。
+
+> 页面一般由 4 个部分组成：
+> 
+> 1. 页头
+> 2. 页脚
+> 3. 侧栏
+> 4. 内容
+>
+> 我认为页头、页脚用于展现博客的概况，侧栏和内容则展现博客的详情。所以在同一个博客内，不同页的页头、页脚是一致的，因此在写 CSS 的时候，最好用 class 属性区分一下，避免页头、页脚受内容的 CSS 影响。
+
+
+
+## Jekyll学习
 
 [Jekyll 文档](http://jekyllcn.com/docs/home/)
 
-## Liquid
+## Liquid学习
 
 [Liquid 文档](https://liquid.bootcss.com/)
 
@@ -36,3 +51,4 @@ excerpt: 博客的自定义
 - 别人的开发笔记
   - [Jekyll 之修改 liquid 代码：去重、排序以及其它](https://yo1995.github.io/html/jekyll-edit-liquid-1/)
 
+## SCSS学习

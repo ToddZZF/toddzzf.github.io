@@ -8,6 +8,9 @@ icon: note
 excerpt: 人工智能与思想政治教育融合创新研究
 ---
 
+* Content
+{:toc}
+
 <!--more-->
 
 ## 要求
