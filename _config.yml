@@ -61,4 +61,4 @@ collections:
     permalink: /:year-:month-:day/:title
   jekyll:
     output: true
-    permalink: /:year-:month-:day/:title
+    permalink: /jekyll/:title
