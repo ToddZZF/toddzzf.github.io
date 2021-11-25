@@ -20,6 +20,13 @@ excerpt: 博客的自定义
 
 &emsp;&emsp;除此之外，CSS、Javascript 也是不可或缺的。但用其编写静态网站的方法与传统网页也有所不同，这里我们更需要保持层次化。因此我们还需要 scss 等其他语言。
 
+&emsp;&emsp;总结一下就是：
+
+- Jekyll
+- Liquid
+- SCSS (CSS)
+- Javascript
+
 &emsp;&emsp;以上所提的这些都需要一边学习，一边实践。不过我感觉我缺的东西有点多，估计要学完需要很长时间。学完后，最终会利用Jekyll来渲染博客网站的静态部分。
 
 ## 理想博客
@@ -48,7 +55,35 @@ excerpt: 博客的自定义
 - 一些在开发中遇到的问题
   - 在数组遍历时获取上一个与下一个元素 [Get next and previous elements out of an array in liquid](https://stackoverflow.com/questions/16145061/get-next-and-previous-elements-out-of-an-array-in-liquid)
   - 新建数组并添加元素 [Make array and add element in liquid](https://twpower.github.io/228-make-array-and-add-element-in-jekyll-liquid-en)
-- 别人的开发笔记
-  - [Jekyll 之修改 liquid 代码：去重、排序以及其它](https://yo1995.github.io/html/jekyll-edit-liquid-1/)
 
-## SCSS学习
+#### 参考他人
+
+- [Jekyll 之修改 liquid 代码：去重、排序以及其它](https://yo1995.github.io/html/jekyll-edit-liquid-1/)
+
+---
+
+- [TeXt主题](https://github.com/kitian616/jekyll-TeXt-theme) 一个层次化、功能丰富的主题（MIT licensed），其中有一些小技巧值得学习
+
+多个选择的处理，如 site.mathjax 为 false，而 page.mathjax 为 true，则在引入 mathjax 时这样处理：
+
+```html
+{%- include snippets/assign.html target=site.data.variables.default.mathjax
+  source0=site.mathjax source1=page.mathjax -%}
+{%- if __return == true -%}
+  {%- include markdown-enhancements/mathjax.html -%}
+{%- endif -%}
+```
+
+而 _include/snippets/assign.html 代码如下：
+
+```html
+{%- if include.source1 == nil -%}
+  {%- if include.source0 == nil -%}
+    {%- assign __return = include.target -%}
+  {%- else -%}
+    {%- assign __return = include.source0 -%}
+  {%- endif -%}
+{%- else -%}
+  {%- assign __return = include.source1 -%}
+{%- endif -%}
+```
