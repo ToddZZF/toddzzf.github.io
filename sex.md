@@ -19,6 +19,10 @@ icon: book
 
 ## 避孕的多种方法
 
+参考：
+
+[香港家庭计划指导会 - 节育指导](https://www.famplan.org.hk/zh/our-services/clinic-services/birth-control/content)
+
 ### 男用避孕套
 
 正确使用步骤：
@@ -36,9 +40,12 @@ icon: book
 
 如用法绝对正确，避孕套的有效率可达 98%，但这个数字并不是说“做 100 次就会中招 2 次”，而是指 “科学家追踪 100 个妇女，她们进行规律性交且正确使用避孕方法，12个月后有 2 人意外怀孕”，假设她们每周一次，则意外怀孕的概率是 1/2600。更多相关信息请阅读 [知乎：避孕套的避孕成功率有多少？](https://www.zhihu.com/question/19611168)
 
-参考：
-
-[香港家庭计划指导会 - 节育指导](https://www.famplan.org.hk/zh/our-services/clinic-services/birth-control/content)
-
 
 ### 女用避孕套
+
+详情请看 [知乎：女性避孕套怎么用](https://www.zhihu.com/question/20634297)，但女用避孕套使用不方便，且避孕有效率也只有 95%。
+
+
+### 避孕药
+
+详情请看 [知乎：想要长期服用一种避孕药来避孕，不知哪种好？对身体有无害处？](https://www.zhihu.com/question/21203997)
