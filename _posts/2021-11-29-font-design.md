@@ -98,6 +98,87 @@ rem（root em，根em）是css3新增的一个相对单位，与em的区别在�
 
 ### 字号的选择
 
+目前，大部分设计指南均有关于字号的规定。我们可以从中选择/借鉴适合自己的。
+
+#### 借鉴设计标准
+
+[**Material Design**](https://material.io/design) 谷歌的设计语言，目前已出到第三版（[Material You](https://m3.material.io/)）。其推荐的字号如下（单位是 px）：
+
+![](/assets/images/design/font/material_design_m2_scale.png)
+
+这种字号也并非一成不变，而是要根据屏幕大小适当缩放：
+
+![](/assets/images/design/font/material_design_m3_scale.png)
+
+另外，它也对字体的选择给出了一些建议：
+
+1. 标题可以使用有表现力的文字，比如手写体，这样能吸引眼球
+2. 子标题、主体、说明文字等则应避免选择有表现力的文字，推荐使用 Serif 或 sans serif
+
+另外，它还解释了排版中的一些术语：[Understanding typography](https://material.io/design/typography/understanding-typography.html)
+
+---
+
+苹果推荐的字号如下（MacOS）：
+
+|Text style|Weight|Size (points)|Line height (points)|Emphasized weight|
+|-----|----|----|----|----|
+|Large Title|Regular|26|32|Bold|
+|Title 1|Regular|22|26|Bold|
+|Title 2|Regular|17|22|Bold|
+|Title 3|Regular|15|20|Semibold|
+|Headline|Bold|13|16|Heavy|
+|Subheadline|Regular|11|14|Semibold|
+|Body|Regular|13|16|Semibold|
+|Callout|Regular|12|15|Semibold|
+|Footnote|Regular|10|13|Semibold|
+|Caption 1|Regular|10|13|Medium|
+|Caption 2|Medium|10|13|Semibold|
+
+iOS上的字号则略微大一点：
+
+|Style|Weight|Size (points)|Leading (points)|
+|----|----|----|-----|
+|Large Title|Regular|34|41|
+|Title 1|Regular|28|34|
+|Title 2|Regular|22|28|
+|Title 3|Regular|20|25|
+|Headline|Semi-Bold|17|22|
+|Body|Regular|17|22|
+|Callout|Regular|16|21|
+|Subhead|Regular|15|20|
+|Footnote|Regular|13|18|
+|Caption 1|Regular|12|16|
+|Caption 2|Regular|11|13|
+
+----
+
+微软的 Fluent Design 给出了一些字体和建议
+
+|Size|Uasge|
+|-----|-----|
+|68px|Data visualization and/or large numerics. Use sparingly when specific figures need to stand out. Recommended line height is 76px.|
+|42px|Full-screen hero moments: OneDrive album titles, dates in All Photos view, SharePoint site titles, first run hero moments, greeting moments at the start screen. Recommended line height is 52px.|
+|32px|Titles for favorite document cards, Greeting moments. Recommended line height is 40px.|
+|28px|Page titles. Recommended line height is 36px.|
+|24px|Marketing email header. Recommended line height is 32px.|
+|20px|Page and pane headers, suite nav, titles in teaching bubbles, dialogs and file hover cards. Recommended line height is 28px.|
+|18px|Header for Team’s channel names. Recommended line height is 24px.|
+|16px|Subject line in mail, SharePoint article body, marketing emails as file name and body text. Recommended line height is 22px.|
+|14px|Commands and controls (left nav, Teams channels, command bar, checkbox, dropdown menu, toggle, radio button, button text and links), in file or document titles and as body text. Recommended line height is 20px.|
+|12px|Metadata in file lists and grid views, denotes any activity on items (number of views, shares or @mentions, timestamps), sharing permissions, persona names and in tooltips. Recommended line height is 16px.|
+|10px|Limited usage, use in places where text is mandatory and space is tight. For example, it is used for any disclaimer text that may appear in a purchase flow. It’s also used as the initials in a list of SharePoint sites in the left nav. Recommended line height is 14px.|
+
+### 根据比例选择
+
+[排版干货 | 字号大小与设计比率之美](https://www.shejidaren.com/zihao-daxiao-sheji-bilv.html) 一文中提到，可以通过比例来确定的字号。
+
+![](http://images.shejidaren.com/wp-content/uploads/2021/03/47274-7.jpg)
+
+大比例显得活泼，小比例则显得安静，据此我们可以根据内容确定比例，再计算出具体字号。除了上图中的比例，还有黄金比例，甚至音乐中的音阶也算比例（具体请去看原文）。
+
+
+
 
 
 ## 一些参考资料
@@ -108,8 +189,8 @@ rem（root em，根em）是css3新增的一个相对单位，与em的区别在�
 
 - 多家公司的字体规范
   - [苹果](https://developer.apple.com/design/human-interface-guidelines/macos/visual-design/typography/)
-  - [微软](https://docs.microsoft.com/zh-cn/windows/apps/design/style/typography)
-  - [谷歌](https://material.io/design/typography/the-type-system.html)
+  - [微软](https://www.microsoft.com/design/fluent/#/)
+  - 谷歌 [Material2](https://material.io/design/typography/the-type-system.html) [Material3](https://m3.material.io/styles/typography/overview)
 
 中文：
 
