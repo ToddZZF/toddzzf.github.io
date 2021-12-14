@@ -90,11 +90,56 @@ dp 和 sp 都只用于安卓。
 
 在网页端中，我们使用的是 em 和 rem
 
-em（emphasize）是相对长度单位，相对于当前对象内文本的字体尺寸，即 em 的计算是基于父级元素font-size的。如当前对行内文本的字体尺寸未被人为设置，则相对于浏览器的默认字体尺寸（一般是16px）。
+em（emphasize）是相对长度单位，相对于当前对象内文本的字体尺寸，即 em 的计算是基于父级元素font-size的。如当前对行内文本的字体尺寸未被人为设置，则相对于浏览器的默认字体尺寸（一般是16px）。举个例子：
 
-rem（root em，根em）是css3新增的一个相对单位，与em的区别在于，它是相对于html根元素的（在body标签里面设置字体大小不起作用）；
+```css
+.padded {
+  font-size: 16px;
+  padding: 1em;
+}
+```
+
+在 `.padded` 中，字体大小为 `16px`，则 `1em=16px`。
+
+rem（root em，根em）是css3新增的一个相对单位，与em的区别在于，它是相对于html根元素的（在body标签里面设置字体大小不起作用）；下面举个例子来说明一下为什么 rem 比 em 好。
+
+考虑这么一个 css：
+
+```css
+body {
+  font-size: 16px;
+}
+
+ul {
+  font-size: .8em;
+}
+```
+
+`ul` 中的字体是父元素 `body` 的 0.8 倍，即 16*0.8=12.8，这没有问题。但是，如果一旦有嵌套列表，那么嵌套列表会在上一级列表的基础上继续缩小，这可不是我们所希望的。要解决这种问题，我们可以这样写：
+
+```css
+ul {
+  font-size: .8em;
+}
+
+ul ul {
+  font-size: 1em;
+}
+```
+
+但这种方案并不清晰，因为我们为 `ul` 定义了两个大小。而用 rem 则很好的解决了这个问题：
+
+```css
+ul {
+  font-size: .8rem;
+}
+```
+
+这样，所有的 `ul` 都是 16*0.8，不存在嵌套列表缩小的问题。所以，对于 `font-size`，更推荐使用 rem。
 
 总而言之，这两个单位都是“相对”大小，至于参照物，则由浏览器设置，这样在不同屏幕上的效果也能达到一致。
+
+关于相对单位，知乎上有一系列文章说得很好：[《别说你懂CSS相对单位》系列译文](https://zhuanlan.zhihu.com/p/39270696)
 
 ### 字号的选择
 
@@ -177,15 +222,29 @@ iOS上的字号则略微大一点：
 
 大比例显得活泼，小比例则显得安静，据此我们可以根据内容确定比例，再计算出具体字号。除了上图中的比例，还有黄金比例，甚至音乐中的音阶也算比例（具体请去看原文）。
 
+## 字体
 
+反正我是业余的，所以也不说太复杂。简单来说，我们只需要了解：衬线（serif）与无衬线（sans-serif），比例（Proportional）与等宽（Monospaced）。下面两张图说明了它们的区别。
 
+![](http://www.sucaijishi.com/uploadfile/2018/0418/20180418040004550.png)
 
+![](/assets/images/design/font/比例与等宽.jpg)
+
+至于具体的字体嘛，很遗憾，由于中文字体的文件大小过大，所以一般网页只用系统自带的字体。关于系统自带的字体，请自行搜索。
+
+一些 font-family 方案：
+
+* [最标准的系统字体规范font-family](https://segmentfault.com/a/1190000011827800)
+* [中文网页字体设置方案：从 font-family 到 font-display](https://ridiqulous.com/chinese-webfont-guide/)
+* [中文字体网页开发指南](https://cloud.tencent.com/developer/article/1095935)
+* [中文网页最优字体选择](https://www.zaera.cn/2821.html)
+* [如何优雅的选择字体(font-family)](https://segmentfault.com/a/1190000006110417/)
 
 ## 一些参考资料
 
 英语：
 
-- [BUTTERICK’S PRACTICAL TYPOGRAPHY](https://practicaltypography.com/)
+- [BUTTERICK’S PRACTICAL TYPOGRAPHY](https://practicaltypography.com/) 建议将所有文章都读一遍，
 
 - 多家公司的字体规范
   - [苹果](https://developer.apple.com/design/human-interface-guidelines/macos/visual-design/typography/)
