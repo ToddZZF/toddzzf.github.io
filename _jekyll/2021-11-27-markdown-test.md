@@ -15,6 +15,8 @@ excerpt: 供 Jekyll 开发测试用
 
 Version: 1.0
 
+Note: All the styles are wrote in Markdown Syntax and Converted to HTML by Jekyll. 这些样式采用 Markdown 的格式编写，并通过 Jekyll 转化为 HTML 
+
 # H1 {#H1}
 
 ## H2 {#H2}
