@@ -15,7 +15,7 @@ mathjax: true
 
 <!--more-->
 
-> 本文所有内容来自于：[Super Practical Guide to Color Theory, Color Models and Perfect Color Palettes | UI Design](https://youtu.be/GyVMoejbGFg)
+> 本文所有内容来自于：[Super Practical Guide to Color Theory, Color Models and Perfect Color Palettes \| UI Design](https://youtu.be/GyVMoejbGFg)
 
 ## 色彩的属性
 
