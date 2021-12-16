@@ -216,7 +216,7 @@ iOS上的字号则略微大一点：
 
 ### 根据比例选择
 
-[排版干货 | 字号大小与设计比率之美](https://www.shejidaren.com/zihao-daxiao-sheji-bilv.html) 一文中提到，可以通过比例来确定的字号。
+[排版干货  字号大小与设计比率之美](https://www.shejidaren.com/zihao-daxiao-sheji-bilv.html) 一文中提到，可以通过比例来确定的字号。
 
 ![](http://images.shejidaren.com/wp-content/uploads/2021/03/47274-7.jpg)
 
@@ -250,6 +250,7 @@ iOS上的字号则略微大一点：
   - [苹果](https://developer.apple.com/design/human-interface-guidelines/macos/visual-design/typography/)
   - [微软](https://www.microsoft.com/design/fluent/#/)
   - 谷歌 [Material2](https://material.io/design/typography/the-type-system.html) [Material3](https://m3.material.io/styles/typography/overview)
+  - IBM [Carbon Design](https://www.carbondesignsystem.com/guidelines/typography/overview/)
 
 中文：
 
