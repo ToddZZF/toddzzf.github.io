@@ -73,6 +73,7 @@ excerpt: 博客的自定义
 
 多个选择的处理，如 site.mathjax 为 false，而 page.mathjax 为 true，则在引入 mathjax 时这样处理：
 
+{% raw %}
 ```html
 {%- include snippets/assign.html target=site.data.variables.default.mathjax
   source0=site.mathjax source1=page.mathjax -%}
@@ -80,9 +81,11 @@ excerpt: 博客的自定义
   {%- include markdown-enhancements/mathjax.html -%}
 {%- endif -%}
 ```
+{% endraw %}
 
 而 _include/snippets/assign.html 代码如下：
 
+{% raw %}
 ```html
 {%- if include.source1 == nil -%}
   {%- if include.source0 == nil -%}
@@ -94,6 +97,7 @@ excerpt: 博客的自定义
   {%- assign __return = include.source1 -%}
 {%- endif -%}
 ```
+{% endraw %}
 
 ## 主题设计
 
