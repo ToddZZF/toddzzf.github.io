@@ -21,16 +21,20 @@ excerpt: 博客的自定义
 
 &emsp;&emsp;Jekyll 的搭建过程就像搭积木：先分别写好 head、header、footer，然后再拼在一起。这是相同的部分。对于不同的部分，比如中间的内容、或者页码，就需要用 Liquid 和 Markdown 来表现。
 
-&emsp;&emsp;除此之外，CSS、Javascript 也是不可或缺的。但用其编写静态网站的方法与传统网页也有所不同，这里我们更需要保持层次化。因此我们还需要 scss 等其他语言。
+&emsp;&emsp;除此之外，CSS、Javascript 也是不可或缺的。但用其编写静态网站的方法与传统网页也有所不同，这里我们更需要保持层次化。因此我们还需要 SASS 等其他语言。
 
 &emsp;&emsp;总结一下就是：
 
 - Jekyll
 - Liquid
-- SCSS (CSS)
+- SASS (CSS)
 - Javascript
 
 &emsp;&emsp;以上所提的这些都需要一边学习，一边实践。不过我感觉我缺的东西有点多，估计要学完需要很长时间。学完后，最终会利用Jekyll来渲染博客网站的静态部分。
+
+---
+
+2021/12/18 更新：自己写 CSS 太难了，要花费很多时间，所以我决定用别人写好的库。我看了下目前的 SCSS 库，发现大部分都不怎么更新了，那我干脆直接用现在还火的 tailwindcss 算了，这样还方便些。
 
 ## 理想博客
 
@@ -90,3 +94,32 @@ excerpt: 博客的自定义
   {%- assign __return = include.source1 -%}
 {%- endif -%}
 ```
+
+## 主题设计
+
+### 颜色
+
+问了下molly喜欢的颜色，她说喜欢蓝色，并给出如下几种蓝：
+
+- #94BDF2 HSV 214, 39, 95
+- #67B8DE HSV 199, 54, 87
+- #91C9E8 HSV 201, 38, 91
+- #B4DCED HSV 198, 24, 93
+- #93C1F4 HSV 212, 40, 96
+
+总结一下，这几种蓝色的 Hue（色相）在 200 左右，Saturation（饱和度）在 40 左右，Value（亮度）在 90 左右，基于此，我选取如下一组蓝色：
+
+![](/assets/images/design/color/my_blue_1.jpg)
+
+图中，每个颜色的数字表示：
+
+- 编号
+- 与白色（#020202）的对比度
+- 与黑色（#FEFEFE）的对比度
+- Hex（RGB）
+- Hue
+- Saturation
+- Brightness
+
+在这其中，选取颜色 2 为白色模式下的主色调，选取颜色 4 为黑暗模式下的主色调。
+
