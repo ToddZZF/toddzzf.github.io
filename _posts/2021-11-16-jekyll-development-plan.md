@@ -111,19 +111,15 @@ excerpt: 博客的自定义
 - #B4DCED HSV 198, 24, 93
 - #93C1F4 HSV 212, 40, 96
 
-总结一下，这几种蓝色的 Hue（色相）在 200 左右，Saturation（饱和度）在 40 左右，Value（亮度）在 90 左右，基于此，我选取如下一组蓝色：
+总结一下，这几种蓝色的 Hue（色相）在 200 左右，Saturation（饱和度）在 40 左右，Value（亮度）在 90 左右，基于此，我选取 HSV=(210,49,91) 为主颜色，HSV=(187,48,87) 为辅颜色，HSV=(61,36,100) 为强调色，黑白为背景与文字，即下面一组颜色。
 
-![](/assets/images/design/color/my_blue_1.jpg)
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" viewBox="0 0 500 250" xml:space="preserve">
+    <rect fill="#ffffff" x="0" y="0" width="100" height="220"/>,<rect fill="#77b0e8" x="100" y="0" width="100" height="220"/>,<rect fill="#74d2de" x="200" y="0" width="100" height="220"/>,<rect fill="#feffa2" x="300" y="0" width="100" height="220"/>,<rect fill="#000000" x="400" y="0" width="100" height="220"/>
+</svg>
 
-图中，每个颜色的数字表示：
+有趣的是我觉得这组颜色就像 rainbow dash 和 fluttershy，那不如干脆把这组配色命名为飞马色吧（因为下面两只小马都有翅膀）。
 
-- 编号
-- 与白色（#020202）的对比度
-- 与黑色（#FEFEFE）的对比度
-- Hex（RGB）
-- Hue
-- Saturation
-- Brightness
-
-在这其中，选取颜色 2 为白色模式下的主色调，选取颜色 4 为黑暗模式下的主色调。
-
+<div class="masonry">
+    <div class="item"><img src="/assets/images/thumbnail/rainbow_dash.png"></div>
+    <div class="item"><img src="/assets/images/thumbnail/fluttershy.png"></div>
+</div>
