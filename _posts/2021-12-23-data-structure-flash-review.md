@@ -197,7 +197,7 @@ public:
 - 数组
 - 链表
 
-## 二叉树
+## Chapter 5 二叉树
 
 概念：
 
@@ -261,4 +261,134 @@ public:
 构建哈夫曼编码的算法：
 
 
-## Chapter 6
+## Chapter 6 一般树
+
+概念：
+
+- **树** T 是一个包含一个或多个节点的有限集合，其中有一个称为 **树根** 的节点r，余下的节点(T –{r}) 可以被划分为k个( k≥0)互不想交的子集 T1, T2, ..., Tk, 每个子集都是一棵树,它们的树根 r1, r2, ..., rk,都是r的孩子
+- **森林**：是包含有一棵或多棵树的集合。
+
+
+---
+
+树结点 ADT
+
+
+```cpp
+// General tree node ADT
+template <class Elem> class GTNode {
+public:
+    GTNode(const Elem&); // Constructor
+    ~GTNode();           // Destructor
+    Elem value();        // Return value
+    bool isLeaf();       // TRUE if is a leaf
+    GTNode* parent();    // Return parent
+    GTNode* leftmost_child(); // First child
+    GTNode* right_sibling();  // Right sibling
+    void setValue(Elem&);     // Set value
+    //insert first child
+    void insert_first(GTNode<Elem>* n);
+    //insert right sibling
+    void insert_next(GTNode<Elem>* n);
+    void remove_first(); // Remove first child
+    void remove_next();  // Remove sibling
+};
+```
+
+树 ADT
+
+
+```cpp
+// General tree ADT
+template <class Elem> class GenTree {
+public:
+    GenTree();               // Constructor
+    ~GenTree();              // Destructor  
+    void clear();            // Send nodes to free store
+    GTNode* root();          // Return the root
+    
+    void print(GTNode*); // Print function
+};
+```
+
+
+## Chapter7 内部排序
+
+概念：
+
+- 排序：给定一个序列的记录 $R_1 , R_2 , … , R_n$，它们对应的关键字依次是 $k_1 , k_2 ,… , k_n$ , 调整记录在序列中的次序得到新的记录序列 $R_{s1},R_{s2},…,R_{sn}$，使得记录的关键字满足以下性质： $k_{s1} ≤ k_{s2} ≤  …≤ k_{sn}$. 
+- 稳定的排序算法：排序的过程不会改变具有相等关键字的记录的相对先后次序。 
+
+- 内部排序：指的是待排序记录存放在计算机随机存储器中进行的排序过程。
+- 外部排序：指的是待排序记录的数量很大，以致内存一次不能容纳全部记录, 在排序过程中尚需对外存进行访问的排序过程。 
+
+---
+
+### 插入排序
+
+记忆：像洗牌，将每张牌插入到合适的位置
+
+实现：在第i次迭代，将第i个元素与前面 i-1 个元素进行比较，使其插入到前面适当的位置(1 <= i <= n-1)
+
+
+```cpp
+template <class Elem>
+void inssort(Elem A[], int n) {
+    for (int i=1; i<n; i++)
+        for (int j=i; (j>0) &&
+              (A[j]< A[j-1])); j--)//插入第i个元素
+            swap(A, j, j-1);
+}
+```
+
+代价分析：最好 $\Theta(n)$，最坏 $\Theta(n^2)$，平均 $\Theta(n^2)$
+
+插入排序是一种稳定的排序算法。
+
+### 冒泡排序
+
+实现：由后到前，相邻两个元素比较，逆序则交换。一次冒泡过程结束后，最小的元素会到达最前面。
+
+```cpp
+template <class Elem>
+void bubsort(Elem A[], int n) {
+    for (int i=0; i <n-1; i++)
+        for (int j=n-1; j>i; j--)
+            if (A[j]< A[j-1])
+                swap(A, j, j-1);
+}
+```
+
+代价分析：最好、最坏、平均都是 $\Theta(n^2)$。
+
+冒泡排序算法是一种稳定的排序算法。
+
+### 选择排序
+
+实现：第i趟排序就是从位置属于[i,n-1]的元素中，选出最小的元素，并将其和第i位置上的元素交换
+
+```cpp
+template <class Elem>
+void selsort(Elem A[], int n) {
+    for (int i=0; i<n-1; i++) { 
+   // select the minial values in [i,n-1]
+        int lowindex = i; // lowindex指向较小的元素
+        for (int j=n-1; j>i; j--) // Find least
+            if (A[j]< A[lowindex])
+                lowindex = j; 
+        swap(A, i, lowindex); // Put it in place
+    }
+}
+```
+
+代价分析：最好、最坏、平均都是 $\Theta(n^2)$。
+
+选择排序是一种不稳定的排序算法。
+
+### 希尔排序（Shellsort）
+### 快速排序
+### 归并排序
+### 堆排序
+### 箱排序和 基数排序
+### 排序算法性能比较
+### 排序算法的理论下界
