@@ -386,9 +386,164 @@ void selsort(Elem A[], int n) {
 选择排序是一种不稳定的排序算法。
 
 ### 希尔排序（Shellsort）
+
+思路（分组）：每隔一定间距取一个元素放入同一组，将所有元素分成多组，并在组内进行插入排序。然后减小间距重新分组，重新排序。最后当间距为 1 时，退化为一般的插入排序。
+
+分析：由于最后一次排序是一般的插入排序，所以这种方法是可行的。而前面几次排序可以使元素一次性移动多格，所以速度会快。
+
+代码：
+
+```cpp
+// Modified version of Insertion Sort
+template <class Elem>
+void inssort2(Elem A[], int n, int from, int incr) 
+{
+  for (int i= from + incr; i<n; i+=incr)
+    for (int j=i; (j> from &&
+         		A[j]< A[j-incr]); j-=incr)
+      	swap(A, j, j-incr);
+}
+
+template <class Elem>
+void shellsort(Elem A[], int n) { // Shellsort
+  for (int i=n/2; i>=1; i/=2)  // For each incr
+    for (int j=0; j<i; j++)   // Sort sublists
+      inssort2<Elem>(A, n, j, i);   
+}
+
+```
+
+当增量序列为 $∆[k] = 2^{t-k+1}-1$ 时，算法复杂度为 $O(n^{3/2})$。 其中 t 是排序的趟数，$1\leq k\leq t$。例如（15，7，3，1）。[证明过程](https://zhuanlan.zhihu.com/p/73726253)
+
+
+希尔排序是一种不稳定排序。
+
 ### 快速排序
+
+思想（分而治之）：选择一个记录的值作为支点（pivot）。将小于支点的记录安排在支点的左侧，将大于等于支点的记录安排在支点的右侧。从而将原序列划分为左右两个子序列。然后在子序列中重复该过程。
+
+```cpp
+template <class Elem>
+void qsort(Elem A[], int i, int j) {
+  if (j <= i) return;     // List too small
+  int pivot = findpivot(A, i, j);
+  swap(A, pivot, j);  // Put pivot at end
+
+  int k = partition<Elem>(A, i, j, A[j]);
+  swap(A, k, j);         // Put pivot in place
+  qsort<Elem>(A, i, k-1);
+  qsort<Elem>(A, k+1, j);
+}
+
+template <class Elem>
+int findpivot(Elem A[], int i, int j)
+  { return (i+j)/2; }
+
+template <class Elem>
+int partition(Elem A[], int l, int r,Elem& pivot) {
+  do {  
+    while (A[l] < pivot) l++;
+    while ((r > l) && A[r] >=pivot)
+       r--;
+
+    swap(A, l, r); // Swap out-of-place values
+  } while (l < r); // Stop when they cross
+  return l;       // Return first pos on right
+}
+```
+
+代价分析：类似二叉树（层数代表次数）
+
+```yml
+#best: 每次都均匀分成两段
+
+   --------
+   ---- ----
+  -- -- -- --
+- - - - - - - -
+
+#worst
+--------
+- -------
+  - ------
+    - -----
+      - ----
+        - ---
+          - --
+            - -
+```
+
+平均情况：
+
+$$
+T(n)=cn+\frac{1}{n} \sum_{k=0}^{n-1} (T(k)+T(n-1-k))=\Theta(n \log n)
+$$
+
+改进方法：
+
+- 选取更好的支点
+  - 选择以下三个记录中的中间值作为支点 : 序列的第一个，中间，最后一个记录
+- 采用非递归的算法来实现快速排序
+
+
 ### 归并排序
+
+思路（分而治之）：将一个序列划分为两个长度相等的子序列，然后递归的对每个子序列进行归并排序。将排好序的两个子序列归并为一个有序的序列。
+
+```cpp
+template <class Elem>
+void mergesort(Elem A[], Elem temp[],
+               int left, int right) {
+  int mid = (left+right)/2;
+  if (left == right) return; 
+
+  mergesort<Elem>(A, temp, left, mid);
+  mergesort<Elem>(A, temp, mid+1, right);
+
+  for (int i=left; i<=right; i++) // Copy
+    temp[i] = A[i];
+  int i1 = left; int i2 = mid + 1;
+  for (int curr=left; curr<=right; curr++) {
+    if (i1 == mid+1)      // Left exhausted
+      A[curr] = temp[i2++];
+    else if (i2 > right)  // Right exhausted
+      A[curr] = temp[i1++];
+    else if (temp[i1] < temp[i2])
+      A[curr] = temp[i1++];
+    else A[curr] = temp[i2++];
+  }
+}
+```
+
+代价分析：最好、最坏、平均都是 $\Theta(n \log n)$。
+
 ### 堆排序
-### 箱排序和 基数排序
+
+思路：堆顶结点的值总保持是最大值/最小值，故每次取堆顶，然后用剩下元素建堆，再重复该过程。
+
+
+```cpp
+
+```
+
+代价分析：建堆 $\Theta(n)$，移除最大值 $\Theta(\log n)$，n 次移除最大值 $\Theta(n\log n)$。故总代价为 $\Theta(n\log n)$
+
+### 箱排序和基数排序
+
+
+箱排序（Binsort）：设置若干个箱子，依次扫描待排序的记录 R[0]，R[1]，…，R[n-1]，把关键字等于 k 的记录分配到第 k 个箱子里，然后按序号依次将各非空的箱子中的记录收集起来。
+
+代价：对于Key取值范围较大的记录进行Binsort，较为低效 $\Theta(n + m)$.
+
+
 ### 排序算法性能比较
+
+
 ### 排序算法的理论下界
+
+
+
+
+## Chapter9 查找
+
+定义：
