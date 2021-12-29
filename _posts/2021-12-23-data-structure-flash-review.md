@@ -6,7 +6,7 @@ category: work
 thumbnail: /assets/images/thumbnail/fluttershy.png
 icon: note
 excerpt: 差点忘了我还有一门考试
-mathjax: false
+mathjax: true
 ---
 
 * Content
