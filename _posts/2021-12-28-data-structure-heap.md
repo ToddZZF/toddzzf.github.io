@@ -150,6 +150,8 @@ void adjust_heap(int *a, int node, int len) {
 }
 ```
 
+
+
 ## 插入新结点
 
 首先，要保持堆是完全二叉树，那么新插入的结点只能在最末尾的位置。假设我们新插入的是 9
@@ -197,6 +199,84 @@ void adjust_heap(int *a, int node, int len) {
  / \
 2   4
 ```
+
+## 堆排序
+
+首先，我们将所有元素组织成堆，然后取出最大的元素：
+
+```
+     '7'
+     / \
+    5   6
+   / \ / \
+  4  2 1  3
+
+     ' '
+     / \
+    5   6
+   / \ / \
+  4  2 1  3
+
+7
+```
+
+由于根结点空了，所以我们把最右下的元素补上去
+
+```
+      3
+     / \
+    5   6
+   / \ /
+  4  2 1
+```
+
+由于此时左、右子树都是堆，所以只需要将根结点下沉。
+
+```
+      6
+     / \
+    5   3
+   / \ /
+  4  2 1
+```
+
+然后，再取出根结点，重复上述过程。
+
+代码如下：
+
+```cpp
+template <class Elem>
+void heapsort(Elem A[], int n) { // Heapsort
+    Elem mval;
+    maxheap<Elem> H(A, n, n);
+    for (int i=0; i<n; i++)  // Now sort
+        H.removemax(mval);     
+}
+
+template<class Elem> class maxheap{
+    private:
+        Elem* Heap;   // Pointer to the heap array
+        int size;     // Maximum size of the heap
+        int n;        // Number of elems now in heap
+  
+    public:
+        maxheap(Elem* h, int num, int max) {
+            Heap = h; n = num; size = max; buildHeap();
+        }
+
+        Bool removemax(Elem& it) {
+            if (n == 0) return false; // Heap is empty
+            swap(Heap, 0, --n);      // Swap max with end
+            if (n != 0) siftdown(0);
+            it = Heap[n];            // Return max value
+            return true;
+        }
+}
+```
+
+代价为：1. 建堆 $\Theta(n)$ 2. 移除最大值 $\Theta(\log n)$（因为深度为 $\lceil \log n$ \rceil） 3. n次移除最大值 $\Theta(n\log n)$
+
+> 话说我觉得建堆应该是 $\Theta(n\log n)$
 
 ## 参考
 
