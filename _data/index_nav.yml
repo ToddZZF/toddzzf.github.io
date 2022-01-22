@@ -1,0 +1,9 @@
+- name: Home
+  link: /
+  icon: fas fa-home
+- name: PPT
+  link: /ppt.html
+  icon: fas fa-file-powerpoint
+- name: Jekyll
+  link: /jekyll/index
+  icon: fas fa-book

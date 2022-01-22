@@ -1,0 +1,84 @@
+<!doctype html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+  <title>reveal.js</title>
+
+  <link rel="stylesheet" href="dist/reset.css">
+  <link rel="stylesheet" href="dist/reveal.css">
+  <link rel="stylesheet" href="dist/theme/white.css">
+
+  <!-- Theme used for syntax highlighted code -->
+  <link rel="stylesheet" href="plugin/highlight/monokai.css">
+  <style>
+    .twocolumn {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-gap: 10px;
+      text-align: center;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="reveal">
+    <div class="slides">
+      <section data-background-color="aquamarine">
+        <h2>🐟</h2>
+      </section>
+      <section>Slide 2</section>
+      <section>
+        <h2>The Lorenz Equations</h2>
+        \[\begin{aligned}
+        \dot{x} &amp; = \sigma(y-x) \\
+        \dot{y} &amp; = \rho x - y - xz \\
+        \dot{z} &amp; = -\beta z + xy
+        \end{aligned} \]
+      </section>
+      <section>
+        <h2>Slide Title</h2>
+        <div class="twocolumn">
+          <div>
+            Column One
+          </div>
+          <div>
+            Column Two
+          </div>
+        </div>
+      </section>
+    </div>
+  </div>
+
+  <script src="dist/reveal.js"></script>
+  <script src="plugin/notes/notes.js"></script>
+  <script src="plugin/markdown/markdown.js"></script>
+  <script src="plugin/highlight/highlight.js"></script>
+  <script src="plugin/math/math.js"></script>
+  <script>
+    // More info about initialization & config:
+    // - https://revealjs.com/initialization/
+    // - https://revealjs.com/config/
+    Reveal.initialize({
+      hash: true,
+      math: {
+        mathjax: 'https://cdn.jsdelivr.net/gh/mathjax/mathjax@2.7.8/MathJax.js',
+        config: 'TeX-AMS_HTML-full',
+        // pass other options into `MathJax.Hub.Config()`
+        TeX: {
+          tex2jax: {
+            inlineMath: [['$', '$'], ['\\(', '\\)']]
+          },
+          Macros: { RR: "{\\bf R}" }
+        }
+      },
+
+      // Learn about plugins: https://revealjs.com/plugins/
+      plugins: [RevealMarkdown, RevealHighlight, RevealNotes, RevealMath]
+    });
+  </script>
+</body>
+
+</html>

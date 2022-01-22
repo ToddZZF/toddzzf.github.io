@@ -1,64 +1,69 @@
-# Basic 基础
-name: Todd's Blog
-author: Todd Zhou
-url: https://toddzzf.github.io
-baseurl: 
-resume_site: https://toddzzf.github.io
-description: Thought.Knowledege.Life.
-plugins: [jekyll-paginate]
-permalink: /:year-:month-:day/:title
-paginate: 12
-paginate_path: "/page/:num/"
-exclude: ['README.md', 'Gemfile.lock', 'Gemfile', 'Rakefile']
+# jekyll-theme-MNPP
 
-# Social 社交
-github_username: ToddZZF
-github: https://github.com/ToddZZF
-bilibili: https://space.bilibili.com/14158798
-mail: mailto:toddzzf@outlook.com
-wechat:
-qq:
-nintendo:
-xbox:
+# site info
+title: Todd's Blog
+email: your-email@example.com
+description: >- # this means to ignore newlines until "baseurl:"
+  My Experimental Design
+baseurl: "" # the subpath of your site, e.g. /blog
+url: "" # the base hostname & protocol for your site, e.g. http://example.com
 
-# Markdown
-highlighter: rouge
-markdown: kramdown
-kramdown:
-  toc_levels: 1..3
+# author info
+author:
+  name: Mollia
+  url: https://github.com/mollia/
+  email: 563560836@qq.com
 
-# Comments 评论
-comments:
-  gitalk:
-    clientID: 46466568edd862a59169
-    clientSecret: 4796ee89765c241e2cc6acc378eec7d6199c027c
-    repo: toddzzf.github.io
-    owner: ToddZZF
-    admin: ToddZZF
-
+# Pagination 分页
+paginate: 10
+paginate_path: "/page:num/" # 分页的url
 
 # Excerpt 摘要
-excerpt_separator: <!--more--> # 摘要的分隔符
-excerpt_max_num: 128 # 摘要的最大长度
+excerpt_separator: "\n\n" # 摘要的分隔符，取第一段
+excerpt_max_num: 64 # 摘要的最大长度
 
-# Markdown Enhancement 扩展 markdown
-sources: bootcdn # bootcdn 或 jsdelivr
+# font matter defaults 默认头
+defaults:
+  - posts:
+    scope:
+      path: "" # an empty string here means all files in the project
+      type: "posts" # previously `post` in Jekyll 2.2.
+    values:
+      layout: "post"
 
-## Mathjax
-mathjax: false
-mathjax_autoNumber: false
-
-## Mermaid
-mermaid: false
-
-## Chart
-chart: false
-
-## 集合
+# collections 集合
 collections:
-  my_ppt:
+  ppt:
     output: true
     permalink: /:year-:month-:day/:title
   jekyll:
     output: true
     permalink: /jekyll/:title
+# sass （not necessary needed)
+sass:
+  sass_dir: "/style/sass"
+
+# Plugins 插件
+plugins:
+  - jekyll-feed
+  - jekyll-paginate
+
+exclude:
+  - .gitattributes
+  - .gitignore
+  - .sass-cache/
+  - .jekyll-cache/
+  - _site/
+  - docs/
+  - gemfiles/
+  - Gemfile
+  - Gemfile.lock
+  - LICENSE
+  - node_modules/
+  - src/
+  - README.md
+  - tailwind.config.js
+  - vendor/bundle/
+  - vendor/cache/
+  - vendor/gems/
+  - vendor/ruby/

@@ -1,108 +1,13 @@
-<footer id="footer" class="footer bg-white">
-    <div class="footer-social">
-        <div class="footer-container clearfix">
-            <div class="social-list">
-                <a href="{{ '/' | prepend: site.baseurl }}"><span class='iconfont icon-home-heart-fill'></span>&nbsp;&nbsp;HOME</a>
-                {% if site.github %}
-                <a rel="nofollow" target="_blank" href="{{site.github}}"><span
-                        class='iconfont icon-github-fill'></span>&nbsp;&nbsp;Github</a>
-                {% endif%}
-                {% if site.bilibili %}
-                        <a rel="nofollow" target="_blank" href="{{site.bilibili}}"><span
-                        class='iconfont icon-bilibili-fill'></span>&nbsp;&nbsp;Bilibili</a>
-                {% endif%}
-                {% if site.qq %}
-                        <a rel="nofollow" target="_blank" href="{{site.qq}}"><span
-                        class='iconfont icon-qq-fill'></span>&nbsp;&nbsp;QQ</a>
-                {% endif%}
-                {% if site.wechat %}
-                        <a rel="nofollow" target="_blank" href="{{site.wechat}}"><span
-                        class='iconfont icon-wechat-fill'></span>&nbsp;&nbsp;WeChat</a>
-                {% endif%}
-                {% if site.nintendo %}
-                        <a rel="nofollow" target="_blank" href="{{site.nintendo}}"><span
-                        class='iconfont icon-switch-fill'></span>&nbsp;&nbsp;Nintendo</a>
-                {% endif%}
-                {% if site.xbox %}
-                        <a rel="nofollow" target="_blank" href="{{site.xbox}}"><span
-                        class='iconfont icon-bilibili-fill'></span>&nbsp;&nbsp;Github</a>
-                {% endif%}
-                {% if site.mail %}
-                        <a rel="nofollow" target="_blank" href="{{site.mail}}"><span
-                        class='iconfont icon-mail-fill'></span>&nbsp;&nbsp;Mail</a>
-                {% endif%}
-                        <a target="_blank" href="{{ '/feed.xml' | prepend: site.baseurl }}"><span
-                        class='iconfont icon-rss-fill'></span>&nbsp;&nbsp;RSS</a>
-            </div>
-        </div>
-    </div>
-    <div class="footer-meta">
-        <div class="footer-container">
-            <div class="meta-item meta-copyright">
-                <div class="meta-copyright-info">
-                    <a href="{{site.resume_site}}" class="info-logo">
-                        <img src="{{ '/style/image/logo.png' | prepend: site.baseurl }}" alt="wonder">
-                    </a>
-                    <div class="info-text">
-                        <p>Copyright &copy; 2021 - {{ site.time | date: '%Y' }} <a
-                                href="{{site.resume_site}}"><code>{{ site.author }}</code></a></p>
-                        <p>Powered by <a href="http://jekyllrb.com" target="_blank"
-                                rel="nofollow"><code>jekyll</code></a>，theme is <a
-                                href="https://github.com/lightfish-zhang/pinghsu-jekyll" target="_blank"
-                                rel="nofollow"><code>pinghsu</code></a></p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="meta-item meta-posts">
-                <h3 class="meta-title">RECENT POSTS</h3>
-                {% for post in site.posts limit:7 %}
-                <li>
-                    <a href="{{ post.url }}">{{ post.title }}</a>
-                </li>
-                {% endfor %}
-            </div>
-
-        </div>
-    </div>
-</footer>
-
-<!-- #end -->
-<script src="//cdn.bootcss.com/jquery/1.10.1/jquery.min.js"></script>
-<script>
-    !window.jQuery && document.write(unescape('%3Cscript src="{{ site.baseurl }}/style/js/jquery.min.js"%3E%3C/script%3E'))
-</script>
-<script src="{{ site.baseurl }}/style/js/headroom.min.js"></script>
-<script src="{{ site.baseurl }}/style/js/nav.min.js"></script>
-<script type="text/javascript">
-    var header = new Headroom(document.getElementById("header"), {
-        tolerance: 10,
-        offset: 80,
-        classes: {
-            initial: "animated",
-            pinned: "slideDown",
-            unpinned: "slideUp"
-        }
-    });
-    header.init();
-</script>
-
-<script>window.SmoothScrollOptions = { stepSize: 36 }</script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/smoothscroll/1.4.8/SmoothScroll.min.js"></script>
-<script>
-    !window.SmoothScroll && document.write(unescape('%3Cscript src="{{ site.baseurl }}/style/js/SmoothScroll.min.js"%3E%3C/script%3E'))
-</script>
-
-{% if site.googlaAnalyticsID %}
-<script>
-        (function (i, s, o, g, r, a, m) {
-            i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () {
-                (i[r].q = i[r].q || []).push(arguments)
-            }, i[r].l = 1 * new Date(); a = s.createElement(o),
-                m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m)
-        })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
-
-    ga('create', '{{site.googlaAnalyticsID}}', 'auto');
-    ga('send', 'pageview');
-</script>
-{% endif %}
+<footer class="text-base text-[#868E96]">
+    {%- assign year_from = site.posts[-1].date | date: '%Y' -%}
+    {%- assign year_to   = site.time | date: '%Y' -%}
+    {%- if year_from == nil or year_from == year_to -%}
+      {%- assign year_string = year_from -%}
+    {%- else -%}
+      {%- assign year_string = year_from | append: '&nbsp;' | append: '-' | append: '&nbsp;' | append: year_to -%}
+    {%- endif -%}
+    <small>
+      &copy; {{ year_string }} {% if site.author %}<a href="{{ site.author.url }}" class="underline hover:text-accent">{{ site.author.name }}</a>{% endif %}. All rights reserved.
+      Powered by <a href="https://jekyllrb.com/" class="underline hover:text-accent">Jekyll</a> & <a href="https://github.com/vszhub/not-pure-poole" class="underline hover:text-accent">Not Pure Poole</a>.
+    </small>
+  </footer>

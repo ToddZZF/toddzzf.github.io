@@ -1,17 +1,13 @@
 <!DOCTYPE html>
 <html>
 
-  {% include head.html %}
+{% include head.html %}
 
-<body class="bg-grey" gtools_scp_screen_capture_injected="true">
+<body class="antialiased bg-primary">
 
-    {% include header.html %}
+{{ content }}
 
-    {{ content }}
-    
-    {% include footer.html %}
+{% include script.html %}
 
-    {%- include markdown-enhancements.html -%}
-
-  </body>
+</body>
 </html>
