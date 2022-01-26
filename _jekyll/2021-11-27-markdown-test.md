@@ -43,6 +43,10 @@ This is a test: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do 
 
 ~~删除线 Strkethrough~~
 
+<mark>高亮 mark</mark>
+
+<kbd>按键 keyboard</kbd>
+
 > 块引用
 > 
 > > 这是一个测试段落：大哉乾元，万物资始，乃统天。云行雨施，品物流形。大明终始，六位时成。时乘六龙以御天。乾道变化，各正性命。保合大和，乃利贞。首出庶物，万国威宁。
