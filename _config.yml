@@ -39,6 +39,10 @@ collections:
   jekyll:
     output: true
     permalink: /jekyll/:title
+  food:
+    output: true
+    permalink: /food/:title
+
 # sass （not necessary needed)
 sass:
   sass_dir: "/style/sass"

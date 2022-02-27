@@ -7,3 +7,6 @@
 - name: Jekyll
   link: /jekyll/index
   icon: fas fa-book
+- name: food
+  link: /food.html
+  icon: fas fa-utensils
