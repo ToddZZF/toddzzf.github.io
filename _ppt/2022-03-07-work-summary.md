@@ -207,6 +207,7 @@ solve vgate=0.5 vstep=0.25 name=gate vfinal=6.
                 </ul>
                 </li>
                 <li>陷阱对器件特性产生影响。</li>
+                <li>载流子注入对器件特性产生影响。</li>
             </ol>
         </section>
     </section>
