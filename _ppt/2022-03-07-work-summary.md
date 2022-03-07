@@ -52,7 +52,7 @@ excerpt: 简述TCAD仿真流程
             <p>利用TCAD进行仿真</p>
         </section>
         <section>
-            <p>使用 Atlas 语法形成 PMOS 晶体管</p>
+            <p>使用 Atlas 语法形成晶体管</p>
 <!--代码-->
 <pre><code data-line-numbers>go atlas
 #
