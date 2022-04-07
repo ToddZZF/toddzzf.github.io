@@ -116,7 +116,15 @@ excerpt: 仿真
     </section>
     <section>
         <h3>仿真</h3>
-        <img src="/assets/images/hot-carrier/0407-仿真.jpg" width="50%"/>
+        <div class="twocolumn">
+            <div>
+            <img src="/assets/images/hot-carrier/0407-100nmPMOS.jpg" width="100%">
+            </div>
+            <div>
+            <img src="/assets/images/hot-carrier/0407-仿真.jpg" width="100%"/>
+            </div>
+        </div>
+        
     </section>
     <section>
         <p>下两周安排：仿真、实验</p>
