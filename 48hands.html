@@ -11,8 +11,6 @@ layout: default
     </div>
 </div>
 
-<div class="max-w-[80%] max-h-[80%] rotate-90 m-auto"></div>
-
 <script>
     window.onload = function startup() {
         const el = document.getElementById("touchscreen");
@@ -24,7 +22,7 @@ layout: default
 
     function handleStart(evt) {
         console.log(evt.touches);
-        if (evt.touches.length >= 1) {
+        if (evt.touches.length >= 2) {
             clearTimeout(timer);
             timer = setTimeout(showImg, 1000);
         }
