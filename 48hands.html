@@ -2,7 +2,7 @@
 layout: default
 ---
 
-<div id="touchscreen" class="relative flex flex-col justify-center w-screen h-screen">
+<div  id="touchscreen" class="relative flex flex-col justify-center w-screen h-screen">
 
     <div class="text-white text-center self-center">
         <div id="up" class="rotate-180 mb-1 italic">👇请双方将一只手指放在屏幕上👇</div>
@@ -11,7 +11,7 @@ layout: default
     </div>
 </div>
 
-<div class="max-w-[80%] max-h-[80%] rotate-90"></div>
+<div class="max-w-[80%] max-h-[80%] rotate-90 m-auto"></div>
 
 <script>
     window.onload = function startup() {
@@ -24,7 +24,7 @@ layout: default
 
     function handleStart(evt) {
         console.log(evt.touches);
-        if (evt.touches.length >= 2) {
+        if (evt.touches.length >= 1) {
             clearTimeout(timer);
             timer = setTimeout(showImg, 1000);
         }
@@ -38,7 +38,7 @@ layout: default
     function showImg() {
         const el = document.getElementById("touchscreen");
         var i = getRndInteger(1,48);
-        el.innerHTML = `<center><img class="max-w-[80%] max-h-[80%] rotate-90" src="/assets/images/48hands/${i}.webp"></center>`;
+        el.innerHTML = `<img class="max-w-[80%] max-h-[80%] rotate-90 m-auto" src="/assets/images/48hands/${i}.webp">`;
     }
 
     function getRndInteger(min, max) {
