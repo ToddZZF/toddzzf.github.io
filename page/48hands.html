@@ -1,7 +1,10 @@
 ---
 title: 四十八手抽签
 layout: default
+password: Todd&Molly
 ---
+
+{% include plugin/encrypt.html %}
 
 <div  id="touchscreen" class="relative flex flex-col justify-center w-screen h-screen select-none">
 
@@ -25,7 +28,7 @@ layout: default
         console.log(evt.touches);
         if (evt.touches.length >= 2) {
             clearTimeout(timer);
-            timer = setTimeout(showImg, 1000);
+            timer = setTimeout(showImg, 3000);
         }
     }
 

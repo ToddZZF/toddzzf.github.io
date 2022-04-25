@@ -3,7 +3,7 @@ layout: post
 title: 游戏玩后感
 date: 2022-04-04 10:38:00 +0800
 category: document
-thumbnail: /assets/images/thumbnail/rainbow_dash.png
+thumbnail: /assets/images/thumbnail/pinkie_pie.webp
 icon: note
 excerpt: 对已完游戏的总结
 indent: True

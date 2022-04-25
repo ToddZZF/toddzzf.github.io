@@ -4,6 +4,7 @@ module.exports = {
         "./_includes/**/*.{html,js}",
         "./_layouts/**/*.{html,js}",
         "./*.{html,js,md}",
+        "./page/*.{html,md}"
     ],
     theme: {
         extend: {
