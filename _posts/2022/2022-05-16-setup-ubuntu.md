@@ -32,3 +32,7 @@ Because I haven't install any pinyin keyboard, therefore I have to write this in
 - shutter: 用于截屏
 - VLC: 用于看视频
 - 安装 flatpak 替换原 Software 商店
+
+## 开发环境
+
+- 设置 git，并添加 github ssh key <https://zhuanlan.zhihu.com/p/31417255>（本来想直接用 vscode 直接配置 github 的，但 code.dev 跳转不了）
