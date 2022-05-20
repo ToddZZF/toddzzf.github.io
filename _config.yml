@@ -30,6 +30,13 @@ defaults:
       type: "posts" # previously `post` in Jekyll 2.2.
     values:
       layout: "post"
+  - 
+    scope:
+      path: ""
+      type: "ysyx"
+    values:
+      layout: default
+      indent: True
 
 # collections 集合
 collections:
@@ -42,6 +49,9 @@ collections:
   food:
     output: true
     permalink: /food/:title
+  ysyx:
+    output: true
+    permalink: /ysyx/:year-:month-:day-:title.html
 
 # sass （not necessary needed)
 sass:

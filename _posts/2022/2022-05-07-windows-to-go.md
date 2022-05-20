@@ -4,7 +4,6 @@ title: Windows to Go
 date: 2022-05-07 10:08:00 +0800
 category: document
 thumbnail: /assets/images/thumbnail/rainbow_dash.png
-icon: note
 excerpt: 可随身携带的Windows系统
 indent: True
 ---
