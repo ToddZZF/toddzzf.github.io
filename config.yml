@@ -15,7 +15,7 @@ params:
 ##########################
 
 ## Hostname (and path) to the root
-baseURL: 'http://localhost:1313' 
+baseURL: 'https://toddzzf.github.io' 
 
 ## Copyright notice for your site, typically displayed in the footer.
 copyright: '&copy; {{ now.Format \"2006\"}}'
