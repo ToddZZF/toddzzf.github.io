@@ -1,6 +1,0 @@
----
----
-
-$tab-count: {{ site.data.header | size | plus: 1 }}; // plus 1 for home tab
-
-@import "chirpy";

@@ -1,0 +1,31 @@
+<head><meta charset=utf-8><meta name=renderer content="webkit"><meta http-equiv=x-ua-compatible content="IE=Edge,chrome=1"><meta http-equiv=cache-control content="no-siteapp"><meta http-equiv=cache-control content="no-transform"><meta name=viewport content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no"><meta name=description content="(Experimental Design)"><link rel="shortcut icon" href=/images/favicon.png><link rel=apple-touch-icon href=/images/favicon.png><meta name=author content="map[]"><title>Todd's Blog | (PPT)EDR-4708B</title><link rel=stylesheet href=/revealjs/dist/reset.css><link rel=stylesheet href=/revealjs/dist/reveal.css><link rel=stylesheet href=/revealjs/dist/theme/white.css><link rel=stylesheet href=/revealjs/plugin/highlight/monokai.css></head><body gtools_scp_screen_capture_injected=true><style>.twocolumn{display:grid;grid-template-columns:1fr 1fr;grid-gap:10px;text-align:center}p{font-size:80%;text-align:left}table,ul,ol{font-size:80%}</style><div class=reveal><div class=slides><section><h3>12/22 工作汇报</h3><h4>周镇峰</h4></section><section><h3>目录</h3><ol><li>EDR4708B 核对</li></ol></section><section><section><h3>EDR4708B 标准</h3><ul><li>标准名：Guideline for IC Reliability Qualification Plan</li><li>目的：根据使用条件所要求的质量标准确定适当的可靠性测试</li><li>可靠性测试：在加速电场、加速温度、加速湿度下进行</li><li>设计可靠性测试的步骤：<ol><li>根据失效机理确定测试项</li><li>计算加速系数</li><li>确定失效分布</li><li>计算出测试时间</li></ol></li></ul></section><section><img src=../images/hot-carrier/concept_of_the_reliability_test.jpg></section><section><h3>加速系数的计算</h3><p>电压加速系数（V-model）</p><p>\[
+\alpha_V = \exp[\beta (V_2-V_1)]
+\]</p><p>温度加速系数（Arrhenius model）</p><p>\[
+\begin{aligned}
+&\alpha_T = \exp\left[ \frac{E_a}{k} \left( \frac{1}{T_1}-\frac{1}{T_2} \right) \right]\\
+&k: \text{Bolzmann constant}
+     \end{aligned}
+\]</p></section><section><p>加速系数示例：</p><img src=../images/hot-carrier/加速系数的示例.jpg></section><section><p>考虑上置信度和样本数量</p><p>\[
+\begin{aligned}
+&t = t_0 \left[\frac{\ln(1-F_1)}{\ln(1-F_0)}\right]^{1/m}\\
+&t_0 :\text{加速测试中的失效时间}\\
+&F_0 :\text{累计失效率（Cumulative failure probability} \\
+&\quad\quad \text{to confirm with the lifetime）}\\
+&F_1 :\text{样品数量对应的失效率（Failure probability which can be confirmed}\\
+&\quad\quad \text{from the numbr of test samples,}\\
+&\quad\quad \text{which is calculated using the confidence level）}\\
+&m: \text{Weibull分布的参数}\\
+\end{aligned}
+\]</p></section><section><p>\[
+\begin{aligned}
+&F_1 = \frac{\text{Chi-Square}(CL,F)}{2N}\\
+&CL: \text{Confidence level}\\
+   &F: \text{Number of failures}\\
+  &N: \text{Number of samples for test}
+\end{aligned}
+\]</p></section><section><p>标准中的计算结果：</p><img src=../images/hot-carrier/EDR4708B.jpg></section><section><p>核算结果：</p><img src=../images/hot-carrier/EDR4708B核算.jpg></section></section><section><p>谢谢聆听</p></section></div></div><script src=/revealjs/dist/reveal.js></script>
+<script src=/revealjs/plugin/notes/notes.js></script>
+<script src=/revealjs/plugin/markdown/markdown.js></script>
+<script src=/revealjs/plugin/highlight/highlight.js></script>
+<script src=/revealjs/plugin/math3/math3.js></script>
+<script>Reveal.initialize({hash:!0,math3:{tex:{inlineMath:[["$","$"],["\\(","\\)"]],displayMath:[["$$","$$"],["\\[","\\]"]],processEscapes:!0,macros:{dif:"\\mathop{}\\!\\mathrm{d}",p:"\\partial",bold:"\\boldsymbol",tx:"\\text"}}},slideNumber:!0,plugins:[RevealMarkdown,RevealHighlight,RevealNotes,RevealMath3]})</script></body></html>

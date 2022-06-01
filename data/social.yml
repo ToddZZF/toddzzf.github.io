@@ -1,0 +1,12 @@
+- name: email
+  link: /
+  icon: fas fa-envelope
+- name: youtube
+  link: /about
+  icon: fab fa-youtube
+- name: github
+  link: https://github.com/ToddZZF
+  icon: fab fa-github
+- name: wechat
+  link: /about
+  icon: fab fa-weixin

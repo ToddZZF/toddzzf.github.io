@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<title>48hands</title>
+
+<body>
+    <div id="touchscreen">
+        <div class="text-white">
+            <div id="up">👇请双方将一只手指放在屏幕上👇</div>
+            <hr />
+            <div id="down">👇请双方将一只手指放在屏幕上👇</div>
+        </div>
+    </div>
+</body>
+
+<style>
+    #touchscreen {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        width: 100vw;
+        height: 100vh;
+        user-select: none;
+        text-align: center;
+    }
+
+    #up {
+        --tw-rotate: 180deg;
+        transform: var(--tw-transform);
+        margin-bottom: 0.25rem
+            /* 4px */
+        ;
+        font-style: italic;
+    }
+
+    hr {
+        margin: 0 1rem;
+        border-style: dashed;
+    }
+
+    #down {
+        margin-top: 0.25rem
+            /* 4px */
+        ;
+        font-style: italic;
+    }
+
+    body {
+        --tw-bg-opacity: 1;
+        background-color: rgb(52 58 64 / var(--tw-bg-opacity));
+    }
+
+    .text-white {
+        --tw-text-opacity: 1;
+        color: rgb(255 255 255 / var(--tw-text-opacity));
+    }
+</style>
+
+<script>
+    window.onload = function startup() {
+        const el = document.getElementById("touchscreen");
+        el.addEventListener("touchstart", handleStart, false);
+        el.addEventListener("touchend", handleEnd, false);
+    }
+
+    var timer;
+
+    function handleStart(evt) {
+        console.log(evt.touches);
+        if (evt.touches.length >= 2) {
+            clearTimeout(timer);
+            timer = setTimeout(showImg, 3000);
+        }
+    }
+
+    function handleEnd(evt) {
+        console.log(evt.touches);
+        clearTimeout(timer);
+    }
+
+    function showImg() {
+        const el = document.getElementById("touchscreen");
+        var i = getRndInteger(1, 48);
+        el.innerHTML = `<img class="max-w-[80%] max-h-[80%] rotate-90 m-auto" src="/posts/images/48hands/${i}.webp">`;
+    }
+
+    function getRndInteger(min, max) {
+        return Math.floor(Math.random() * (max - min + 1)) + min;
+    }
+</script>
+
+</html>
+<!-- https://renzhezhilu.gitee.io/webp2jpg-online/#/ -->

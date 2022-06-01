@@ -1,0 +1,13 @@
+{{ define "main" }}
+<div class="text-3xl font-semibold">{{ .Title }}</div>
+
+<div class="mb-4 text-base text-[#868E96]">{{ .Date.Format "Jan 2, 2006" }}</div>
+
+<div class="article relative">
+    {{ .Content }}
+</div>
+
+<hr class="my-6">
+
+{{ partialCached "footer.html" . }}
+{{ end }}

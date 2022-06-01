@@ -1,0 +1,27 @@
+<head>
+    <meta charset="utf-8">
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta http-equiv="Cache-Control" content="no-siteapp" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="description" content="{{ .Description | default .Site.Params.description }}">
+
+    {{ if isset .Site.Params "favicon" -}}
+    <link rel="shortcut icon" href="{{- .Site.Params.favicon | relURL -}}">
+    <link rel="apple-touch-icon" href="{{- .Site.Params.favicon | relURL -}}" />
+    {{- end }}
+
+    <meta name="author" content="{{- .Params.author | default .Site.Author -}}">
+    <title>
+        {{- if .Page.Title -}}
+        {{- printf "%s | %s" .Site.Title .Title -}}
+        {{- else -}}
+        {{- .Site.Title -}}
+        {{- end -}}
+    </title>
+    {{ block "stylesheet" . -}}
+    <link rel="stylesheet" href="{{ `css/style.css` | relURL }}">
+    {{- end }}
+</head>

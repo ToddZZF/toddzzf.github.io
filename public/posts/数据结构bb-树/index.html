@@ -1,0 +1,63 @@
+<!doctype html><html lang=en><head><meta charset=utf-8><meta name=renderer content="webkit"><meta http-equiv=x-ua-compatible content="IE=Edge,chrome=1"><meta http-equiv=cache-control content="no-siteapp"><meta http-equiv=cache-control content="no-transform"><meta name=viewport content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no"><meta name=description content="(Experimental Design)"><link rel="shortcut icon" href=/images/favicon.png><link rel=apple-touch-icon href=/images/favicon.png><meta name=author content="map[]"><title>Todd's Blog | 数据结构：B&B+树</title><link rel=stylesheet href=/css/style.css></head><body class="antialiased bg-primary"><div class="flex flex-col sm:flex-row w-full text-white"><div class="sm:fixed w-screen sm:w-4/12 lg:w-3/12 h-screen p-4 bg-secondary bg-cover bg-center" style=background-image:url(/images/bg.png)><div class="flex flex-col justify-center items-center space-y-3 w-full h-full text-center text-white"><div><img class="w-3/12 sm:w-4/12 h-auto aspect-square m-auto rounded-[50%]" src=/images/avatar.png alt=Todd></div><div><a class="text-3xl font-semibold hover:text-accent" href=/>Todd's Blog</a></div><div class=item-center><p class="text-lg font-medium">(Experimental Design)</p></div><div class=pt-5><ul class=text-3xl><li class="inline-block hover:text-accent"><a class=p-3 href=/><i class="fas fa-envelope"></i></a></li><li class="inline-block hover:text-accent"><a class=p-3 href=/about><i class="fab fa-youtube"></i></a></li><li class="inline-block hover:text-accent"><a class=p-3 href=https://github.com/ToddZZF><i class="fab fa-github"></i></a></li><li class="inline-block hover:text-accent"><a class=p-3 href=/about><i class="fab fa-weixin"></i></a></li></ul></div></div></div><div class="flex flex-col w-screen sm:w-8/12 lg:w-6/12 sm:ml-[33.3%] lg:ml-[25%] p-6 md:p-12 bg-primary"><div class="text-3xl font-semibold">数据结构：B&B+树</div><div class="mb-4 text-base text-[#868E96]">Dec 30, 2021</div><div class="article relative"><h2 id=b树>B树</h2><h3 id=基本概念>基本概念</h3><p>B树中，结点中的孩子结点个数的最大值为B树的<strong>阶 m</strong>，并满足如下一些性质：</p><ol><li><p>每个结点最多有 $m$ 个子树，最少有 $\lceil m/2 \rceil$ 个分支。特殊的，根结点若不是叶子，则最少有 2 个分支</p></li><li><p>若一个结点有 $n-1$ 个关键字，则有 $n$ 个分支。且关键字递增排列。关键字和孩子结点的关系如下：</p><pre tabindex=0><code>  k1  k2  k3  ...  kn
+ /  |   |   |        \
+p0  p1  p2  p3  ...  pn
+</code></pre><p>其中，$n$ 为关键字的个数，ki 为关键字且满足ki&lt;ki+1，pi为孩子结点的指针且所指结点的关键字满足 ki&lt;pi&lt;ki+1</p></li><li><p>根据1和2，可知结点最多有 $m-1$ 个关键字，最少有 $\lceil m/2 \rceil-1$ 个关键字。（特殊的，根可以只有1个关键字）</p></li><li><p>叶子结点处于同一层，可以用空指针表示，是查找失败到达的位置。（也就是叶子结点全都是空结点）</p></li><li><p>（根据上一条）B树是平衡的</p></li></ol><h3 id=b树的查找>B树的查找</h3><p>从根结点出发，</p><ol><li>先查找结点内的关键字</li><li>若找不到，则在对应范围内查找</li></ol><h3 id=b树的插入>B树的插入</h3><ol><li>定位：找到最低层中的某个非叶结点</li><li>插入：若插入后，关键字个数大于 $m-1$（即子树大于 $m$），则分裂，否则完成插入。</li><li>分裂：以 $\lceil m \rceil$ 关键字进行划分，分为两个子结点，然后中间 $\lceil m \rceil$ 关键字则插入到父结点。若父节点超出 $m-1$，则继续分裂。</li></ol><p>这个和2-3树是类似的。</p><h3 id=b树的建立>B树的建立</h3><ol><li>首先确定树的阶数</li><li>先经可能地将根填满到 $m-1$</li><li>然后不断地插入</li></ol><p>示例：5阶树</p><pre tabindex=0><code>{1,2,6,7,11,4,8,13,10,5,17,9,16,20,3,12,14,18,19,15}
+</code></pre><pre tabindex=0><code>{11,4,8,13,10,5,17,9,16,20,3,12,14,18,19,15}
+
+1,2,6,7
+</code></pre><pre tabindex=0><code>{4,8,13,10,5,17,9,16,20,3,12,14,18,19,15}
+
+   6
+  /  \
+1,2  7,11
+</code></pre><pre tabindex=0><code>{10,5,17,9,16,20,3,12,14,18,19,15}
+
+     6
+   /   \
+1,2,4  7,8,11,13
+</code></pre><pre tabindex=0><code>{5,17,9,16,20,3,12,14,18,19,15}
+
+     6, 10
+   /   \   \
+1,2,4  7,8  11,13
+</code></pre><pre tabindex=0><code>{20,3,12,14,18,19,15}
+
+     6,  10
+   /   \      \
+1,2,4,5  7,8,9  11,13,16,17
+</code></pre><pre tabindex=0><code>{3,12,14,18,19,15}
+
+     6,   10,    16 
+   /   \      \      \
+1,2,4,5  7,8,9  11,13  17,20
+</code></pre><pre tabindex=0><code>{12,14,18,19,15}
+
+    3,   6,   10,    16 
+   /   \    \      \      \
+1,2    4,5  7,8,9  11,13  17,20
+</code></pre><pre tabindex=0><code>{15}
+
+    3,   6,   10,      16 
+   /   \    \       \          \
+1,2    4,5  7,8,9  11,12,13,14  17,18,19,20
+</code></pre><pre tabindex=0><code>            10
+          /      \
+    3,   6       13,   16 
+   /   \    \      \     \      \
+1,2    4,5  7,8,9  11,12  14,15  17,18,19,20
+</code></pre><h3 id=b树的删除>B树的删除</h3><p>若删除的是非终端结点（即不是最低的非空结点），可以用前驱或后继代替，从而转化为删除终端结点的情况。</p><p>若删除的是终端结点，</p><ol><li>删除后仍满足关键字个数大于 $\lceil m/2 \rceil-1$，则完成</li><li>反正，则向兄弟结点借，节的过程是：兄弟结点的最大/小值先代替父节点的一个关键字，再将父节点的关键字移到删除结点<pre tabindex=0><code>删除65
+
+   60, 71
+ /    |   \
+...  65  74,86
+
+   60, 71
+ /    |   \
+...  空  86
+
+   60, 74
+ /    |   \
+...  71  86
+</code></pre></li><li>若兄弟结点不够借（即关键字都刚好是 $\lceil m/2 \rceil-1$），则将被删结点、父结点中的关键字、兄弟结点组合成新结点（此时为 $m-1$ 个关键字）。删除后，父节点的关键字个数少1，若<ol><li>父节点是根，且减少为0，则新结点成为新的根</li><li></li></ol></li></ol></div><hr class=my-6><footer class="text-base text-[#868E96]"><small>&copy; 0001 - 2022 <a href=https://toddzzf.github.io class="underline hover:text-accent">Todd</a>. All rights reserved.
+Powered by <a href=https://gohugo.io/ class="underline hover:text-accent">Hugo</a> & <a href=https://github.com/vszhub/not-pure-poole class="underline hover:text-accent">Not Pure Poole</a>.</small></footer></div></div></body><link href=https://cdn.bootcdn.net/ajax/libs/font-awesome/5.15.3/css/all.min.css rel=stylesheet><link href=https://cdn.bootcdn.net/ajax/libs/highlight.js/11.4.0/styles/github-dark-dimmed.min.css rel=stylesheet><script src=https://cdn.bootcdn.net/ajax/libs/highlight.js/11.4.0/highlight.min.js></script>
+<script>hljs.highlightAll()</script></html>
