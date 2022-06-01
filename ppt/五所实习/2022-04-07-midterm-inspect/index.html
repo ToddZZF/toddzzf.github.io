@@ -1,0 +1,66 @@
+<head><meta charset=utf-8><meta name=renderer content="webkit"><meta http-equiv=x-ua-compatible content="IE=Edge,chrome=1"><meta http-equiv=cache-control content="no-siteapp"><meta http-equiv=cache-control content="no-transform"><meta name=viewport content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no"><meta name=description content="(Experimental Design)"><link rel="shortcut icon" href=/images/favicon.png><link rel=apple-touch-icon href=/images/favicon.png><meta name=author content="map[]"><title>Todd's Blog | (PPT)0407中期汇报</title><link rel=stylesheet href=/revealjs/dist/reset.css><link rel=stylesheet href=/revealjs/dist/reveal.css><link rel=stylesheet href=/revealjs/dist/theme/white.css><link rel=stylesheet href=/revealjs/plugin/highlight/monokai.css></head><body gtools_scp_screen_capture_injected=true><style>.twocolumn{display:grid;grid-template-columns:1fr 1fr;grid-gap:10px;text-align:center}p{font-size:80%;text-align:left}table,ul,ol{font-size:80%}</style><div class=reveal><div class=slides><section><h3>04/07 中期汇报</h3><h4>周镇峰</h4></section><section><h3>题目</h3><p>基于PMOS HCI退化机理，建立PMOS HCI模型，并基于实验测试数据（28nm）进行老化模型参数提取，相关结果与TCAD仿真数据进行校准；在初代老化模型基础上，针对先进工艺（FinFET）进行模型迭代和优化，完成自主老化模型开发（基于商用EDA工具接口）。</p></section><section><h3>要求</h3><ol><li>考虑饱和效应的PMOS HCI模型✅</li><li>平面工艺PMOSFET<ul><li>实验结果⭕</li><li>模型结果✅（根据论文数据）</li><li>仿真结果✅</li></ul></li><li>FinFET工艺PMOSFET<ul><li>实验结果❌</li><li>模型结果⭕（根据仿真数据）</li><li>仿真结果⭕</li></ul></li></ol><p style=text-align:center>✅：已完成；⭕：正在做；❌：无法完成</p></section><section><section>热载流子模型：<div><div><p>\[
+\%{\rm degradation}(t)=\frac{1}{\tau} \frac{a\cdot t^n}{1+a\cdot t^n}
+\]
+\[
+\tau = \frac{1}{1/\tau_{\rm SVE}+1/\tau_{\rm EES}+1/\tau_{MVE}}
+\]</p></div><div><p>\[
+\begin{cases}
+\frac{1}{\tau_{\rm SVE}}=K_{\rm SVE}(\frac{I_{ds}}{W})^{a_1}(\frac{I_{bs}}{I_{ds}})^m\\
+\frac{1}{\tau_{\rm EES}}= K_{\rm EES}(\frac{I_{ds}}{W})^{a_2}(\frac{I_{bs}}{I_{ds}})^m\\
+\frac{1}{\tau_{\rm MVE}}= K_{MVE} V_{ds}^{a_3/2}(\frac{I_{ds}}{W})^{a_3}\exp(\frac{-E_{\rm emi}}{k_B T})
+\end{cases}
+\]</p></div></div></section><section data-markdown><script type=text/template>
+            根据论文，取 $a_1=1$，$a_2=3$，$a_3=12$，拟合得到
+<table>
+<thead>
+<tr>
+<th>$V_{ds}$</th>
+<th>$K_{\rm SVE}'$</th>
+<th>$K_{\rm EES}'$</th>
+<th>$K_{\rm MVE}'$</th>
+<th>R-square</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>-2</td>
+<td>-0.434</td>
+<td>3.778e+06</td>
+<td>2.857e+34</td>
+<td>0.988</td>
+</tr>
+<tr>
+<td>-1.8</td>
+<td>0.008001</td>
+<td>1.014e+05</td>
+<td>3.32e+34</td>
+<td>0.9998</td>
+</tr>
+<tr>
+<td>-1.6</td>
+<td>-0.1872</td>
+<td>9.232e+05</td>
+<td>2.063e+34</td>
+<td>0.9993</td>
+</tr>
+<tr>
+<td>-1.4</td>
+<td>-0.0821</td>
+<td>4.531e+05</td>
+<td>1.622e+33</td>
+<td>0.9264</td>
+</tr>
+<tr>
+<td>-1.21</td>
+<td>-0.09683</td>
+<td>2.977e+05</td>
+<td>3.424e+33</td>
+<td>0.9645</td>
+</tr>
+<tr>
+<td></script></td><td></td><td></td><td></td><td></td></tr><tr><td></section></td><td></td><td></td><td></td><td></td></tr><tr><td><section></td><td></td><td></td><td></td><td></td></tr><tr><td><p>拟合效果如图所示：（(1/\tau) vs (</td><td>I_{ds}/W</td><td>)）</p></td><td></td><td></td></tr><tr><td><div style=display:flex;flex-wrap:wrap></td><td></td><td></td><td></td><td></td></tr><tr><td><img src=../images/hot-carrier/40nm_isat_1_div_tau_fit_-2V.jpg style=width:33%></td><td></td><td></td><td></td><td></td></tr><tr><td><img src=../images/hot-carrier/40nm_isat_1_div_tau_fit_-1.8V.jpg style=width:33%></td><td></td><td></td><td></td><td></td></tr><tr><td><img src=../images/hot-carrier/40nm_isat_1_div_tau_fit_-1.6V.jpg style=width:33%></td><td></td><td></td><td></td><td></td></tr><tr><td><img src=../images/hot-carrier/40nm_isat_1_div_tau_fit_-1.4V.jpg style=width:33%></td><td></td><td></td><td></td><td></td></tr><tr><td><img src=../images/hot-carrier/40nm_isat_1_div_tau_fit_-1.21V.jpg style=width:33%></td><td></td><td></td><td></td><td></td></tr><tr><td></div></td><td></td><td></td><td></td><td></td></tr><tr><td></section></td><td></td><td></td><td></td><td></td></tr><tr><td><section></td><td></td><td></td><td></td><td></td></tr><tr><td>数据来源：</td><td></td><td></td><td></td><td></td></tr><tr><td><blockquote><p><small></td><td></td><td></td><td></td><td></td></tr><tr><td>A. Bravaix, V. Huard, D. Goguenheim and E. Vincent, “Hot-carrier to cold-carrier device lifetime modeling with temperature for low power 40nm Si-bulk NMOS and PMOS FETs,” 2011 International Electron Devices Meeting, 2011, pp. 27.5.1-27.5.4, doi: 10.1109/IEDM.2011.6131625.</td><td></td><td></td><td></td><td></td></tr><tr><td></small></p></blockquote></td><td></td><td></td><td></td><td></td></tr><tr><td></section></td><td></td><td></td><td></td><td></td></tr><tr><td></section></td><td></td><td></td><td></td><td></td></tr><tr><td><section></td><td></td><td></td><td></td><td></td></tr><tr><td><h3>平面工艺仿真</h3></td><td></td><td></td><td></td><td></td></tr><tr><td><div class=twocolumn></td><td></td><td></td><td></td><td></td></tr><tr><td><div></td><td></td><td></td><td></td><td></td></tr><tr><td><img src=../images/hot-carrier/0407-100nmPMOS.jpg width=100%></td><td></td><td></td><td></td><td></td></tr><tr><td></div></td><td></td><td></td><td></td><td></td></tr><tr><td><div></td><td></td><td></td><td></td><td></td></tr><tr><td><img src=../images/hot-carrier/0407-仿真.jpg width=100%></td><td></td><td></td><td></td><td></td></tr><tr><td></div></td><td></td><td></td><td></td><td></td></tr><tr><td></div></td><td></td><td></td><td></td><td></td></tr><tr><td></section></td><td></td><td></td><td></td><td></td></tr><tr><td><section></td><td></td><td></td><td></td><td></td></tr><tr><td><p>下两周安排：仿真、实验</p></td><td></td><td></td><td></td><td></td></tr><tr><td></section></td><td></td><td></td><td></td><td></td></tr><tr><td><section></td><td></td><td></td><td></td><td></td></tr><tr><td><p>谢谢聆听</p></td><td></td><td></td><td></td><td></td></tr><tr><td></section></td><td></td><td></td><td></td><td></td></tr></tbody></table></div></div><script src=/revealjs/dist/reveal.js></script>
+<script src=/revealjs/plugin/notes/notes.js></script>
+<script src=/revealjs/plugin/markdown/markdown.js></script>
+<script src=/revealjs/plugin/highlight/highlight.js></script>
+<script src=/revealjs/plugin/math3/math3.js></script>
+<script>Reveal.initialize({hash:!0,math3:{tex:{inlineMath:[['$','$'],['\\(','\\)']],displayMath:[['$$','$$'],['\\[','\\]']],processEscapes:!0,macros:{dif:'\\mathop{}\\!\\mathrm{d}',p:'\\partial',bold:'\\boldsymbol',tx:'\\text'}}},slideNumber:!0,plugins:[RevealMarkdown,RevealHighlight,RevealNotes,RevealMath3]})</script></body></html>

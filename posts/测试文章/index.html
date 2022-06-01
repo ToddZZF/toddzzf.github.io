@@ -1,0 +1,69 @@
+<!doctype html><html lang=en><head><meta charset=utf-8><meta name=renderer content="webkit"><meta http-equiv=x-ua-compatible content="IE=Edge,chrome=1"><meta http-equiv=cache-control content="no-siteapp"><meta http-equiv=cache-control content="no-transform"><meta name=viewport content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no"><meta name=description content="(Experimental Design)"><link rel="shortcut icon" href=/images/favicon.png><link rel=apple-touch-icon href=/images/favicon.png><meta name=author content="map[]"><title>Todd's Blog | 测试文章</title><link rel=stylesheet href=/css/style.css></head><body class="antialiased bg-primary"><div class="flex flex-col sm:flex-row w-full text-white"><div class="sm:fixed w-screen sm:w-4/12 lg:w-3/12 h-screen p-4 bg-secondary bg-cover bg-center" style=background-image:url(/images/bg.png)><div class="flex flex-col justify-center items-center space-y-3 w-full h-full text-center text-white"><div><img class="w-3/12 sm:w-4/12 h-auto aspect-square m-auto rounded-[50%]" src=/images/avatar.png alt=Todd></div><div><a class="text-3xl font-semibold hover:text-accent" href=/>Todd's Blog</a></div><div class=item-center><p class="text-lg font-medium">(Experimental Design)</p></div><div class=pt-5><ul class=text-3xl><li class="inline-block hover:text-accent"><a class=p-3 href=/><i class="fas fa-envelope"></i></a></li><li class="inline-block hover:text-accent"><a class=p-3 href=/about><i class="fab fa-youtube"></i></a></li><li class="inline-block hover:text-accent"><a class=p-3 href=https://github.com/ToddZZF><i class="fab fa-github"></i></a></li><li class="inline-block hover:text-accent"><a class=p-3 href=/about><i class="fab fa-weixin"></i></a></li></ul></div></div></div><div class="flex flex-col w-screen sm:w-8/12 lg:w-6/12 sm:ml-[33.3%] lg:ml-[25%] p-6 md:p-12 bg-primary"><div class="text-3xl font-semibold">测试文章</div><div class="mb-4 text-base text-[#868E96]">Aug 19, 2021</div><div class="article relative"><p>本文旨在介绍我的 Blog 配置，同时测试对 Markdown 的支持和显示效果。</p><h2 id=关于本博客>关于本博客</h2><p>  说实话，这是我第三个博客，前两个博客是：</p><ul><li><a href=https://toddzhoufeng.github.io>toddzhoufeng.github.io</a>：我的第一个博客，大一建立的，大三荒废</li><li><a href=https://scuteee.com>scuteee.com</a>：我的第二个博客，准确来说是网站，大二建立，目前主要用于存放学习笔记</li></ul><p>  其实第一个博客也不是不能用，但第一个博客里的文章也蛮有纪念价值的，但我怕乱搞弄没了，所以就又开了一个。这次我想利用 web 知识折腾一下，顺便记录一下我的研究生生活。</p><h2 id=折腾进度>折腾进度</h2><p>  有好多好多东西想弄，但受时间限制，只弄了这些：</p><ul><li><input checked disabled type=checkbox> Markdown 扩展<ul><li><input checked disabled type=checkbox> Mathjax 3.x 公式支持</li><li><input checked disabled type=checkbox> Mermaid 流程图支持</li><li><input checked disabled type=checkbox> Chart 图表支持</li></ul></li><li><input checked disabled type=checkbox> PPT 支持</li><li><input disabled type=checkbox> 特殊页面<ul><li><input disabled type=checkbox> 追番</li><li><input disabled type=checkbox> 读书</li><li><input disabled type=checkbox> 旅游</li></ul></li></ul><h2 id=如何写博文>如何写博文</h2><h3 id=yaml>YAML</h3><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-yaml data-lang=yaml><span style=display:flex><span>---
+</span></span><span style=display:flex><span><span style=color:#f92672>layout</span>: <span style=color:#ae81ff>post</span>
+</span></span><span style=display:flex><span><span style=color:#f92672>title</span>: <span style=color:#ae81ff>A Test Post</span>
+</span></span><span style=display:flex><span><span style=color:#f92672>date</span>: <span style=color:#e6db74>2021-08-19 20:16:00 +0800</span>
+</span></span><span style=display:flex><span><span style=color:#f92672>category</span>: <span style=color:#ae81ff>tutorial</span>
+</span></span><span style=display:flex><span><span style=color:#f92672>thumbnail</span>: <span style=color:#ae81ff>/style/image/thumbnail.png</span>
+</span></span><span style=display:flex><span><span style=color:#f92672>icon</span>: <span style=color:#ae81ff>book</span>
+</span></span><span style=display:flex><span><span style=color:#f92672>mathjax</span>: <span style=color:#66d9ef>false</span>
+</span></span><span style=display:flex><span><span style=color:#f92672>chart</span>: <span style=color:#66d9ef>false</span>
+</span></span><span style=display:flex><span><span style=color:#f92672>mermaid</span>: <span style=color:#66d9ef>false</span>
+</span></span><span style=display:flex><span>---
+</span></span></code></pre></div><p>其中，icon 可以是 book, code, web, chat, note, game, link, design, image</p><p>如果不是有需求，请将 mathjax, chart, mermaid 设为 false，避免网页加载速度下降。</p><h3 id=目录与摘要>目录与摘要</h3><p>要让左边的目录出现，文章开头需要写：</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-markdown data-lang=markdown></code></pre></div><p>然后写摘要，然后写：</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-markdown data-lang=markdown><span style=display:flex><span><span style=color:#75715e>&lt;!--more--&gt;</span>
+</span></span></code></pre></div><h3 id=markdown-基础测试>Markdown 基础测试</h3><ul><li>无序列表</li><li>无序列表<ul><li>无序列表</li><li>无序列表</li></ul></li><li>无序列表</li></ul><ol><li>有序列表</li><li>有序列表<ol><li>有序列表</li><li>有序列表</li></ol></li></ol><ul><li><input disabled type=checkbox> Uncheck<ul><li>无序列表</li><li>无序列表</li></ul></li><li><input checked disabled type=checkbox> Check<ul><li><input disabled type=checkbox> Uncheck</li><li><input checked disabled type=checkbox> Check</li></ul></li><li><input checked disabled type=checkbox> Check<ol><li>有序列表</li><li>有序列表</li></ol></li></ul><h3 id=图片瀑布>图片瀑布</h3><p>在文中用 html 输入：</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-html data-lang=html><span style=display:flex><span>&lt;<span style=color:#f92672>div</span> <span style=color:#a6e22e>class</span><span style=color:#f92672>=</span><span style=color:#e6db74>&#34;masonry&#34;</span>&gt;
+</span></span><span style=display:flex><span>    &lt;<span style=color:#f92672>div</span> <span style=color:#a6e22e>class</span><span style=color:#f92672>=</span><span style=color:#e6db74>&#34;item&#34;</span>&gt;&lt;<span style=color:#f92672>img</span> <span style=color:#a6e22e>src</span><span style=color:#f92672>=</span><span style=color:#e6db74>&#34;../images/thumbnail/rainbow_dash.png&#34;</span>&gt;&lt;/<span style=color:#f92672>div</span>&gt;
+</span></span><span style=display:flex><span>    &lt;<span style=color:#f92672>div</span> <span style=color:#a6e22e>class</span><span style=color:#f92672>=</span><span style=color:#e6db74>&#34;item&#34;</span>&gt;&lt;<span style=color:#f92672>img</span> <span style=color:#a6e22e>src</span><span style=color:#f92672>=</span><span style=color:#e6db74>&#34;../images/thumbnail/apple_jack.png&#34;</span>&gt;&lt;/<span style=color:#f92672>div</span>&gt;
+</span></span><span style=display:flex><span>    &lt;<span style=color:#f92672>div</span> <span style=color:#a6e22e>class</span><span style=color:#f92672>=</span><span style=color:#e6db74>&#34;item&#34;</span>&gt;&lt;<span style=color:#f92672>img</span> <span style=color:#a6e22e>src</span><span style=color:#f92672>=</span><span style=color:#e6db74>&#34;../images/thumbnail/twilight_sparkle.png&#34;</span>&gt;&lt;/<span style=color:#f92672>div</span>&gt;
+</span></span><span style=display:flex><span>    &lt;<span style=color:#f92672>div</span> <span style=color:#a6e22e>class</span><span style=color:#f92672>=</span><span style=color:#e6db74>&#34;item&#34;</span>&gt;&lt;<span style=color:#f92672>img</span> <span style=color:#a6e22e>src</span><span style=color:#f92672>=</span><span style=color:#e6db74>&#34;../images/thumbnail/rarity.png&#34;</span>&gt;&lt;/<span style=color:#f92672>div</span>&gt;
+</span></span><span style=display:flex><span>    &lt;<span style=color:#f92672>div</span> <span style=color:#a6e22e>class</span><span style=color:#f92672>=</span><span style=color:#e6db74>&#34;item&#34;</span>&gt;&lt;<span style=color:#f92672>img</span> <span style=color:#a6e22e>src</span><span style=color:#f92672>=</span><span style=color:#e6db74>&#34;../images/thumbnail/fluttershy.png&#34;</span>&gt;&lt;/<span style=color:#f92672>div</span>&gt;
+</span></span><span style=display:flex><span>&lt;/<span style=color:#f92672>div</span>&gt;
+</span></span></code></pre></div><p>效果如下：</p><div class=masonry><div class=item><img src=../images/thumbnail/rainbow_dash.png></div><div class=item><img src=../images/thumbnail/apple_jack.png></div><div class=item><img src=../images/thumbnail/twilight_sparkle.png></div><div class=item><img src=../images/thumbnail/rarity.png></div><div class=item><img src=../images/thumbnail/fluttershy.png></div></div><h3 id=音乐>音乐</h3><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-html data-lang=html><span style=display:flex><span>&lt;<span style=color:#f92672>p</span>&gt;/assets/audio/Bohemian%20Rhapsody.mp3&lt;/<span style=color:#f92672>p</span>&gt;
+</span></span></code></pre></div><p>效果如下：</p><p>/assets/audio/Bohemian%20Rhapsody.mp3</p><h3 id=markdown-扩展>Markdown 扩展</h3><h4 id=mathjax>Mathjax</h4><p>When $a \ne 0$, there are two solutions to $ax^2 + bx + c = 0$ and they are</p><p>$$
+x_1 = {-b + \sqrt{b^2-4ac} \over 2a}
+$$</p><p>$$
+x_2 = {-b - \sqrt{b^2-4ac} \over 2a} \notag
+$$</p><p>注意我设置了三个缩写：\dif, \p, \bold，效果如下：</p><p>$$
+\dif, \p, \bold{B}
+$$</p><h4 id=mermaid>Mermaid</h4><pre tabindex=0><code class=language-mermaid data-lang=mermaid>graph TB;
+    A[Do you have a problem in your life?]
+    B[Then don&#39;t worry]
+    C[Can you do something about it?]
+    A--no--&gt;B;
+    A--yes--&gt;C;
+    C--no--&gt;B;
+    C--yes--&gt;B;
+</code></pre><h4 id=chart>Chart</h4><pre tabindex=0><code class=language-chart data-lang=chart>{
+  &#34;type&#34;: &#34;polarArea&#34;,
+  &#34;data&#34;: {
+    &#34;datasets&#34;: [
+      {
+        &#34;data&#34;: [
+          11,
+          16,
+          7,
+          3,
+          14
+        ],
+        &#34;backgroundColor&#34;: [
+          &#34;#FF6384&#34;,
+          &#34;#4BC0C0&#34;,
+          &#34;#FFCE56&#34;,
+          &#34;#E7E9ED&#34;,
+          &#34;#36A2EB&#34;
+        ],
+        &#34;label&#34;: &#34;My dataset&#34;
+      }
+    ],
+    &#34;labels&#34;: [
+      &#34;Red&#34;,
+      &#34;Green&#34;,
+      &#34;Yellow&#34;,
+      &#34;Grey&#34;,
+      &#34;Blue&#34;
+    ]
+  },
+  &#34;options&#34;: {}
+}
+</code></pre></div><hr class=my-6><footer class="text-base text-[#868E96]"><small>&copy; 0001 - 2022 <a href=https://toddzzf.github.io class="underline hover:text-accent">Todd</a>. All rights reserved.
+Powered by <a href=https://gohugo.io/ class="underline hover:text-accent">Hugo</a> & <a href=https://github.com/vszhub/not-pure-poole class="underline hover:text-accent">Not Pure Poole</a>.</small></footer></div></div></body><link href=https://cdn.bootcdn.net/ajax/libs/font-awesome/5.15.3/css/all.min.css rel=stylesheet><link href=https://cdn.bootcdn.net/ajax/libs/highlight.js/11.4.0/styles/github-dark-dimmed.min.css rel=stylesheet><script src=https://cdn.bootcdn.net/ajax/libs/highlight.js/11.4.0/highlight.min.js></script>
+<script>hljs.highlightAll()</script></html>

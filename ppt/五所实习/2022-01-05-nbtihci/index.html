@@ -1,0 +1,36 @@
+<head><meta charset=utf-8><meta name=renderer content="webkit"><meta http-equiv=x-ua-compatible content="IE=Edge,chrome=1"><meta http-equiv=cache-control content="no-siteapp"><meta http-equiv=cache-control content="no-transform"><meta name=viewport content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no"><meta name=description content="(Experimental Design)"><link rel="shortcut icon" href=/images/favicon.png><link rel=apple-touch-icon href=/images/favicon.png><meta name=author content="map[]"><title>Todd's Blog | (PPT)NBTI与HCI的结合</title><link rel=stylesheet href=/revealjs/dist/reset.css><link rel=stylesheet href=/revealjs/dist/reveal.css><link rel=stylesheet href=/revealjs/dist/theme/white.css><link rel=stylesheet href=/revealjs/plugin/highlight/monokai.css></head><body gtools_scp_screen_capture_injected=true><style>.twocolumn{display:grid;grid-template-columns:1fr 1fr;grid-gap:10px;text-align:center}p{font-size:80%;text-align:left}table,ul,ol{font-size:80%}</style><div class=reveal><div class=slides><section><h3>01/05 工作汇报</h3><h4>周镇峰</h4></section><section><h3>目录</h3><ol><li>PMOS中NBTI与HCI的结合</li></ol></section><section><section><h3>长沟道/短沟道 HCI 不同</h3><div class=twocolumn><div><img src=../images/hot-carrier/短沟道的热载流子退化.jpg></div><div><img src=../images/hot-carrier/长沟道的热载流子退化.jpg></div></div><blockquote><p><small>参考：[4]J. Kim, K. Hong, H. Shim, H. Rhee, and H. Shin, “Comparative Analysis of Hot Carrier Degradation (HCD) in 10-nm Node nMOS/pMOS FinFET Devices,” IEEE Trans. Electron Devices, vol. 67, no. 12, pp. 5396–5402, Dec. 2020, doi: 10.1109/TED.2020.3031246.<br></small></p></blockquote></section><section><h3>NBTI在HCI应力下依然存在</h3><div class=twocolumn><div><img src=../images/hot-carrier/NBTI在HCD中的占比2.jpg></div><div><img src=../images/hot-carrier/Fig.%201.%20Illustration%20of%20the%20CHC%20and%20the%20NBTI%20coupling%20effects.%20.jpg></div></div></section></section><section><section><h3>模型</h3><p>\[
+\Delta V_\tx{th}=\Delta V_\tx{th_NBTI}+\Delta V_\tx{th_HCI}
+\]</p></section><section><h3>HCI效应引起的退化</h3><p>\[
+\Delta V_\tx{th_HCI} = C \left\{ \exp\left[ \frac{\varphi_\tx{it}}{(q\lambda E_\tx{max})} \right]\cdot \left(\frac{I_{ds}}{W}\right) \cdot t \right\}^m
+\]</p><p>$C$ 是拟合参数，$\varphi_\tx{it}$ 是产生陷阱所需的能量，$\lambda$ 是热空穴的平均自由程，$\lambda$ 是最大横向电场</p></section><section><h3>NBTI引起的退化：空穴捕获与界面态产生</h3><p>\[
+\Delta V_\tx{th_NBTI} = \Delta V_\tx{th_trap}+\Delta V_\tx{th_int}
+\]</p></section><section><h3>空穴捕获：Stress和Recover</h3><p>\[
+\Delta V_\tx{th_trap}^S=\frac{q}{C}(n_\tx{T_int}+n_\tx{T_ox})
+\]
+\[
+\Delta V_\tx{th_trap}^R=\Delta V_\tx{th_trap}^\max \exp(-t/\tau_c)
+\]</p><p>$n_\tx{T_int}$ 界面陷阱浓度，$n_\tx{T_ox}$ 栅氧陷阱浓度</p></section><section><h3>界面态产生：Stress和Recover</h3><p>\[
+\Delta V_\tx{th_int}^S (t) = \frac{q}{C_\tx{ox}}\cdot R_\tx{Eox}\cdot \log (1+\frac{t}{\tau_S})
+\]
+\[
+\Delta V_\tx{th_int}^R(t) = \Delta V_\tx{th_int}^\max - \Delta V_\tx{th_int}^\max \cdot R_\tx{rec}\log (1+\frac{t}{\tau_\tx{rec}})
+\]</p></section><section><h3>模型与实际较为吻合</h3><img src=../images/hot-carrier/Fig.%207%20(a)%20Calculation%20results%20of%20the%20separated%20and%20coupled%20contribution%20of%20NBTI%20and%20CHC%20.jpg></section><section><h3>改进</h3><p>将HCI部分进一步细分为SP、MP、EES</p><p>\[
+1/\tau_\text{SP} \sim (I_d/W)(I_{sub}/I_d)^m
+\]
+\[
+\begin{aligned}
+1/\tau_\text{MP} &\sim [(qV_{ds}-\hbar \omega)^{1/2}(I_{sub}/W)]^{E_B/\hbar \omega} \exp (-E_\text{emi}/k_B T_L)\\
+&\approx [V_{ds}^{1/2}(I_d/W)]^{E_B/\hbar \omega}
+\end{aligned}
+\]
+\[
+1/\tau_\text{EES} \sim (I_d/W)^2(I_\text{sub}/I_d)^m
+\]
+\[
+1/\tau_d = K_\text{SP}/\tau_\text{SP}+K_\text{EES}/\tau_\text{EES}+K_\text{MP}/\tau_\text{MP}
+\]</p></section></section><section><p>谢谢聆听</p></section></div></div><script src=/revealjs/dist/reveal.js></script>
+<script src=/revealjs/plugin/notes/notes.js></script>
+<script src=/revealjs/plugin/markdown/markdown.js></script>
+<script src=/revealjs/plugin/highlight/highlight.js></script>
+<script src=/revealjs/plugin/math3/math3.js></script>
+<script>Reveal.initialize({hash:!0,math3:{tex:{inlineMath:[['$','$'],['\\(','\\)']],displayMath:[['$$','$$'],['\\[','\\]']],processEscapes:!0,macros:{dif:'\\mathop{}\\!\\mathrm{d}',p:'\\partial',bold:'\\boldsymbol',tx:'\\text'}}},slideNumber:!0,plugins:[RevealMarkdown,RevealHighlight,RevealNotes,RevealMath3]})</script></body></html>

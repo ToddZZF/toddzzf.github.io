@@ -1,0 +1,197 @@
+<!doctype html><html lang=en><head><meta charset=utf-8><meta name=renderer content="webkit"><meta http-equiv=x-ua-compatible content="IE=Edge,chrome=1"><meta http-equiv=cache-control content="no-siteapp"><meta http-equiv=cache-control content="no-transform"><meta name=viewport content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no"><meta name=description content="(Experimental Design)"><link rel="shortcut icon" href=/images/favicon.png><link rel=apple-touch-icon href=/images/favicon.png><meta name=author content="map[]"><title>Todd's Blog | 尝试Hugo</title><link rel=stylesheet href=/css/style.css></head><body class="antialiased bg-primary"><div class="flex flex-col sm:flex-row w-full text-white"><div class="sm:fixed w-screen sm:w-4/12 lg:w-3/12 h-screen p-4 bg-secondary bg-cover bg-center" style=background-image:url(/images/bg.png)><div class="flex flex-col justify-center items-center space-y-3 w-full h-full text-center text-white"><div><img class="w-3/12 sm:w-4/12 h-auto aspect-square m-auto rounded-[50%]" src=/images/avatar.png alt=Todd></div><div><a class="text-3xl font-semibold hover:text-accent" href=/>Todd's Blog</a></div><div class=item-center><p class="text-lg font-medium">(Experimental Design)</p></div><div class=pt-5><ul class=text-3xl><li class="inline-block hover:text-accent"><a class=p-3 href=/><i class="fas fa-envelope"></i></a></li><li class="inline-block hover:text-accent"><a class=p-3 href=/about><i class="fab fa-youtube"></i></a></li><li class="inline-block hover:text-accent"><a class=p-3 href=https://github.com/ToddZZF><i class="fab fa-github"></i></a></li><li class="inline-block hover:text-accent"><a class=p-3 href=/about><i class="fab fa-weixin"></i></a></li></ul></div></div></div><div class="flex flex-col w-screen sm:w-8/12 lg:w-6/12 sm:ml-[33.3%] lg:ml-[25%] p-6 md:p-12 bg-primary"><div class="text-3xl font-semibold">尝试Hugo</div><div class="mb-4 text-base text-[#868E96]">May 25, 2022</div><div class="article relative"><h2 id=hugo入门>Hugo入门</h2><p>自从我开始写博客以来，我一直使用的是 <a href=https://jekyllrb.com/>Jekyll</a>，因为 github page 用的就是 Jekyll，我不需要在本地生成静态页面。但当我开始自己设计主题后，Jekyll 繁琐的安装方式和非常慢的生成页面的速度，让我很不爽。因此我决定尝试使用 <a href=https://gohugo.io/>Hugo</a>. Hugo 是由 Go 编写的，并且运行速度很快（宣传生成一篇文章只需 1ms）。Hugo 的安装方式十分简单，下载一个 exe 文件，然后添加到 PATH 里即可。可以用以下命令验证安装是否成功：</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-sh data-lang=sh><span style=display:flex><span>$ hugo version
+</span></span><span style=display:flex><span>hugo v0.99.1-d524067382e60ce2a2248c3133a1b3af206b6ef1 windows/amd64 BuildDate<span style=color:#f92672>=</span>2022-05-18T11:18:14Z VendorInfo<span style=color:#f92672>=</span>gohugoio
+</span></span></code></pre></div><p>Hugo 建立静态网站的步骤和 Jekyll 很类似，都是 init -> write -> generate -> serve。可以跟着官网的 <a href=https://gohugo.io/getting-started/quick-start/>Quick Start</a> 实践一下。</p><p>Hugo 的主题管理用的是 git submodule，并且在配置文件 <code>config.toml</code> 中设置 <code>theme = "[your theme]"</code>。顺便提一下 <a href=https://toml.io/cn/>toml</a> 是一种与 json、yaml 类似的配置文件格式。（尽管我个人更喜欢yaml，因为 toml 的表必须写在最后面，让我很难受）</p><p>Hugo 的文章放在 <code>/content/post/</code> 下，写完后用 <code>hugo server -D</code> 来预览，地址是 <a href=http://localhost:1313/>http://localhost:1313/</a>，预览是实时更新的。</p><p>Hugo 提供了迁移命令 <code>import</code>，可以将其他博客项目转换为 Hugo 项目，命令格式是 <code>hugo import jekyll JEKYLL_ROOT_PATH TARGET_PATH</code></p><h2 id=hugo开发>Hugo开发</h2><h3 id=hugo命令>Hugo命令</h3><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-sh data-lang=sh><span style=display:flex><span>hugo new site <span style=color:#f92672>[</span>site name<span style=color:#f92672>]</span> <span style=color:#75715e># 新建一个 site name 网站</span>
+</span></span><span style=display:flex><span>hugo <span style=color:#75715e># 在 /public/ 文件夹中生成页面</span>
+</span></span><span style=display:flex><span>hugo server <span style=color:#75715e># 运行一个实时更新的服务器</span>
+</span></span></code></pre></div><p>以上两个命令可以和以下参数结合：</p><ul><li><code>-D</code>：生成草稿（Drafts）</li><li><code>-E</code>：生成过期文章（Expired）</li><li><code>-F</code>：生成未来文章（Future）</li></ul><h3 id=项目结构>项目结构</h3><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span>.
+</span></span><span style=display:flex><span>├── archetypes <span style=color:#75715e># 头信息模板</span>
+</span></span><span style=display:flex><span>├── config.toml <span style=color:#75715e># 配置文件</span>
+</span></span><span style=display:flex><span>├── content <span style=color:#75715e># 博文</span>
+</span></span><span style=display:flex><span>├── data <span style=color:#75715e># 数据</span>
+</span></span><span style=display:flex><span>├── layouts <span style=color:#75715e># 样式</span>
+</span></span><span style=display:flex><span>├── static <span style=color:#75715e># 静态文件</span>
+</span></span><span style=display:flex><span>└── themes <span style=color:#75715e># 主题</span>
+</span></span></code></pre></div><h3 id=内容管理>内容管理</h3><h4 id=page-bundles>Page Bundles</h4><blockquote><p><a href=https://gohugo.io/content-management/page-bundles/>官方文档</a></p></blockquote><p>Page Bundles 用于组织页面资源。Page Bundles 分为 Leaf Bundle 和 Branch Bundle。两者区别如下：</p><table><thead><tr><th></th><th>Leaf Bundle</th><th>Branch Bundle</th></tr></thead><tbody><tr><td>用法</td><td>单页内容和附件的集合</td><td>一系列内容的集合（比如 home page）</td></tr><tr><td>Index file name</td><td><code>index.md</code></td><td><code>_index.md</code></td></tr><tr><td>允许的资源</td><td>page 和 non-page（图片等）</td><td>non-page（图片等）</td></tr><tr><td>资源存放的位置</td><td>leaf bundle 文件夹内的任何文件夹</td><td>只能存放在 branch bundle 的文件夹，与 <code>_index.md</code> 同级</td></tr><tr><td>Layout 类型</td><td>single</td><td>list</td></tr><tr><td>示例</td><td><code>/content/posts/my-post/index.md</code></td><td><code>content/posts/_index.md</code></td></tr><tr><td>非index文件</td><td>Accessed only as page resources</td><td>Accessed only as regular pages</td></tr></tbody></table><p>简单来说，如果只是单篇博文，那么就用 Leaf Bundle；如果是多篇博文，那就用 Branch Bundle. 由于 <code>/content/</code> 本身就包含了所有的博文，所以它应该是 Branch Bundle（我们应该建立一个 <code>/content/_index.md</code>）。</p><p>以下是 Leaf Bundle 示例：</p><pre tabindex=0><code>content/
+├── about
+│   ├── index.md
+├── posts
+│   ├── my-post
+│   │   ├── content1.md
+│   │   ├── content2.md
+│   │   ├── image1.jpg
+│   │   ├── image2.png
+│   │   └── index.md
+│   └── my-other-post
+│       └── index.md
+│
+└── another-section
+    ├── ..
+    └── not-a-leaf-bundle
+        ├── ..
+        └── another-leaf-bundle
+            └── index.md
+</code></pre><p>以下是 Branch Bundle 示例：</p><pre tabindex=0><code>content/
+├── branch-bundle-1
+│   ├── branch-content1.md
+│   ├── branch-content2.md
+│   ├── image1.jpg
+│   ├── image2.png
+│   └── _index.md
+└── branch-bundle-2
+    ├── _index.md
+    └── a-leaf-bundle
+        └── index.md
+</code></pre><p>相比之下，Jekyll 是将博文放在 <code>_post</code>，而图片放在其他文件夹，这点就不太好，图片一多就容易乱。</p><h4 id=page-resources>Page Resources</h4><blockquote><p><a href=https://gohugo.io/content-management/page-resources/>官方文档</a></p></blockquote><p>页面资源（图片、其他页面、文档等）可以通过 Page Bundle 访问，但不同 Page Bundle 的页面资源不互通。有三种方法可以获得页面资源：</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-go data-lang=go><span style=display:flex><span><span style=color:#75715e>// 通过文件类型
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>{{ .<span style=color:#a6e22e>Resources</span>.<span style=color:#a6e22e>ByType</span> <span style=color:#e6db74>&#34;image&#34;</span> }}
+</span></span><span style=display:flex><span><span style=color:#75715e>// 通过文件名匹配，支持模糊匹配
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>{{ .<span style=color:#a6e22e>Resources</span>.<span style=color:#a6e22e>Match</span> <span style=color:#e6db74>&#34;images/*&#34;</span> }}
+</span></span><span style=display:flex><span>{{ .<span style=color:#a6e22e>Resources</span>.<span style=color:#a6e22e>Match</span> <span style=color:#e6db74>&#34;**/sunset.jpg&#34;</span> }}
+</span></span><span style=display:flex><span><span style=color:#75715e>// 通过文件名匹配，但返回第一个匹配的文件
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>{{ .<span style=color:#a6e22e>Resources</span>.<span style=color:#a6e22e>GetMatch</span> <span style=color:#e6db74>&#34;images/*&#34;</span> }}
+</span></span></code></pre></div><h4 id=front-matter>Front Matter</h4><blockquote><p><a href=https://gohugo.io/content-management/front-matter/>官方文档</a></p></blockquote><p>Hugo 的 Front Matter 和 Jekyll 一样也可以用 yaml。</p><p>以下是部分常用的预定义的 Front Matter 变量（除了这些之外也可以自定义变量）：</p><ul><li><p><code>date</code>：日期</p></li><li><p><code>expiryDate</code>：过期日期（过了过期日期文章就看不了）</p></li><li><p><code>publishDate</code>：出版日期（没到出版日期文章就看不了）</p></li><li><p><code>lastmod</code>：最后修改时间</p></li><li><p><code>draft</code>：是否是草稿。如果设置为 <code>true</code>，则不会生成页面。</p></li><li><p><code>title</code>：文章标题</p></li><li><p><code>type</code>：文章类型（如果没设置，则默认是文件夹名）</p></li><li><p><code>keyword</code>：文章关键字</p></li><li><p><code>description</code>：文章描述</p></li><li><p><code>images</code>：与文章相关的一组图片，用于 <a href=https://gohugo.io/templates/internal>Internal Templates</a></p></li><li><p><code>audio</code>：与文章相关的一组音频，用于 <a href=https://gohugo.io/templates/internal>Internal Templates</a></p></li><li><p><code>videos</code>：与文章相关的一组视频，用于 <a href=https://gohugo.io/templates/internal>Internal Templates</a></p></li><li><p><code>aliases</code>：替代地址（alias直译是别名），Hugo 会在替代地址处生成一个跳转网页，当访问替代地址时会跳转到原页面地址。<a href=https://gohugo.io/content-management/urls/#aliases>详情</a></p></li></ul><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-yaml data-lang=yaml><span style=display:flex><span>---
+</span></span><span style=display:flex><span><span style=color:#f92672>aliases</span>:
+</span></span><span style=display:flex><span>  - <span style=color:#ae81ff>/posts/my-original-url/</span>
+</span></span><span style=display:flex><span>  - <span style=color:#ae81ff>/2010/01/01/even-earlier-url.html</span>
+</span></span><span style=display:flex><span>---
+</span></span></code></pre></div><ul><li><code>cascade</code>：一组会传递给子页面的变量（和 Jekyll 中的默认变量差不多），我们可以用 <code>_target</code> 为特定的子页面设置不同变量。<a href=https://gohugo.io/content-management/front-matter/#front-matter-cascade>详情</a>。</li></ul><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-yaml data-lang=yaml><span style=display:flex><span><span style=color:#f92672>cascade</span>:
+</span></span><span style=display:flex><span>  - <span style=color:#f92672>_target</span>:
+</span></span><span style=display:flex><span>      <span style=color:#f92672>kind</span>: <span style=color:#ae81ff>page</span>
+</span></span><span style=display:flex><span>      <span style=color:#f92672>lang</span>: <span style=color:#ae81ff>en</span>
+</span></span><span style=display:flex><span>      <span style=color:#f92672>path</span>: <span style=color:#ae81ff>/blog/**</span>
+</span></span><span style=display:flex><span>    <span style=color:#f92672>background</span>: <span style=color:#ae81ff>yosemite.jpg</span>
+</span></span><span style=display:flex><span>  - <span style=color:#f92672>_target</span>:
+</span></span><span style=display:flex><span>      <span style=color:#f92672>kind</span>: <span style=color:#ae81ff>section</span>
+</span></span><span style=display:flex><span>    <span style=color:#f92672>background</span>: <span style=color:#ae81ff>goldenbridge.jpg</span>
+</span></span></code></pre></div><ul><li><p><code>layout</code>：页面布局。如果没有的话，就采用与 section 名相同的 layout。更多请看 <a href=https://gohugo.io/templates/lookup-order/>Hugo Layouts Lookup Rules</a></p></li><li><p><code>weight</code>：用于整理文章。必须是非 0 值，0 表示未设置 weight（默认的排序权重是：Weight > Date > LinkTitle > FilePath）</p></li><li><p><code>_build</code>：可以指定页面的 Build Options，有两个子变量 <code>list</code> 和 <code>render</code>，用法见 <a href=https://gohugo.io/content-management/build-options/#illustrative-use-cases>use cases</a></p></li></ul><h3 id=图像处理>图像处理</h3><blockquote><p><a href=https://gohugo.io/content-management/image-processing/>官方文档</a></p></blockquote><p>得益于 go 自带的图像处理库，我们可以在文章内对文章进行处理，比如裁剪、滤镜、压缩、获取Exif信息（这个在相册中非常有用）</p><h3 id=archetypes>Archetypes</h3><blockquote><p><a href=https://gohugo.io/content-management/archetypes/>官方文档</a></p></blockquote><p>Archetypes 中文是原型，当使用 <code>hugo new</code> 命令新建一个文章时，会使用 <code>archetypes</code> 中的文件来初始化文件，比如如果定义一个 <code>archetypes/newsletter.md</code>：</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-yaml data-lang=yaml><span style=display:flex><span>---
+</span></span><span style=display:flex><span><span style=color:#f92672>title</span>: <span style=color:#e6db74>&#34;{{ replace .Name &#34;</span>-<span style=color:#e6db74>&#34; &#34;</span> <span style=color:#e6db74>&#34; | title }}&#34;</span>
+</span></span><span style=display:flex><span><span style=color:#f92672>date</span>: {{ <span style=color:#ae81ff>.Date }}</span>
+</span></span><span style=display:flex><span><span style=color:#f92672>draft</span>: <span style=color:#66d9ef>true</span>
+</span></span><span style=display:flex><span>---
+</span></span></code></pre></div><p>那么当在 <code>/content/newsletter/</code> 内用命令行新建文章时，就会自动填写 front matter（再也不同复制粘贴了）。</p><p>特殊的，hugo 支持将文件夹作为 archetype，用的时候要用 <code>hugo new --kind [文件夹]</code> 来指定。</p><h3 id=template>template</h3><blockquote><p><a href=https://gohugo.io/templates/introduction/>官方文档</a></p></blockquote><p>Hugo 使用 Go 的 <a href=https://pkg.go.dev/html/template>html/template</a> 和 <a href=https://pkg.go.dev/text/template>text/template</a> 库作为模板的基础。</p><p>与 Liquid 一样，模板用两个花括号 <code>{{ }}</code> 包裹。如果要去除空格，可以用 <code>{{- -}}</code>，也可以只去除单边空格，比如：</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-go data-lang=go><span style=display:flex><span>{{<span style=color:#ae81ff>23</span> <span style=color:#f92672>-</span>}} &lt; {{<span style=color:#f92672>-</span> <span style=color:#ae81ff>45</span>}}
+</span></span><span style=display:flex><span><span style=color:#75715e>//output:
+</span></span></span><span style=display:flex><span><span style=color:#75715e>//23&lt;45
+</span></span></span></code></pre></div><h4 id=action>Action</h4><p>Action 介绍了一些语句，下面的 pipeline 可以看作 Liquid 里的过滤器（可以简单理解为变量、函数调用etc）。</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-go data-lang=go><span style=display:flex><span>{{<span style=color:#75715e>/* a comment */</span>}}
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>注释</span><span style=color:#960050;background-color:#1e0010>，</span><span style=color:#a6e22e>执行时会忽略</span><span style=color:#960050;background-color:#1e0010>。</span><span style=color:#a6e22e>可以多行</span><span style=color:#960050;background-color:#1e0010>。</span><span style=color:#a6e22e>注释不能嵌套</span><span style=color:#960050;background-color:#1e0010>，</span><span style=color:#a6e22e>并且必须紧贴分界符始止</span><span style=color:#960050;background-color:#1e0010>，</span><span style=color:#a6e22e>就像这里表示的一样</span><span style=color:#960050;background-color:#1e0010>。</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>{{<span style=color:#a6e22e>pipeline</span>}}
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>pipeline的值的默认文本表示会被拷贝到输出里</span><span style=color:#960050;background-color:#1e0010>。</span>
+</span></span><span style=display:flex><span>  
+</span></span><span style=display:flex><span>{{<span style=color:#66d9ef>if</span> <span style=color:#a6e22e>pipeline</span>}} <span style=color:#a6e22e>T1</span> {{<span style=color:#a6e22e>end</span>}}
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>如果pipeline的值为empty</span><span style=color:#960050;background-color:#1e0010>，</span><span style=color:#a6e22e>不产生输出</span><span style=color:#960050;background-color:#1e0010>，</span><span style=color:#a6e22e>否则输出T1执行结果</span><span style=color:#960050;background-color:#1e0010>。</span><span style=color:#a6e22e>不改变dot的值</span><span style=color:#960050;background-color:#1e0010>。</span>
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>Empty值包括false</span><span style=color:#960050;background-color:#1e0010>、</span><span style=color:#ae81ff>0</span><span style=color:#960050;background-color:#1e0010>、</span><span style=color:#a6e22e>任意nil指针或者nil接口</span><span style=color:#960050;background-color:#1e0010>，</span><span style=color:#a6e22e>任意长度为0的数组</span><span style=color:#960050;background-color:#1e0010>、</span><span style=color:#a6e22e>切片</span><span style=color:#960050;background-color:#1e0010>、</span><span style=color:#a6e22e>字典</span><span style=color:#960050;background-color:#1e0010>。</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>{{<span style=color:#66d9ef>if</span> <span style=color:#a6e22e>pipeline</span>}} <span style=color:#a6e22e>T1</span> {{<span style=color:#66d9ef>else</span>}} <span style=color:#a6e22e>T0</span> {{<span style=color:#a6e22e>end</span>}}
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>如果pipeline的值为empty</span><span style=color:#960050;background-color:#1e0010>，</span><span style=color:#a6e22e>输出T0执行结果</span><span style=color:#960050;background-color:#1e0010>，</span><span style=color:#a6e22e>否则输出T1执行结果</span><span style=color:#960050;background-color:#1e0010>。</span><span style=color:#a6e22e>不改变dot的值</span><span style=color:#960050;background-color:#1e0010>。</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>{{<span style=color:#66d9ef>if</span> <span style=color:#a6e22e>pipeline</span>}} <span style=color:#a6e22e>T1</span> {{<span style=color:#66d9ef>else</span> <span style=color:#66d9ef>if</span> <span style=color:#a6e22e>pipeline</span>}} <span style=color:#a6e22e>T0</span> {{<span style=color:#a6e22e>end</span>}}
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>用于简化if</span><span style=color:#f92672>-</span><span style=color:#a6e22e>else链条</span><span style=color:#960050;background-color:#1e0010>，</span><span style=color:#66d9ef>else</span> <span style=color:#a6e22e>action可以直接包含另一个if</span><span style=color:#960050;background-color:#1e0010>；</span><span style=color:#a6e22e>等价于</span><span style=color:#960050;background-color:#1e0010>：</span>
+</span></span><span style=display:flex><span>        {{<span style=color:#66d9ef>if</span> <span style=color:#a6e22e>pipeline</span>}} <span style=color:#a6e22e>T1</span> {{<span style=color:#66d9ef>else</span>}}{{<span style=color:#66d9ef>if</span> <span style=color:#a6e22e>pipeline</span>}} <span style=color:#a6e22e>T0</span> {{<span style=color:#a6e22e>end</span>}}{{<span style=color:#a6e22e>end</span>}}
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>{{<span style=color:#66d9ef>range</span> <span style=color:#a6e22e>pipeline</span>}} <span style=color:#a6e22e>T1</span> {{<span style=color:#a6e22e>end</span>}}
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>pipeline的值必须是数组</span><span style=color:#960050;background-color:#1e0010>、</span><span style=color:#a6e22e>切片</span><span style=color:#960050;background-color:#1e0010>、</span><span style=color:#a6e22e>字典或者通道</span><span style=color:#960050;background-color:#1e0010>。</span>
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>如果pipeline的值其长度为0</span><span style=color:#960050;background-color:#1e0010>，</span><span style=color:#a6e22e>不会有任何输出</span><span style=color:#960050;background-color:#1e0010>；</span>
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>否则dot遍历数组</span><span style=color:#960050;background-color:#1e0010>、</span><span style=color:#a6e22e>切片</span><span style=color:#960050;background-color:#1e0010>、</span><span style=color:#a6e22e>字典或者通道的每一个成员元素并执行T1</span><span style=color:#960050;background-color:#1e0010>；</span>
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>如果pipeline的值为字典</span><span style=color:#960050;background-color:#1e0010>，</span><span style=color:#a6e22e>且键可排序的基本类型</span><span style=color:#960050;background-color:#1e0010>，</span><span style=color:#a6e22e>元素也会按键的顺序排序</span><span style=color:#960050;background-color:#1e0010>。</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>{{<span style=color:#66d9ef>range</span> <span style=color:#a6e22e>pipeline</span>}} <span style=color:#a6e22e>T1</span> {{<span style=color:#66d9ef>else</span>}} <span style=color:#a6e22e>T0</span> {{<span style=color:#a6e22e>end</span>}}
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>pipeline的值必须是数组</span><span style=color:#960050;background-color:#1e0010>、</span><span style=color:#a6e22e>切片</span><span style=color:#960050;background-color:#1e0010>、</span><span style=color:#a6e22e>字典或者通道</span><span style=color:#960050;background-color:#1e0010>。</span>
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>如果pipeline的值其长度为0</span><span style=color:#960050;background-color:#1e0010>，</span><span style=color:#a6e22e>不改变dot的值并执行T0</span><span style=color:#960050;background-color:#1e0010>；</span><span style=color:#a6e22e>否则dot会遍历其中的元素并执行T1</span><span style=color:#960050;background-color:#1e0010>。</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>{{<span style=color:#66d9ef>break</span>}}
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>提前结束</span>{{<span style=color:#66d9ef>range</span> <span style=color:#a6e22e>pipeline</span>}}<span style=color:#a6e22e>的所有遍历</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>{{<span style=color:#66d9ef>continue</span>}}
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>提前结束</span>{{<span style=color:#66d9ef>range</span> <span style=color:#a6e22e>pipeline</span>}}<span style=color:#a6e22e>的当次遍历</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>{{<span style=color:#a6e22e>define</span> <span style=color:#e6db74>&#34;name&#34;</span>}} <span style=color:#a6e22e>T1</span> {{<span style=color:#a6e22e>end</span>}}
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>定义为name的模板</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>{{<span style=color:#a6e22e>template</span> <span style=color:#e6db74>&#34;name&#34;</span>}}
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>执行名为name的模板</span><span style=color:#960050;background-color:#1e0010>，</span><span style=color:#a6e22e>提供给模板的参数为nil</span><span style=color:#960050;background-color:#1e0010>，</span><span style=color:#a6e22e>如模板不存在输出为</span><span style=color:#e6db74>&#34;&#34;</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>{{<span style=color:#a6e22e>template</span> <span style=color:#e6db74>&#34;name&#34;</span> <span style=color:#a6e22e>pipeline</span>}}
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>执行名为name的模板</span><span style=color:#960050;background-color:#1e0010>，</span><span style=color:#a6e22e>提供给模板的参数为pipeline的值</span><span style=color:#960050;background-color:#1e0010>。</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>{{<span style=color:#a6e22e>block</span> <span style=color:#e6db74>&#34;name&#34;</span> <span style=color:#a6e22e>pipeline</span>}} <span style=color:#a6e22e>T1</span> {{<span style=color:#a6e22e>end</span>}}
+</span></span><span style=display:flex><span> <span style=color:#a6e22e>先定义一个名为name的模板</span><span style=color:#960050;background-color:#1e0010>，</span>
+</span></span><span style=display:flex><span>    {{<span style=color:#a6e22e>define</span> <span style=color:#e6db74>&#34;name&#34;</span>}} <span style=color:#a6e22e>T1</span> {{<span style=color:#a6e22e>end</span>}}
+</span></span><span style=display:flex><span> <span style=color:#a6e22e>再将pipeline作为参数</span><span style=color:#960050;background-color:#1e0010>，</span><span style=color:#a6e22e>执行该模板</span>
+</span></span><span style=display:flex><span>    {{<span style=color:#a6e22e>template</span> <span style=color:#e6db74>&#34;name&#34;</span> <span style=color:#a6e22e>pipeline</span>}}
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>{{<span style=color:#a6e22e>with</span> <span style=color:#a6e22e>pipeline</span>}} <span style=color:#a6e22e>T1</span> {{<span style=color:#a6e22e>end</span>}}
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>如果pipeline为empty不产生输出</span><span style=color:#960050;background-color:#1e0010>，</span><span style=color:#a6e22e>否则将dot设为pipeline的值并执行T1</span><span style=color:#960050;background-color:#1e0010>。</span><span style=color:#a6e22e>不修改外面的dot</span><span style=color:#960050;background-color:#1e0010>。</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>{{<span style=color:#a6e22e>with</span> <span style=color:#a6e22e>pipeline</span>}} <span style=color:#a6e22e>T1</span> {{<span style=color:#66d9ef>else</span>}} <span style=color:#a6e22e>T0</span> {{<span style=color:#a6e22e>end</span>}}
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>如果pipeline为empty</span><span style=color:#960050;background-color:#1e0010>，</span><span style=color:#a6e22e>不改变dot并执行T0</span><span style=color:#960050;background-color:#1e0010>，</span><span style=color:#a6e22e>否则dot设为pipeline的值并执行T1</span><span style=color:#960050;background-color:#1e0010>。</span>
+</span></span></code></pre></div><h4 id=arguments>Arguments</h4><p>参数代表一个简单的，由下面的某一条表示的值：</p><ul><li>go语法的布尔值、字符串、字符、整数、浮点数、虚数、复数，视为无类型字面常数，字符串不能跨行</li><li>关键字nil，代表一个go的无类型的nil值</li><li>字符&rsquo;.&rsquo;（句点，用时不加单引号），代表dot的值</li><li>变量名，以美元符号起始加上（可为空的）字母和数字构成的字符串，如：$piOver2和$；
+执行结果为变量的值，变量参见下面的介绍</li><li>结构体数据的字段名，以句点起始，如：.Field；
+执行结果为字段的值，支持链式调用：.Field1.Field2；
+字段也可以在变量上使用（包括链式调用）：$x.Field1.Field2；</li><li>字典类型数据的键名；以句点起始，如：.Key；
+执行结果是该键在字典中对应的成员元素的值；
+键也可以和字段配合做链式调用，深度不限：.Field1.Key1.Field2.Key2；
+虽然键也必须是字母和数字构成的标识字符串，但不需要以大写字母起始；
+键也可以用于变量（包括链式调用）：$x.key1.key2；</li><li>数据的无参数方法名，以句点为起始，如：.Method；
+执行结果为dot调用该方法的返回值，dot.Method()；
+该方法必须有1到2个返回值，如果有2个则后一个必须是error接口类型；
+如果有2个返回值的方法返回的error非nil，模板执行会中断并返回给调用模板执行者该错误；
+方法可和字段、键配合做链式调用，深度不限：.Field1.Key1.Method1.Field2.Key2.Method2；
+方法也可以在变量上使用（包括链式调用）：$x.Method1.Field；</li><li>无参数的函数名，如：fun；
+执行结果是调用该函数的返回值fun()；对返回值的要求和方法一样；函数和函数名细节参见后面。</li><li>上面某一条的实例加上括弧（用于分组）
+执行结果可以访问其字段或者键对应的值：
+print (.F1 arg1) (.F2 arg2)
+(.StructValuedMethod &ldquo;arg&rdquo;).Field</li></ul><h4 id=pipeline>Pipeline</h4><p>Pipeline是一个（可能是链状的）command序列。Command可以是一个简单值（argument）或者对函数或者方法的（可以有多个参数的）调用：</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-go data-lang=go><span style=display:flex><span><span style=color:#a6e22e>Argument</span>
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>执行结果是argument的执行结果</span>
+</span></span><span style=display:flex><span>.<span style=color:#a6e22e>Method</span> [<span style=color:#a6e22e>Argument</span><span style=color:#f92672>...</span>]
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>方法可以独立调用或者位于链式调用的末端</span><span style=color:#960050;background-color:#1e0010>，</span><span style=color:#a6e22e>不同于链式调用中间的方法</span><span style=color:#960050;background-color:#1e0010>，</span><span style=color:#a6e22e>可以使用参数</span><span style=color:#960050;background-color:#1e0010>；</span>
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>执行结果是使用给出的参数调用该方法的返回值</span><span style=color:#960050;background-color:#1e0010>：</span><span style=color:#a6e22e>dot</span>.<span style=color:#a6e22e>Method</span>(<span style=color:#a6e22e>Argument1</span>, <span style=color:#a6e22e>etc</span>.)<span style=color:#960050;background-color:#1e0010>；</span>
+</span></span><span style=display:flex><span><span style=color:#a6e22e>functionName</span> [<span style=color:#a6e22e>Argument</span><span style=color:#f92672>...</span>]
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>执行结果是使用给定的参数调用函数名指定的函数的返回值</span><span style=color:#960050;background-color:#1e0010>：</span><span style=color:#a6e22e>function</span>(<span style=color:#a6e22e>Argument1</span>, <span style=color:#a6e22e>etc</span>.)<span style=color:#960050;background-color:#1e0010>；</span>
+</span></span></code></pre></div><p>pipeline可以链式执行，用管道符 <code>|</code> 隔开（与 Liquid 一样）在一个链式的pipeline里，每个command的结果都作为下一个command的最后一个参数。pipeline最后一个command的输出作为整个管道执行的结果。</p><h4 id=variables>Variables</h4><p>Action里可以初始化一个变量来捕获管道的执行结果。变量无论是定义还是使用时都要在前面加 <code>$</code>。变量初始化语法如下：</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-go data-lang=go><span style=display:flex><span><span style=color:#960050;background-color:#1e0010>$</span><span style=color:#a6e22e>variable</span> <span style=color:#f92672>:=</span> <span style=color:#a6e22e>pipeline</span>
+</span></span></code></pre></div><p>变量可以重新赋值：</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-go data-lang=go><span style=display:flex><span><span style=color:#960050;background-color:#1e0010>$</span><span style=color:#a6e22e>variable</span> = <span style=color:#a6e22e>pipeline</span>
+</span></span></code></pre></div><p>如果"range" action初始化了1个变量，该变量设置为迭代器的每一个成员元素，如果初始化了逗号分隔的2个变量：</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-go data-lang=go><span style=display:flex><span><span style=color:#66d9ef>range</span> <span style=color:#960050;background-color:#1e0010>$</span><span style=color:#a6e22e>index</span>, <span style=color:#960050;background-color:#1e0010>$</span><span style=color:#a6e22e>element</span> <span style=color:#f92672>:=</span> <span style=color:#a6e22e>pipeline</span>
+</span></span></code></pre></div><p>这时，$index和$element分别设置为数组/切片的索引或者字典的键，以及对应的成员元素。注意这和go range从句只有一个参数时设置为索引/键不同！</p><p>一个变量的作用域只到声明它的控制结构（&ldquo;if&rdquo;、&ldquo;with&rdquo;、&ldquo;range&rdquo;）的"end"为止，如果不是在控制结构里声明会直到模板结束为止。子模板的调用不会从调用它的位置（作用域）继承变量。</p><p>模板开始执行时，$会设置为传递给Execute方法的参数，就是说，dot的初始值。</p><h4 id=functions>Functions</h4><p>预定义的全局函数：</p><pre tabindex=0><code class=language-raw data-lang=raw>and
+    函数返回它的第一个empty参数或者最后一个参数；
+    就是说&#34;and x y&#34;等价于&#34;if x then y else x&#34;；所有参数都会执行；
+or
+    返回第一个非empty参数或者最后一个参数；
+    亦即&#34;or x y&#34;等价于&#34;if x then x else y&#34;；所有参数都会执行；
+not
+    返回它的单个参数的布尔值的否定
+len
+    返回它的参数的整数类型长度
+index
+    执行结果为第一个参数以剩下的参数为索引/键指向的值；
+    如&#34;index x 1 2 3&#34;返回x[1][2][3]的值；每个被索引的主体必须是数组、切片或者字典。
+print
+    即fmt.Sprint
+printf
+    即fmt.Sprintf
+println
+    即fmt.Sprintln
+html
+    返回其参数文本表示的HTML逸码等价表示。
+urlquery
+    返回其参数文本表示的可嵌入URL查询的逸码等价表示。
+js
+    返回其参数文本表示的JavaScript逸码等价表示。
+call
+    执行结果是调用第一个参数的返回值，该参数必须是函数类型，其余参数作为调用该函数的参数；
+    如&#34;call .X.Y 1 2&#34;等价于go语言里的dot.X.Y(1, 2)；
+    其中Y是函数类型的字段或者字典的值，或者其他类似情况；
+    call的第一个参数的执行结果必须是函数类型的值（和预定义函数如print明显不同）；
+    该函数类型值必须有1到2个返回值，如果有2个则后一个必须是error接口类型；
+    如果有2个返回值的方法返回的error非nil，模板执行会中断并返回给调用模板执行者该错误；
+</code></pre><p>二元比较运算也被定义为函数：</p><pre tabindex=0><code class=language-raw data-lang=raw>eq      如果arg1 == arg2则返回真
+ne      如果arg1 != arg2则返回真
+lt      如果arg1 &lt; arg2则返回真
+le      如果arg1 &lt;= arg2则返回真
+gt      如果arg1 &gt; arg2则返回真
+ge      如果arg1 &gt;= arg2则返回真
+</code></pre><p>为了简化多参数相等检测，eq（只有eq）可以接受2个或更多个参数，它会将第一个参数和其余参数依次比较，返回下式的结果：</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-go data-lang=go><span style=display:flex><span><span style=color:#a6e22e>arg1</span><span style=color:#f92672>==</span><span style=color:#a6e22e>arg2</span> <span style=color:#f92672>||</span> <span style=color:#a6e22e>arg1</span><span style=color:#f92672>==</span><span style=color:#a6e22e>arg3</span> <span style=color:#f92672>||</span> <span style=color:#a6e22e>arg1</span><span style=color:#f92672>==</span><span style=color:#a6e22e>arg4</span> <span style=color:#f92672>...</span>
+</span></span></code></pre></div><p>（和go的||不一样，不做惰性运算，所有参数都会执行）</p><p>更多 function 请参考 <a href=https://gohugo.io/categories/functions>functions | Hugo</a></p><h4 id=常用语句>常用语句</h4><p>拼接字符串</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-go data-lang=go><span style=display:flex><span><span style=color:#75715e>//to get a output like $b$c
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span><span style=color:#960050;background-color:#1e0010>$</span><span style=color:#a6e22e>a</span> <span style=color:#f92672>:=</span> <span style=color:#a6e22e>printf</span> <span style=color:#e6db74>&#34;%s%s&#34;</span> <span style=color:#960050;background-color:#1e0010>$</span><span style=color:#a6e22e>b</span> <span style=color:#960050;background-color:#1e0010>$</span><span style=color:#a6e22e>c</span>
+</span></span><span style=display:flex><span><span style=color:#75715e>//or
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span><span style=color:#960050;background-color:#1e0010>$</span><span style=color:#a6e22e>a</span> <span style=color:#f92672>:=</span> <span style=color:#a6e22e>printf</span> <span style=color:#e6db74>&#34;%s&#34;</span> <span style=color:#960050;background-color:#1e0010>$</span><span style=color:#a6e22e>c</span> | <span style=color:#a6e22e>printf</span> <span style=color:#e6db74>&#34;%s%s&#34;</span> <span style=color:#960050;background-color:#1e0010>$</span><span style=color:#a6e22e>b</span> | <span style=color:#a6e22e>printf</span> <span style=color:#e6db74>&#34;%s&#34;</span>
+</span></span></code></pre></div></div><hr class=my-6><footer class="text-base text-[#868E96]"><small>&copy; 0001 - 2022 <a href=https://toddzzf.github.io class="underline hover:text-accent">Todd</a>. All rights reserved.
+Powered by <a href=https://gohugo.io/ class="underline hover:text-accent">Hugo</a> & <a href=https://github.com/vszhub/not-pure-poole class="underline hover:text-accent">Not Pure Poole</a>.</small></footer></div></div></body><link href=https://cdn.bootcdn.net/ajax/libs/font-awesome/5.15.3/css/all.min.css rel=stylesheet><link href=https://cdn.bootcdn.net/ajax/libs/highlight.js/11.4.0/styles/github-dark-dimmed.min.css rel=stylesheet><script src=https://cdn.bootcdn.net/ajax/libs/highlight.js/11.4.0/highlight.min.js></script>
+<script>hljs.highlightAll()</script></html>

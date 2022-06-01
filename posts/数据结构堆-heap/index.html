@@ -1,0 +1,140 @@
+<!doctype html><html lang=en><head><meta charset=utf-8><meta name=renderer content="webkit"><meta http-equiv=x-ua-compatible content="IE=Edge,chrome=1"><meta http-equiv=cache-control content="no-siteapp"><meta http-equiv=cache-control content="no-transform"><meta name=viewport content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no"><meta name=description content="(Experimental Design)"><link rel="shortcut icon" href=/images/favicon.png><link rel=apple-touch-icon href=/images/favicon.png><meta name=author content="map[]"><title>Todd's Blog | 数据结构：堆 Heap</title><link rel=stylesheet href=/css/style.css></head><body class="antialiased bg-primary"><div class="flex flex-col sm:flex-row w-full text-white"><div class="sm:fixed w-screen sm:w-4/12 lg:w-3/12 h-screen p-4 bg-secondary bg-cover bg-center" style=background-image:url(/images/bg.png)><div class="flex flex-col justify-center items-center space-y-3 w-full h-full text-center text-white"><div><img class="w-3/12 sm:w-4/12 h-auto aspect-square m-auto rounded-[50%]" src=/images/avatar.png alt=Todd></div><div><a class="text-3xl font-semibold hover:text-accent" href=/>Todd's Blog</a></div><div class=item-center><p class="text-lg font-medium">(Experimental Design)</p></div><div class=pt-5><ul class=text-3xl><li class="inline-block hover:text-accent"><a class=p-3 href=/><i class="fas fa-envelope"></i></a></li><li class="inline-block hover:text-accent"><a class=p-3 href=/about><i class="fab fa-youtube"></i></a></li><li class="inline-block hover:text-accent"><a class=p-3 href=https://github.com/ToddZZF><i class="fab fa-github"></i></a></li><li class="inline-block hover:text-accent"><a class=p-3 href=/about><i class="fab fa-weixin"></i></a></li></ul></div></div></div><div class="flex flex-col w-screen sm:w-8/12 lg:w-6/12 sm:ml-[33.3%] lg:ml-[25%] p-6 md:p-12 bg-primary"><div class="text-3xl font-semibold">数据结构：堆 Heap</div><div class="mb-4 text-base text-[#868E96]">Dec 28, 2021</div><div class="article relative"><h2 id=复习完全二叉树>复习完全二叉树</h2><p>首先先复习一下完全二叉树。完全二叉树指的是除了最深的一层，其余层都填满。因此，完全二叉树可以按由上到下、由左到右的顺序放入到一个数组中：</p><pre tabindex=0><code class=language-raw data-lang=raw>      0
+     / \
+    1   2
+   / \ / \
+  3  4 5  6
+ / \
+7   8
+
+012345678
+</code></pre><p>并且对于编号为 $n$ 的结点，其父结点为 $\lceil (n-1)/2 \rceil$，左子结点为 $2n+1$，右子结点为 $2n+2$. 证明如下：</p><p>我们只需要证明左子结点即可，其余很容易据此推出。我们采用从特殊到一般的证明方法。我们先考虑每层的第1个元素，编号为：$0,1,3,7,\cdots,2^{l-1}-1$，显然，$l+1$ 层的第一个元素为 $2^l-1=2\cdot (2^{l-1}-1)+1$</p><p>我们再考虑每层第 $k$ 个元素，即编号为 $2^{l-1}-1+(k-1)$，显然，其左子结点的编号为 $2^l-1+2\cdot (k-1)$，这两者满足：</p><p>$$
+2^l-1+2\cdot (k-1) = 2\cdot [2^{l-1}-1+(k-1)]+1
+$$</p><p>故得证。右子结点在左子结点的基础上加一即可，父结点则是对等式进行移项即可。</p><p>注意的是，我们的结点编号是从 0 开始的，层编号也是从 0 开始的。如果从 1 开始，则父结点为 $\lceil n/2 \rceil$，左子结点为 $2n$，右子结点为 $2n+1$. 在做题时要考虑清楚。</p><blockquote><p>后面代码部分以 1 开始。</p></blockquote><p>根据这一点，我们就可以很方便的将完全二叉树存储在线性表中。</p><h2 id=堆>堆</h2><p>堆是一种特殊的二叉树，分两种：</p><ul><li>最大堆：父结点比子结点大</li><li>最小堆：父结点比子结点小</li></ul><p>后面以最大堆为例。</p><p>堆的几个基本操作：</p><ol><li>上浮 shift_up</li><li>下沉 shift_down</li><li>插入 push</li><li>弹出 pop</li><li>取顶 top</li><li>堆排序 heap_sort</li></ol><p>这几个操作在构建、使用堆的过程中会逐一讲解。</p><h2 id=构造堆>构造堆</h2><p>首先先讲一个特殊案例，假设结点的左右子树都是堆，但自身不是堆。比如：</p><pre tabindex=0><code class=language-raw data-lang=raw>      2
+     / \
+    9   7
+   / \ / \
+  8  5 0  1
+ / \
+6   4
+</code></pre><p>显然左右子树都是最大堆，但根不是最大的。为了使其称为堆，我们进行“下沉”，把根与其最大的子结点交换：</p><pre tabindex=0><code class=language-raw data-lang=raw>      9
+     / \
+    2   7
+   / \ / \
+  8  5 0  1
+ / \
+6   4
+</code></pre><p>然后对左子树重复该过程：</p><pre tabindex=0><code class=language-raw data-lang=raw>      9
+     / \
+    8   7
+   / \ / \
+  2  5 0  1
+ / \
+6   4
+</code></pre><p>再重复：</p><pre tabindex=0><code class=language-raw data-lang=raw>      9
+     / \
+    8   7
+   / \ / \
+  6  5 0  1
+ / \
+2   4
+</code></pre><p>最终可以得到一个最大堆。最小堆则相反，与子结点中较小的交换。注意在下沉的过程中，二叉树的结构没变，依然是完全二叉树。</p><p>据此，我们可以将任意一个完全二叉树转化为堆，只需自低向上对每个结点进行下沉操作即可，代码如下：</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-cpp data-lang=cpp><span style=display:flex><span><span style=color:#66d9ef>void</span> <span style=color:#a6e22e>new_heap</span>(<span style=color:#66d9ef>int</span> <span style=color:#f92672>*</span>a, <span style=color:#66d9ef>int</span> len) {
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>for</span>(<span style=color:#66d9ef>int</span> i<span style=color:#f92672>=</span>len<span style=color:#f92672>/</span><span style=color:#ae81ff>2</span>; i<span style=color:#f92672>&gt;=</span><span style=color:#ae81ff>1</span>; <span style=color:#f92672>--</span>i) {
+</span></span><span style=display:flex><span>        adjust_heap(a, i, len);
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>}
+</span></span></code></pre></div><p>此处我们从最后一个有子结点的结点（$\lceil n/2 \rceil$）开始，逐个对前面的结点进行调整。具体调整的代码如下：</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-cpp data-lang=cpp><span style=display:flex><span><span style=color:#66d9ef>void</span> <span style=color:#a6e22e>adjust_heap</span>(<span style=color:#66d9ef>int</span> <span style=color:#f92672>*</span>a, <span style=color:#66d9ef>int</span> node, <span style=color:#66d9ef>int</span> len) {
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>int</span> left <span style=color:#f92672>=</span> <span style=color:#ae81ff>2</span> <span style=color:#f92672>*</span> node;
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>int</span> right <span style=color:#f92672>=</span> <span style=color:#ae81ff>2</span> <span style=color:#f92672>*</span> node <span style=color:#f92672>+</span> <span style=color:#ae81ff>1</span>;
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>int</span> max <span style=color:#f92672>=</span> node;
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>if</span>(left <span style=color:#f92672>&lt;=</span> len <span style=color:#f92672>&amp;&amp;</span> a[left] <span style=color:#f92672>&gt;</span> a[max]) {
+</span></span><span style=display:flex><span>        max <span style=color:#f92672>=</span> left;
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>if</span>(right <span style=color:#f92672>&lt;=</span> len <span style=color:#f92672>&amp;&amp;</span> a[right] <span style=color:#f92672>&gt;</span> a[max]) {
+</span></span><span style=display:flex><span>        max <span style=color:#f92672>=</span> right;
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>if</span>(max <span style=color:#f92672>!=</span> node) {
+</span></span><span style=display:flex><span>        swap(a[max], a[node]);
+</span></span><span style=display:flex><span>        adjust_heap(a, max, len);
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>}
+</span></span></code></pre></div><h2 id=插入新结点>插入新结点</h2><p>首先，要保持堆是完全二叉树，那么新插入的结点只能在最末尾的位置。假设我们新插入的是 9</p><pre tabindex=0><code class=language-raw data-lang=raw>      8
+     / \
+    6   7
+   / \ / \
+  4  5 0  1
+ / \
+2   9
+</code></pre><p>显然 9 比结点 4 大，所以将它“上浮”，也就是交换。</p><pre tabindex=0><code class=language-raw data-lang=raw>      8
+     / \
+    6   7
+   / \ / \
+  9  5 0  1
+ / \
+2   4
+</code></pre><p>然后不断重复这个过程，直到无法上浮为止。</p><pre tabindex=0><code class=language-raw data-lang=raw>      8
+     / \
+    9   7
+   / \ / \
+  6  5 0  1
+ / \
+2   4
+</code></pre><pre tabindex=0><code class=language-raw data-lang=raw>      9
+     / \
+    8   7
+   / \ / \
+  6  5 0  1
+ / \
+2   4
+</code></pre><h2 id=堆排序>堆排序</h2><p>首先，我们将所有元素组织成堆，然后取出最大的元素：</p><pre tabindex=0><code class=language-raw data-lang=raw>     &#39;7&#39;
+     / \
+    5   6
+   / \ / \
+  4  2 1  3
+
+     &#39; &#39;
+     / \
+    5   6
+   / \ / \
+  4  2 1  3
+
+7
+</code></pre><p>由于根结点空了，所以我们把最右下的元素补上去</p><pre tabindex=0><code class=language-raw data-lang=raw>      3
+     / \
+    5   6
+   / \ /
+  4  2 1
+</code></pre><p>由于此时左、右子树都是堆，所以只需要将根结点下沉。</p><pre tabindex=0><code class=language-raw data-lang=raw>      6
+     / \
+    5   3
+   / \ /
+  4  2 1
+</code></pre><p>然后，再取出根结点，重复上述过程。</p><p>代码如下：</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-cpp data-lang=cpp><span style=display:flex><span><span style=color:#66d9ef>template</span> <span style=color:#f92672>&lt;</span><span style=color:#66d9ef>class</span> <span style=color:#a6e22e>Elem</span><span style=color:#f92672>&gt;</span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>void</span> heapsort(Elem A[], <span style=color:#66d9ef>int</span> n) { <span style=color:#75715e>// Heapsort
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>    Elem mval;
+</span></span><span style=display:flex><span>    maxheap<span style=color:#f92672>&lt;</span>Elem<span style=color:#f92672>&gt;</span> H(A, n, n);
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>for</span> (<span style=color:#66d9ef>int</span> i<span style=color:#f92672>=</span><span style=color:#ae81ff>0</span>; i<span style=color:#f92672>&lt;</span>n; i<span style=color:#f92672>++</span>)  <span style=color:#75715e>// Now sort
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>        H.removemax(mval);     
+</span></span><span style=display:flex><span>}
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>template</span><span style=color:#f92672>&lt;</span><span style=color:#66d9ef>class</span> <span style=color:#a6e22e>Elem</span><span style=color:#f92672>&gt;</span> <span style=color:#66d9ef>class</span> <span style=color:#a6e22e>maxheap</span>{
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>private</span><span style=color:#f92672>:</span>
+</span></span><span style=display:flex><span>        Elem<span style=color:#f92672>*</span> Heap;   <span style=color:#75715e>// Pointer to the heap array
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>        <span style=color:#66d9ef>int</span> size;     <span style=color:#75715e>// Maximum size of the heap
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>        <span style=color:#66d9ef>int</span> n;        <span style=color:#75715e>// Number of elems now in heap
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>  
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>public</span><span style=color:#f92672>:</span>
+</span></span><span style=display:flex><span>        maxheap(Elem<span style=color:#f92672>*</span> h, <span style=color:#66d9ef>int</span> num, <span style=color:#66d9ef>int</span> max) {
+</span></span><span style=display:flex><span>            Heap <span style=color:#f92672>=</span> h; n <span style=color:#f92672>=</span> num; size <span style=color:#f92672>=</span> max; buildHeap();
+</span></span><span style=display:flex><span>        }
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>        Bool <span style=color:#a6e22e>removemax</span>(Elem<span style=color:#f92672>&amp;</span> it) {
+</span></span><span style=display:flex><span>            <span style=color:#66d9ef>if</span> (n <span style=color:#f92672>==</span> <span style=color:#ae81ff>0</span>) <span style=color:#66d9ef>return</span> false; <span style=color:#75715e>// Heap is empty
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>            swap(Heap, <span style=color:#ae81ff>0</span>, <span style=color:#f92672>--</span>n);      <span style=color:#75715e>// Swap max with end
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>            <span style=color:#66d9ef>if</span> (n <span style=color:#f92672>!=</span> <span style=color:#ae81ff>0</span>) siftdown(<span style=color:#ae81ff>0</span>);
+</span></span><span style=display:flex><span>            it <span style=color:#f92672>=</span> Heap[n];            <span style=color:#75715e>// Return max value
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>            <span style=color:#66d9ef>return</span> true;
+</span></span><span style=display:flex><span>        }
+</span></span><span style=display:flex><span>}
+</span></span></code></pre></div><p>代价为：1. 建堆 $\Theta(n)$ 2. 移除最大值 $\Theta(\log n)$（因为深度为 $\lceil \log n$ \rceil） 3. n次移除最大值 $\Theta(n\log n)$</p><blockquote><p>话说我觉得建堆应该是 $\Theta(n\log n)$</p></blockquote><h2 id=参考>参考</h2><p><a href=https://www.cnblogs.com/JVxie/p/4859889.html>https://www.cnblogs.com/JVxie/p/4859889.html</a></p><p><a href=https://www.cnblogs.com/xiugeng/p/9645972.html>https://www.cnblogs.com/xiugeng/p/9645972.html</a></p></div><hr class=my-6><footer class="text-base text-[#868E96]"><small>&copy; 0001 - 2022 <a href=https://toddzzf.github.io class="underline hover:text-accent">Todd</a>. All rights reserved.
+Powered by <a href=https://gohugo.io/ class="underline hover:text-accent">Hugo</a> & <a href=https://github.com/vszhub/not-pure-poole class="underline hover:text-accent">Not Pure Poole</a>.</small></footer></div></div></body><link href=https://cdn.bootcdn.net/ajax/libs/font-awesome/5.15.3/css/all.min.css rel=stylesheet><link href=https://cdn.bootcdn.net/ajax/libs/highlight.js/11.4.0/styles/github-dark-dimmed.min.css rel=stylesheet><script src=https://cdn.bootcdn.net/ajax/libs/highlight.js/11.4.0/highlight.min.js></script>
+<script>hljs.highlightAll()</script></html>

@@ -1,0 +1,133 @@
+<!doctype html><html lang=en><head><meta charset=utf-8><meta name=renderer content="webkit"><meta http-equiv=x-ua-compatible content="IE=Edge,chrome=1"><meta http-equiv=cache-control content="no-siteapp"><meta http-equiv=cache-control content="no-transform"><meta name=viewport content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no"><meta name=description content="(Experimental Design)"><link rel="shortcut icon" href=/images/favicon.png><link rel=apple-touch-icon href=/images/favicon.png><meta name=author content="map[]"><title>Todd's Blog | git教程</title><link rel=stylesheet href=/css/style.css></head><body class="antialiased bg-primary"><div class="flex flex-col sm:flex-row w-full text-white"><div class="sm:fixed w-screen sm:w-4/12 lg:w-3/12 h-screen p-4 bg-secondary bg-cover bg-center" style=background-image:url(/images/bg.png)><div class="flex flex-col justify-center items-center space-y-3 w-full h-full text-center text-white"><div><img class="w-3/12 sm:w-4/12 h-auto aspect-square m-auto rounded-[50%]" src=/images/avatar.png alt=Todd></div><div><a class="text-3xl font-semibold hover:text-accent" href=/>Todd's Blog</a></div><div class=item-center><p class="text-lg font-medium">(Experimental Design)</p></div><div class=pt-5><ul class=text-3xl><li class="inline-block hover:text-accent"><a class=p-3 href=/><i class="fas fa-envelope"></i></a></li><li class="inline-block hover:text-accent"><a class=p-3 href=/about><i class="fab fa-youtube"></i></a></li><li class="inline-block hover:text-accent"><a class=p-3 href=https://github.com/ToddZZF><i class="fab fa-github"></i></a></li><li class="inline-block hover:text-accent"><a class=p-3 href=/about><i class="fab fa-weixin"></i></a></li></ul></div></div></div><div class="flex flex-col w-screen sm:w-8/12 lg:w-6/12 sm:ml-[33.3%] lg:ml-[25%] p-6 md:p-12 bg-primary"><div class="text-3xl font-semibold">git教程</div><div class="mb-4 text-base text-[#868E96]">Oct 30, 2021</div><div class="article relative"><p>  说来惭愧，虽然从大一开始用github，但我从没搞清楚git的用法😑，是时候解决这个问题了。</p><h2 id=背景知识>背景知识</h2><p>  根据百度百科：</p><blockquote><p>Git（读音为/gɪt/）是一个开源的分布式版本控制系统，可以有效、高速地处理从很小到非常大的项目版本管理。Git 是 Linus Torvalds 为了帮助管理 Linux 内核开发而开发的一个开放源码的版本控制软件。</p></blockquote><p>  那么什么是版本控制呢？版本控制是一种记录一个或若干文件内容变化，以便将来查阅特定版本修订情况的系统。</p><p>  最简单的版本控制就是复制整个项目，或许还会改名加上备份时间以示区别。这么做唯一的好处就是简单，但是特别容易犯错，而且特别占空间。</p><p>  于是人们开发了本地版本控制系统，这些系统只记录文件的历次更新差异，很好地避免了出错，节省了空间。</p><p>  但本地版本控制系统只能一个人用，不方便协作，于是人们又开发了分布式版本控制系统，比如 git. 有一个总的服务器负责存储（我们称之为仓库）；而其他客户端从服务器中克隆所有文件，包括历史记录。</p><p>  当然，分布式版本控制系统还有其他好处，可在学习的过程中体会。</p><h2 id=三个区域三种状态>三个区域、三种状态</h2><p>  Git 中存在三个区域：</p><ol><li>工作区：我们编辑文件的地方。</li><li>暂存区：保存了下次将要提交的文件列表信息。</li><li>仓库：保存项目的元数据和对象数据库的地方。</li></ol><p>  相应的，Git 中的文件也有三种状态：</p><ol><li><strong>已修改（modified）</strong>：修改了文件，但还没保存到数据库中。</li><li><strong>已暂存（staged）</strong>：对一个已修改文件的当前版本做了标记，使之包含在下次提交的快照中。</li><li><strong>已提交（committed</strong>）：表示数据已经安全地保存在本地数据库中。</li></ol><p>  基本的 Git 工作流程如下：</p><ol><li>在工作区中修改文件；</li><li>将你想要下次提交的更改选择性地暂存，这样只会将更改的部分添加到暂存区</li><li>提交更新，找到暂存区的文件，将快照永久性存储到 Git 目录</li></ol><h2 id=安装>安装</h2><p>  下面让我们开始实践。请去 <a href=https://git-scm.com/downloads>Git 官网</a> 下载安装包并安装。（在我的 Windows 中约占用 250M）</p><p>  或者如果你也可以直接去安装 <a href=https://desktop.github.com/>github 桌面端</a></p><h2 id=基础设置>基础设置</h2><p>  打开命令行（Mac的Terminal，Windows的Powershell，Linux的Bash），后面所有的命令都是在命令行中输入。</p><p>  在使用 Git 前，需要设置用户名和邮箱地址，它们会写入到你的每一次提交中，从而区分不同人的修改。</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span>git config --global user.name <span style=color:#e6db74>&#34;John Doe&#34;</span>
+</span></span><span style=display:flex><span>git config --global user.email johndoe@example.com
+</span></span></code></pre></div><p>  如果想要检查你的配置，可以使用 <code>git config --list</code> 命令来列出所有 Git 当时能找到的配置。</p><h2 id=基础>基础</h2><p>  本节主要讲如何增删改文件。</p><h3 id=初始化仓库>初始化仓库</h3><p>  我们可以通过两种方式初始化仓库：</p><ol><li><p>将尚未进行版本控制的本地目录转换为 Git 仓库；</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span>cd 目录路径
+</span></span><span style=display:flex><span>git init
+</span></span></code></pre></div></li><li><p>从其它服务器克隆一个已存在的 Git 仓库。</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span>git clone 仓库链接 <span style=color:#f92672>[</span>别名<span style=color:#f92672>]</span>
+</span></span></code></pre></div></li></ol><h3 id=跟踪新文件>跟踪新文件</h3><p>  下面我们开始往git中添加文件。假设我们在文件夹中新建了一个 <code>README</code> 文件，要跟踪它，运行：</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span>git add README
+</span></span></code></pre></div><p>  这时，git 就会跟踪 <code>README</code> 文件的变化。我们可以运行 <code>git status -s</code> 命令来查看仓库的状态。该命令会输出如下信息：</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span>$ git status -s
+</span></span><span style=display:flex><span>A  README
+</span></span></code></pre></div><p>  在此我们需要详细解释一下 <code>git status -s</code>，它会以如下形式输出每个文件的状态：</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span>XY PATH
+</span></span></code></pre></div><p>  其中，<code>X</code>是在暂存区或仓库中的状态，<code>Y</code>是在工作区中的状态。状态由下面的符号表示：</p><ul><li><code>?</code> = untracked 未跟踪</li><li><code>!</code> = ignored 忽略</li><li>`` = unmodified 未修改</li><li><code>M</code> = modified 已修改，未添加到暂存区</li><li><code>A</code> = added 已添加到暂存区</li><li><code>D</code> = deleted 已删除</li><li><code>R</code> = renamed 重命名</li><li><code>C</code> = copied 复制</li><li><code>U</code> = updated but unmerged 未合并</li></ul><p>  我们可以修改 <code>README</code> 里的内容，然后再运行 <code>git status -s</code>，输出：</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span>$ git status -s
+</span></span><span style=display:flex><span>AM README
+</span></span></code></pre></div><p>  第一个字母 <code>A</code> 表示之前已添加到暂存区，第二个字母 <code>M</code> 表示后来文件有更改。</p><h3 id=忽略文件>忽略文件</h3><p>  有一些文件无需纳入 Git 的管理，我们可以创建一个名为 <code>.gitignore</code> 的文件，列出要忽略的文件。</p><p>  文件 <code>.gitignore</code> 的格式规范如下：</p><ul><li>所有空行或者以 # 开头的行都会被 Git 忽略。</li><li>可以使用标准的 glob 模式匹配，它会递归地应用在整个工作区中。</li><li>匹配模式可以以（/）开头防止递归。</li><li>匹配模式可以以（/）结尾指定目录。</li><li>要忽略指定模式以外的文件或目录，可以在模式前加上叹号（!）取反。</li></ul><p>  举例如下：</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span><span style=color:#75715e># 忽略所有的 .a 文件</span>
+</span></span><span style=display:flex><span>*.a
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># 但跟踪所有的 lib.a，即便你在前面忽略了 .a 文件</span>
+</span></span><span style=display:flex><span>!lib.a
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># 只忽略当前目录下的 TODO 文件，而不忽略 subdir/TODO</span>
+</span></span><span style=display:flex><span>/TODO
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># 忽略任何目录下名为 build 的文件夹</span>
+</span></span><span style=display:flex><span>build/
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># 忽略 doc/notes.txt，但不忽略 doc/server/arch.txt</span>
+</span></span><span style=display:flex><span>doc/*.txt
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># 忽略 doc/ 目录及其所有子目录下的 .pdf 文件</span>
+</span></span><span style=display:flex><span>doc/**/*.pdf
+</span></span></code></pre></div><p>  当然，我们不必自己写这个文件，GitHub 有一个十分详细的针对数十种项目及语言的 .gitignore 文件列表， 你可以在 <a href=https://github.com/github/gitignore>https://github.com/github/gitignore</a> 找到它。</p><h3 id=提交更新>提交更新</h3><p>  暂存区就绪后，就可以提交了。运行命令：</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span>git commit
+</span></span></code></pre></div><p>  这时，会启动文本编辑器来输入提交说明。编辑器会显示类似下面的文本信息：</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># Please enter the commit message for your changes. Lines starting</span>
+</span></span><span style=display:flex><span><span style=color:#75715e># with &#39;#&#39; will be ignored, and an empty message aborts the commit.</span>
+</span></span><span style=display:flex><span><span style=color:#75715e>#</span>
+</span></span><span style=display:flex><span><span style=color:#75715e># On branch master</span>
+</span></span><span style=display:flex><span><span style=color:#75715e>#</span>
+</span></span><span style=display:flex><span><span style=color:#75715e># Initial commit</span>
+</span></span><span style=display:flex><span><span style=color:#75715e>#</span>
+</span></span><span style=display:flex><span><span style=color:#75715e># Changes to be committed:</span>
+</span></span><span style=display:flex><span><span style=color:#75715e># new file:   README</span>
+</span></span><span style=display:flex><span><span style=color:#75715e>#</span>
+</span></span><span style=display:flex><span><span style=color:#75715e># Changes not staged for commit:</span>
+</span></span><span style=display:flex><span><span style=color:#75715e># modified:   README</span>
+</span></span><span style=display:flex><span><span style=color:#75715e>#</span>
+</span></span></code></pre></div><p>  <code>#</code> 开头的是注释。我们可以在注释下面写说明（写啥都行，主要是方便以后回想），退出编辑器时，Git 会丢弃注释行，用你输入的提交说明生成一次提交。</p><p>  我们也可以在 <code>commit</code> 命令后添加 <code>-m</code> 选项，将提交信息与命令放在同一行，如下所示：</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span>git commit -m <span style=color:#e6db74>&#34;说明&#34;</span>
+</span></span></code></pre></div><p>  提交完后，会有如下信息：</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span><span style=color:#f92672>[</span>master <span style=color:#f92672>(</span>root-commit<span style=color:#f92672>)</span> 7bb7d10<span style=color:#f92672>]</span> first commit
+</span></span><span style=display:flex><span> <span style=color:#ae81ff>1</span> file changed, <span style=color:#ae81ff>0</span> insertions<span style=color:#f92672>(</span>+<span style=color:#f92672>)</span>, <span style=color:#ae81ff>0</span> deletions<span style=color:#f92672>(</span>-<span style=color:#f92672>)</span>
+</span></span><span style=display:flex><span> create mode <span style=color:#ae81ff>100644</span> README
+</span></span></code></pre></div><h3 id=跳过暂存区>跳过暂存区</h3><p>  如果你觉得使用暂存区很繁琐，我们可以直接将已跟踪过的文件暂存起来一并提交，只需在 <code>git commit</code> 后面加上 <code>-a</code> 选项：</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span>git commit -a -m <span style=color:#e6db74>&#34;说明&#34;</span>
+</span></span></code></pre></div><h3 id=删除文件>删除文件</h3><p>  我们可以用 <code>git rm 文件</code> 来从暂存区域移除，且从工作目录中删除指定的文件，这样以后就不会出现在未跟踪文件清单中了。</p><p>  那么为什么不能直接从目录中删除文件呢？因为 Git 设计的时候就考虑了误删除的情况，具体如下：</p><ol><li>如果添加到暂存区，那么删除后可以从暂存区恢复</li><li>如果没添加到暂存区，但之前有提交到仓库，那么可以从仓库恢复</li></ol><p>  我们来演习一下。假设我们有这么一个文件，已修改但还没添加到暂存区：</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span>$ git status -s
+</span></span><span style=display:flex><span> M README
+</span></span></code></pre></div><p>  我们误删了它：</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span>$ rm README
+</span></span><span style=display:flex><span>$ git status -s
+</span></span><span style=display:flex><span> D README
+</span></span></code></pre></div><p>  这时可以通过下面命令从仓库中恢复：</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span>$ git checkout README
+</span></span><span style=display:flex><span>Updated <span style=color:#ae81ff>1</span> path from the index
+</span></span></code></pre></div><p>  但由于是从仓库中恢复的，所以如果用 <code>git status -s</code> 检查，并不会提示该文件已更改。也就是说，修改的部分无法恢复。</p><p>  如果添加到了暂存区，比如（注意M的位置和之前不同）：</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span>$ git status -s
+</span></span><span style=display:flex><span>M  README
+</span></span><span style=display:flex><span>$ rm README
+</span></span><span style=display:flex><span>$ git status -s
+</span></span><span style=display:flex><span>MD README
+</span></span></code></pre></div><p>  本地删除文件后，同样是用 <code>git checkout 文件</code> 命令来从暂存区中恢复：</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span>$ git checkout README
+</span></span><span style=display:flex><span>Updated <span style=color:#ae81ff>1</span> path from the index
+</span></span><span style=display:flex><span>$ git status -s
+</span></span><span style=display:flex><span>M  README
+</span></span></code></pre></div><hr><p>  那假如我们不是用 <code>rm</code>，而是用 <code>git rm</code> 来删除文件，会怎么样呢？我们同样来实践一下。</p><p>  现在我们有一个在暂存区中的文件，如果直接用 <code>git rm</code>，会出错：</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span>$ git status -s
+</span></span><span style=display:flex><span>M  README
+</span></span><span style=display:flex><span>$ git rm README
+</span></span><span style=display:flex><span>error: the following file has changes staged in the index:
+</span></span><span style=display:flex><span>    README
+</span></span><span style=display:flex><span><span style=color:#f92672>(</span>use --cached to keep the file, or -f to force removal<span style=color:#f92672>)</span>
+</span></span></code></pre></div><p>  根据提示，我们可以选择添加 <code>--cached</code> 参数来删除暂存区中的记录，停止跟踪，但保留本地文件，如下：</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span>$ git rm --cached README
+</span></span><span style=display:flex><span>rm <span style=color:#e6db74>&#39;README&#39;</span>
+</span></span><span style=display:flex><span>$ git status -s
+</span></span><span style=display:flex><span>D  README
+</span></span><span style=display:flex><span>?? README
+</span></span><span style=display:flex><span>$ ls
+</span></span><span style=display:flex><span>README
+</span></span></code></pre></div><p>  或者添加 <code>-f</code> 来同时删除本地文件，如下：</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span>$ git rm -f README
+</span></span><span style=display:flex><span>rm <span style=color:#e6db74>&#39;README&#39;</span>
+</span></span><span style=display:flex><span>$ git status -s
+</span></span><span style=display:flex><span>D  README
+</span></span><span style=display:flex><span>$ ls
+</span></span></code></pre></div><p>  那么我们如何恢复呢？我们可以通过 <code>git reset HEAD 12.md</code> 可以撤销“删除暂存区中的记录”的操作，然后再通过 <code>git checkout README</code> 来恢复本地文件：</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span>$ git reset HEAD README
+</span></span><span style=display:flex><span>Unstaged changes after reset:
+</span></span><span style=display:flex><span>D       README
+</span></span><span style=display:flex><span>$ git checkout README
+</span></span><span style=display:flex><span>Updated <span style=color:#ae81ff>1</span> path from the index
+</span></span><span style=display:flex><span>$ ls
+</span></span><span style=display:flex><span>README
+</span></span></code></pre></div><hr><p>  从上面实践中可以看出，<code>rm</code> 只是单纯地删除本地文件，但我们依然可以利用暂存库和仓库来恢复；而 <code>git rm</code> 则是从版本控制中移除了文件。</p><p>  如果你还不能理解这两者的区别，那么你可以把 <code>git rm</code> 看作 <code>git add</code>，而 <code>rm</code> 看作本地修改，再好好想一下。我相信你会懂的。</p><h3 id=移动文件重命名>移动文件（重命名）</h3><p>  我们可以用 <code>git mv</code> 来移动/重命名文件：</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span>$ git mv README README.md
+</span></span><span style=display:flex><span>$ git status -s
+</span></span><span style=display:flex><span>R  README -&gt; README.md
+</span></span></code></pre></div><p>  这实际上相当于下面三条命令：</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span>mv README README.md
+</span></span><span style=display:flex><span>git rm README
+</span></span><span style=display:flex><span>git add README.md
+</span></span></code></pre></div><h3 id=撤销操作>撤销操作</h3><p><strong>撤销 commit</strong></p><p>有时候我们提交完了才发现漏掉了几个文件没有添加，或者提交信息写错了。此时，可以运行带有 <code>--amend</code> 选项的提交命令来重新提交：</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span>git commit -m <span style=color:#e6db74>&#39;initial commit&#39;</span>
+</span></span><span style=display:flex><span>git add forgotten_file
+</span></span><span style=display:flex><span>git commit --amend
+</span></span></code></pre></div><p>文本编辑器启动后，可以看到之前的提交信息。编辑后保存会覆盖原来的提交信息。</p><hr><p><strong>撤销暂存</strong></p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span>git reset HEAD 文件
+</span></span></code></pre></div><h2 id=进阶>进阶</h2><h3 id=添加远程仓库>添加远程仓库</h3><p>  我们可以直接使用 github、gitlab、gitee 等网站提供的远程仓库，或在自己服务器上搭建。这里我就用最常用的 github.</p><p>  由于 Github Desktop 已经帮我连接上 github 了，所以我无需再配置 github 账号。如果你没有，可以参考这个教程：<a href=https://zhuanlan.zhihu.com/p/114068278>Git安装教程(Windows) 以及连接Github</a></p><p>  首先我们先从远程仓库克隆已有的文件。此处我用自己的仓库，请自行用你自己的仓库替代。</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span>$ git clone https://github.com/ToddZZF/Go-Note.git
+</span></span><span style=display:flex><span>Cloning into <span style=color:#e6db74>&#39;Go-Note&#39;</span>...
+</span></span><span style=display:flex><span>remote: Enumerating objects: 66, <span style=color:#66d9ef>done</span>.
+</span></span><span style=display:flex><span>remote: Counting objects: 100% <span style=color:#f92672>(</span>66/66<span style=color:#f92672>)</span>, <span style=color:#66d9ef>done</span>.
+</span></span><span style=display:flex><span>remote: Compressing objects: 100% <span style=color:#f92672>(</span>51/51<span style=color:#f92672>)</span>, <span style=color:#66d9ef>done</span>.
+</span></span><span style=display:flex><span>remote: Total <span style=color:#ae81ff>66</span> <span style=color:#f92672>(</span>delta 16<span style=color:#f92672>)</span>, reused <span style=color:#ae81ff>57</span> <span style=color:#f92672>(</span>delta 7<span style=color:#f92672>)</span>, pack-reused <span style=color:#ae81ff>0</span>
+</span></span><span style=display:flex><span>Receiving objects: 100% <span style=color:#f92672>(</span>66/66<span style=color:#f92672>)</span>, 70.83 KiB | 1.31 MiB/s, <span style=color:#66d9ef>done</span>.
+</span></span><span style=display:flex><span>Resolving deltas: 100% <span style=color:#f92672>(</span>16/16<span style=color:#f92672>)</span>, <span style=color:#66d9ef>done</span>.
+</span></span><span style=display:flex><span>$ cd Go-Note
+</span></span></code></pre></div><p>我们可以用 <code>git remote -v</code> 来查看远程服务器和对应 url，Git 会给默认的服务器起名为 <code>origin</code></p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span>$ git remote -v
+</span></span><span style=display:flex><span>origin https://github.com/ToddZZF/Go-Note.git
+</span></span></code></pre></div><p>我们也可以自己指定服务器的名字。运行 <code>git remote add &lt;shortname> &lt;url></code> 添加一个新的远程 Git 仓库，同时指定一个方便使用的简写：</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span>$ git remote
+</span></span><span style=display:flex><span>origin
+</span></span><span style=display:flex><span>$ git remote add pb https://github.com/paulboone/ticgit
+</span></span><span style=display:flex><span>$ git remote -v
+</span></span><span style=display:flex><span>origin https://github.com/schacon/ticgit <span style=color:#f92672>(</span>fetch<span style=color:#f92672>)</span>
+</span></span><span style=display:flex><span>origin https://github.com/schacon/ticgit <span style=color:#f92672>(</span>push<span style=color:#f92672>)</span>
+</span></span><span style=display:flex><span>pb https://github.com/paulboone/ticgit <span style=color:#f92672>(</span>fetch<span style=color:#f92672>)</span>
+</span></span><span style=display:flex><span>pb https://github.com/paulboone/ticgit <span style=color:#f92672>(</span>push<span style=color:#f92672>)</span>
+</span></span></code></pre></div><p>如果远程仓库不止一个（毕竟我们可以存在多个服务器上，或与多人进行协作），该命令会全部列出，大概是这样：</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span>$ cd grit
+</span></span><span style=display:flex><span>$ git remote -v
+</span></span><span style=display:flex><span>bakkdoor  https://github.com/bakkdoor/grit <span style=color:#f92672>(</span>fetch<span style=color:#f92672>)</span>
+</span></span><span style=display:flex><span>bakkdoor  https://github.com/bakkdoor/grit <span style=color:#f92672>(</span>push<span style=color:#f92672>)</span>
+</span></span><span style=display:flex><span>cho45     https://github.com/cho45/grit <span style=color:#f92672>(</span>fetch<span style=color:#f92672>)</span>
+</span></span><span style=display:flex><span>cho45     https://github.com/cho45/grit <span style=color:#f92672>(</span>push<span style=color:#f92672>)</span>
+</span></span><span style=display:flex><span>defunkt   https://github.com/defunkt/grit <span style=color:#f92672>(</span>fetch<span style=color:#f92672>)</span>
+</span></span><span style=display:flex><span>defunkt   https://github.com/defunkt/grit <span style=color:#f92672>(</span>push<span style=color:#f92672>)</span>
+</span></span><span style=display:flex><span>koke      git://github.com/koke/grit.git <span style=color:#f92672>(</span>fetch<span style=color:#f92672>)</span>
+</span></span><span style=display:flex><span>koke      git://github.com/koke/grit.git <span style=color:#f92672>(</span>push<span style=color:#f92672>)</span>
+</span></span><span style=display:flex><span>origin    git@github.com:mojombo/grit.git <span style=color:#f92672>(</span>fetch<span style=color:#f92672>)</span>
+</span></span><span style=display:flex><span>origin    git@github.com:mojombo/grit.git <span style=color:#f92672>(</span>push<span style=color:#f92672>)</span>
+</span></span></code></pre></div><h2 id=参考>参考</h2><ul><li><a href=https://git-scm.com/>Git</a></li><li><a href=https://git-scm.com/book/zh/v2>Pro Git</a></li><li><a href="https://learngitbranching.js.org/?locale=zh_CN">https://learngitbranching.js.org</a></li></ul></div><hr class=my-6><footer class="text-base text-[#868E96]"><small>&copy; 0001 - 2022 <a href=https://toddzzf.github.io class="underline hover:text-accent">Todd</a>. All rights reserved.
+Powered by <a href=https://gohugo.io/ class="underline hover:text-accent">Hugo</a> & <a href=https://github.com/vszhub/not-pure-poole class="underline hover:text-accent">Not Pure Poole</a>.</small></footer></div></div></body><link href=https://cdn.bootcdn.net/ajax/libs/font-awesome/5.15.3/css/all.min.css rel=stylesheet><link href=https://cdn.bootcdn.net/ajax/libs/highlight.js/11.4.0/styles/github-dark-dimmed.min.css rel=stylesheet><script src=https://cdn.bootcdn.net/ajax/libs/highlight.js/11.4.0/highlight.min.js></script>
+<script>hljs.highlightAll()</script></html>
