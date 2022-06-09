@@ -6,8 +6,8 @@ category: document
 thumbnail: rainbow_dash.png
 icon: note
 summary: " "
-indent: True
-hide: True
+indent: true
+hide: true
 ---
 
 ## 6月13日 周一
