@@ -9,6 +9,8 @@ summary: " "
 indent: True
 ---
 
+本博客已用 Hugo 重构。
+
 ## Hugo入门
 
 自从我开始写博客以来，我一直使用的是 [Jekyll](https://jekyllrb.com/)，因为 github page 用的就是 Jekyll，我不需要在本地生成静态页面。但当我开始自己设计主题后，Jekyll 繁琐的安装方式和非常慢的生成页面的速度，让我很不爽。因此我决定尝试使用 [Hugo](https://gohugo.io/). Hugo 是由 Go 编写的，并且运行速度很快（宣传生成一篇文章只需 1ms）。Hugo 的安装方式十分简单，下载一个 exe 文件，然后添加到 PATH 里即可。可以用以下命令验证安装是否成功：
