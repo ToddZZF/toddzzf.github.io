@@ -541,12 +541,12 @@ Ensure the default browser behavior of the `hidden` attribute.
   width: 5rem;
 }
 
-.w-screen {
-  width: 100vw;
-}
-
 .w-full {
   width: 100%;
+}
+
+.w-screen {
+  width: 100vw;
 }
 
 .w-3\/12 {
@@ -642,14 +642,14 @@ Ensure the default browser behavior of the `hidden` attribute.
   border-color: transparent;
 }
 
-.bg-secondary {
-  --tw-bg-opacity: 1;
-  background-color: rgb(40 73 77 / var(--tw-bg-opacity));
-}
-
 .bg-primary {
   --tw-bg-opacity: 1;
   background-color: rgb(52 58 64 / var(--tw-bg-opacity));
+}
+
+.bg-secondary {
+  --tw-bg-opacity: 1;
+  background-color: rgb(40 73 77 / var(--tw-bg-opacity));
 }
 
 .bg-cover {
@@ -665,16 +665,16 @@ Ensure the default browser behavior of the `hidden` attribute.
      object-fit: cover;
 }
 
+.p-6 {
+  padding: 1.5rem;
+}
+
 .p-4 {
   padding: 1rem;
 }
 
 .p-3 {
   padding: 0.75rem;
-}
-
-.p-6 {
-  padding: 1.5rem;
 }
 
 .px-3 {
@@ -988,6 +988,36 @@ th {
   overflow-wrap: break-word;
 }
 
+.article img {
+  width: 75%;
+}
+
+.article img[src$='#center']
+{
+  display: block;
+  margin: 0.7rem auto;
+  /* you can replace the vertical '0.7rem' by
+                            whatever floats your boat, but keep the
+                            horizontal 'auto' for this to work */
+  /* whatever else styles you fancy here */
+}
+
+.article img[src$='#left']
+{
+  float:left;
+  margin: 0.7rem;
+  /* this margin is totally up to you */
+  /* whatever else styles you fancy here */
+}
+
+.article img[src$='#right']
+{
+  float:right;
+  margin: 0.7rem;
+  /* this margin is totally up to you */
+  /* whatever else styles you fancy here */
+}
+
 .pagination {
   display: flex;
   justify-content: center;
@@ -1058,12 +1088,12 @@ th {
     margin-left: 33.3%;
   }
 
-  .sm\:w-4\/12 {
-    width: 33.333333%;
-  }
-
   .sm\:w-8\/12 {
     width: 66.666667%;
+  }
+
+  .sm\:w-4\/12 {
+    width: 33.333333%;
   }
 
   .sm\:flex-row {
@@ -1094,11 +1124,11 @@ th {
     width: 8rem;
   }
 
-  .lg\:w-3\/12 {
-    width: 25%;
-  }
-
   .lg\:w-6\/12 {
     width: 50%;
+  }
+
+  .lg\:w-3\/12 {
+    width: 25%;
   }
 }
