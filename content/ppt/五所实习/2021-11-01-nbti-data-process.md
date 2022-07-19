@@ -148,22 +148,22 @@ summary: 介绍NBTI数据处理
     <section>
         <section>
           <h3>熟悉实验仪器: 安捷伦B1500A</h3>
-          <img src="../images/hot-carrier/仪器b1500a.jpg" width="400">
-          <img src="../images/hot-carrier/仪器b1500a接口.jpg" width="500">
+          <img src="./images/hot-carrier/仪器b1500a.jpg" width="400">
+          <img src="./images/hot-carrier/仪器b1500a接口.jpg" width="500">
         </section>
         <section>
           <h3>熟悉实验软件: EasyEXPERT</h3>
-          <img src="../images/hot-carrier/EasyEXPERT界面.jpg">
+          <img src="./images/hot-carrier/EasyEXPERT界面.jpg">
         </section>
         <section>
           <h3>探针台</h3>
           <div class="twocolumn">
             <div>
-              <img src="../images/hot-carrier/探针台.jpg">
+              <img src="./images/hot-carrier/探针台.jpg">
             </div>
             <div>
-              <img src="../images/hot-carrier/压针.jpg" width="70%">
-              <img src="../images/hot-carrier/压针后.jpg" width="70%">
+              <img src="./images/hot-carrier/压针.jpg" width="70%">
+              <img src="./images/hot-carrier/压针后.jpg" width="70%">
             </div>
           </div>
         </section>
@@ -219,7 +219,7 @@ summary: 介绍NBTI数据处理
                 \end{aligned}
               \]
             </p>
-            <img src="../images/hot-carrier/应力作用时间影响因子.jpg">
+            <img src="./images/hot-carrier/应力作用时间影响因子.jpg">
           </section>
         <section>
         <h3>激活能$Ea$的提取</h3>
@@ -231,7 +231,7 @@ summary: 介绍NBTI数据处理
               \end{aligned}
             \]
           </p>
-          <img src="../images/hot-carrier/激活能的提取.jpg">
+          <img src="./images/hot-carrier/激活能的提取.jpg">
         </section>
         <section>
         <h3>电场加速因子$C$的提取</h3>
@@ -243,7 +243,7 @@ summary: 介绍NBTI数据处理
               \end{aligned}
             \]
           </p>
-          <img src="../images/hot-carrier/电场加速因子的提取.jpg">
+          <img src="./images/hot-carrier/电场加速因子的提取.jpg">
         </section>
         <section>
         <h3>系数的提取</h3>
@@ -255,7 +255,7 @@ summary: 介绍NBTI数据处理
               \end{aligned}
             \]
           </p>
-          <img src="../images/hot-carrier/应力作用时间影响因子.jpg">
+          <img src="./images/hot-carrier/应力作用时间影响因子.jpg">
         </section>
     </section>
     <section>

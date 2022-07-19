@@ -56,6 +56,10 @@ title: "Todd's Blog"
 ## Site theme
 theme: practice
 
+uglyURLs:
+  ppt: true
+  
+
 ## Watch filesystem for changes and recreate as needed
 watch: true
 

@@ -104,11 +104,11 @@ summary: 仿真
         <section>
             <p>拟合效果如图所示：（\(1/\tau\) vs \(|I_{ds}/W|\)）</p>
             <div style="display:flex;flex-wrap:wrap;">
-            <img src="../images/hot-carrier/40nm_isat_1_div_tau_fit_-2V.jpg" style="width: 33%"/>
-            <img src="../images/hot-carrier/40nm_isat_1_div_tau_fit_-1.8V.jpg" style="width: 33%"/>
-            <img src="../images/hot-carrier/40nm_isat_1_div_tau_fit_-1.6V.jpg" style="width: 33%"/>
-            <img src="../images/hot-carrier/40nm_isat_1_div_tau_fit_-1.4V.jpg" style="width: 33%"/>
-            <img src="../images/hot-carrier/40nm_isat_1_div_tau_fit_-1.21V.jpg" style="width: 33%"/>
+            <img src="./images/hot-carrier/40nm_isat_1_div_tau_fit_-2V.jpg" style="width: 33%"/>
+            <img src="./images/hot-carrier/40nm_isat_1_div_tau_fit_-1.8V.jpg" style="width: 33%"/>
+            <img src="./images/hot-carrier/40nm_isat_1_div_tau_fit_-1.6V.jpg" style="width: 33%"/>
+            <img src="./images/hot-carrier/40nm_isat_1_div_tau_fit_-1.4V.jpg" style="width: 33%"/>
+            <img src="./images/hot-carrier/40nm_isat_1_div_tau_fit_-1.21V.jpg" style="width: 33%"/>
             </div>
         </section>
         <section>
@@ -122,10 +122,10 @@ summary: 仿真
         <h3>平面工艺仿真</h3>
         <div class="twocolumn">
             <div>
-            <img src="../images/hot-carrier/0407-100nmPMOS.jpg" width="100%">
+            <img src="./images/hot-carrier/0407-100nmPMOS.jpg" width="100%">
             </div>
             <div>
-            <img src="../images/hot-carrier/0407-仿真.jpg" width="100%"/>
+            <img src="./images/hot-carrier/0407-仿真.jpg" width="100%"/>
             </div>
         </div>
     </section>

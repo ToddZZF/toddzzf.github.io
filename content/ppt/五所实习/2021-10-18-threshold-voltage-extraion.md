@@ -107,12 +107,12 @@ summary: 介绍多种提取阈值电压的方法
     <section>
         <section>
           <h3>熟悉实验仪器: 安捷伦B1500A</h3>
-          <img src="../images/hot-carrier/仪器b1500a.jpg" width="400">
-          <img src="../images/hot-carrier/仪器b1500a接口.jpg" width="500">
+          <img src="./images/hot-carrier/仪器b1500a.jpg" width="400">
+          <img src="./images/hot-carrier/仪器b1500a接口.jpg" width="500">
         </section>
         <section>
           <h3>熟悉实验软件: EasyEXPERT</h3>
-          <img src="../images/hot-carrier/EasyEXPERT界面.jpg">
+          <img src="./images/hot-carrier/EasyEXPERT界面.jpg">
         </section>
     </section>
     <section>
@@ -124,7 +124,7 @@ summary: 介绍多种提取阈值电压的方法
           <h3>常数电流法(CC)</h3>
           <div class="twocolumn">
             <div>
-              <img src="../images/hot-carrier/测阈值电压：常数电流法.jpg">
+              <img src="./images/hot-carrier/测阈值电压：常数电流法.jpg">
             </div>
             <div>
               <p>与规定的 $I_d$ 对应的 $V_g$ 即为 $V_\tx{th}$. $I_\tx{th}$ 一般取 $10^{-6}-10^{-9}\tx{A}$</p>
@@ -139,7 +139,7 @@ summary: 介绍多种提取阈值电压的方法
           <h3>线性外推法(ELR)</h3>
           <div class="twocolumn">
             <div>
-              <img src="../images/hot-carrier/测阈值电压：线性外推法.jpg">
+              <img src="./images/hot-carrier/测阈值电压：线性外推法.jpg">
             </div>
             <div>
               <p>

@@ -184,7 +184,7 @@ solve vgate=0.5 vstep=0.25 name=gate vfinal=6.
             <p>退化前后的I-V特性</p>
 <pre><code data-line-numbers>tonyplot -overlay mos2ex02_0_1s.log mos2ex02_0_01s.log mos2ex02_2.log
 </code></pre>
-            <img src="../images/hot-carrier/tcad_example.jpg" width="70%">
+            <img src="./images/hot-carrier/tcad_example.jpg" width="70%">
         </section>
     </section>
     <section>

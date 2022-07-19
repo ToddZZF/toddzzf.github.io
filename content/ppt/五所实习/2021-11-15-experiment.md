@@ -69,7 +69,7 @@ summary: 描述测量晶体管特性曲线的过程
         </p>
       </section>
       <section>
-        <img src="../images/hot-carrier/SVE%20vs%20MVE.jpg">
+        <img src="./images/hot-carrier/SVE%20vs%20MVE.jpg">
       </section>
     </section>
     <section>
@@ -112,22 +112,22 @@ summary: 描述测量晶体管特性曲线的过程
     <section>
         <section>
           <h3>实验仪器: 安捷伦B1500</h3>
-          <img src="../images/hot-carrier/仪器b1500a.jpg" width="400">
-          <img src="../images/hot-carrier/仪器b1500a接口.jpg" width="500">
+          <img src="./images/hot-carrier/仪器b1500a.jpg" width="400">
+          <img src="./images/hot-carrier/仪器b1500a接口.jpg" width="500">
         </section>
         <section>
           <h3>实验软件: EasyEXPERT</h3>
-          <img src="../images/hot-carrier/EasyEXPERT界面.jpg">
+          <img src="./images/hot-carrier/EasyEXPERT界面.jpg">
         </section>
         <section>
           <h3>探针台</h3>
           <div class="twocolumn">
             <div>
-              <img src="../images/hot-carrier/探针台.jpg">
+              <img src="./images/hot-carrier/探针台.jpg">
             </div>
             <div>
-              <img src="../images/hot-carrier/压针.jpg" width="70%">
-              <img src="../images/hot-carrier/压针后.jpg" width="70%">
+              <img src="./images/hot-carrier/压针.jpg" width="70%">
+              <img src="./images/hot-carrier/压针后.jpg" width="70%">
             </div>
           </div>
         </section>
@@ -139,10 +139,10 @@ summary: 描述测量晶体管特性曲线的过程
           </ul>
         </section>
         <section>
-          <img src="../images/hot-carrier/1115-数据处理2.jpg">
+          <img src="./images/hot-carrier/1115-数据处理2.jpg">
         </section>
         <section>
-          <img src="../images/hot-carrier/1115-数据处理1.jpg">
+          <img src="./images/hot-carrier/1115-数据处理1.jpg">
         </section>
     </section>
     <section>

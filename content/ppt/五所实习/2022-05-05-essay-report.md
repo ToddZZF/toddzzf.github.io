@@ -22,7 +22,7 @@ summary: 仿真
       </ul>
     </section>
     <section>
-      <img src="../images/hot-carrier/论文思维导图.drawio.svg">
+      <img src="./images/hot-carrier/论文思维导图.drawio.svg">
     </section>
     <section>
         <p>后续工作：准备答辩</p>

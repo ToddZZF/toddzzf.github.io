@@ -57,7 +57,7 @@ summary: 模型与验证
         <section>
             <p>时间指数的拟合：<br/></p>
             \(\Delta I_{\rm Sat}/I_{\rm Sat0} = \frac{t^n}{\tau}=0.05373 \cdot x^{0.164}\)
-            <img src="../images/hot-carrier/40nm_stresstime_isat_exp_fit.md.jpg" style="width: 80%"/>
+            <img src="./images/hot-carrier/40nm_stresstime_isat_exp_fit.md.jpg" style="width: 80%"/>
         </section>
         <section data-markdown>
             <script type="text/template">
@@ -75,11 +75,11 @@ summary: 模型与验证
         <section>
             <p>拟合效果如图所示：（\(1/\tau\) vs \(|I_{ds}/W|\)）</p>
             <div style="display:flex;flex-wrap:wrap;">
-            <img src="../images/hot-carrier/40nm_isat_1_div_tau_fit_-2V.jpg" style="width: 33%"/>
-            <img src="../images/hot-carrier/40nm_isat_1_div_tau_fit_-1.8V.jpg" style="width: 33%"/>
-            <img src="../images/hot-carrier/40nm_isat_1_div_tau_fit_-1.6V.jpg" style="width: 33%"/>
-            <img src="../images/hot-carrier/40nm_isat_1_div_tau_fit_-1.4V.jpg" style="width: 33%"/>
-            <img src="../images/hot-carrier/40nm_isat_1_div_tau_fit_-1.21V.jpg" style="width: 33%"/>
+            <img src="./images/hot-carrier/40nm_isat_1_div_tau_fit_-2V.jpg" style="width: 33%"/>
+            <img src="./images/hot-carrier/40nm_isat_1_div_tau_fit_-1.8V.jpg" style="width: 33%"/>
+            <img src="./images/hot-carrier/40nm_isat_1_div_tau_fit_-1.6V.jpg" style="width: 33%"/>
+            <img src="./images/hot-carrier/40nm_isat_1_div_tau_fit_-1.4V.jpg" style="width: 33%"/>
+            <img src="./images/hot-carrier/40nm_isat_1_div_tau_fit_-1.21V.jpg" style="width: 33%"/>
             </div>
         </section>
         <section>
@@ -92,7 +92,7 @@ summary: 模型与验证
     <!-- <section>
         <section>
             <p>NBTI的影响</p>
-            <img src="../images/hot-carrier/STRESS-Relaxation.jpg">
+            <img src="./images/hot-carrier/STRESS-Relaxation.jpg">
         </section>
         <section>
             <p>①常用方法：直接减去相同下栅压的NBTI分量</p>
