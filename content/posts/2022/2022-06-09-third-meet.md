@@ -7,7 +7,7 @@ thumbnail: rainbow_dash.png
 icon: note
 summary: " "
 indent: true
-hide: true
+draft: true
 ---
 
 ## 行程安排
