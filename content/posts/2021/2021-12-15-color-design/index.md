@@ -22,23 +22,23 @@ mathjax: true
 
 **Hue 色相**：色彩的外相，不包括黑白灰
 
-![hue](../images/design/color/hue.jpg)
+![hue](images/hue.jpg)
 
 **tint 亮度**：向纯色中增加白色的程度
 
-![tint](../images/design/color/tint.jpg)
+![tint](images/tint.jpg)
 
 **tone 色调**：向纯色中增加灰色的程度
 
-![tone](../images/design/color/tone.jpg)
+![tone](images/tone.jpg)
 
 **shade 色度**：向纯色中增加黑色的程度
 
-![shade](../images/design/color/shade.jpg)
+![shade](images/shade.jpg)
 
 **temperature 色温**：色彩中，红/黄色占得多则偏暖，蓝/绿色占得多则偏冷
 
-![temperature](../images/design/color/temperature.jpg)
+![temperature](images/temperature.jpg)
 
 ## 色彩模型
 
@@ -52,7 +52,7 @@ mathjax: true
 
 ## 常用色彩搭配
 
-![different_tones](../images/design/color/different_tones.jpg)
+![different_tones](images/different_tones.jpg)
 
 确定 S 和 B 后，改变 H 得到一组所需颜色。各组颜色的 SB 范围如下：
 
@@ -79,15 +79,15 @@ mathjax: true
 
 一些示例：
 
-![jewel_tones](../images/design/color/jewel_tones.jpg)
+![jewel_tones](images/jewel_tones.jpg)
 
-![pastel_tones](../images/design/color/pastel_tones.jpg)
+![pastel_tones](images/pastel_tones.jpg)
 
-![earth_tones](../images/design/color/earth_tones.jpg)
+![earth_tones](images/earth_tones.jpg)
 
-![neutral_tones](../images/design/color/neutral_tones.jpg)
+![neutral_tones](images/neutral_tones.jpg)
 
-![fluorescent_tones](../images/design/color/fluorescent_tones.jpg)
+![fluorescent_tones](images/fluorescent_tones.jpg)
 
 ## 色彩搭配网站
 
