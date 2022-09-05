@@ -110,7 +110,7 @@
 
             li a:first-of-type::before {
                 counter-increment: item;
-                content: counters(item, ".") ". ";
+                // content: counters(item, ".") ". ";
                 font-weight: bold;
                 margin-right: 5px;
             }

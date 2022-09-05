@@ -7,6 +7,12 @@
                 { left: "$", right: "$", display: false },
                 { left: "\\(", right: "\\)", display: false },
                 { left: "\\[", right: "\\]", display: true }
-            ]
-        });})
+            ],
+            macros: {
+                "\\dif": "\\mathop{}\\!\\mathrm{d}",
+                "\\l": "\\left",
+                "\\r": "\\right"
+            }
+        });
+    })
 </script>

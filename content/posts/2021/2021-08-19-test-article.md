@@ -5,7 +5,7 @@ date: 2021-08-19 20:16:00 +0800
 category: document
 thumbnail: rainbow_dash.png
 icon: book
-mathjax: true
+math: true
 chart: true
 mermaid: true
 key: 2021-08-19-test-article
