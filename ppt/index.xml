@@ -1,4 +1,113 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>PPT on Todd's Blog</title><link>https://todd.scuteee.com/ppt/</link><description>Recent content in PPT on Todd's Blog</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><lastBuildDate>Sun, 15 May 2022 14:29:21 +0800</lastBuildDate><atom:link href="https://todd.scuteee.com/ppt/index.xml" rel="self" type="application/rss+xml"/><item><title>How to setup ourblog</title><link>https://todd.scuteee.com/ppt/%E6%97%A5%E5%B8%B8/2022-07-19-how-to-setup-ourbog/</link><pubDate>Tue, 19 Jul 2022 09:41:00 +0800</pubDate><guid>https://todd.scuteee.com/ppt/%E6%97%A5%E5%B8%B8/2022-07-19-how-to-setup-ourbog/</guid><description>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>PPT on Todd's Blog</title><link>https://todd.scuteee.com/ppt/</link><description>Recent content in PPT on Todd's Blog</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><lastBuildDate>Sun, 15 May 2022 14:29:21 +0800</lastBuildDate><atom:link href="https://todd.scuteee.com/ppt/index.xml" rel="self" type="application/rss+xml"/><item><title>VerilogHDL Learning</title><link>https://todd.scuteee.com/ppt/%E7%BB%84%E4%BC%9A/20220807-icc-train/</link><pubDate>Sun, 07 Aug 2022 17:00:00 +0800</pubDate><guid>https://todd.scuteee.com/ppt/%E7%BB%84%E4%BC%9A/20220807-icc-train/</guid><description>
+&lt;style>
+.tworow {
+display: grid;
+grid-template-rows: 1fr 1fr;
+grid-gap: 2px;
+text-align: center;
+}
+.twocolumn {
+display: grid;
+grid-template-columns: 2fr 1fr;
+grid-gap: 2px;
+text-align: center;
+}
+&lt;/style>
+&lt;div class="reveal">
+&lt;div class="slides">
+&lt;!-- 标题 -->
+&lt;section>
+&lt;h3>20220808 汇报&lt;/h3>
+&lt;h5>周镇峰&lt;/h5>
+&lt;/section>
+&lt;section>
+&lt;ul style="font-size: 32px;">
+&lt;li>七月（数字）
+&lt;ul>
+&lt;li style="color:green">学习VerilogHDL语法✅&lt;/li>
+&lt;li style="color:green">学习FPGA✅&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>八月（模拟）
+&lt;ul>
+&lt;li style="color:green">熟悉流程✅&lt;/li>
+&lt;li style="color:orange">设计bandgap&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;/section>
+&lt;section>
+&lt;div class="twocolumn">
+&lt;div class="tworow">
+&lt;img style="object-fit: cover;max-height: 30vh;"
+src="images/tang_nano_lcd.png">
+&lt;img style="object-fit: cover;max-height: 30vh;"
+src="images/tang_nano.jpg">
+&lt;/div>
+&lt;div>
+&lt;h5>高云GW1NR-9 FPGA&lt;/h5>
+&lt;table style="overflow: auto;height: 50vh; display: block;font-size: 20px;">
+&lt;thead>
+&lt;tr>
+&lt;th>类别&lt;/th>
+&lt;th>数值&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>逻辑单元(LUT4)&lt;/td>
+&lt;td>8640&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>寄存器(FF)&lt;/td>
+&lt;td>6480&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>分布式静态随机存储器 SSRAM(bits)&lt;/td>
+&lt;td>17280&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>块状静态随机存储器 B-SRAM(bits)&lt;/td>
+&lt;td>468K&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>块状静态随机存储器数目BSRAM（个）&lt;/td>
+&lt;td>26&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>用户闪存(bits)&lt;/td>
+&lt;td>608K&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>PSRAM(bits)&lt;/td>
+&lt;td>64M&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>高性能DSP模块&lt;/td>
+&lt;td>支持9x9,18x18,36x36bit的乘法运算和54bit累加器&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>乘法器 (18 x 18 Multiplier)&lt;/td>
+&lt;td>20&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>SPI FLASH&lt;/td>
+&lt;td>32M-bit&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>灵活的PLL资源&lt;/td>
+&lt;td>2个锁相环（PLLs）&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;/div>
+&lt;/div>
+&lt;/section>
+&lt;section>
+&lt;p>谢谢聆听&lt;/p>
+&lt;/section>
+&lt;/div>
+&lt;/div></description></item><item><title>How to setup ourblog</title><link>https://todd.scuteee.com/ppt/%E6%97%A5%E5%B8%B8/2022-07-19-how-to-setup-ourbog/</link><pubDate>Tue, 19 Jul 2022 09:41:00 +0800</pubDate><guid>https://todd.scuteee.com/ppt/%E6%97%A5%E5%B8%B8/2022-07-19-how-to-setup-ourbog/</guid><description>
 &lt;link href="https://cdn.bootcdn.net/ajax/libs/font-awesome/5.15.3/css/all.min.css"
 rel="stylesheet">
 &lt;div class="reveal">

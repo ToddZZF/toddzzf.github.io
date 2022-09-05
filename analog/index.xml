@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>模拟电子技术 on Todd's Blog</title><link>https://todd.scuteee.com/analog/</link><description>Recent content in 模拟电子技术 on Todd's Blog</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><lastBuildDate>Thu, 18 Aug 2022 23:44:00 +0800</lastBuildDate><atom:link href="https://todd.scuteee.com/analog/index.xml" rel="self" type="application/rss+xml"/><item><title>常用常数</title><link>https://todd.scuteee.com/analog/constant/</link><pubDate>Sun, 21 Aug 2022 16:31:24 +0800</pubDate><guid>https://todd.scuteee.com/analog/constant/</guid><description>&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>符号&lt;/th>
+&lt;th>英文&lt;/th>
+&lt;th>中文&lt;/th>
+&lt;th>值&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>$k$&lt;/td>
+&lt;td>Boltzmann’s constant&lt;/td>
+&lt;td>玻尔兹曼常数&lt;/td>
+&lt;td>$86\times 10^{-6} {\rm eV/K}$ 或 $1.38\times 10^{-23} {\rm J/K}$&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>$e$&lt;/td>
+&lt;td>electronic charge&lt;/td>
+&lt;td>电子电荷&lt;/td>
+&lt;td>$1.6\times 10^{-19} {\rm C}$&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;/td>
+&lt;td>&lt;/td>
+&lt;td>&lt;/td>
+&lt;td>&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table></description></item></channel></rss>
