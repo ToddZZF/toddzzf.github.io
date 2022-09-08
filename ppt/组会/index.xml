@@ -1,0 +1,239 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>组会 on Todd's Blog</title><link>https://todd.scuteee.com/ppt/%E7%BB%84%E4%BC%9A/</link><description>Recent content in 组会 on Todd's Blog</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><lastBuildDate>Thu, 08 Sep 2022 15:48:05 +0800</lastBuildDate><atom:link href="https://todd.scuteee.com/ppt/%E7%BB%84%E4%BC%9A/index.xml" rel="self" type="application/rss+xml"/><item><title>Bandgap</title><link>https://todd.scuteee.com/ppt/%E7%BB%84%E4%BC%9A/20220908-bandgap.md/</link><pubDate>Thu, 08 Sep 2022 15:47:20 +0800</pubDate><guid>https://todd.scuteee.com/ppt/%E7%BB%84%E4%BC%9A/20220908-bandgap.md/</guid><description>
+&lt;style>
+.tworow {
+display: grid;
+grid-template-rows: 1fr 1fr;
+grid-gap: 2px;
+text-align: center;
+}
+.twocolumn {
+display: grid;
+grid-template-columns: 1fr 1fr;
+grid-gap: 2px;
+justify-items: center;
+text-align: center;
+}
+&lt;/style>
+&lt;div class="reveal">
+&lt;div class="slides">
+&lt;!-- 标题 -->
+&lt;section>
+&lt;h3>20220908 汇报&lt;/h3>
+&lt;h5>周镇峰&lt;/h5>
+&lt;/section>
+&lt;section>
+&lt;ul style="font-size: 32px;">
+&lt;ul>
+&lt;li>设计bandgap&lt;/li>
+&lt;li>了解PGA&lt;/li>
+&lt;/ul>
+&lt;/ul>
+&lt;/section>
+&lt;section>
+&lt;div class="tworow">
+&lt;div class="twocolumn">
+&lt;img style="object-fit: cover;max-height: 30vh;"
+src="images/3.0V-Vout-Temp.png">
+&lt;img style="object-fit: cover;max-height: 30vh;"
+src="images/3.0V幅频特性.png">
+&lt;/div>
+&lt;div>
+&lt;table style="font-size: 26px;">
+&lt;thead>
+&lt;tr>
+&lt;th>VDD&lt;/th>
+&lt;th>温度系数(ppm)&lt;/th>
+&lt;th>电源抑制比(dB)&lt;/th>
+&lt;th>-20~120℃平均输出电压&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>2.7&lt;/td>
+&lt;td>5.965&lt;/td>
+&lt;td>50.16&lt;/td>
+&lt;td>1.500&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>2.85&lt;/td>
+&lt;td>5.781&lt;/td>
+&lt;td>51.61&lt;/td>
+&lt;td>1.500&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>3.0&lt;/td>
+&lt;td>6.436&lt;/td>
+&lt;td>54.4822&lt;/td>
+&lt;td>1.501&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>3.15&lt;/td>
+&lt;td>6.556&lt;/td>
+&lt;td>59.373&lt;/td>
+&lt;td>1.501&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>3.3&lt;/td>
+&lt;td>6.490&lt;/td>
+&lt;td>86.7191&lt;/td>
+&lt;td>1.501&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;/div>
+&lt;/div>
+&lt;/section>
+&lt;section>
+&lt;h5>应用于Sensor AFE的低噪声PGA设计&lt;/h5>
+&lt;p>设计一款低噪声的PGA，该电路用于采集传感器信号的模拟前端。&lt;/p>
+&lt;img src="images/艾为杯题目.png">
+&lt;p>低噪声、低失调、高速度、线性度、抗干扰&lt;/p>
+&lt;/section>
+&lt;section>
+&lt;img src="images/VGA.png">
+&lt;p>改变$g_m$或改变 $R_O$&lt;/p>
+&lt;/section>
+&lt;!-- &lt;section>
+&lt;img src="images/PGA.png">
+&lt;p style="font-size: 32;">
+$$
+[\text{s2=1;s2=0;}]A_{v1} = 1+2\times \frac
+{15R}{2R}=16
+$$
+$$
+[\text{s2=0;s2=1;}]A_{v1} = 1+2\times \frac
+{14R}{4R}=8
+$$
+&lt;/p>
+&lt;/section>
+&lt;section>
+&lt;img src="images/switched_resistor.png">
+&lt;p style="font-size: 32;">
+MOS管工作在线性区
+&lt;/p>
+&lt;p style="font-size: 16;">Cheng-Chung Hsu, &amp; Jieh-Tsorng Wu. (2003). A highly linear 125-mhz cmos
+switched-resistor programmable-gain amplifier. IEEE Journal of Solid-State Circuits, 38(10), 1663–1670.
+&lt;/p>
+&lt;/section>
+&lt;section>
+&lt;img src="images/PGA2.png" width="50%">
+&lt;p style="font-size: 16;">Kang, S.-Y., Ryu, S.-T., &amp; Park, C.-S. (2012). A Precise Decibel-Linear Programmable Gain Amplifier Using a Constant Current-Density Function. IEEE Transactions on Microwave Theory and Techniques, 60(9), 2843–2850.
+&lt;/p>
+&lt;/section> -->
+&lt;section>
+未来工作：尝试设计一个低位数的PGA
+&lt;/section>
+&lt;section>
+&lt;p>谢谢聆听&lt;/p>
+&lt;/section>
+&lt;/div>
+&lt;/div></description></item><item><title>VerilogHDL Learning</title><link>https://todd.scuteee.com/ppt/%E7%BB%84%E4%BC%9A/20220807-icc-train/</link><pubDate>Sun, 07 Aug 2022 17:00:00 +0800</pubDate><guid>https://todd.scuteee.com/ppt/%E7%BB%84%E4%BC%9A/20220807-icc-train/</guid><description>
+&lt;style>
+.tworow {
+display: grid;
+grid-template-rows: 1fr 1fr;
+grid-gap: 2px;
+text-align: center;
+}
+.twocolumn {
+display: grid;
+grid-template-columns: 2fr 1fr;
+grid-gap: 2px;
+text-align: center;
+}
+&lt;/style>
+&lt;div class="reveal">
+&lt;div class="slides">
+&lt;!-- 标题 -->
+&lt;section>
+&lt;h3>20220808 汇报&lt;/h3>
+&lt;h5>周镇峰&lt;/h5>
+&lt;/section>
+&lt;section>
+&lt;ul style="font-size: 32px;">
+&lt;li>七月（数字）
+&lt;ul>
+&lt;li style="color:green">学习VerilogHDL语法✅&lt;/li>
+&lt;li style="color:green">学习FPGA✅&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>八月（模拟）
+&lt;ul>
+&lt;li style="color:green">熟悉流程✅&lt;/li>
+&lt;li style="color:orange">设计bandgap&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;/section>
+&lt;section>
+&lt;div class="twocolumn">
+&lt;div class="tworow">
+&lt;img style="object-fit: cover;max-height: 30vh;"
+src="images/tang_nano_lcd.png">
+&lt;img style="object-fit: cover;max-height: 30vh;"
+src="images/tang_nano.jpg">
+&lt;/div>
+&lt;div>
+&lt;h5>高云GW1NR-9 FPGA&lt;/h5>
+&lt;table style="overflow: auto;height: 50vh; display: block;font-size: 20px;">
+&lt;thead>
+&lt;tr>
+&lt;th>类别&lt;/th>
+&lt;th>数值&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>逻辑单元(LUT4)&lt;/td>
+&lt;td>8640&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>寄存器(FF)&lt;/td>
+&lt;td>6480&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>分布式静态随机存储器 SSRAM(bits)&lt;/td>
+&lt;td>17280&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>块状静态随机存储器 B-SRAM(bits)&lt;/td>
+&lt;td>468K&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>块状静态随机存储器数目BSRAM（个）&lt;/td>
+&lt;td>26&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>用户闪存(bits)&lt;/td>
+&lt;td>608K&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>PSRAM(bits)&lt;/td>
+&lt;td>64M&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>高性能DSP模块&lt;/td>
+&lt;td>支持9x9,18x18,36x36bit的乘法运算和54bit累加器&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>乘法器 (18 x 18 Multiplier)&lt;/td>
+&lt;td>20&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>SPI FLASH&lt;/td>
+&lt;td>32M-bit&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>灵活的PLL资源&lt;/td>
+&lt;td>2个锁相环（PLLs）&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;/div>
+&lt;/div>
+&lt;/section>
+&lt;section>
+&lt;p>谢谢聆听&lt;/p>
+&lt;/section>
+&lt;/div>
+&lt;/div></description></item></channel></rss>

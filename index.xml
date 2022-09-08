@@ -1,4 +1,249 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Todd's Blog</title><link>https://todd.scuteee.com/</link><description>Recent content on Todd's Blog</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><lastBuildDate>Fri, 02 Sep 2022 16:25:34 +0800</lastBuildDate><atom:link href="https://todd.scuteee.com/index.xml" rel="self" type="application/rss+xml"/><item><title>Multiple-Diode Circuits</title><link>https://todd.scuteee.com/analog/chapter02/2.4/</link><pubDate>Fri, 02 Sep 2022 16:25:34 +0800</pubDate><guid>https://todd.scuteee.com/analog/chapter02/2.4/</guid><description/></item><item><title>Clipper And Clamper Circuits</title><link>https://todd.scuteee.com/analog/chapter02/2.3/</link><pubDate>Fri, 02 Sep 2022 16:13:14 +0800</pubDate><guid>https://todd.scuteee.com/analog/chapter02/2.3/</guid><description>&lt;h2 id="circuits--formulas">Circuits &amp;amp; Formulas&lt;/h2>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Todd's Blog</title><link>https://todd.scuteee.com/</link><description>Recent content on Todd's Blog</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><lastBuildDate>Thu, 08 Sep 2022 15:48:05 +0800</lastBuildDate><atom:link href="https://todd.scuteee.com/index.xml" rel="self" type="application/rss+xml"/><item><title>Bandgap</title><link>https://todd.scuteee.com/ppt/%E7%BB%84%E4%BC%9A/20220908-bandgap.md/</link><pubDate>Thu, 08 Sep 2022 15:47:20 +0800</pubDate><guid>https://todd.scuteee.com/ppt/%E7%BB%84%E4%BC%9A/20220908-bandgap.md/</guid><description>
+&lt;style>
+.tworow {
+display: grid;
+grid-template-rows: 1fr 1fr;
+grid-gap: 2px;
+text-align: center;
+}
+.twocolumn {
+display: grid;
+grid-template-columns: 1fr 1fr;
+grid-gap: 2px;
+justify-items: center;
+text-align: center;
+}
+&lt;/style>
+&lt;div class="reveal">
+&lt;div class="slides">
+&lt;!-- 标题 -->
+&lt;section>
+&lt;h3>20220908 汇报&lt;/h3>
+&lt;h5>周镇峰&lt;/h5>
+&lt;/section>
+&lt;section>
+&lt;ul style="font-size: 32px;">
+&lt;ul>
+&lt;li>设计bandgap&lt;/li>
+&lt;li>了解PGA&lt;/li>
+&lt;/ul>
+&lt;/ul>
+&lt;/section>
+&lt;section>
+&lt;div class="tworow">
+&lt;div class="twocolumn">
+&lt;img style="object-fit: cover;max-height: 30vh;"
+src="images/3.0V-Vout-Temp.png">
+&lt;img style="object-fit: cover;max-height: 30vh;"
+src="images/3.0V幅频特性.png">
+&lt;/div>
+&lt;div>
+&lt;table style="font-size: 26px;">
+&lt;thead>
+&lt;tr>
+&lt;th>VDD&lt;/th>
+&lt;th>温度系数(ppm)&lt;/th>
+&lt;th>电源抑制比(dB)&lt;/th>
+&lt;th>-20~120℃平均输出电压&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>2.7&lt;/td>
+&lt;td>5.965&lt;/td>
+&lt;td>50.16&lt;/td>
+&lt;td>1.500&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>2.85&lt;/td>
+&lt;td>5.781&lt;/td>
+&lt;td>51.61&lt;/td>
+&lt;td>1.500&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>3.0&lt;/td>
+&lt;td>6.436&lt;/td>
+&lt;td>54.4822&lt;/td>
+&lt;td>1.501&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>3.15&lt;/td>
+&lt;td>6.556&lt;/td>
+&lt;td>59.373&lt;/td>
+&lt;td>1.501&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>3.3&lt;/td>
+&lt;td>6.490&lt;/td>
+&lt;td>86.7191&lt;/td>
+&lt;td>1.501&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;/div>
+&lt;/div>
+&lt;/section>
+&lt;section>
+&lt;h5>应用于Sensor AFE的低噪声PGA设计&lt;/h5>
+&lt;p>设计一款低噪声的PGA，该电路用于采集传感器信号的模拟前端。&lt;/p>
+&lt;img src="images/艾为杯题目.png">
+&lt;p>低噪声、低失调、高速度、线性度、抗干扰&lt;/p>
+&lt;/section>
+&lt;section>
+&lt;img src="images/VGA.png">
+&lt;p>改变$g_m$或改变 $R_O$&lt;/p>
+&lt;/section>
+&lt;!-- &lt;section>
+&lt;img src="images/PGA.png">
+&lt;p style="font-size: 32;">
+$$
+[\text{s2=1;s2=0;}]A_{v1} = 1+2\times \frac
+{15R}{2R}=16
+$$
+$$
+[\text{s2=0;s2=1;}]A_{v1} = 1+2\times \frac
+{14R}{4R}=8
+$$
+&lt;/p>
+&lt;/section>
+&lt;section>
+&lt;img src="images/switched_resistor.png">
+&lt;p style="font-size: 32;">
+MOS管工作在线性区
+&lt;/p>
+&lt;p style="font-size: 16;">Cheng-Chung Hsu, &amp; Jieh-Tsorng Wu. (2003). A highly linear 125-mhz cmos
+switched-resistor programmable-gain amplifier. IEEE Journal of Solid-State Circuits, 38(10), 1663–1670.
+&lt;/p>
+&lt;/section>
+&lt;section>
+&lt;img src="images/PGA2.png" width="50%">
+&lt;p style="font-size: 16;">Kang, S.-Y., Ryu, S.-T., &amp; Park, C.-S. (2012). A Precise Decibel-Linear Programmable Gain Amplifier Using a Constant Current-Density Function. IEEE Transactions on Microwave Theory and Techniques, 60(9), 2843–2850.
+&lt;/p>
+&lt;/section> -->
+&lt;section>
+未来工作：尝试设计一个低位数的PGA
+&lt;/section>
+&lt;section>
+&lt;p>谢谢聆听&lt;/p>
+&lt;/section>
+&lt;/div>
+&lt;/div></description></item><item><title>在示例的基础上进行设计</title><link>https://todd.scuteee.com/bandgap/design-0/</link><pubDate>Wed, 07 Sep 2022 15:09:27 +0800</pubDate><guid>https://todd.scuteee.com/bandgap/design-0/</guid><description>&lt;p>改动之处：&lt;/p>
+&lt;ul>
+&lt;li>对 PTAT、CTAT 相关电阻进行了微调，使得温度系数小于 8ppm&lt;/li>
+&lt;li>对输出电阻进行了调整，使得输出等于 1.5V&lt;/li>
+&lt;li>在 VDD 和 GND 之间增加电容，使得 PSRR 大于 50dB&lt;/li>
+&lt;/ul>
+&lt;p>3.0V时的输出-温度图如下：&lt;/p>
+&lt;p>&lt;img src="https://todd.scuteee.com/bandgap/design-0/3.0V-Vout-Temp.png"
+width="727"
+height="842"
+srcset="https://todd.scuteee.com/bandgap/design-0/3.0V-Vout-Temp_hu16e757ad2fffa66c794005da13173d54_210292_480x0_resize_box_3.png 480w, https://todd.scuteee.com/bandgap/design-0/3.0V-Vout-Temp_hu16e757ad2fffa66c794005da13173d54_210292_1024x0_resize_box_3.png 1024w"
+loading="lazy"
+alt="3.0V时的输出-温度图"
+class="gallery-image"
+data-flex-grow="86"
+data-flex-basis="207px"
+>&lt;/p>
+&lt;p>幅频特性如图：&lt;/p>
+&lt;p>&lt;img src="https://todd.scuteee.com/bandgap/design-0/3.0V%E5%B9%85%E9%A2%91%E7%89%B9%E6%80%A7.png"
+width="635"
+height="816"
+srcset="https://todd.scuteee.com/bandgap/design-0/3.0V%E5%B9%85%E9%A2%91%E7%89%B9%E6%80%A7_hucf9807a966e4d320bb481877c4d6ac03_246183_480x0_resize_box_3.png 480w, https://todd.scuteee.com/bandgap/design-0/3.0V%E5%B9%85%E9%A2%91%E7%89%B9%E6%80%A7_hucf9807a966e4d320bb481877c4d6ac03_246183_1024x0_resize_box_3.png 1024w"
+loading="lazy"
+alt="3.0V时的幅频特性"
+class="gallery-image"
+data-flex-grow="77"
+data-flex-basis="186px"
+>&lt;/p>
+&lt;p>其余测试结果如下：&lt;/p>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>VDD&lt;/th>
+&lt;th>温度系数ppm&lt;/th>
+&lt;th>电源抑制比（dB）&lt;/th>
+&lt;th>-20~120℃平均输出电压&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>2.7&lt;/td>
+&lt;td>5.965&lt;/td>
+&lt;td>49.16&lt;/td>
+&lt;td>1.500&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>2.85&lt;/td>
+&lt;td>5.781&lt;/td>
+&lt;td>51.61&lt;/td>
+&lt;td>1.500&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>3.0&lt;/td>
+&lt;td>6.436&lt;/td>
+&lt;td>54.4822&lt;/td>
+&lt;td>1.501&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>3.15&lt;/td>
+&lt;td>6.556&lt;/td>
+&lt;td>59.373&lt;/td>
+&lt;td>1.501&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>3.3&lt;/td>
+&lt;td>6.490&lt;/td>
+&lt;td>86.7191&lt;/td>
+&lt;td>1.501&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table></description></item><item><title>参考资料</title><link>https://todd.scuteee.com/bandgap/reference/</link><pubDate>Wed, 07 Sep 2022 10:26:32 +0800</pubDate><guid>https://todd.scuteee.com/bandgap/reference/</guid><description>&lt;ul>
+&lt;li>&lt;a class="link" href="https://sci-hub.se/10.1109/EDSSC.2011.6117640" target="_blank" rel="noopener"
+>Dey, A., &amp;amp; Bhattacharyya, T. K. (2011). A CMOS bandgap reference with high PSRR and improved temperature stability for system-on-chip applications. 2011 IEEE International Conference of Electron Devices and Solid-State Circuits.&lt;/a>&lt;/li>
+&lt;li>&lt;a class="link" href="https://youtu.be/2C10QosezqQ" target="_blank" rel="noopener"
+>Reference Circuits&lt;/a>&lt;/li>
+&lt;li>&lt;a class="link" href="https://aip.scitation.org/doi/pdf/10.1063/1.4977349" target="_blank" rel="noopener"
+>High PSRR Bandgap Reference Used in Boost Circuit&lt;/a>&lt;/li>
+&lt;/ul></description></item><item><title>评价标准</title><link>https://todd.scuteee.com/bandgap/valuation/</link><pubDate>Mon, 05 Sep 2022 17:32:13 +0800</pubDate><guid>https://todd.scuteee.com/bandgap/valuation/</guid><description>&lt;h2 id="温漂系数">温漂系数&lt;/h2>
+&lt;p>衡量输出电压随温度变化的性能参数。单位为 ${\rm ppm/{}^\circ C}$，$1{\rm ppm}=10^{-6}$&lt;/p>
+&lt;p>$$
+T=\frac{V_{\max} - V_{\min}}{V_{\rm mean}(T_{\max}-T_{\min})}\times 10^6 {\rm ppm/{}^\circ C}
+$$&lt;/p>
+&lt;p>视频：&lt;a class="link" href="https://www.bilibili.com/video/BV12i4y1T7hK/" target="_blank" rel="noopener"
+>利用virtuso的calculator工具计算bandgap电路的温度系数&lt;/a>，对应下面的公式（式中的140是温度范围）：&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-text" data-lang="text">&lt;span class="line">&lt;span class="cl">(ymax(VS(&amp;#34;/OUT1&amp;#34;))-ymin(VS(&amp;#34;/OUT1&amp;#34;)))/(average(VS(&amp;#34;/OUT1&amp;#34;))*140)*1000000
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h2 id="输出噪声">输出噪声&lt;/h2>
+&lt;p>输出的噪声大小。&lt;/p>
+&lt;h2 id="功耗">功耗&lt;/h2>
+&lt;p>所消耗的电流大小&lt;/p>
+&lt;h2 id="电源抑制">电源抑制&lt;/h2>
+&lt;p>对电源线上噪声抑制能力的重要参数。通常用 PSRR（Power supply rejection ratio）电源抑制比来衡量，计算公式为：&lt;/p>
+&lt;p>$$
+{\rm PSRR}=20\lg\frac{V_{I, pp}}{V_{O,pp}}
+$$&lt;/p>
+&lt;p>$V_{I, pp},V_{O,pp}$ 为输入、输出纹波的峰峰值。&lt;/p></description></item><item><title>要求</title><link>https://todd.scuteee.com/bandgap/requirement/</link><pubDate>Mon, 05 Sep 2022 17:01:21 +0800</pubDate><guid>https://todd.scuteee.com/bandgap/requirement/</guid><description>&lt;p>任务：设计一款带隙基准源（bandgap），为其他电路提供温度系数和电源抑制比较好的参考电压。&lt;/p>
+&lt;p>自己查参考资料并完成&lt;strong>电路设计&lt;/strong>、&lt;strong>电路仿真&lt;/strong>、&lt;strong>版图设计&lt;/strong>、&lt;strong>DRC&lt;/strong>、&lt;strong>LVS&lt;/strong>、&lt;strong>PEX&lt;/strong> 及 &lt;strong>后仿真&lt;/strong>，提交报告。报告中要包括电路模块组成图（如果有的话）、电路图（含元件参数）、仿真图、指标测试图、版图、DRC、LVS、PEX报告及后仿真图。&lt;/p>
+&lt;p>模拟集成电路设计流程请参考文件SCUT_ICC_train_2021模拟流程；linux基本命令请参考scut_ICC_train2020_linux_basic。&lt;/p>
+&lt;p>指标要求（后仿真结果）：&lt;/p>
+&lt;ul>
+&lt;li>采用0.18µm 1P6M CMOS工艺；&lt;/li>
+&lt;li>电源电压：3.0V；&lt;/li>
+&lt;li>工作电源电压：2.7V~3.3V；&lt;/li>
+&lt;li>工作温度：-20 ℃~120 ℃；&lt;/li>
+&lt;li>输出电压1.5V&lt;/li>
+&lt;li>温度系数小于或等于8ppm；&lt;/li>
+&lt;li>PSRR（电源抑制比）&amp;lt; -50dB@1kHz；-45.727&lt;/li>
+&lt;li>版图总面积小于280μm×200μm；&lt;/li>
+&lt;/ul>
+&lt;p>注1：工作电源电压变化这一项需考虑1）输出电压随工作电源电压变化的直流扫描特性；2）取最低点、1/4点、中间点、3/4点和最高点五个电源电压点（比如本工艺就取2.7V、2.85V、3.0V、3.15V、3.3V），仿真不同的电源电压对温度系数和PSRR的影响。&lt;/p>
+&lt;p>注2：如用其他工艺库进行设计的话，工作电源电压波动范围为正负10%，输出电压为电源电压的50%（比如0.18μm工艺采用电源电压为1.8V的话，那考虑工作电源电压波动范围为1.62V~1.98V，五个电源电压点为1.62V，1.71V，1.8V，1.89V，1.98V，带隙基准输出电压为0.9V，依次类推）。&lt;/p></description></item><item><title>Multiple-Diode Circuits</title><link>https://todd.scuteee.com/analog/chapter02/2.4/</link><pubDate>Fri, 02 Sep 2022 16:25:34 +0800</pubDate><guid>https://todd.scuteee.com/analog/chapter02/2.4/</guid><description/></item><item><title>Clipper And Clamper Circuits</title><link>https://todd.scuteee.com/analog/chapter02/2.3/</link><pubDate>Fri, 02 Sep 2022 16:13:14 +0800</pubDate><guid>https://todd.scuteee.com/analog/chapter02/2.3/</guid><description>&lt;h2 id="circuits--formulas">Circuits &amp;amp; Formulas&lt;/h2>
 &lt;h3 id="clippers">Clippers&lt;/h3>
 &lt;p>$$
 v_O =
@@ -550,7 +795,7 @@ data-flex-basis="356px"
 &lt;li>(a) n-type. $n_o=10^{15} {\rm cm^{-3}}$, $n_i=2.4\times 10^{13} {\rm cm^{-3}}$, $p_o=5.76\times 10^{11} {\rm cm^{-3}}$&lt;/li>
 &lt;li>(b) n-type. $n_o=10^{15} {\rm cm^{-3}}$, $n_i = 1.5\times 10^{10} {\rm cm^{-3}}$, $p_o=2.25\times 10^5 {\rm cm^{-3}}$&lt;/li>
 &lt;/ul>
-&lt;h3 id="110">1.10&lt;/h3>
+&lt;h3 id="110选做">1.10（选做）&lt;/h3>
 &lt;ul>
 &lt;li>
 &lt;p>(a) $n_i = 1.5\times 10^{10} {\rm cm^{-3}} &amp;lt; n_o = 7\times 10^{15} {\rm cm^{-3}}$&lt;/p>
@@ -581,7 +826,6 @@ data-flex-basis="356px"
 &lt;li>(a) $I = A\sigma E$ 👉 $I=150{\rm \mu A}$&lt;/li>
 &lt;li>(b) $I = A E / \rho$ 👉 $E = 2.4 {\rm V/cm}$&lt;/li>
 &lt;/ul>
-&lt;h3 id="115">1.15&lt;/h3>
 &lt;h3 id="117">1.17&lt;/h3>
 &lt;p>$$
 \begin{aligned}
@@ -590,9 +834,9 @@ J_p &amp;amp;= -e D_p \dfrac{\dif p(x)}{\dif x}\
 \end{aligned}
 $$&lt;/p>
 &lt;ul>
-&lt;li>(a) $2.4$&lt;/li>
-&lt;li>(b) $2.4\times 10^{-3}$&lt;/li>
-&lt;li>(c) $7.2\times 10^{-3}$&lt;/li>
+&lt;li>(a) $2.4{\rm A/cm^2}$&lt;/li>
+&lt;li>(b) $0.883{\rm A/cm^2}$&lt;/li>
+&lt;li>(c) $0.119{\rm A/cm^2}$&lt;/li>
 &lt;/ul>
 &lt;h3 id="123">1.23&lt;/h3>
 &lt;p>$V_{bi} = V_T \ln \l(\frac{N_a N_d}{n_i^2}\r)$&lt;/p>
@@ -608,8 +852,12 @@ $$&lt;/p>
 &lt;p>$I_S$ double for every 5 ${\rm {}^\circ C}$&lt;/p>
 &lt;p>${\rm ratio} = 2^{155/5} \times \dfrac{\exp(0.6/0.03209)}{\exp(0.6/0.01876)} = 3.65\times 10^3$&lt;/p>
 &lt;blockquote>
-&lt;p>与pdf答案不同。pdf 计算的 $V_T$ 不对。&lt;/p>
+&lt;p>与pdf答案不同。pdf 计算的 $V_T$ 不对。为了避免我算错，我把代数字进去的完整式子列出来：&lt;/p>
 &lt;/blockquote>
+&lt;p>$$
+2^{155/5}\times \frac{\exp(\frac{0.6}{86\times10^{-1}\times(100+273.15)})-1}{\exp(\frac{0.6}{86\times10^{-1}\times(-55+273.15)})-1}
+$$&lt;/p>
+&lt;p>答案在如下地方进行了近似：1. 摄氏度转开尔文只加了 273（正确应该是+273.15） 2. $V_T$ 第三位有效数字及之后的数字都算错了（0.03208算成了0.03220、0.01858算成了0.01865）&lt;/p>
 &lt;h2 id="1416">1.4~1.6&lt;/h2>
 &lt;h3 id="140">1.40&lt;/h3>
 &lt;p>With Thevenin&amp;rsquo;s Theorem, $V_{PS},R_1,R_2$ can be converted into $V_{Th}, R_{Th}$&lt;/p>
@@ -678,6 +926,7 @@ $$&lt;/p>
 &lt;li>
 &lt;p>(b) if $V_{PS}=10+1 = 11 {\rm V}$, $V_O = 5.7049{\rm V}$&lt;/p>
 &lt;p>if $V_{PS}=10-1 = 9 {\rm V}$, $V_O = 5.6657{\rm V}$&lt;/p>
+&lt;p>So the change in output is 0.0392{\rm V}&lt;/p>
 &lt;/li>
 &lt;li>
 &lt;p>(c) if the diode is not in breakdown region, $V_O = \frac{R_L}{R+R_L}=8{\rm V}&amp;gt;V_{Z0}$, so the diode is in breakdown region. Using Thevenin’s Theorem, $V_{PS}&amp;rsquo;=8{\rm V}$, $R&amp;rsquo;=R|R_L=0.4{\rm k\Omega}$. The following procedure is same as (a), and the final result is $V_O = 5.6576{\rm V}$&lt;/p>

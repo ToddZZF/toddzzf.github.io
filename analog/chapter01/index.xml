@@ -191,7 +191,7 @@ data-flex-basis="356px"
 &lt;li>(a) n-type. $n_o=10^{15} {\rm cm^{-3}}$, $n_i=2.4\times 10^{13} {\rm cm^{-3}}$, $p_o=5.76\times 10^{11} {\rm cm^{-3}}$&lt;/li>
 &lt;li>(b) n-type. $n_o=10^{15} {\rm cm^{-3}}$, $n_i = 1.5\times 10^{10} {\rm cm^{-3}}$, $p_o=2.25\times 10^5 {\rm cm^{-3}}$&lt;/li>
 &lt;/ul>
-&lt;h3 id="110">1.10&lt;/h3>
+&lt;h3 id="110选做">1.10（选做）&lt;/h3>
 &lt;ul>
 &lt;li>
 &lt;p>(a) $n_i = 1.5\times 10^{10} {\rm cm^{-3}} &amp;lt; n_o = 7\times 10^{15} {\rm cm^{-3}}$&lt;/p>
@@ -222,7 +222,6 @@ data-flex-basis="356px"
 &lt;li>(a) $I = A\sigma E$ 👉 $I=150{\rm \mu A}$&lt;/li>
 &lt;li>(b) $I = A E / \rho$ 👉 $E = 2.4 {\rm V/cm}$&lt;/li>
 &lt;/ul>
-&lt;h3 id="115">1.15&lt;/h3>
 &lt;h3 id="117">1.17&lt;/h3>
 &lt;p>$$
 \begin{aligned}
@@ -231,9 +230,9 @@ J_p &amp;amp;= -e D_p \dfrac{\dif p(x)}{\dif x}\
 \end{aligned}
 $$&lt;/p>
 &lt;ul>
-&lt;li>(a) $2.4$&lt;/li>
-&lt;li>(b) $2.4\times 10^{-3}$&lt;/li>
-&lt;li>(c) $7.2\times 10^{-3}$&lt;/li>
+&lt;li>(a) $2.4{\rm A/cm^2}$&lt;/li>
+&lt;li>(b) $0.883{\rm A/cm^2}$&lt;/li>
+&lt;li>(c) $0.119{\rm A/cm^2}$&lt;/li>
 &lt;/ul>
 &lt;h3 id="123">1.23&lt;/h3>
 &lt;p>$V_{bi} = V_T \ln \l(\frac{N_a N_d}{n_i^2}\r)$&lt;/p>
@@ -249,8 +248,12 @@ $$&lt;/p>
 &lt;p>$I_S$ double for every 5 ${\rm {}^\circ C}$&lt;/p>
 &lt;p>${\rm ratio} = 2^{155/5} \times \dfrac{\exp(0.6/0.03209)}{\exp(0.6/0.01876)} = 3.65\times 10^3$&lt;/p>
 &lt;blockquote>
-&lt;p>与pdf答案不同。pdf 计算的 $V_T$ 不对。&lt;/p>
+&lt;p>与pdf答案不同。pdf 计算的 $V_T$ 不对。为了避免我算错，我把代数字进去的完整式子列出来：&lt;/p>
 &lt;/blockquote>
+&lt;p>$$
+2^{155/5}\times \frac{\exp(\frac{0.6}{86\times10^{-1}\times(100+273.15)})-1}{\exp(\frac{0.6}{86\times10^{-1}\times(-55+273.15)})-1}
+$$&lt;/p>
+&lt;p>答案在如下地方进行了近似：1. 摄氏度转开尔文只加了 273（正确应该是+273.15） 2. $V_T$ 第三位有效数字及之后的数字都算错了（0.03208算成了0.03220、0.01858算成了0.01865）&lt;/p>
 &lt;h2 id="1416">1.4~1.6&lt;/h2>
 &lt;h3 id="140">1.40&lt;/h3>
 &lt;p>With Thevenin&amp;rsquo;s Theorem, $V_{PS},R_1,R_2$ can be converted into $V_{Th}, R_{Th}$&lt;/p>
@@ -319,6 +322,7 @@ $$&lt;/p>
 &lt;li>
 &lt;p>(b) if $V_{PS}=10+1 = 11 {\rm V}$, $V_O = 5.7049{\rm V}$&lt;/p>
 &lt;p>if $V_{PS}=10-1 = 9 {\rm V}$, $V_O = 5.6657{\rm V}$&lt;/p>
+&lt;p>So the change in output is 0.0392{\rm V}&lt;/p>
 &lt;/li>
 &lt;li>
 &lt;p>(c) if the diode is not in breakdown region, $V_O = \frac{R_L}{R+R_L}=8{\rm V}&amp;gt;V_{Z0}$, so the diode is in breakdown region. Using Thevenin’s Theorem, $V_{PS}&amp;rsquo;=8{\rm V}$, $R&amp;rsquo;=R|R_L=0.4{\rm k\Omega}$. The following procedure is same as (a), and the final result is $V_O = 5.6576{\rm V}$&lt;/p>
