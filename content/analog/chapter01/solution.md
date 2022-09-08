@@ -84,7 +84,7 @@ $n_o p_o = n_i^2$
 - (a) n-type. $n_o=10^{15} {\rm cm^{-3}}$, $n_i=2.4\times 10^{13} {\rm cm^{-3}}$, $p_o=5.76\times 10^{11} {\rm cm^{-3}}$
 - (b) n-type. $n_o=10^{15} {\rm cm^{-3}}$, $n_i = 1.5\times 10^{10} {\rm cm^{-3}}$, $p_o=2.25\times 10^5 {\rm cm^{-3}}$
 
-### 1.10
+### 1.10（选做）
 
 - (a) $n_i = 1.5\times 10^{10} {\rm cm^{-3}} < n_o = 7\times 10^{15} {\rm cm^{-3}}$
   
@@ -110,8 +110,6 @@ f = lambda x: 2*log(5.23)+2*15*log(10.0)+3*log(x)-1.1/(86.0*x)*1e6-log(7)-21*log
 - (a) $I = A\sigma E$ 👉 $I=150{\rm \mu A}$
 - (b) $I = A E / \rho$ 👉 $E = 2.4 {\rm V/cm}$
 
-### 1.15
-
 ### 1.17
 
 $$
@@ -121,9 +119,9 @@ $$
 \end{aligned}
 $$
 
-- (a) $2.4$
-- (b) $2.4\times 10^{-3}$
-- (c) $7.2\times 10^{-3}$
+- (a) $2.4{\rm A/cm^2}$
+- (b) $0.883{\rm A/cm^2}$
+- (c) $0.119{\rm A/cm^2}$
 
 ### 1.23
 
@@ -144,7 +142,13 @@ $I_S$ double for every 5 ${\rm {}^\circ C}$
 
 ${\rm ratio} = 2^{155/5} \times \dfrac{\exp(0.6/0.03209)}{\exp(0.6/0.01876)} = 3.65\times 10^3$
 
-> 与pdf答案不同。pdf 计算的 $V_T$ 不对。
+> 与pdf答案不同。pdf 计算的 $V_T$ 不对。为了避免我算错，我把代数字进去的完整式子列出来：
+
+$$
+2^{155/5}\times \frac{\exp(\frac{0.6}{86\times10^{-1}\times(100+273.15)})-1}{\exp(\frac{0.6}{86\times10^{-1}\times(-55+273.15)})-1}
+$$
+
+答案在如下地方进行了近似：1. 摄氏度转开尔文只加了 273（正确应该是+273.15） 2. $V_T$ 第三位有效数字及之后的数字都算错了（0.03208算成了0.03220、0.01858算成了0.01865）
 
 ## 1.4~1.6
 
@@ -229,6 +233,8 @@ $I_Z = 0.1{\rm mA}$ when $V_Z=5.6{\rm V}$, therefore $V_{Z0}=5.599{\rm V}$
 - (b) if $V_{PS}=10+1 = 11 {\rm V}$, $V_O = 5.7049{\rm V}$
   
   if $V_{PS}=10-1 = 9 {\rm V}$, $V_O = 5.6657{\rm V}$
+
+  So the change in output is 0.0392{\rm V}
 
 - (c) if the diode is not in breakdown region, $V_O = \frac{R_L}{R+R_L}=8{\rm V}>V_{Z0}$, so the diode is in breakdown region. Using  Thevenin’s Theorem, $V_{PS}'=8{\rm V}$, $R'=R\|R_L=0.4{\rm k\Omega}$. The following procedure is same as (a), and the final result is $V_O = 5.6576{\rm V}$
 

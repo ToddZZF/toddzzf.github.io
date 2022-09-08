@@ -1,0 +1,140 @@
+---
+layout: ppt
+title: Bandgap
+date: 2022-09-08 15:47:20 +0800
+---
+
+
+<style>
+    .tworow {
+        display: grid;
+        grid-template-rows: 1fr 1fr;
+        grid-gap: 2px;
+        text-align: center;
+    }
+
+    .twocolumn {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-gap: 2px;
+        justify-items: center;
+        text-align: center;
+    }
+</style>
+
+<div class="reveal">
+    <div class="slides">
+        <!-- 标题 -->
+        <section>
+            <h3>20220908 汇报</h3>
+            <h5>周镇峰</h5>
+        </section>
+        <section>
+            <ul style="font-size: 32px;">
+                <ul>
+                    <li>设计bandgap</li>
+                    <li>了解PGA</li>
+                </ul>
+            </ul>
+        </section>
+        <section>
+            <div class="tworow">
+                <div class="twocolumn">
+                    <img style="object-fit: cover;max-height: 30vh;"
+                        src="images/3.0V-Vout-Temp.png">
+                    <img style="object-fit: cover;max-height: 30vh;"
+                        src="images/3.0V幅频特性.png">
+                </div>
+                <div>
+                    <table style="font-size: 26px;">
+                        <thead>
+                            <tr>
+                                <th>VDD</th>
+                                <th>温度系数(ppm)</th>
+                                <th>电源抑制比(dB)</th>
+                                <th>-20~120℃平均输出电压</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>2.7</td>
+                                <td>5.965</td>
+                                <td>50.16</td>
+                                <td>1.500</td>
+                            </tr>
+                            <tr>
+                                <td>2.85</td>
+                                <td>5.781</td>
+                                <td>51.61</td>
+                                <td>1.500</td>
+                            </tr>
+                            <tr>
+                                <td>3.0</td>
+                                <td>6.436</td>
+                                <td>54.4822</td>
+                                <td>1.501</td>
+                            </tr>
+                            <tr>
+                                <td>3.15</td>
+                                <td>6.556</td>
+                                <td>59.373</td>
+                                <td>1.501</td>
+                            </tr>
+                            <tr>
+                                <td>3.3</td>
+                                <td>6.490</td>
+                                <td>86.7191</td>
+                                <td>1.501</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+        <section>
+            <h5>应用于Sensor AFE的低噪声PGA设计</h5>
+            <p>设计一款低噪声的PGA，该电路用于采集传感器信号的模拟前端。</p>
+            <img src="images/艾为杯题目.png">
+            <p>低噪声、低失调、高速度、线性度、抗干扰</p>
+        </section>
+        <section>
+            <img src="images/VGA.png">
+            <p>改变$g_m$或改变 $R_O$</p>
+        </section>
+        <!-- <section>
+            <img src="images/PGA.png">
+            <p style="font-size: 32;">
+                $$
+                [\text{s2=1;s2=0;}]A_{v1} = 1+2\times \frac
+                {15R}{2R}=16
+                $$
+
+                $$
+                [\text{s2=0;s2=1;}]A_{v1} = 1+2\times \frac
+                {14R}{4R}=8
+                $$
+            </p>
+        </section>
+        
+        <section>
+            <img src="images/switched_resistor.png">
+            <p style="font-size: 32;">
+                MOS管工作在线性区
+            </p>
+            <p style="font-size: 16;">Cheng-Chung Hsu, & Jieh-Tsorng Wu. (2003). A highly linear 125-mhz cmos
+                switched-resistor programmable-gain amplifier. IEEE Journal of Solid-State Circuits, 38(10), 1663–1670.
+            </p>
+        </section>
+        <section>
+            <img src="images/PGA2.png" width="50%">
+            <p style="font-size: 16;">Kang, S.-Y., Ryu, S.-T., & Park, C.-S. (2012). A Precise Decibel-Linear Programmable Gain Amplifier Using a Constant Current-Density Function. IEEE Transactions on Microwave Theory and Techniques, 60(9), 2843–2850.
+            </p>
+        </section> -->
+        <section>
+            未来工作：尝试设计一个低位数的PGA
+        </section>
+        <section>
+            <p>谢谢聆听</p>
+        </section>
+    </div>
+</div>
