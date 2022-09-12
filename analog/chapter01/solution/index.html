@@ -81,8 +81,10 @@
 J_p &= -e D_p \dfrac{\dif p(x)}{\dif x}\
 &= -e D_p \l( \frac{-1}{L_p} \r) \exp \l( \frac{-x}{L_p} \r)
 \end{aligned}
-$$</p><ul><li>(a) $2.4{\rm A/cm^2}$</li><li>(b) $0.883{\rm A/cm^2}$</li><li>(c) $0.119{\rm A/cm^2}$</li></ul><h3 id=123>1.23</h3><p>$V_{bi} = V_T \ln \l(\frac{N_a N_d}{n_i^2}\r)$</p><p>$C_j = C_{jo} \l( 1 + \frac{V_R}{V_{bi}} \r)^{-1/2}$</p><ul><li>$V_{bi} = 0.684 {\rm V}$</li><li>(a) $0.255 {\rm pF}$</li><li>(b) $0.172 {\rm pF}$</li><li>(c) $0.139 {\rm pF}$</li></ul><h3 id=137>1.37</h3><p>$i_D = I_S \l[ \exp \l( \frac{v_D}{nV_T} \r) -1 \r]$, $n=1$, $V_T=\frac{k T}{e}$</p><p>$I_S$ double for every 5 ${\rm {}^\circ C}$</p><p>${\rm ratio} = 2^{155/5} \times \dfrac{\exp(0.6/0.03209)}{\exp(0.6/0.01876)} = 3.65\times 10^3$</p><blockquote><p>与pdf答案不同。pdf 计算的 $V_T$ 不对。为了避免我算错，我把代数字进去的完整式子列出来：</p></blockquote><p>$$
-2^{155/5}\times \frac{\exp(\frac{0.6}{86\times10^{-1}\times(100+273.15)})-1}{\exp(\frac{0.6}{86\times10^{-1}\times(-55+273.15)})-1}
+$$</p><ul><li>(a) $2.4{\rm A/cm^2}$</li><li>(b) $0.883{\rm A/cm^2}$</li><li>(c) $0.119{\rm A/cm^2}$</li></ul><h3 id=123>1.23</h3><p>$V_{bi} = V_T \ln \l(\frac{N_a N_d}{n_i^2}\r)$</p><p>$C_j = C_{jo} \l( 1 + \frac{V_R}{V_{bi}} \r)^{-1/2}$</p><ul><li>$V_{bi} = 0.684 {\rm V}$</li><li>(a) $0.255 {\rm pF}$</li><li>(b) $0.172 {\rm pF}$</li><li>(c) $0.139 {\rm pF}$</li></ul><h3 id=137>1.37</h3><p>$I_S$ double for every 5 ${\rm {}^\circ C}$, so</p><p>$$
+\frac{I_S(100)}{I_S(-55)}=2^{155/5}
+$$</p><p>$V_{T,{\rm 100{}^\circ C}} = 86\times 10^{-6}\times (100+273.15)=0.03209$</p><p>$V_{T,{\rm -55{}^\circ C}} = 86\times 10^{-6}\times (-55+273.15)=0.01876$</p><p>$\dfrac{I_{D,{\rm 100{}^\circ C}}}{I_{D,{\rm -55{}^\circ C}}} = 2^{155/5} \times \dfrac{\exp(0.6/0.03209)}{\exp(0.6/0.01876)} = 3.65\times 10^3$</p><blockquote><p>与pdf答案不同。pdf 计算的 $V_T$ 不对。为了避免我算错，我把代数字进去的完整式子列出来：</p></blockquote><p>$$
+2^{155/5}\times \frac{\exp(\frac{0.6}{86\times10^{-6}\times(100+273.15)})}{\exp(\frac{0.6}{86\times10^{-6}\times(-55+273.15)})}
 $$</p><p>答案在如下地方进行了近似：1. 摄氏度转开尔文只加了 273（正确应该是+273.15） 2. $V_T$ 第三位有效数字及之后的数字都算错了（0.03208算成了0.03220、0.01858算成了0.01865）</p><h2 id=1416>1.4~1.6</h2><h3 id=140>1.40</h3><p>With Thevenin&rsquo;s Theorem, $V_{PS},R_1,R_2$ can be converted into $V_{Th}, R_{Th}$</p><p>$V_{Th}=\dfrac{R_2}{R_1+R_2}\cdot V_{PS}=0.45{\rm} {\rm V}$</p><p>$R_{Th}=R_1 | R_2 = 18.75{\rm K\Omega}$</p><p>With KVL, we have</p><p>$$
 \begin{aligned}
 V_{Th} &= I_D R_{Th} + V_D\

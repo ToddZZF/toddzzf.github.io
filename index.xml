@@ -1,4 +1,162 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Todd's Blog</title><link>https://todd.scuteee.com/</link><description>Recent content on Todd's Blog</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><lastBuildDate>Thu, 08 Sep 2022 15:48:05 +0800</lastBuildDate><atom:link href="https://todd.scuteee.com/index.xml" rel="self" type="application/rss+xml"/><item><title>Bandgap</title><link>https://todd.scuteee.com/ppt/%E7%BB%84%E4%BC%9A/20220908-bandgap.md/</link><pubDate>Thu, 08 Sep 2022 15:47:20 +0800</pubDate><guid>https://todd.scuteee.com/ppt/%E7%BB%84%E4%BC%9A/20220908-bandgap.md/</guid><description>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Todd's Blog</title><link>https://todd.scuteee.com/</link><description>Recent content on Todd's Blog</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><lastBuildDate>Mon, 12 Sep 2022 22:18:03 +0800</lastBuildDate><atom:link href="https://todd.scuteee.com/index.xml" rel="self" type="application/rss+xml"/><item><title>国际校区生存指南</title><link>https://todd.scuteee.com/posts/2022/2022-09-12-gics-guide/</link><pubDate>Mon, 12 Sep 2022 22:18:03 +0800</pubDate><guid>https://todd.scuteee.com/posts/2022/2022-09-12-gics-guide/</guid><description>&lt;h2 id="课表">课表&lt;/h2>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>节次&lt;/th>
+&lt;th>时间&lt;/th>
+&lt;th>周一&lt;/th>
+&lt;th>周二&lt;/th>
+&lt;th>周三&lt;/th>
+&lt;th>周四&lt;/th>
+&lt;th>周五&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>第一节课&lt;/td>
+&lt;td>8:50-9:35&lt;/td>
+&lt;td>&lt;/td>
+&lt;td rowspan="2">自然辩证(3-10周) 刘金玉 F3-b101&lt;/td>
+&lt;td>&lt;/td>
+&lt;td rowspan="3">微电子器件物理(3-17周) 李斌 周绍林 F3-b310&lt;/td>
+&lt;td>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>第二节课&lt;/td>
+&lt;td>9:40-10:25&lt;/td>
+&lt;td>&lt;/td>
+&lt;td>&lt;/td>
+&lt;td>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>第三节课&lt;/td>
+&lt;td>10:40-11:25&lt;/td>
+&lt;td>&lt;/td>
+&lt;td rowspan="2">新时代中特 郭厚佳 F3-d117&lt;/td>
+&lt;td>&lt;/td>
+&lt;td>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>第四节课&lt;/td>
+&lt;td>11:30-12:15&lt;/td>
+&lt;td>&lt;/td>
+&lt;td>&lt;/td>
+&lt;td>&lt;/td>
+&lt;td>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>午饭&lt;/td>
+&lt;td>&lt;/td>
+&lt;td>&lt;/td>
+&lt;td>&lt;/td>
+&lt;td>&lt;/td>
+&lt;td>&lt;/td>
+&lt;td>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>第五节课&lt;/td>
+&lt;td>14:00-14:45&lt;/td>
+&lt;td>&lt;/td>
+&lt;td>&lt;/td>
+&lt;td>&lt;/td>
+&lt;td>&lt;/td>
+&lt;td>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>第六节课&lt;/td>
+&lt;td>14:50-15:35&lt;/td>
+&lt;td>&lt;/td>
+&lt;td>&lt;/td>
+&lt;td>&lt;/td>
+&lt;td>&lt;/td>
+&lt;td>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>第七节课&lt;/td>
+&lt;td>15:45-16:30&lt;/td>
+&lt;td>&lt;/td>
+&lt;td>&lt;/td>
+&lt;td>&lt;/td>
+&lt;td>&lt;/td>
+&lt;td>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>第八节课&lt;/td>
+&lt;td>16:35-17:20&lt;/td>
+&lt;td>&lt;/td>
+&lt;td>&lt;/td>
+&lt;td>&lt;/td>
+&lt;td>&lt;/td>
+&lt;td>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>晚饭&lt;/td>
+&lt;td>&lt;/td>
+&lt;td>&lt;/td>
+&lt;td>&lt;/td>
+&lt;td>&lt;/td>
+&lt;td>&lt;/td>
+&lt;td>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>第九节课&lt;/td>
+&lt;td>19:00-19:45&lt;/td>
+&lt;td>&lt;/td>
+&lt;td>&lt;/td>
+&lt;td>&lt;/td>
+&lt;td>&lt;/td>
+&lt;td>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>第十节课&lt;/td>
+&lt;td>19:55-20:40&lt;/td>
+&lt;td>&lt;/td>
+&lt;td>&lt;/td>
+&lt;td>&lt;/td>
+&lt;td>&lt;/td>
+&lt;td>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>第十一节课&lt;/td>
+&lt;td>20:50-21:35&lt;/td>
+&lt;td>&lt;/td>
+&lt;td>&lt;/td>
+&lt;td>&lt;/td>
+&lt;td>&lt;/td>
+&lt;td>&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;h2 id="培养方案">培养方案&lt;/h2>
+&lt;ul>
+&lt;li>专业学位硕士研究生主要采取课程学习、专业实践和学位（毕业）论文相结合的方式进行培养。&lt;strong>专业实践累计时间一般应不少于6个月&lt;/strong>（不具有2年企业工作经历的工程类专业学位硕士研究生专业实践时间应不少于1年）。&lt;strong>学位论文一般不少于1年。&lt;/strong>&lt;/li>
+&lt;li>专业学位研究生培养实行&lt;strong>校内外双导师制&lt;/strong>。以校内导师指导为主，校外导师参与实践过程、项目研究、课程与论文等多个环节的指导工作。专业学位研究生应在导师指导下于入学后两周内指定出培养计划。&lt;/li>
+&lt;/ul>
+&lt;hr>
+&lt;ul>
+&lt;li>总学分不少于32学分
+&lt;ul>
+&lt;li>课程学习不少于26学分
+&lt;ul>
+&lt;li>公共必修课不少于10学分&lt;/li>
+&lt;li>专业基础课不少于12学分&lt;/li>
+&lt;li>专业选修课不少于3学分&lt;/li>
+&lt;li>公共选修课不少于1学分&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>校外专业实践6学分&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;hr>
+&lt;p>除满足学校规定的最低要求外，符合下列标准之一可申请答辩：&lt;/p>
+&lt;ol>
+&lt;li>发表SCI/EI源刊论文一篇或EI检索的国际会议论文一篇；&lt;/li>
+&lt;li>受理国家发明专利一项，或授权国家实用新型专利一项，或申请PCT一项；&lt;/li>
+&lt;li>获得本学科主要竞赛（挑战杯、全国大学生电子设计竞赛、中国研究生电子设计竞赛、中国研究生创“芯”大赛、中国互联网+创新创业大赛、全国大学生集成电路创新创业大赛，集成电路EDA设计精英挑战赛）国家级二等奖及以上或部省级一等奖项（获奖团队成员），或者获得省部级奖或者国家级行业学会（中国通信学会、中国电子学会等）科技奖一项（成员）。&lt;/li>
+&lt;/ol>
+&lt;h2 id="其他">其他&lt;/h2>
+&lt;p>实验室： B1e-305&lt;/p></description></item><item><title>Bandgap</title><link>https://todd.scuteee.com/ppt/%E7%BB%84%E4%BC%9A/20220908-bandgap.md/</link><pubDate>Thu, 08 Sep 2022 15:47:20 +0800</pubDate><guid>https://todd.scuteee.com/ppt/%E7%BB%84%E4%BC%9A/20220908-bandgap.md/</guid><description>
 &lt;style>
 .tworow {
 display: grid;
@@ -848,14 +1006,18 @@ $$&lt;/p>
 &lt;li>(c) $0.139 {\rm pF}$&lt;/li>
 &lt;/ul>
 &lt;h3 id="137">1.37&lt;/h3>
-&lt;p>$i_D = I_S \l[ \exp \l( \frac{v_D}{nV_T} \r) -1 \r]$, $n=1$, $V_T=\frac{k T}{e}$&lt;/p>
-&lt;p>$I_S$ double for every 5 ${\rm {}^\circ C}$&lt;/p>
-&lt;p>${\rm ratio} = 2^{155/5} \times \dfrac{\exp(0.6/0.03209)}{\exp(0.6/0.01876)} = 3.65\times 10^3$&lt;/p>
+&lt;p>$I_S$ double for every 5 ${\rm {}^\circ C}$, so&lt;/p>
+&lt;p>$$
+\frac{I_S(100)}{I_S(-55)}=2^{155/5}
+$$&lt;/p>
+&lt;p>$V_{T,{\rm 100{}^\circ C}} = 86\times 10^{-6}\times (100+273.15)=0.03209$&lt;/p>
+&lt;p>$V_{T,{\rm -55{}^\circ C}} = 86\times 10^{-6}\times (-55+273.15)=0.01876$&lt;/p>
+&lt;p>$\dfrac{I_{D,{\rm 100{}^\circ C}}}{I_{D,{\rm -55{}^\circ C}}} = 2^{155/5} \times \dfrac{\exp(0.6/0.03209)}{\exp(0.6/0.01876)} = 3.65\times 10^3$&lt;/p>
 &lt;blockquote>
 &lt;p>与pdf答案不同。pdf 计算的 $V_T$ 不对。为了避免我算错，我把代数字进去的完整式子列出来：&lt;/p>
 &lt;/blockquote>
 &lt;p>$$
-2^{155/5}\times \frac{\exp(\frac{0.6}{86\times10^{-1}\times(100+273.15)})-1}{\exp(\frac{0.6}{86\times10^{-1}\times(-55+273.15)})-1}
+2^{155/5}\times \frac{\exp(\frac{0.6}{86\times10^{-6}\times(100+273.15)})}{\exp(\frac{0.6}{86\times10^{-6}\times(-55+273.15)})}
 $$&lt;/p>
 &lt;p>答案在如下地方进行了近似：1. 摄氏度转开尔文只加了 273（正确应该是+273.15） 2. $V_T$ 第三位有效数字及之后的数字都算错了（0.03208算成了0.03220、0.01858算成了0.01865）&lt;/p>
 &lt;h2 id="1416">1.4~1.6&lt;/h2>
