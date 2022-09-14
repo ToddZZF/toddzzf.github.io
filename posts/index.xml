@@ -15,7 +15,7 @@
 &lt;tr>
 &lt;td>第一节课&lt;/td>
 &lt;td>8:50-9:35&lt;/td>
-&lt;td>&lt;/td>
+&lt;td rowspan="2">项目管理概论 (13-16周) 余建军 F3-b111&lt;/td>
 &lt;td rowspan="2">自然辩证(3-10周) 刘金玉 F3-b101&lt;/td>
 &lt;td>&lt;/td>
 &lt;td rowspan="3">微电子器件物理(3-17周) 李斌 周绍林 F3-b310&lt;/td>
@@ -26,20 +26,18 @@
 &lt;td>9:40-10:25&lt;/td>
 &lt;td>&lt;/td>
 &lt;td>&lt;/td>
-&lt;td>&lt;/td>
 &lt;/tr>
 &lt;tr>
 &lt;td>第三节课&lt;/td>
 &lt;td>10:40-11:25&lt;/td>
 &lt;td>&lt;/td>
 &lt;td rowspan="2">新时代中特 郭厚佳 F3-d117&lt;/td>
-&lt;td>&lt;/td>
+&lt;td rowspan="2">宽禁带半导体（3-17周） 耿魁伟 F3-b209&lt;/td>
 &lt;td>&lt;/td>
 &lt;/tr>
 &lt;tr>
 &lt;td>第四节课&lt;/td>
 &lt;td>11:30-12:15&lt;/td>
-&lt;td>&lt;/td>
 &lt;td>&lt;/td>
 &lt;td>&lt;/td>
 &lt;td>&lt;/td>
@@ -58,14 +56,13 @@
 &lt;td>14:00-14:45&lt;/td>
 &lt;td>&lt;/td>
 &lt;td>&lt;/td>
-&lt;td>&lt;/td>
+&lt;td rowspan="4">电路分析与综合(3-14周) 余卫宇 F3-b203 &lt;br> 可靠性(7-17周) 李斌 F3-a512&lt;/td>
 &lt;td>&lt;/td>
 &lt;td>&lt;/td>
 &lt;/tr>
 &lt;tr>
 &lt;td>第六节课&lt;/td>
 &lt;td>14:50-15:35&lt;/td>
-&lt;td>&lt;/td>
 &lt;td>&lt;/td>
 &lt;td>&lt;/td>
 &lt;td>&lt;/td>
@@ -78,12 +75,10 @@
 &lt;td>&lt;/td>
 &lt;td>&lt;/td>
 &lt;td>&lt;/td>
-&lt;td>&lt;/td>
 &lt;/tr>
 &lt;tr>
 &lt;td>第八节课&lt;/td>
 &lt;td>16:35-17:20&lt;/td>
-&lt;td>&lt;/td>
 &lt;td>&lt;/td>
 &lt;td>&lt;/td>
 &lt;td>&lt;/td>
@@ -101,7 +96,7 @@
 &lt;tr>
 &lt;td>第九节课&lt;/td>
 &lt;td>19:00-19:45&lt;/td>
-&lt;td>&lt;/td>
+&lt;td rowspan="3">论文写作与学术规范（9-12周3节 13-14周2节） 贾奎 赵建 D1-b110 C1-b115&lt;/td>
 &lt;td>&lt;/td>
 &lt;td>&lt;/td>
 &lt;td>&lt;/td>
@@ -114,12 +109,10 @@
 &lt;td>&lt;/td>
 &lt;td>&lt;/td>
 &lt;td>&lt;/td>
-&lt;td>&lt;/td>
 &lt;/tr>
 &lt;tr>
 &lt;td>第十一节课&lt;/td>
 &lt;td>20:50-21:35&lt;/td>
-&lt;td>&lt;/td>
 &lt;td>&lt;/td>
 &lt;td>&lt;/td>
 &lt;td>&lt;/td>

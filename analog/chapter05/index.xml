@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Chapter 5 on Todd's Blog</title><link>https://todd.scuteee.com/analog/chapter05/</link><description>Recent content in Chapter 5 on Todd's Blog</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><lastBuildDate>Tue, 13 Sep 2022 14:23:58 +0800</lastBuildDate><atom:link href="https://todd.scuteee.com/analog/chapter05/index.xml" rel="self" type="application/rss+xml"/><item><title>Chapter 5 solution</title><link>https://todd.scuteee.com/analog/chapter05/solution/</link><pubDate>Tue, 13 Sep 2022 16:23:07 +0800</pubDate><guid>https://todd.scuteee.com/analog/chapter05/solution/</guid><description>&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>章节&lt;/th>
+&lt;th>必做&lt;/th>
+&lt;th>选做&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>5.1~5.2&lt;/td>
+&lt;td>5.2, 5.8, 5.13, 5.18, 5.26，5.39&lt;/td>
+&lt;td>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>5.3~5.4&lt;/td>
+&lt;td>5.47, D5.49, 5.52, 5.56, D5.72&lt;/td>
+&lt;td>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>5.5~5.6&lt;/td>
+&lt;td>5.79, 5.80, 5.82, 5.83, D5.89 (5.83&amp;rsquo;s answer needs to be verified by computer simulation)&lt;/td>
+&lt;td>&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;h2 id="5152">5.1~5.2&lt;/h2>
+&lt;h3 id="52">5.2&lt;/h3>
+&lt;p>$i_E=i_C+i_B$&lt;/p>
+&lt;p>$i_C=\alpha i_E$&lt;/p>
+&lt;p>$i_C=\beta i_B$&lt;/p>
+&lt;ul>
+&lt;li>(a) $i_C=322.2{\rm \mu A}$, $\beta=115.07$, $\allpha=0.9914$&lt;/li>
+&lt;li>(b) $1.78{\rm mA}$, $\beta=89$, $\alpha=0.9889$&lt;/li>
+&lt;/ul>
+&lt;h3 id="58">5.8&lt;/h3>
+&lt;p>$\alpha=0.9836$&lt;/p>
+&lt;ul>
+&lt;li>(a) if transistor is in forward-active mode, $I_C=\alpha I_E=0.7377{\rm mA}$, $v_{CB}=-10+0.7377\times 5=-6.3115{\rm V}&amp;lt;0$, so the assumption is true. $I_B=I_C/\beta = 12.3{\mu \mu A}$&lt;/li>
+&lt;li>(b) $I_C=1.475{\rm mA}$, $v_{CE}=-2.625{\rm V}$, $I_B=0.246{\rm \mu A}$&lt;/li>
+&lt;li>(c) they are in the forward-active mode.&lt;/li>
+&lt;/ul>
+&lt;h2 id="513">5.13&lt;/h2>
+&lt;p>$i_C=I_S(e^{v_{BE}/V_T})\cdot (1+\frac{v_{CE}}{V_A})$&lt;/p>
+&lt;p>$r_O=\frac{\p i_C}{\p v_{CE}}$&lt;/p>
+&lt;ul>
+&lt;li>(a) $0.62196{\rm mA}$&lt;/li>
+&lt;li>(b) $r_o = \frac{5-3}{0.622-0.6}=137{\rm k\Omega}$&lt;/li>
+&lt;/ul></description></item><item><title>Basic BJT</title><link>https://todd.scuteee.com/analog/chapter05/5.1-5.2/</link><pubDate>Tue, 13 Sep 2022 14:24:31 +0800</pubDate><guid>https://todd.scuteee.com/analog/chapter05/5.1-5.2/</guid><description>&lt;h2 id="terms">Terms&lt;/h2>
+&lt;ul>
+&lt;li>Bipolar Transistor
+&lt;ul>
+&lt;li>npn&lt;/li>
+&lt;li>pnp&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>emitter(E), base(B), collector(C)
+&lt;ul>
+&lt;li>doping concentrations: E&amp;gt;B&amp;gt;C&lt;/li>
+&lt;li>length: E,C&amp;raquo;B&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>forward-active operating mode
+&lt;ul>
+&lt;li>B-E junction is forward biased.&lt;/li>
+&lt;li>B-C junction is reverse biased.&lt;/li>
+&lt;li>common-emitter current gain $\beta$, $i_C=\beta i_B$&lt;/li>
+&lt;li>common-base current gain $\alpha$, $i_C=\alpha i_E$&lt;/li>
+&lt;li>Early effect (base-width modultaion)&lt;/li>
+&lt;li>Leakage Current&lt;/li>
+&lt;li>Breakdown Voltage&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;h2 id="circuits--formulas">Circuits &amp;amp; Formulas&lt;/h2>
+&lt;h3 id="forward-active-mode-operation">Forward-Active Mode Operation&lt;/h3>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>NPN&lt;/th>
+&lt;th>PNP&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>$i_E=\frac{I_S}{\alpha}e^{v_{BE}/V_T}$&lt;/td>
+&lt;td>$i_E=\frac{I_S}{\alpha}e^{v_{EB}/V_T}$&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>$i_C=I_S e^{v_{BE}/V_T}$&lt;/td>
+&lt;td>$i_C=I_S e^{v_{EB}/V_T}$&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>$i_B=\frac{I_S}{\beta}e^{v_{BE}/V_T}$&lt;/td>
+&lt;td>$i_B=\frac{I_S}{\beta}e^{v_{EB}/V_T}$&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;hr>
+&lt;ul>
+&lt;li>$i_E=i_C+i_B$&lt;/li>
+&lt;li>$i_C=\alpha i_E$&lt;/li>
+&lt;li>$i_C=\beta i_B$&lt;/li>
+&lt;/ul>
+&lt;p>so $\dfrac{1}{\alpha} = 1 + \dfrac{1}{\beta}$&lt;/p>
+&lt;h2 id="c-v-characteristics">C-V Characteristics&lt;/h2>
+&lt;p>$$
+i_C=I_S(e^{v_{BE}/V_T})\cdot (1+\frac{v_{CE}}{V_A})
+$$&lt;/p>
+&lt;p>$$
+r_O=\frac{\p i_C}{\p v_{CE}}\approx \frac{V_A}{I_C}
+$$&lt;/p></description></item></channel></rss>
