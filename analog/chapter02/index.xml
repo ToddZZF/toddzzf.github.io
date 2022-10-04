@@ -48,7 +48,7 @@ $$&lt;/p>
 &lt;p>$v_{S,{\rm rms}}=v_{S,{\rm peak}}/\sqrt{2}=9.48{\rm V}$&lt;/p>
 &lt;/li>
 &lt;li>
-&lt;p>(b) $V_r = V_M \dfrac{T_P}{2fRC}$, so $C==2.22 {\rm mV}$&lt;/p>
+&lt;p>(b) $V_r = \dfrac{V_M}{2fRC}$, so $C=2.22 {\rm mF}$&lt;/p>
 &lt;/li>
 &lt;li>
 &lt;p>(c) $i_{D, {\rm peak}} = \dfrac{V_M}{R} \l( 1+\pi \sqrt{\dfrac{2V_M}{V_r}} \r) = 2.328{\rm A}$&lt;/p>
@@ -63,7 +63,7 @@ $$&lt;/p>
 &lt;p>(b) &amp;ldquo;Nominal&amp;rdquo; 理解为标定，此处当作最大允许的电流。&lt;/p>
 &lt;p>$R=V_M/I_M=90{\rm \Omega}$&lt;/p>
 &lt;p>$V_r=\dfrac{V_M}{2f R C}$&lt;/p>
-&lt;p>$C=4.167{\rm mC}$&lt;/p>
+&lt;p>$C=4.167{\rm mF}$&lt;/p>
 &lt;/li>
 &lt;li>
 &lt;p>(c) $i_{D, {\rm peak}} = \dfrac{V_M}{R} \l( 1+\pi \sqrt{\dfrac{2V_M}{V_r}} \r) = 3.080{\rm A}$&lt;/p>
@@ -116,7 +116,8 @@ $$&lt;/p>
 &lt;h3 id="232">2.32&lt;/h3>
 &lt;p>if the diode is turned off, $v_O=v_I$ and the voltage between of 1k and 2k resistances is $5{\rm V}$, so if the $v_I&amp;gt;5.7{\rm V}$, the diode is turn on.&lt;/p>
 &lt;p>We can treat diode as a voltage source, so by using the superposition theorem (叠加定理), we get&lt;/p>
-&lt;p>$v_O=\dfrac{2}{5}v_I+\dfrac{1}{5}\cdot 15+\dfrac{3}{5}\cdot 0.7 = \dfrac{2}{5}v_I+3.42$&lt;/p>
+&lt;p>$v_O=\dfrac{2}{5}v_I+\dfrac{1}{5}\cdot 15+\dfrac{3}{5}\cdot 0.7 = \dfrac{2}{5}v_I+3.42 {\rm (V)}$&lt;/p>
+&lt;p>$i_D=\dfrac{v_I-v_O}{1}=\dfrac{0.6v_I-3.42}{1} {\rm (mA)}$&lt;/p>
 &lt;h3 id="236">2.36&lt;/h3>
 &lt;ul>
 &lt;li>(a) $V_\gamma=0$
@@ -136,7 +137,7 @@ $$&lt;/p>
 &lt;h3 id="244">2.44&lt;/h3>
 &lt;ul>
 &lt;li>(a) D1 is on, D2 is off. $I_{D1}=\frac{10-0.6}{0.5+9.5}=0.94{\rm mA}$, $I_{D2}=0$. $V_O=8.93{\rm V}$&lt;/li>
-&lt;li>(b) D1 is on, D2 is off. $I_{D1}=0.44{\rm mA}$, $V_O=4,18{\rm V}$&lt;/li>
+&lt;li>(b) D1 is on, D2 is off. $I_{D1}=0.44{\rm mA}$, $V_O=4.18{\rm V}$&lt;/li>
 &lt;li>(c) Assume both diode is on, using the superposition theorem (叠加定理), $V_1$ and D1 will generate 4.5795V, which greater then $5-0.6=4.4{\rm V}$ means D2 is off. So (c) is same as (a)&lt;/li>
 &lt;li>(d) From (c), $I_{D1}=\frac{4.5795}{9.5}=0.48205{\rm A}$, $V_O=4.579\times 2 = 9.159{\rm V}$&lt;/li>
 &lt;/ul>
@@ -152,23 +153,29 @@ $$&lt;/p>
 &lt;/li>
 &lt;li>(b)
 &lt;ul>
+&lt;li>$V_1=4.4{\rm V}$&lt;/li>
+&lt;li>$V_2=-0.6{\rm V}$&lt;/li>
 &lt;li>$I_{D1}=0.5{\rm mA}$&lt;/li>
-&lt;li>$I_{D2}=1.25{\rm mA}$&lt;/li>
-&lt;li>$I_{D3}=2{\rm mA}$&lt;/li>
+&lt;li>$I_{D2}=0.75{\rm mA}$&lt;/li>
+&lt;li>$I_{D3}=0.75{\rm mA}$&lt;/li>
 &lt;/ul>
 &lt;/li>
 &lt;li>(c)
 &lt;ul>
+&lt;li>$V_1=6.07{\rm V}$&lt;/li>
+&lt;li>$V_2=-0.6{\rm V}$&lt;/li>
 &lt;li>$I_{D1}=1.11{\rm mA}$&lt;/li>
 &lt;li>$I_{D2}=0{\rm mA}$&lt;/li>
-&lt;li>$I_{D3}=1.76{\rm mA}$&lt;/li>
+&lt;li>$I_{D3}=0.65{\rm mA}$&lt;/li>
 &lt;/ul>
 &lt;/li>
 &lt;li>(d)
 &lt;ul>
+&lt;li>$V_1=4.4{\rm V}$&lt;/li>
+&lt;li>$V_2=1.26{\rm V}$&lt;/li>
 &lt;li>$I_{D1}=0.833{\rm mA}$&lt;/li>
-&lt;li>$I_{D2}=1.044{\rm mA}$&lt;/li>
-&lt;li>$I_{D3}=0.211{\rm mA}$&lt;/li>
+&lt;li>$I_{D2}=0.211{\rm mA}$&lt;/li>
+&lt;li>$I_{D3}=0{\rm mA}$&lt;/li>
 &lt;/ul>
 &lt;/li>
 &lt;/ul>
@@ -178,13 +185,13 @@ $$&lt;/p>
 &lt;p>(a) When D1 and D2 is off, $v_O=v_{D2}=\frac{500}{5k+500}v_I=0.09091v_I$, $v_{D1}=\frac{5k}{5k+500}v_I=0.9091v_I$&lt;/p>
 &lt;p>If $v_{D1}&amp;gt;0.6{\rm V}$, i.e. $v_I&amp;gt;0.66{\rm V}$, D1 is on. $v_O=v_{D2}=\frac{500}{5k|5k+500}v_I-0.6\frac{5k|500}{5k|500+5k}=0.167v_I-0.05$&lt;/p>
 &lt;p>If $v_{D2}&amp;gt;0.6{\rm V}$, i.e. $v_I&amp;gt;3.892{\rm V}$, D2 is on. $v_O=\frac{500|500}{5k|5k+500|500}v_I-0.6\frac{5k|500|500}{5k|500|500+5k}+0.6\frac{5k|5k|500}{5k|5k|500+500}=0.09091v_I-0.02727+0.2727=0.09091v_I+0.2454$&lt;/p>
-&lt;p>So $v_O(-5)=-0.445{\rm V}$, $v_O(5)=0.7{\rm V}$&lt;/p>
+&lt;p>So $v_O(-5)=-0.455{\rm V}$, $v_O(5)=0.7{\rm V}$&lt;/p>
 &lt;/li>
 &lt;li>
-&lt;p>(b) If $v_I\lt -0.6{\rm V}$, D1 is off and D2 is on. $v_O=0.6{\rm V}$&lt;/p>
-&lt;p>If $v_I\lt 0.6{\rm V}$, D1,D2 is off. $v_O=0.5v_I$.&lt;/p>
-&lt;p>If $v_I\ge 0.6{\rm V}$, D1 is on. $v_O=v_I-0.6$&lt;/p>
-&lt;p>So $v_O(-5)=0.6{\rm V}$, $v_O(5)=4.4{\rm V}$&lt;/p>
+&lt;p>(b) If both D1,D2 is off, $v_O=0.5v_I$, $v_{D1}=0.5v_I$, $v_{D2}=-0.5v_I$&lt;/p>
+&lt;p>If D1 is on, $v_{D1}&amp;gt;0.6$, $v_I&amp;gt;1.2$, $v_O=v_I-0.6$&lt;/p>
+&lt;p>If D2 is on, $v_{D2}&amp;gt;0.6$, $v_I&amp;lt;-1.2$, $v_O=-0.6$&lt;/p>
+&lt;p>So $v_O(-5)=-0.6{\rm V}$, $v_O(5)=4.4{\rm V}$&lt;/p>
 &lt;/li>
 &lt;/ul>
 &lt;h3 id="264">2.64&lt;/h3>
@@ -192,7 +199,20 @@ $$&lt;/p>
 &lt;p>$10-0.2=0.012R+1.5+0.012\times 10$&lt;/p>
 &lt;p>$R=681.67{\rm \Omega}$&lt;/p>
 &lt;h3 id="269">2.69&lt;/h3>
-&lt;h3 id="272">2.72&lt;/h3></description></item><item><title>Zener Diode Circuits</title><link>https://todd.scuteee.com/analog/chapter02/2.2/</link><pubDate>Sat, 27 Aug 2022 20:40:57 +0800</pubDate><guid>https://todd.scuteee.com/analog/chapter02/2.2/</guid><description>&lt;h2 id="circuits--formulas">Circuits &amp;amp; Formulas&lt;/h2>
+&lt;p>$V_{\rm out} \approx 15.5$&lt;/p>
+&lt;h3 id="272">2.72&lt;/h3>
+&lt;p>(a)&lt;/p>
+&lt;p>Diode 1: 1.43mA 0.66v&lt;/p>
+&lt;p>Diode 2: -1.53pA -1.516V&lt;/p>
+&lt;p>Diode 3: 0.870mA 651.5mV&lt;/p>
+&lt;p>Va: -2.17V&lt;/p>
+&lt;p>Vb： -0.651V&lt;/p>
+&lt;p>(b)&lt;/p>
+&lt;p>Diode 1: 1.20mA 0.656V&lt;/p>
+&lt;p>Diode 2: -3.9pA -3.885V&lt;/p>
+&lt;p>Diode 3: 2.16mA 0.675V&lt;/p>
+&lt;p>Va: -4.56V&lt;/p>
+&lt;p>Vb： -0.675V&lt;/p></description></item><item><title>Zener Diode Circuits</title><link>https://todd.scuteee.com/analog/chapter02/2.2/</link><pubDate>Sat, 27 Aug 2022 20:40:57 +0800</pubDate><guid>https://todd.scuteee.com/analog/chapter02/2.2/</guid><description>&lt;h2 id="circuits--formulas">Circuits &amp;amp; Formulas&lt;/h2>
 &lt;h3 id="voltage-regulator">Voltage Regulator&lt;/h3>
 &lt;p>$I_Z=\frac{V_{PS}-V_Z}{R_i}-I_L$&lt;/p>
 &lt;ol>
