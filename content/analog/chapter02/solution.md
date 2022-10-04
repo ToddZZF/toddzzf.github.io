@@ -12,8 +12,8 @@ math: true
 
 | 章节 | 必做 | 选做 |
 |-----|-----|-----|
-| 2.1~2.3 |2.2,   2.8,  2.16,  2.26,  2.32,  2.36|2.1,2.6, 2.9, 2.19,2.30|
-| 2.4~2.6 |2.44,   2.47,   2.50,   2.64,   2.69, 2.72|2.61, 2.66|
+| 2.1~2.3 |2.2, 2.8, 2.16, 2.26, 2.32, 2.36|2.1,2.6, 2.9, 2.19,2.30|
+| 2.4~2.6 |2.44, 2.47, 2.50, 2.64, 2.69, 2.72|2.61, 2.66|
 
 ## 2.1~2.3
 
@@ -33,7 +33,7 @@ i.e. $I_R = I_D$. It's corret according to KCL.
 
   $v_{S,{\rm rms}}=v_{S,{\rm peak}}/\sqrt{2}=9.48{\rm V}$
 
-- (b) $V_r = V_M \dfrac{T_P}{2fRC}$, so $C==2.22 {\rm mV}$
+- (b) $V_r =  \dfrac{V_M}{2fRC}$, so $C=2.22 {\rm mF}$
 - (c) $i_{D, {\rm peak}} = \dfrac{V_M}{R} \l( 1+\pi  \sqrt{\dfrac{2V_M}{V_r}} \r) = 2.328{\rm A}$
 
 ## 2.16
@@ -45,7 +45,7 @@ i.e. $I_R = I_D$. It's corret according to KCL.
 
   $V_r=\dfrac{V_M}{2f R C}$
 
-  $C=4.167{\rm mC}$
+  $C=4.167{\rm mF}$
 
 - (c) $i_{D, {\rm peak}} = \dfrac{V_M}{R} \l( 1+\pi  \sqrt{\dfrac{2V_M}{V_r}} \r) = 3.080{\rm A}$
 - (d) $i_D({\rm avg})=\dfrac{1}{\pi} \sqrt{\dfrac{2V_r}{V_M}} \dfrac{V_M}{R} \l( 1+\dfrac{\pi}{2} \sqrt{\dfrac{2V_M}{V_r}} \r)=0.1067{\rm A}$
@@ -114,7 +114,10 @@ if the diode is turned off, $v_O=v_I$ and the voltage between of 1k and 2k resis
 
 We can treat diode as a voltage source, so by using the superposition theorem (叠加定理), we get
 
-$v_O=\dfrac{2}{5}v_I+\dfrac{1}{5}\cdot 15+\dfrac{3}{5}\cdot 0.7 = \dfrac{2}{5}v_I+3.42$
+$v_O=\dfrac{2}{5}v_I+\dfrac{1}{5}\cdot 15+\dfrac{3}{5}\cdot 0.7 = \dfrac{2}{5}v_I+3.42 {\rm (V)}$
+
+
+$i_D=\dfrac{v_I-v_O}{1}=\dfrac{0.6v_I-3.42}{1} {\rm (mA)}$
 
 ### 2.36
 
@@ -130,7 +133,7 @@ $v_O=\dfrac{2}{5}v_I+\dfrac{1}{5}\cdot 15+\dfrac{3}{5}\cdot 0.7 = \dfrac{2}{5}v_
 ### 2.44
 
 - (a) D1 is on, D2 is off. $I_{D1}=\frac{10-0.6}{0.5+9.5}=0.94{\rm mA}$, $I_{D2}=0$. $V_O=8.93{\rm V}$
-- (b) D1 is on, D2 is off. $I_{D1}=0.44{\rm mA}$, $V_O=4,18{\rm V}$
+- (b) D1 is on, D2 is off. $I_{D1}=0.44{\rm mA}$, $V_O=4.18{\rm V}$
 - (c) Assume both diode is on, using the superposition theorem (叠加定理), $V_1$ and D1 will generate 4.5795V, which greater then $5-0.6=4.4{\rm V}$ means D2 is off. So (c) is same as (a)
 - (d) From (c), $I_{D1}=\frac{4.5795}{9.5}=0.48205{\rm A}$, $V_O=4.579\times 2 = 9.159{\rm V}$
 
@@ -143,17 +146,23 @@ Just assume the diode is on and calculate the voltage.
   - $R_2=\frac{4.4-(-0.6)}{0.5}=10{\rm k\Omega}$
   - $R_3=\frac{-0.6-(-0.5)}{1}=4.4{\rm k\Omega}$
 - (b) 
+  - $V_1=4.4{\rm V}$
+  - $V_2=-0.6{\rm V}$
   - $I_{D1}=0.5{\rm mA}$
-  - $I_{D2}=1.25{\rm mA}$
-  - $I_{D3}=2{\rm mA}$
+  - $I_{D2}=0.75{\rm mA}$
+  - $I_{D3}=0.75{\rm mA}$
 - (c)
+  - $V_1=6.07{\rm V}$
+  - $V_2=-0.6{\rm V}$
   - $I_{D1}=1.11{\rm mA}$
   - $I_{D2}=0{\rm mA}$
-  - $I_{D3}=1.76{\rm mA}$
+  - $I_{D3}=0.65{\rm mA}$
 - (d)
+  - $V_1=4.4{\rm V}$
+  - $V_2=1.26{\rm V}$
   - $I_{D1}=0.833{\rm mA}$
-  - $I_{D2}=1.044{\rm mA}$
-  - $I_{D3}=0.211{\rm mA}$
+  - $I_{D2}=0.211{\rm mA}$
+  - $I_{D3}=0{\rm mA}$
 
 ### 2.50
 
@@ -163,15 +172,15 @@ Just assume the diode is on and calculate the voltage.
 
   If $v_{D2}>0.6{\rm V}$, i.e. $v_I>3.892{\rm V}$, D2 is on. $v_O=\frac{500\|500}{5k\|5k+500\|500}v_I-0.6\frac{5k\|500\|500}{5k\|500\|500+5k}+0.6\frac{5k\|5k\|500}{5k\|5k\|500+500}=0.09091v_I-0.02727+0.2727=0.09091v_I+0.2454$
 
-  So $v_O(-5)=-0.445{\rm V}$, $v_O(5)=0.7{\rm V}$
+  So $v_O(-5)=-0.455{\rm V}$, $v_O(5)=0.7{\rm V}$
 
-- (b) If $v_I\lt -0.6{\rm V}$, D1 is off and D2 is on. $v_O=0.6{\rm V}$
-  
-  If $v_I\lt 0.6{\rm V}$, D1,D2 is off. $v_O=0.5v_I$.
+- (b) If both D1,D2 is off, $v_O=0.5v_I$, $v_{D1}=0.5v_I$, $v_{D2}=-0.5v_I$
 
-  If $v_I\ge 0.6{\rm V}$, D1 is on. $v_O=v_I-0.6$
+  If D1 is on, $v_{D1}>0.6$, $v_I>1.2$, $v_O=v_I-0.6$
 
-  So $v_O(-5)=0.6{\rm V}$, $v_O(5)=4.4{\rm V}$
+  If D2 is on, $v_{D2}>0.6$, $v_I<-1.2$, $v_O=-0.6$
+
+  So $v_O(-5)=-0.6{\rm V}$, $v_O(5)=4.4{\rm V}$
 
 ### 2.64
 
@@ -183,6 +192,30 @@ $R=681.67{\rm \Omega}$
 
 ### 2.69
 
-
+$V_{\rm out} \approx 15.5$
 
 ### 2.72
+
+(a)
+
+Diode 1: 1.43mA 0.66v
+
+Diode 2: -1.53pA -1.516V
+
+Diode 3: 0.870mA 651.5mV
+
+Va: -2.17V
+
+Vb： -0.651V
+
+(b)
+
+Diode 1: 1.20mA 0.656V
+
+Diode 2: -3.9pA -3.885V
+
+Diode 3: 2.16mA 0.675V
+
+Va: -4.56V
+
+Vb： -0.675V

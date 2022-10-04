@@ -1,6 +1,6 @@
 ---
-title: "Bandgap"
-date: 2022-09-05 16:59:51 +0800
+title: "带隙基准"
+date: 2022-09-14 09:39:11 +0800
 icon: fas fa-book
 menu: 
     main:
