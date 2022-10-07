@@ -1,4 +1,149 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Todd's Blog</title><link>https://todd.scuteee.com/</link><description>Recent content on Todd's Blog</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><lastBuildDate>Wed, 21 Sep 2022 19:05:13 +0800</lastBuildDate><atom:link href="https://todd.scuteee.com/index.xml" rel="self" type="application/rss+xml"/><item><title>Multistage Circuits</title><link>https://todd.scuteee.com/analog/chapter05/5.5/</link><pubDate>Wed, 21 Sep 2022 19:05:13 +0800</pubDate><guid>https://todd.scuteee.com/analog/chapter05/5.5/</guid><description/></item><item><title>BJT biasing</title><link>https://todd.scuteee.com/analog/chapter05/5.4/</link><pubDate>Wed, 21 Sep 2022 18:49:38 +0800</pubDate><guid>https://todd.scuteee.com/analog/chapter05/5.4/</guid><description>&lt;h2 id="circuits--formulas">Circuits &amp;amp; Formulas&lt;/h2>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Todd's Blog</title><link>https://todd.scuteee.com/</link><description>Recent content on Todd's Blog</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><lastBuildDate>Fri, 07 Oct 2022 21:55:09 +0800</lastBuildDate><atom:link href="https://todd.scuteee.com/index.xml" rel="self" type="application/rss+xml"/><item><title>Common-Emiter Amplifier</title><link>https://todd.scuteee.com/analog/chapter06/6.4/</link><pubDate>Fri, 07 Oct 2022 21:55:09 +0800</pubDate><guid>https://todd.scuteee.com/analog/chapter06/6.4/</guid><description/></item><item><title>Chapter 6 solution</title><link>https://todd.scuteee.com/analog/chapter06/solution/</link><pubDate>Fri, 07 Oct 2022 21:05:18 +0800</pubDate><guid>https://todd.scuteee.com/analog/chapter06/solution/</guid><description>&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>章节&lt;/th>
+&lt;th>必做&lt;/th>
+&lt;th>&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>6.1~6.4&lt;/td>
+&lt;td>6.2, 6.10, D6.17, 6.24, D6.30&lt;/td>
+&lt;td>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>6.5~6.8&lt;/td>
+&lt;td>6.33, 6.37, 6.44, D6.56, 6.66&lt;/td>
+&lt;td>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>6.9~6.11&lt;/td>
+&lt;td>6.73, 6.74, 6.77, 6.83, D6.89(This question&amp;rsquo;s answer needs to be verified by computer simulation)&lt;/td>
+&lt;td>&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;h2 id="6164">6.1~6.4&lt;/h2>
+&lt;h3 id="62">6.2&lt;/h3>
+&lt;ul>
+&lt;li>(a) $g_m = 2.47{\rm mA}$, $r_\pi=1.32{\rm k\Omega}$, $r_o=81{\rm k\Omega}$&lt;/li>
+&lt;li>(b) $I_{CQ}=3.12{\rm mA}$, $\beta=144$&lt;/li>
+&lt;/ul>
+&lt;h3 id="610">6.10&lt;/h3>
+&lt;ul>
+&lt;li>(a) $R_C = 10{\rm k\Omega}$, $V_{BB}=0.95{\rm V}$&lt;/li>
+&lt;li>(b) $r_\pi=5.2{\rm k\Omega}$, $A_v = -18.1$&lt;/li>
+&lt;/ul>
+&lt;h3 id="d617">D6.17&lt;/h3>
+&lt;ul>
+&lt;li>(a)
+&lt;ul>
+&lt;li>i $R_B=20.25{\rm k\Omega}$, $R_C=2.53{\rm k\Omega}$&lt;/li>
+&lt;li>ii $g_m=30.38{\rm S}$, $r_o=127{\rm k\Omega}$, $G_f=-11.63{\rm mA/V}$&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>(b)
+&lt;ul>
+&lt;li>i $R_B=30.3{\rm k\Omega}$, $R_C=2.52{\rm k\Omega}$&lt;/li>
+&lt;li>ii $g_m=30.52{\rm S}$, $r_o=101{\rm k\Omega}$, $G_f=-11.62{\rm mA/V}$&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;h3 id="624">6.24&lt;/h3>
+&lt;ul>
+&lt;li>(a) $32\leq | A_v | \leq 34.6$&lt;/li>
+&lt;li>(b) $1.96\leq R_i \leq 2.45 {\rm k\Omega}$&lt;/li>
+&lt;li>(c) $3.802\leq R_o \leq 3.804 {\rm k\Omega}$&lt;/li>
+&lt;/ul>
+&lt;h3 id="d630">D6.30&lt;/h3>
+&lt;p>$R_C=5{\rm k\Omega}$, $R_E=0.333{\rm k\Omega}$&lt;/p>
+&lt;p>$R_1=79{\rm k\Omega}$, $R_2=249{\rm k\Omega}$&lt;/p>
+&lt;h2 id="6568">6.5~6.8&lt;/h2>
+&lt;h3 id="633">6.33&lt;/h3>
+&lt;p>$I_{BQ}=3.15{\rm \mu A}$, $I_{CQ}=0.315{\rm mA}$, $V_{CEQ}=3.96{\rm V}$&lt;/p>
+&lt;p>$i_c = -\frac{1}{6.1} v_{ec}$&lt;/p>
+&lt;p>because $i_c = 0.315 - 0.05 = 0.265$, so $v_{ec}=1.62$&lt;/p>
+&lt;p>$v_{ec}({\rm min})=3.96-1.62=2.34{\rm V}$&lt;/p>
+&lt;p>output swing: $3.24{\rm V}$ peak-to-peak&lt;/p>
+&lt;h3 id="637">6.37&lt;/h3>
+&lt;p>$R_1=34.9{\rm k\Omega}$, $R_2=18.6{\rm k\Omega}$&lt;/p>
+&lt;h3 id="644">6.44&lt;/h3>
+&lt;p>&lt;a class="link" href="https://imgse.com/i/x8JFfJ" target="_blank" rel="noopener"
+>&lt;img src="https://s1.ax1x.com/2022/10/07/x8JFfJ.png"
+loading="lazy"
+alt="x8JFfJ.png"
+>&lt;/a>&lt;/p>
+&lt;h3 id="d656">D6.56&lt;/h3>
+&lt;p>&lt;a class="link" href="https://imgse.com/i/x8JV61" target="_blank" rel="noopener"
+>&lt;img src="https://s1.ax1x.com/2022/10/07/x8JV61.png"
+loading="lazy"
+alt="x8JV61.png"
+>&lt;/a>&lt;/p>
+&lt;p>&lt;a class="link" href="https://imgse.com/i/x8Jn0K" target="_blank" rel="noopener"
+>&lt;img src="https://s1.ax1x.com/2022/10/07/x8Jn0K.png"
+loading="lazy"
+alt="x8Jn0K.png"
+>&lt;/a>&lt;/p>
+&lt;h3 id="666">6.66&lt;/h3>
+&lt;p>&lt;a class="link" href="https://imgse.com/i/x8JMkD" target="_blank" rel="noopener"
+>&lt;img src="https://s1.ax1x.com/2022/10/07/x8JMkD.png"
+loading="lazy"
+alt="x8JMkD.png"
+>&lt;/a>&lt;/p>
+&lt;h2 id="69611">6.9~6.11&lt;/h2></description></item><item><title>Bipolar Amplifier</title><link>https://todd.scuteee.com/analog/chapter06/6.1~6.3/</link><pubDate>Fri, 07 Oct 2022 20:11:16 +0800</pubDate><guid>https://todd.scuteee.com/analog/chapter06/6.1~6.3/</guid><description>&lt;h2 id="circuits--formulas">Circuits &amp;amp; Formulas&lt;/h2>
+&lt;h3 id="small-signal-hybrid-π-equivalent-circuit">Small Signal Hybrid-π Equivalent Circuit&lt;/h3>
+&lt;p>$$
+\begin{aligned}
+i_B &amp;amp;= \frac{I_S}{\beta } \exp(\frac{V_{BEQ} + v_{be}}{V_T}) \
+&amp;amp;= \frac{I_S}{\beta } \exp(\frac{V_{BEQ}}{V_T}) \exp(\frac{v_{be}}{V_T})\
+&amp;amp;= I_{BQ} \exp(\frac{v_{be}}{V_T})
+\end{aligned}
+$$&lt;/p>
+&lt;p>if $v_{be}\ll V_T$, we can expand the exponential term in a Taylor series:&lt;/p>
+&lt;p>$$
+\begin{aligned}
+i_B &amp;amp;\approx I_{BQ}(1+\frac{v_{be}}{V_T})\
+&amp;amp;= I_{BQ} + \frac{I_{BQ}}{V_T}v_{be}\
+&amp;amp;= I_{BQ} + i_b
+\end{aligned}
+$$&lt;/p>
+&lt;p>so $i_b = \frac{I_{BQ}}{V_T} v_{be}$&lt;/p>
+&lt;hr>
+&lt;p>输入端小信号电阻：$v_{be}=r_\pi i_b$（参考Diode的小信号电阻）&lt;/p>
+&lt;p>$$
+\frac{1}{r_\pi} = \left.\frac{\partial i_B}{\partial v_{BE}} \right|&lt;em>{\rm Q-point} = \frac{I&lt;/em>{BQ}}{V_T}
+$$&lt;/p>
+&lt;p>$$
+r_\pi = \frac{V_T}{I_{BQ}}
+$$&lt;/p>
+&lt;hr>
+&lt;p>输出端：$i_c = g_m v_{be}$&lt;/p>
+&lt;p>$$
+i_c = \l.\frac{\partial i_C}{\partial v_{BE}} \r|&lt;em>{\rm Q-point} \cdot v&lt;/em>{be}
+$$&lt;/p>
+&lt;p>$$
+g_m = \frac{I_{CQ}}{V_T}
+$$&lt;/p>
+&lt;p>由于 $i_C = I_S \exp(\frac{v_{BE}}{V_T})$&lt;/p>
+&lt;p>$$
+i_c = \frac{I_{CQ}}{V_T} v_{be}
+$$&lt;/p>
+&lt;blockquote>
+&lt;p>注意到：$r_\pi g_m = \frac{V_T}{I_{BQ}}\frac{I_{CQ}}{V_T} = \beta$&lt;/p>
+&lt;/blockquote>
+&lt;hr>
+&lt;p>Early Effect: $v_{ce} = r_o i_c$&lt;/p>
+&lt;p>$$
+\frac{1}{r_o} = \left.\frac{\partial i_C}{\partial v_{CE}} \right|_{\rm Q-point}
+$$&lt;/p>
+&lt;p>由于 $i_C \approx I_{CQ}(1+\frac{v_{CE}}{V_A})$，所以&lt;/p>
+&lt;p>$$
+\frac{1}{r_o} = \frac{I_{CQ}}{V_A}
+$$&lt;/p>
+&lt;p>$$
+r_o = \frac{V_A}{I_{CQ}}
+$$&lt;/p></description></item><item><title>BJT biasing</title><link>https://todd.scuteee.com/analog/chapter05/5.4~5.5/</link><pubDate>Wed, 21 Sep 2022 18:49:38 +0800</pubDate><guid>https://todd.scuteee.com/analog/chapter05/5.4~5.5/</guid><description>&lt;h2 id="circuits--formulas">Circuits &amp;amp; Formulas&lt;/h2>
 &lt;p>The purpose of bias: establish a Q-point near the center of the laod line.&lt;/p>
 &lt;h2 id="single-base-resistoir-biasing">Single Base Resistoir Biasing&lt;/h2>
 &lt;h2 id="voltage-divider-biasing">Voltage Divider Biasing&lt;/h2>
@@ -13,18 +158,169 @@ R_{\rm TH} = R_1 | R_2
 $$&lt;/p>
 &lt;/li>
 &lt;li>
-&lt;p>Calculate the $I_{BE}/I_{EQ}$&lt;/p>
+&lt;p>Calculate the $I_{BE}、I_{EQ}$&lt;/p>
 &lt;p>$$
 V_{\rm TH} = I_{BQ}R_{\rm TH} + V_{BE}({\rm on}) + I_{EQ}R_E
 $$&lt;/p>
-&lt;p>if $I_{EQ}=(1+\beta)I_{BQ}$&lt;/p>
+&lt;p>if transistor is forward biased, $I_{EQ}=(1+\beta)I_{BQ}$, therefore&lt;/p>
 &lt;p>$$
 I_{BQ}=\frac{V_{\rm TH}-V_{BE}({\rm on})}{R_{\rm TH}+(1+\beta)R_E}
 $$&lt;/p>
 &lt;/li>
+&lt;li>
+&lt;p>$V_{CEQ} = V_{CC} - I_{CQ}R_C - I_{EQ}R_E$&lt;/p>
+&lt;/li>
 &lt;/ol>
 &lt;h2 id="positive-and-negative-voltage-biasing">Positive and Negative Voltage Biasing&lt;/h2>
-&lt;h2 id="integrated-circuit-biasing">Integrated Circuit Biasing&lt;/h2></description></item><item><title>BJT Application</title><link>https://todd.scuteee.com/analog/chapter05/5.3/</link><pubDate>Thu, 15 Sep 2022 23:33:31 +0800</pubDate><guid>https://todd.scuteee.com/analog/chapter05/5.3/</guid><description>&lt;h2 id="circuits--formulas">Circuits &amp;amp; Formulas&lt;/h2>
+&lt;p>It&amp;rsquo;s similar to &amp;ldquo;Voltage Divider Biasing&amp;rdquo;.&lt;/p>
+&lt;ol>
+&lt;li>
+&lt;p>Thevenin equivalent circuit for base circuit&lt;/p>
+&lt;p>$$
+V_{\rm TH} = \frac{R_2}{R_1+R_2} (V_{CC}-V_{EE}) + V_{EE}
+$$&lt;/p>
+&lt;p>$$
+R_{\rm TH} = R_1 | R_2
+$$&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>Calculate the $I_{BE}、I_{EQ}$&lt;/p>
+&lt;p>$$
+V_{\rm TH} = I_{BQ}R_{\rm TH} + V_{BE}({\rm on}) + I_{EQ}R_E+V_{EE}
+$$&lt;/p>
+&lt;p>if transistor is forward biased, $I_{EQ}=(1+\beta)I_{BQ}$, therefore&lt;/p>
+&lt;p>$$
+I_{BQ}=\frac{V_{\rm TH}-V_{BE}({\rm on})-V_{EE}}{R_{\rm TH}+(1+\beta)R_E}
+$$&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>$V_{CEQ} = V_{CC} - I_{CQ}R_C - I_{EQ}R_E+V_{EE}$&lt;/p>
+&lt;/li>
+&lt;/ol>
+&lt;p>Python code of the process above:&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;/span>&lt;span class="lnt"> 2
+&lt;/span>&lt;span class="lnt"> 3
+&lt;/span>&lt;span class="lnt"> 4
+&lt;/span>&lt;span class="lnt"> 5
+&lt;/span>&lt;span class="lnt"> 6
+&lt;/span>&lt;span class="lnt"> 7
+&lt;/span>&lt;span class="lnt"> 8
+&lt;/span>&lt;span class="lnt"> 9
+&lt;/span>&lt;span class="lnt">10
+&lt;/span>&lt;span class="lnt">11
+&lt;/span>&lt;span class="lnt">12
+&lt;/span>&lt;span class="lnt">13
+&lt;/span>&lt;span class="lnt">14
+&lt;/span>&lt;span class="lnt">15
+&lt;/span>&lt;span class="lnt">16
+&lt;/span>&lt;span class="lnt">17
+&lt;/span>&lt;span class="lnt">18
+&lt;/span>&lt;span class="lnt">19
+&lt;/span>&lt;span class="lnt">20
+&lt;/span>&lt;span class="lnt">21
+&lt;/span>&lt;span class="lnt">22
+&lt;/span>&lt;span class="lnt">23
+&lt;/span>&lt;span class="lnt">24
+&lt;/span>&lt;span class="lnt">25
+&lt;/span>&lt;span class="lnt">26
+&lt;/span>&lt;span class="lnt">27
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-python" data-lang="python">&lt;span class="line">&lt;span class="cl">&lt;span class="c1">#电源&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="n">Vcc&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="mf">2.5&lt;/span> &lt;span class="c1"># 正电源，单位：V&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="n">Vee&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="o">-&lt;/span>&lt;span class="mf">2.5&lt;/span> &lt;span class="c1"># 负电源，单位：V&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># 静态工作点&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="n">Vceq&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="mf">2.5&lt;/span> &lt;span class="c1"># CE压降，单位：V&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="n">Vbeq&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="mf">0.7&lt;/span> &lt;span class="c1"># 发射结压降，单位：V&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="n">Icq&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="mi">5&lt;/span> &lt;span class="c1"># 集电极电流，单位：mA&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="n">Vcq&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="mf">2.5&lt;/span> &lt;span class="c1"># 集电极电压，单位：V&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="n">beta&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="mi">130&lt;/span> &lt;span class="c1"># 电流放大倍数&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># 计算 Rc&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="n">Rc&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="p">(&lt;/span>&lt;span class="n">Vcc&lt;/span>&lt;span class="o">-&lt;/span>&lt;span class="n">Vcq&lt;/span>&lt;span class="p">)&lt;/span>&lt;span class="o">/&lt;/span>&lt;span class="n">Icq&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># 计算 Re&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="n">Ieq&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="n">Icq&lt;/span>&lt;span class="o">/&lt;/span>&lt;span class="n">beta&lt;/span>&lt;span class="o">*&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="mi">1&lt;/span>&lt;span class="o">+&lt;/span>&lt;span class="n">beta&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="n">Re&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="p">(&lt;/span>&lt;span class="n">Vcq&lt;/span>&lt;span class="o">-&lt;/span>&lt;span class="n">Vceq&lt;/span>&lt;span class="o">-&lt;/span>&lt;span class="n">Vee&lt;/span>&lt;span class="p">)&lt;/span>&lt;span class="o">/&lt;/span>&lt;span class="n">Ieq&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># 计算 Rth&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="n">Rth&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="mf">0.1&lt;/span>&lt;span class="o">*&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="mi">1&lt;/span>&lt;span class="o">+&lt;/span>&lt;span class="n">beta&lt;/span>&lt;span class="p">)&lt;/span>&lt;span class="o">*&lt;/span>&lt;span class="n">Re&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># 计算 Vth&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="n">Ibq&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="n">Icq&lt;/span>&lt;span class="o">/&lt;/span>&lt;span class="n">beta&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="n">Vth&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="n">Vee&lt;/span>&lt;span class="o">+&lt;/span>&lt;span class="n">Ieq&lt;/span>&lt;span class="o">*&lt;/span>&lt;span class="n">Re&lt;/span>&lt;span class="o">+&lt;/span>&lt;span class="n">Vbeq&lt;/span>&lt;span class="o">+&lt;/span>&lt;span class="n">Ibq&lt;/span>&lt;span class="o">*&lt;/span>&lt;span class="n">Rth&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># 计算 R1&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="n">R1&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="n">Rth&lt;/span>&lt;span class="o">*&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">Vcc&lt;/span>&lt;span class="o">-&lt;/span>&lt;span class="n">Vee&lt;/span>&lt;span class="p">)&lt;/span>&lt;span class="o">/&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">Vth&lt;/span>&lt;span class="o">-&lt;/span>&lt;span class="n">Vee&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># 计算 R2&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="n">R2&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="mi">1&lt;/span>&lt;span class="o">/&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="mi">1&lt;/span>&lt;span class="o">/&lt;/span>&lt;span class="n">Rth&lt;/span> &lt;span class="o">-&lt;/span> &lt;span class="mi">1&lt;/span>&lt;span class="o">/&lt;/span>&lt;span class="n">R1&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># 打印结果&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nb">print&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s2">&amp;#34;Rc=&lt;/span>&lt;span class="si">%.3f&lt;/span>&lt;span class="s2">, Re=&lt;/span>&lt;span class="si">%.3f&lt;/span>&lt;span class="s2">, R1=&lt;/span>&lt;span class="si">%.3f&lt;/span>&lt;span class="s2">, R2=&lt;/span>&lt;span class="si">%.3f&lt;/span>&lt;span class="s2">&amp;#34;&lt;/span>&lt;span class="o">%&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">Rc&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">Re&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">R1&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">R2&lt;/span>&lt;span class="p">))&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;/span>&lt;span class="lnt"> 2
+&lt;/span>&lt;span class="lnt"> 3
+&lt;/span>&lt;span class="lnt"> 4
+&lt;/span>&lt;span class="lnt"> 5
+&lt;/span>&lt;span class="lnt"> 6
+&lt;/span>&lt;span class="lnt"> 7
+&lt;/span>&lt;span class="lnt"> 8
+&lt;/span>&lt;span class="lnt"> 9
+&lt;/span>&lt;span class="lnt">10
+&lt;/span>&lt;span class="lnt">11
+&lt;/span>&lt;span class="lnt">12
+&lt;/span>&lt;span class="lnt">13
+&lt;/span>&lt;span class="lnt">14
+&lt;/span>&lt;span class="lnt">15
+&lt;/span>&lt;span class="lnt">16
+&lt;/span>&lt;span class="lnt">17
+&lt;/span>&lt;span class="lnt">18
+&lt;/span>&lt;span class="lnt">19
+&lt;/span>&lt;span class="lnt">20
+&lt;/span>&lt;span class="lnt">21
+&lt;/span>&lt;span class="lnt">22
+&lt;/span>&lt;span class="lnt">23
+&lt;/span>&lt;span class="lnt">24
+&lt;/span>&lt;span class="lnt">25
+&lt;/span>&lt;span class="lnt">26
+&lt;/span>&lt;span class="lnt">27
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-python" data-lang="python">&lt;span class="line">&lt;span class="cl">&lt;span class="c1">#电源&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="n">Vcc&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="mf">2.5&lt;/span> &lt;span class="c1"># 正电源，单位：V&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="n">Vee&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="o">-&lt;/span>&lt;span class="mf">2.5&lt;/span> &lt;span class="c1"># 负电源，单位：V&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">#电阻值&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="n">Re&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="mi">510&lt;/span> &lt;span class="c1"># 单位：kΩ，下同&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="n">Rc&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="mi">0&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="n">R1&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="mf">9.1&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="n">R2&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="mi">20&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># 晶体管参数&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="n">Vbeq&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="mf">0.7&lt;/span> &lt;span class="c1"># 单位：V&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="n">beta&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="mi">100&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># 计算 Rth&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="n">Rth&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="n">R1&lt;/span>&lt;span class="o">*&lt;/span>&lt;span class="n">R2&lt;/span>&lt;span class="o">/&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">R1&lt;/span>&lt;span class="o">+&lt;/span>&lt;span class="n">R2&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># 计算 Vth&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="n">Vth&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="n">R2&lt;/span>&lt;span class="o">/&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">R1&lt;/span>&lt;span class="o">+&lt;/span>&lt;span class="n">R2&lt;/span>&lt;span class="p">)&lt;/span>&lt;span class="o">*&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">Vcc&lt;/span>&lt;span class="o">-&lt;/span>&lt;span class="n">Vee&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># 计算 Ibq&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="n">Ibq&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="p">(&lt;/span>&lt;span class="n">Vth&lt;/span>&lt;span class="o">-&lt;/span>&lt;span class="n">Vbeq&lt;/span>&lt;span class="o">-&lt;/span>&lt;span class="n">Vee&lt;/span>&lt;span class="p">)&lt;/span>&lt;span class="o">/&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">Rth&lt;/span>&lt;span class="o">+&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="mi">1&lt;/span>&lt;span class="o">+&lt;/span>&lt;span class="n">beta&lt;/span>&lt;span class="p">)&lt;/span>&lt;span class="o">*&lt;/span>&lt;span class="n">Re&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="n">Icq&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="n">beta&lt;/span>&lt;span class="o">*&lt;/span>&lt;span class="n">Ibq&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="n">Ieq&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="p">(&lt;/span>&lt;span class="mi">1&lt;/span>&lt;span class="o">+&lt;/span>&lt;span class="n">beta&lt;/span>&lt;span class="p">)&lt;/span>&lt;span class="o">*&lt;/span>&lt;span class="n">Ibq&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># 计算 Vceq&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="n">Vceq&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="n">Vcc&lt;/span>&lt;span class="o">-&lt;/span>&lt;span class="n">Icq&lt;/span>&lt;span class="o">*&lt;/span>&lt;span class="n">Rc&lt;/span>&lt;span class="o">-&lt;/span>&lt;span class="n">Ieq&lt;/span>&lt;span class="o">*&lt;/span>&lt;span class="n">Re&lt;/span>&lt;span class="o">-&lt;/span>&lt;span class="n">Vee&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># 打印结果&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nb">print&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s2">&amp;#34;Icq=&lt;/span>&lt;span class="si">%.3f&lt;/span>&lt;span class="s2">, Vceq=&lt;/span>&lt;span class="si">%.3f&lt;/span>&lt;span class="s2">&amp;#34;&lt;/span>&lt;span class="o">%&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">Icq&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">Vceq&lt;/span>&lt;span class="p">))&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h2 id="integrated-circuit-biasing">Integrated Circuit Biasing&lt;/h2>
+&lt;p>Current mirror is used as bias circuit.&lt;/p>
+&lt;h2 id="multistage-circuit">Multistage Circuit&lt;/h2></description></item><item><title>BJT Application</title><link>https://todd.scuteee.com/analog/chapter05/5.3/</link><pubDate>Thu, 15 Sep 2022 23:33:31 +0800</pubDate><guid>https://todd.scuteee.com/analog/chapter05/5.3/</guid><description>&lt;h2 id="circuits--formulas">Circuits &amp;amp; Formulas&lt;/h2>
 &lt;h3 id="switch">Switch&lt;/h3>
 &lt;p>$$
 i_B = \frac{v_I-V_{BE}({\rm on})}{R_B}
