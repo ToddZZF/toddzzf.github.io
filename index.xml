@@ -19,7 +19,211 @@
 &lt;li>&lt;a class="link" href="http://10.0.0.1:8989" target="_blank" rel="noopener"
 >filebrowser&lt;/a>：在线文件管理器&lt;/li>
 &lt;/ul>
-&lt;p>账号一般是我的邮箱：310378072@qq.com，密码我说过了。&lt;/p></description></item><item><title>战痘</title><link>https://todd.scuteee.com/posts/2022/2022-10-10-face-care/</link><pubDate>Mon, 10 Oct 2022 16:22:00 +0800</pubDate><guid>https://todd.scuteee.com/posts/2022/2022-10-10-face-care/</guid><description>&lt;h2 id="2022-10-10">2022-10-10&lt;/h2>
+&lt;p>账号一般是我的邮箱：310378072@qq.com，密码我说过了。&lt;/p></description></item><item><title>GaN HEMT 可靠性问题</title><link>https://todd.scuteee.com/posts/2022/2022-10-22-reliability-issues-of-gan-hemt/</link><pubDate>Sat, 22 Oct 2022 21:35:00 +0800</pubDate><guid>https://todd.scuteee.com/posts/2022/2022-10-22-reliability-issues-of-gan-hemt/</guid><description>&lt;h2 id="gan-hert-结构">GaN HERT 结构&lt;/h2>
+&lt;p>&lt;a class="link" href="https://zhuanlan.zhihu.com/p/462718637" target="_blank" rel="noopener"
+>知乎：GaN HEMT结构及工作原理详解&lt;/a>&lt;/p>
+&lt;h2 id="gan-hert-可靠性问题">GaN HERT 可靠性问题&lt;/h2>
+&lt;h3 id="大纲">大纲&lt;/h3>
+&lt;p>尽管GaN HEMT作为功率器件有很大的优势，但其依然存在一些会导致其静态、动态性能下降的可靠性问题，比如关态下的缓冲层电子捕获、半开态下的热电子捕获、栅绝缘层的电子捕获和时间依赖的介电击穿，这些失效机理可以大致分为两类：一类是由电场引起的，一类是由热电子引起的。我将会介绍这两类失效机理的产生原理、测试方法。&lt;/p>
+&lt;h3 id="heading">&lt;/h3></description></item><item><title>CSS 滑动效果</title><link>https://todd.scuteee.com/posts/2022/2022-10-15-css-slide-effect/</link><pubDate>Sat, 15 Oct 2022 19:14:00 +0800</pubDate><guid>https://todd.scuteee.com/posts/2022/2022-10-15-css-slide-effect/</guid><description>&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;/span>&lt;span class="lnt"> 2
+&lt;/span>&lt;span class="lnt"> 3
+&lt;/span>&lt;span class="lnt"> 4
+&lt;/span>&lt;span class="lnt"> 5
+&lt;/span>&lt;span class="lnt"> 6
+&lt;/span>&lt;span class="lnt"> 7
+&lt;/span>&lt;span class="lnt"> 8
+&lt;/span>&lt;span class="lnt"> 9
+&lt;/span>&lt;span class="lnt">10
+&lt;/span>&lt;span class="lnt">11
+&lt;/span>&lt;span class="lnt">12
+&lt;/span>&lt;span class="lnt">13
+&lt;/span>&lt;span class="lnt">14
+&lt;/span>&lt;span class="lnt">15
+&lt;/span>&lt;span class="lnt">16
+&lt;/span>&lt;span class="lnt">17
+&lt;/span>&lt;span class="lnt">18
+&lt;/span>&lt;span class="lnt">19
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-html" data-lang="html">&lt;span class="line">&lt;span class="cl">&lt;span class="p">&amp;lt;&lt;/span>&lt;span class="nt">nav&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">&amp;lt;&lt;/span>&lt;span class="nt">ol&lt;/span> &lt;span class="na">class&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s">&amp;#34;nav-list&amp;#34;&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">&amp;lt;&lt;/span>&lt;span class="nt">li&lt;/span> &lt;span class="err">{{&lt;/span> &lt;span class="na">if&lt;/span> &lt;span class="err">$.&lt;/span>&lt;span class="na">IsHome&lt;/span> &lt;span class="err">}}&lt;/span>&lt;span class="na">class&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s">&amp;#34;active&amp;#34;&lt;/span>&lt;span class="err">{{&lt;/span> &lt;span class="na">end&lt;/span> &lt;span class="err">}}&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">&amp;lt;&lt;/span>&lt;span class="nt">a&lt;/span> &lt;span class="na">href&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s">&amp;#34;{{- `/` | absURL -}}&amp;#34;&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> {{ with $.Site.Params.logo }}{{ . | safeHTML }}{{ end }}
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">&amp;lt;/&lt;/span>&lt;span class="nt">a&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">&amp;lt;/&lt;/span>&lt;span class="nt">li&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> {{- with $.Site.Sections -}}
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> {{- range . -}}
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">&amp;lt;&lt;/span>&lt;span class="nt">li&lt;/span> &lt;span class="err">{{&lt;/span> &lt;span class="na">if&lt;/span> &lt;span class="na">eq&lt;/span> &lt;span class="err">$.&lt;/span>&lt;span class="na">Section&lt;/span> &lt;span class="err">.&lt;/span>&lt;span class="na">Section&lt;/span> &lt;span class="err">}}&lt;/span>&lt;span class="na">class&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s">&amp;#34;active&amp;#34;&lt;/span>&lt;span class="err">{{&lt;/span> &lt;span class="na">end&lt;/span> &lt;span class="err">}}&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">&amp;lt;&lt;/span>&lt;span class="nt">a&lt;/span> &lt;span class="na">href&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s">&amp;#34;{{ .Permalink }}&amp;#34;&lt;/span> &lt;span class="na">title&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s">&amp;#34;{{ .Title }}&amp;#34;&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> {{ with .Params.icon}}{{ . | safeHTML }}{{ end }}
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">&amp;lt;/&lt;/span>&lt;span class="nt">a&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">&amp;lt;/&lt;/span>&lt;span class="nt">li&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> {{ end }}
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> {{ end }}
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">&amp;lt;&lt;/span>&lt;span class="nt">li&lt;/span> &lt;span class="na">class&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s">&amp;#34;nav-cursor&amp;#34;&lt;/span>&lt;span class="p">&amp;gt;&amp;lt;/&lt;/span>&lt;span class="nt">li&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">&amp;lt;/&lt;/span>&lt;span class="nt">ol&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="p">&amp;lt;/&lt;/span>&lt;span class="nt">nav&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;/span>&lt;span class="lnt"> 2
+&lt;/span>&lt;span class="lnt"> 3
+&lt;/span>&lt;span class="lnt"> 4
+&lt;/span>&lt;span class="lnt"> 5
+&lt;/span>&lt;span class="lnt"> 6
+&lt;/span>&lt;span class="lnt"> 7
+&lt;/span>&lt;span class="lnt"> 8
+&lt;/span>&lt;span class="lnt"> 9
+&lt;/span>&lt;span class="lnt">10
+&lt;/span>&lt;span class="lnt">11
+&lt;/span>&lt;span class="lnt">12
+&lt;/span>&lt;span class="lnt">13
+&lt;/span>&lt;span class="lnt">14
+&lt;/span>&lt;span class="lnt">15
+&lt;/span>&lt;span class="lnt">16
+&lt;/span>&lt;span class="lnt">17
+&lt;/span>&lt;span class="lnt">18
+&lt;/span>&lt;span class="lnt">19
+&lt;/span>&lt;span class="lnt">20
+&lt;/span>&lt;span class="lnt">21
+&lt;/span>&lt;span class="lnt">22
+&lt;/span>&lt;span class="lnt">23
+&lt;/span>&lt;span class="lnt">24
+&lt;/span>&lt;span class="lnt">25
+&lt;/span>&lt;span class="lnt">26
+&lt;/span>&lt;span class="lnt">27
+&lt;/span>&lt;span class="lnt">28
+&lt;/span>&lt;span class="lnt">29
+&lt;/span>&lt;span class="lnt">30
+&lt;/span>&lt;span class="lnt">31
+&lt;/span>&lt;span class="lnt">32
+&lt;/span>&lt;span class="lnt">33
+&lt;/span>&lt;span class="lnt">34
+&lt;/span>&lt;span class="lnt">35
+&lt;/span>&lt;span class="lnt">36
+&lt;/span>&lt;span class="lnt">37
+&lt;/span>&lt;span class="lnt">38
+&lt;/span>&lt;span class="lnt">39
+&lt;/span>&lt;span class="lnt">40
+&lt;/span>&lt;span class="lnt">41
+&lt;/span>&lt;span class="lnt">42
+&lt;/span>&lt;span class="lnt">43
+&lt;/span>&lt;span class="lnt">44
+&lt;/span>&lt;span class="lnt">45
+&lt;/span>&lt;span class="lnt">46
+&lt;/span>&lt;span class="lnt">47
+&lt;/span>&lt;span class="lnt">48
+&lt;/span>&lt;span class="lnt">49
+&lt;/span>&lt;span class="lnt">50
+&lt;/span>&lt;span class="lnt">51
+&lt;/span>&lt;span class="lnt">52
+&lt;/span>&lt;span class="lnt">53
+&lt;/span>&lt;span class="lnt">54
+&lt;/span>&lt;span class="lnt">55
+&lt;/span>&lt;span class="lnt">56
+&lt;/span>&lt;span class="lnt">57
+&lt;/span>&lt;span class="lnt">58
+&lt;/span>&lt;span class="lnt">59
+&lt;/span>&lt;span class="lnt">60
+&lt;/span>&lt;span class="lnt">61
+&lt;/span>&lt;span class="lnt">62
+&lt;/span>&lt;span class="lnt">63
+&lt;/span>&lt;span class="lnt">64
+&lt;/span>&lt;span class="lnt">65
+&lt;/span>&lt;span class="lnt">66
+&lt;/span>&lt;span class="lnt">67
+&lt;/span>&lt;span class="lnt">68
+&lt;/span>&lt;span class="lnt">69
+&lt;/span>&lt;span class="lnt">70
+&lt;/span>&lt;span class="lnt">71
+&lt;/span>&lt;span class="lnt">72
+&lt;/span>&lt;span class="lnt">73
+&lt;/span>&lt;span class="lnt">74
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-css" data-lang="css">&lt;span class="line">&lt;span class="cl">&lt;span class="p">.&lt;/span>&lt;span class="nc">nav-list&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="err">$&lt;/span>&lt;span class="n">nav-height&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="mi">3&lt;/span>&lt;span class="kt">rem&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="err">$&lt;/span>&lt;span class="n">nav-padding&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="mf">0.5&lt;/span>&lt;span class="kt">rem&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">background-color&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="kc">orange&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">list-style&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="kc">none&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">display&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="kc">flex&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">border-radius&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="mi">9999&lt;/span>&lt;span class="kt">px&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">padding&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="err">$&lt;/span>&lt;span class="n">nav-padding&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">position&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="kc">relative&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">li&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="nf">not&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="err">.&lt;/span>&lt;span class="n">nav&lt;/span>&lt;span class="o">-&lt;/span>&lt;span class="n">cursor&lt;/span>&lt;span class="p">)&lt;/span> &lt;span class="err">{&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">height&lt;/span>&lt;span class="o">:&lt;/span> &lt;span class="err">$&lt;/span>&lt;span class="n">nav-height&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">aspect-ratio&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="mi">1&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">overflow&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="kc">hidden&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">z-index&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="mi">10&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">font-size&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="mf">1.5&lt;/span>&lt;span class="kt">rem&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">color&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="nb">rgb&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="mi">255&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="mi">24&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="mi">24&lt;/span>&lt;span class="p">);&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="err">a&lt;/span> &lt;span class="err">{&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">display&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="k">grid&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">width&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="mi">100&lt;/span>&lt;span class="kt">%&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">height&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="mi">100&lt;/span>&lt;span class="kt">%&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">align-items&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="kc">center&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">justify-content&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="kc">center&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">border-radius&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="mi">9999&lt;/span>&lt;span class="kt">px&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">}&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="err">}&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nt">li&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nc">nav-cursor&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">position&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="kc">absolute&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">background-color&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="kc">white&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">height&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="err">$&lt;/span>&lt;span class="n">nav-height&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">aspect-ratio&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="mi">1&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">border-radius&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="mi">9999&lt;/span>&lt;span class="kt">px&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">visibility&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="kc">hidden&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">}&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">@&lt;/span>&lt;span class="k">mixin&lt;/span> &lt;span class="nt">fix-cursor&lt;/span>&lt;span class="o">($&lt;/span>&lt;span class="nt">left&lt;/span>&lt;span class="o">)&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nt">left&lt;/span>&lt;span class="o">:&lt;/span> &lt;span class="o">$&lt;/span>&lt;span class="nt">left&lt;/span>&lt;span class="o">;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nt">visibility&lt;/span>&lt;span class="o">:&lt;/span> &lt;span class="nt">visible&lt;/span>&lt;span class="o">;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">}&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="o">$&lt;/span>&lt;span class="nt">li-count&lt;/span>&lt;span class="o">:&lt;/span> &lt;span class="nt">10&lt;/span>&lt;span class="o">;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">@&lt;/span>&lt;span class="k">for&lt;/span> &lt;span class="o">$&lt;/span>&lt;span class="nt">i&lt;/span> &lt;span class="nt">from&lt;/span> &lt;span class="nt">1&lt;/span> &lt;span class="nt">through&lt;/span> &lt;span class="o">$&lt;/span>&lt;span class="nt">li-count&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="o">$&lt;/span>&lt;span class="nt">offset&lt;/span>&lt;span class="o">:&lt;/span> &lt;span class="o">$&lt;/span>&lt;span class="nt">li-count&lt;/span> &lt;span class="nt">-&lt;/span> &lt;span class="o">$&lt;/span>&lt;span class="nt">i&lt;/span>&lt;span class="o">;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="o">$&lt;/span>&lt;span class="nt">top&lt;/span>&lt;span class="o">:&lt;/span> &lt;span class="o">($&lt;/span>&lt;span class="nt">i&lt;/span> &lt;span class="nt">-&lt;/span> &lt;span class="nt">1&lt;/span>&lt;span class="o">)&lt;/span> &lt;span class="o">*&lt;/span> &lt;span class="o">$&lt;/span>&lt;span class="nt">nav-height&lt;/span> &lt;span class="o">+$&lt;/span>&lt;span class="nt">nav-padding&lt;/span>&lt;span class="o">;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="o">&amp;gt;&lt;/span>&lt;span class="nt">li&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="nd">nth-child&lt;/span>&lt;span class="o">(&lt;/span>&lt;span class="err">#&lt;/span>&lt;span class="p">{&lt;/span>&lt;span class="err">$i&lt;/span>&lt;span class="p">}&lt;/span>&lt;span class="o">)&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nc">active&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">{&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="err">~li.nav-cursor&lt;/span> &lt;span class="err">{&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="err">@include&lt;/span> &lt;span class="err">fix-cursor($top)&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">}&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">}&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="err">}&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">@&lt;/span>&lt;span class="k">for&lt;/span> &lt;span class="o">$&lt;/span>&lt;span class="nt">i&lt;/span> &lt;span class="nt">from&lt;/span> &lt;span class="nt">1&lt;/span> &lt;span class="nt">through&lt;/span> &lt;span class="o">$&lt;/span>&lt;span class="nt">li-count&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="o">$&lt;/span>&lt;span class="nt">offset&lt;/span>&lt;span class="o">:&lt;/span> &lt;span class="o">$&lt;/span>&lt;span class="nt">li-count&lt;/span> &lt;span class="nt">-&lt;/span> &lt;span class="o">$&lt;/span>&lt;span class="nt">i&lt;/span>&lt;span class="o">;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="o">$&lt;/span>&lt;span class="nt">top&lt;/span>&lt;span class="o">:&lt;/span> &lt;span class="o">($&lt;/span>&lt;span class="nt">i&lt;/span> &lt;span class="nt">-&lt;/span> &lt;span class="nt">1&lt;/span>&lt;span class="o">)&lt;/span> &lt;span class="o">*&lt;/span> &lt;span class="o">$&lt;/span>&lt;span class="nt">nav-height&lt;/span> &lt;span class="o">+$&lt;/span>&lt;span class="nt">nav-padding&lt;/span>&lt;span class="o">;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="o">&amp;gt;&lt;/span>&lt;span class="nt">li&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="nd">nth-child&lt;/span>&lt;span class="o">(&lt;/span>&lt;span class="err">#&lt;/span>&lt;span class="p">{&lt;/span>&lt;span class="err">$i&lt;/span>&lt;span class="p">}&lt;/span>&lt;span class="o">)&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="nd">hover&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">{&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="err">~li.nav-cursor&lt;/span> &lt;span class="err">{&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="err">@include&lt;/span> &lt;span class="err">fix-cursor($top)&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">}&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">}&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="err">}&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="err">}&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="p">@&lt;/span>&lt;span class="k">media&lt;/span> &lt;span class="o">(&lt;/span>&lt;span class="nt">hover&lt;/span>&lt;span class="o">:&lt;/span> &lt;span class="nt">hover&lt;/span>&lt;span class="o">)&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">.&lt;/span>&lt;span class="nc">nav-list&lt;/span>&lt;span class="o">&amp;gt;&lt;/span>&lt;span class="nt">li&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nc">nav-cursor&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">transition&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="kc">left&lt;/span> &lt;span class="mf">0.5&lt;/span>&lt;span class="kt">s&lt;/span> &lt;span class="kc">ease&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">}&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="p">}&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div></description></item><item><title>战痘</title><link>https://todd.scuteee.com/posts/2022/2022-10-10-face-care/</link><pubDate>Mon, 10 Oct 2022 16:22:00 +0800</pubDate><guid>https://todd.scuteee.com/posts/2022/2022-10-10-face-care/</guid><description>&lt;h2 id="2022-10-10">2022-10-10&lt;/h2>
 &lt;p>早上去了广东省皮肤病医院，挂了激光美肤中心-痤疮专科的林飞燕医生的号。开了一些口服药和外涂药，还刷了果酸。刷果酸时有点刺痛感，在长痘的额头处更加明显。大概8分钟后就把酸中和掉掉了，然后敷了冰袋，涂了维生素E乳。刷完酸后的一周要注意&lt;strong>物理防晒&lt;/strong>和保湿，不能出汗，不能游泳，可能会爆痘，但一周内会缓解。&lt;/p>
 &lt;p>加了医生的微信，医生给我发了注意事项：&lt;a class="link" href="https://www.meipian.cn/4bs4tw4h" target="_blank" rel="noopener"
 >https://www.meipian.cn/4bs4tw4h&lt;/a>，&lt;/p>
@@ -92,7 +296,7 @@
 &lt;li>晚上：洗澡时用“酮康唑洗剂”当洗面奶（隔天用），用完后洗干净。然后敷“复方黄柏液涂剂”，涂“盐酸克林霉素凝胶”。睡前涂“熊果苷凝胶”。&lt;/li>
 &lt;li>特殊：有大的痘痘涂“过氧苯甲酰凝胶”&lt;/li>
 &lt;/ul>
-&lt;p>花费：西药38.87，中成药46.71，刷酸640，检查费10，一共735.6&lt;/p></description></item><item><title>Common-Emiter Amplifier</title><link>https://todd.scuteee.com/analog/chapter06/6.4/</link><pubDate>Fri, 07 Oct 2022 21:55:09 +0800</pubDate><guid>https://todd.scuteee.com/analog/chapter06/6.4/</guid><description/></item><item><title>Chapter 6 solution</title><link>https://todd.scuteee.com/analog/chapter06/solution/</link><pubDate>Fri, 07 Oct 2022 21:05:18 +0800</pubDate><guid>https://todd.scuteee.com/analog/chapter06/solution/</guid><description>&lt;table>
+&lt;p>花费：西药38.87，中成药46.71，刷酸640，检查费10，一共735.6&lt;/p></description></item><item><title>Common-Emiter Amplifier</title><link>https://todd.scuteee.com/analog/ta/chapter06/6.4/</link><pubDate>Fri, 07 Oct 2022 21:55:09 +0800</pubDate><guid>https://todd.scuteee.com/analog/ta/chapter06/6.4/</guid><description/></item><item><title>Chapter 6 solution</title><link>https://todd.scuteee.com/analog/ta/chapter06/solution/</link><pubDate>Fri, 07 Oct 2022 21:05:18 +0800</pubDate><guid>https://todd.scuteee.com/analog/ta/chapter06/solution/</guid><description>&lt;table>
 &lt;thead>
 &lt;tr>
 &lt;th>章节&lt;/th>
@@ -151,8 +355,17 @@
 &lt;li>(c) $3.802\leq R_o \leq 3.804 {\rm k\Omega}$&lt;/li>
 &lt;/ul>
 &lt;h3 id="d630">D6.30&lt;/h3>
-&lt;p>$R_C=5{\rm k\Omega}$, $R_E=0.333{\rm k\Omega}$&lt;/p>
-&lt;p>$R_1=79{\rm k\Omega}$, $R_2=249{\rm k\Omega}$&lt;/p>
+&lt;p>$A_v = -\dfrac{R_C}{R_E}=-10$&lt;/p>
+&lt;p>$R_O = R_C=5{\rm k\Omega}$, so $R_E=0.5{\rm k\Omega}$&lt;/p>
+&lt;p>Set $I_{CQ}=0.5{\rm mA}$, $V_{ECQ}\approx 5-0.5*(5+0.5)=2.25{\rm V}$&lt;/p>
+&lt;p>$r_\pi = \dfrac{\beta V_T}{I_{CQ}}=4.68{\rm k\Omega}$, $R_{ib}=r_\pi + (1+\beta) R_E = 50.2{\rm k\Omega}$&lt;/p>
+&lt;p>Set $R_i=20{\rm k\Omega}=R_{TH}|R_{ib}=R_{TH}|50.2$, so $R_{TH}=33.3{\rm k\Omega}$&lt;/p>
+&lt;p>$I_{BQ}=0.00556{\rm mA}$, $I_{EQ}=0.506{\rm mA}$&lt;/p>
+&lt;p>$V_{CC}=I_{EQ}R_E+V_{EV}(on)+I_{BQ}R_{TH}+V_{TH}$&lt;/p>
+&lt;p>$5=0.506\cdot 0.5+0.7+0.00556 \cdot 33.3+V_{TH}$&lt;/p>
+&lt;p>$V_{TH}=3.862=\dfrac{1}{R_1}R_{TH}V_{CC}=\dfrac{1}{R_1}\cdot 33.3 \cdot 5$&lt;/p>
+&lt;p>$R_1=43{\rm k\Omega}$, $R_2=148{\rm k\Omega}$&lt;/p>
+&lt;p>($R_1,R_2$ 可选其他值，只要满足 $R_1&amp;gt;43{\rm k\Omega}$，$R_2&amp;gt;148{\rm k\Omega}$，$R_1:R_2\approx 0.3$)&lt;/p>
 &lt;h2 id="6568">6.5~6.8&lt;/h2>
 &lt;h3 id="633">6.33&lt;/h3>
 &lt;p>$I_{BQ}=3.15{\rm \mu A}$, $I_{CQ}=0.315{\rm mA}$, $V_{CEQ}=3.96{\rm V}$&lt;/p>
@@ -185,7 +398,47 @@ alt="x8Jn0K.png"
 loading="lazy"
 alt="x8JMkD.png"
 >&lt;/a>&lt;/p>
-&lt;h2 id="69611">6.9~6.11&lt;/h2></description></item><item><title>Bipolar Amplifier</title><link>https://todd.scuteee.com/analog/chapter06/6.1~6.3/</link><pubDate>Fri, 07 Oct 2022 20:11:16 +0800</pubDate><guid>https://todd.scuteee.com/analog/chapter06/6.1~6.3/</guid><description>&lt;h2 id="circuits--formulas">Circuits &amp;amp; Formulas&lt;/h2>
+&lt;h2 id="69611">6.9~6.11&lt;/h2>
+&lt;h3 id="673">6.73&lt;/h3>
+&lt;p>(a)&lt;/p>
+&lt;p>$g_{m1}=g_{m2}=\frac{1}{0.026}=38.46{\rm mA/V}$&lt;/p>
+&lt;p>$r_{\pi 1}=3.12{\rm k\Omega}$&lt;/p>
+&lt;p>$r_{\pi 2} = 2.08{\rm k\Omega}$&lt;/p>
+&lt;p>$A_{v1}=0.4927$&lt;/p>
+&lt;p>(b)&lt;/p>
+&lt;p>$A_{v2}=g_{m2}R_C=153.8$&lt;/p>
+&lt;p>(c)&lt;/p>
+&lt;p>$A_v = A_{v1}A_{v2}=75.8$&lt;/p>
+&lt;h3 id="674">6.74&lt;/h3>
+&lt;p>(a)&lt;/p>
+&lt;p>$g_{m1}=19.23{\rm mA/V}$, $g_{m2}=76.92{\rm mA/V}$&lt;/p>
+&lt;p>$r_{\pi 1}=5.2{\rm k\Omega}$, $r_{\pi 2}=1.3{\rm k\Omega}$&lt;/p>
+&lt;p>$R_{ib2}=405.3{\rm k\Omega}$&lt;/p>
+&lt;p>$A_{v1}=-76.17$&lt;/p>
+&lt;p>(b)&lt;/p>
+&lt;p>$A_{v2} =0.9968$&lt;/p>
+&lt;p>(c)&lt;/p>
+&lt;p>$A_v=-75.93$&lt;/p>
+&lt;h3 id="677">6.77&lt;/h3>
+&lt;p>(a) $I_{E1}=2.27{\rm mA}$, $I_{C1}=2.253{\rm mA}$&lt;/p>
+&lt;p>$I_{E2}=70.6{\rm mA}$, $I_{C2}=69.73{\rm mA}$&lt;/p>
+&lt;p>(b) $A_v=0.99$&lt;/p>
+&lt;p>(c) $R_{ib}=467.6{\rm k\Omega}$, $R_o=0.512{\rm \Omega}$&lt;/p>
+&lt;h3 id="683">6.83&lt;/h3>
+&lt;p>(a) $\overline{P_{RL}}=0.286{\rm mW}$&lt;/p>
+&lt;p>(b) $\overline{P_{RL}}=0.499{\rm mW}$&lt;/p>
+&lt;h3 id="d689">D6.89&lt;/h3>
+&lt;p>要求：$|A_v|=50$, $R_L=10{\rm k\Omega}$, $V_{\rm bias}=\pm 3.3{\rm V}$&lt;/p>
+&lt;p>$$
+\begin{aligned}
+|A_v| &amp;amp;= \frac{\beta (R_C|R_L)}{r_\pi}\
+&amp;amp;=\frac{\beta (R_C|R_L)}{\beta V_{T}/I_{CQ}}\
+&amp;amp;=\frac{I_{CQ}}{0.026}\cdot (R_C| 10^4)
+\end{aligned}
+$$&lt;/p>
+&lt;p>选取 $I_{CQ}=0.5{\rm mA}$，则 $R_C=3.5{\rm k\Omega}$&lt;/p>
+&lt;p>选取 $V_{ECQ}=2{\rm V}$，则 $R_E=\dfrac{3.3-2-0.5*3.5-(-3.3)}{I_{CQ}}=5.7{\rm k\Omega}$&lt;/p>
+&lt;p>根据第5章的相关公式，可以求出 $R_1=123{\rm k\Omega}$, $R_2=170{\rm k\Omega}$&lt;/p></description></item><item><title>Bipolar Amplifier</title><link>https://todd.scuteee.com/analog/ta/chapter06/6.1~6.3/</link><pubDate>Fri, 07 Oct 2022 20:11:16 +0800</pubDate><guid>https://todd.scuteee.com/analog/ta/chapter06/6.1~6.3/</guid><description>&lt;h2 id="circuits--formulas">Circuits &amp;amp; Formulas&lt;/h2>
 &lt;h3 id="small-signal-hybrid-π-equivalent-circuit">Small Signal Hybrid-π Equivalent Circuit&lt;/h3>
 &lt;p>$$
 \begin{aligned}
@@ -237,7 +490,7 @@ $$&lt;/p>
 $$&lt;/p>
 &lt;p>$$
 r_o = \frac{V_A}{I_{CQ}}
-$$&lt;/p></description></item><item><title>BJT biasing</title><link>https://todd.scuteee.com/analog/chapter05/5.4~5.5/</link><pubDate>Wed, 21 Sep 2022 18:49:38 +0800</pubDate><guid>https://todd.scuteee.com/analog/chapter05/5.4~5.5/</guid><description>&lt;h2 id="circuits--formulas">Circuits &amp;amp; Formulas&lt;/h2>
+$$&lt;/p></description></item><item><title>BJT biasing</title><link>https://todd.scuteee.com/analog/ta/chapter05/5.4~5.5/</link><pubDate>Wed, 21 Sep 2022 18:49:38 +0800</pubDate><guid>https://todd.scuteee.com/analog/ta/chapter05/5.4~5.5/</guid><description>&lt;h2 id="circuits--formulas">Circuits &amp;amp; Formulas&lt;/h2>
 &lt;p>The purpose of bias: establish a Q-point near the center of the laod line.&lt;/p>
 &lt;h2 id="single-base-resistoir-biasing">Single Base Resistoir Biasing&lt;/h2>
 &lt;h2 id="voltage-divider-biasing">Voltage Divider Biasing&lt;/h2>
@@ -414,7 +667,7 @@ $$&lt;/p>
 &lt;/div>
 &lt;/div>&lt;h2 id="integrated-circuit-biasing">Integrated Circuit Biasing&lt;/h2>
 &lt;p>Current mirror is used as bias circuit.&lt;/p>
-&lt;h2 id="multistage-circuit">Multistage Circuit&lt;/h2></description></item><item><title>BJT Application</title><link>https://todd.scuteee.com/analog/chapter05/5.3/</link><pubDate>Thu, 15 Sep 2022 23:33:31 +0800</pubDate><guid>https://todd.scuteee.com/analog/chapter05/5.3/</guid><description>&lt;h2 id="circuits--formulas">Circuits &amp;amp; Formulas&lt;/h2>
+&lt;h2 id="multistage-circuit">Multistage Circuit&lt;/h2></description></item><item><title>BJT Application</title><link>https://todd.scuteee.com/analog/ta/chapter05/5.3/</link><pubDate>Thu, 15 Sep 2022 23:33:31 +0800</pubDate><guid>https://todd.scuteee.com/analog/ta/chapter05/5.3/</guid><description>&lt;h2 id="circuits--formulas">Circuits &amp;amp; Formulas&lt;/h2>
 &lt;h3 id="switch">Switch&lt;/h3>
 &lt;p>$$
 i_B = \frac{v_I-V_{BE}({\rm on})}{R_B}
@@ -428,7 +681,7 @@ $$&lt;/p>
 &lt;p>These equations are true when the diode is in saturation. If $v_I = V_{CC}$ and $V_{BE}({\rm on}) \approx V_{CE}({\rm sat})$, then $R_B/R_C \leq \beta$.&lt;/p>
 &lt;h3 id="digital-logic">Digital Logic&lt;/h3>
 &lt;p>Two parallel bipolars can be used as NOR gate.&lt;/p>
-&lt;h3 id="amplifier">Amplifier&lt;/h3></description></item><item><title>Chapter 5 solution</title><link>https://todd.scuteee.com/analog/chapter05/solution/</link><pubDate>Tue, 13 Sep 2022 16:23:07 +0800</pubDate><guid>https://todd.scuteee.com/analog/chapter05/solution/</guid><description>&lt;table>
+&lt;h3 id="amplifier">Amplifier&lt;/h3></description></item><item><title>Chapter 5 solution</title><link>https://todd.scuteee.com/analog/ta/chapter05/solution/</link><pubDate>Tue, 13 Sep 2022 16:23:07 +0800</pubDate><guid>https://todd.scuteee.com/analog/ta/chapter05/solution/</guid><description>&lt;table>
 &lt;thead>
 &lt;tr>
 &lt;th>章节&lt;/th>
@@ -701,7 +954,7 @@ $$&lt;/p>
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nb">print&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s2">&amp;#34;Icq=&lt;/span>&lt;span class="si">%.3f&lt;/span>&lt;span class="s2">, Vceq=&lt;/span>&lt;span class="si">%.3f&lt;/span>&lt;span class="s2">&amp;#34;&lt;/span>&lt;span class="o">%&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">Icq&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">Vceq&lt;/span>&lt;span class="p">))&lt;/span>
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
 &lt;/div>
-&lt;/div></description></item><item><title>Basic BJT &amp; DC Analysis</title><link>https://todd.scuteee.com/analog/chapter05/5.1-5.2/</link><pubDate>Tue, 13 Sep 2022 14:24:31 +0800</pubDate><guid>https://todd.scuteee.com/analog/chapter05/5.1-5.2/</guid><description>&lt;h2 id="terms">Terms&lt;/h2>
+&lt;/div></description></item><item><title>Basic BJT &amp; DC Analysis</title><link>https://todd.scuteee.com/analog/ta/chapter05/5.1-5.2/</link><pubDate>Tue, 13 Sep 2022 14:24:31 +0800</pubDate><guid>https://todd.scuteee.com/analog/ta/chapter05/5.1-5.2/</guid><description>&lt;h2 id="terms">Terms&lt;/h2>
 &lt;ul>
 &lt;li>Bipolar Transistor
 &lt;ul>
@@ -1177,7 +1430,7 @@ $$&lt;/p>
 &lt;li>版图总面积小于280μm×200μm；&lt;/li>
 &lt;/ul>
 &lt;p>注1：工作电源电压变化这一项需考虑1）输出电压随工作电源电压变化的直流扫描特性；2）取最低点、1/4点、中间点、3/4点和最高点五个电源电压点（比如本工艺就取2.7V、2.85V、3.0V、3.15V、3.3V），仿真不同的电源电压对温度系数和PSRR的影响。&lt;/p>
-&lt;p>注2：如用其他工艺库进行设计的话，工作电源电压波动范围为正负10%，输出电压为电源电压的50%（比如0.18μm工艺采用电源电压为1.8V的话，那考虑工作电源电压波动范围为1.62V~1.98V，五个电源电压点为1.62V，1.71V，1.8V，1.89V，1.98V，带隙基准输出电压为0.9V，依次类推）。&lt;/p></description></item><item><title>Multiple-Diode Circuits</title><link>https://todd.scuteee.com/analog/chapter02/2.4/</link><pubDate>Fri, 02 Sep 2022 16:25:34 +0800</pubDate><guid>https://todd.scuteee.com/analog/chapter02/2.4/</guid><description/></item><item><title>Clipper And Clamper Circuits</title><link>https://todd.scuteee.com/analog/chapter02/2.3/</link><pubDate>Fri, 02 Sep 2022 16:13:14 +0800</pubDate><guid>https://todd.scuteee.com/analog/chapter02/2.3/</guid><description>&lt;h2 id="circuits--formulas">Circuits &amp;amp; Formulas&lt;/h2>
+&lt;p>注2：如用其他工艺库进行设计的话，工作电源电压波动范围为正负10%，输出电压为电源电压的50%（比如0.18μm工艺采用电源电压为1.8V的话，那考虑工作电源电压波动范围为1.62V~1.98V，五个电源电压点为1.62V，1.71V，1.8V，1.89V，1.98V，带隙基准输出电压为0.9V，依次类推）。&lt;/p></description></item><item><title>Multiple-Diode Circuits</title><link>https://todd.scuteee.com/analog/ta/chapter02/2.4/</link><pubDate>Fri, 02 Sep 2022 16:25:34 +0800</pubDate><guid>https://todd.scuteee.com/analog/ta/chapter02/2.4/</guid><description/></item><item><title>Clipper And Clamper Circuits</title><link>https://todd.scuteee.com/analog/ta/chapter02/2.3/</link><pubDate>Fri, 02 Sep 2022 16:13:14 +0800</pubDate><guid>https://todd.scuteee.com/analog/ta/chapter02/2.3/</guid><description>&lt;h2 id="circuits--formulas">Circuits &amp;amp; Formulas&lt;/h2>
 &lt;h3 id="clippers">Clippers&lt;/h3>
 &lt;p>$$
 v_O =
@@ -1187,7 +1440,7 @@ v_O =
 v_O &amp;amp; v_I \ge \dfrac{v_O^+}{A_v}
 \end{cases}
 $$&lt;/p>
-&lt;h3 id="clampers">Clampers&lt;/h3></description></item><item><title>Chapter 2 solution</title><link>https://todd.scuteee.com/analog/chapter02/solution/</link><pubDate>Thu, 01 Sep 2022 22:56:12 +0800</pubDate><guid>https://todd.scuteee.com/analog/chapter02/solution/</guid><description>&lt;blockquote>
+&lt;h3 id="clampers">Clampers&lt;/h3></description></item><item><title>Chapter 2 solution</title><link>https://todd.scuteee.com/analog/ta/chapter02/solution/</link><pubDate>Thu, 01 Sep 2022 22:56:12 +0800</pubDate><guid>https://todd.scuteee.com/analog/ta/chapter02/solution/</guid><description>&lt;blockquote>
 &lt;p>&lt;strong>请不要抄答案！被助教发现的当次作业记为0分！&lt;/strong>&lt;/p>
 &lt;p>&lt;strong>以下为简略过程，只列出公式和结果。考试要写详细一点。&lt;/strong>&lt;/p>
 &lt;p>&lt;strong>有问题请向助教反馈。&lt;/strong>&lt;/p>
@@ -1391,7 +1644,7 @@ $$&lt;/p>
 &lt;p>Diode 2: -3.9pA -3.885V&lt;/p>
 &lt;p>Diode 3: 2.16mA 0.675V&lt;/p>
 &lt;p>Va: -4.56V&lt;/p>
-&lt;p>Vb： -0.675V&lt;/p></description></item><item><title>Zener Diode Circuits</title><link>https://todd.scuteee.com/analog/chapter02/2.2/</link><pubDate>Sat, 27 Aug 2022 20:40:57 +0800</pubDate><guid>https://todd.scuteee.com/analog/chapter02/2.2/</guid><description>&lt;h2 id="circuits--formulas">Circuits &amp;amp; Formulas&lt;/h2>
+&lt;p>Vb： -0.675V&lt;/p></description></item><item><title>Zener Diode Circuits</title><link>https://todd.scuteee.com/analog/ta/chapter02/2.2/</link><pubDate>Sat, 27 Aug 2022 20:40:57 +0800</pubDate><guid>https://todd.scuteee.com/analog/ta/chapter02/2.2/</guid><description>&lt;h2 id="circuits--formulas">Circuits &amp;amp; Formulas&lt;/h2>
 &lt;h3 id="voltage-regulator">Voltage Regulator&lt;/h3>
 &lt;p>$I_Z=\frac{V_{PS}-V_Z}{R_i}-I_L$&lt;/p>
 &lt;ol>
@@ -1426,7 +1679,7 @@ $$&lt;/p>
 &lt;p>The smaller, the better (Ideally, zero).&lt;/p>
 &lt;blockquote>
 &lt;p>Note that $v_{L,\text{no load}}$ means no load current, and $v_{L,\text{full load}}$ means maximum load current. So $v_{L,\text{full load}}$ does not correspond to $R_L(\max)$ but $R_L(\min)$&lt;/p>
-&lt;/blockquote></description></item><item><title>Recifier Circuits</title><link>https://todd.scuteee.com/analog/chapter02/2.1/</link><pubDate>Fri, 26 Aug 2022 17:18:02 +0800</pubDate><guid>https://todd.scuteee.com/analog/chapter02/2.1/</guid><description>&lt;h2 id="terms">Terms&lt;/h2>
+&lt;/blockquote></description></item><item><title>Recifier Circuits</title><link>https://todd.scuteee.com/analog/ta/chapter02/2.1/</link><pubDate>Fri, 26 Aug 2022 17:18:02 +0800</pubDate><guid>https://todd.scuteee.com/analog/ta/chapter02/2.1/</guid><description>&lt;h2 id="terms">Terms&lt;/h2>
 &lt;ul>
 &lt;li>A power supply include
 &lt;ol>
@@ -1527,7 +1780,7 @@ $$&lt;/p>
 &lt;/ul>
 &lt;h3 id="detectors">Detectors&lt;/h3>
 &lt;h3 id="voltage-doubler-circuit">Voltage Doubler Circuit&lt;/h3>
-&lt;p>$C_1,C_2$ both are charged to $V_M$, making the voltage across $R_L$ is $2V_M$&lt;/p></description></item><item><title>1.5-1.6 Other</title><link>https://todd.scuteee.com/analog/chapter01/1.5-1.6/</link><pubDate>Wed, 24 Aug 2022 22:24:31 +0800</pubDate><guid>https://todd.scuteee.com/analog/chapter01/1.5-1.6/</guid><description>&lt;h2 id="terms">Terms&lt;/h2>
+&lt;p>$C_1,C_2$ both are charged to $V_M$, making the voltage across $R_L$ is $2V_M$&lt;/p></description></item><item><title>1.5-1.6 Other</title><link>https://todd.scuteee.com/analog/ta/chapter01/1.5-1.6/</link><pubDate>Wed, 24 Aug 2022 22:24:31 +0800</pubDate><guid>https://todd.scuteee.com/analog/ta/chapter01/1.5-1.6/</guid><description>&lt;h2 id="terms">Terms&lt;/h2>
 &lt;ul>
 &lt;li>Solar Cell&lt;/li>
 &lt;li>Photodiode&lt;/li>
@@ -1577,10 +1830,10 @@ V_{D2} = 1.12-0.5224 \frac{T}{300}
 $$&lt;/p>
 &lt;p>It means $V_{D2}$ is a linear function of temperature.&lt;/p>
 &lt;p>By the way, the error caused by approximation is plotted below, which indicates that the error is neglectable.&lt;/p>
-&lt;p>&lt;img src="https://todd.scuteee.com/analog/chapter01/1.5-1.6/images/error.png"
+&lt;p>&lt;img src="https://todd.scuteee.com/analog/ta/chapter01/1.5-1.6/images/error.png"
 width="413"
 height="278"
-srcset="https://todd.scuteee.com/analog/chapter01/1.5-1.6/images/error_hud01ffc7c52dd5f7128e8f8401d5397a4_13669_480x0_resize_box_3.png 480w, https://todd.scuteee.com/analog/chapter01/1.5-1.6/images/error_hud01ffc7c52dd5f7128e8f8401d5397a4_13669_1024x0_resize_box_3.png 1024w"
+srcset="https://todd.scuteee.com/analog/ta/chapter01/1.5-1.6/images/error_hud01ffc7c52dd5f7128e8f8401d5397a4_13669_480x0_resize_box_3.png 480w, https://todd.scuteee.com/analog/ta/chapter01/1.5-1.6/images/error_hud01ffc7c52dd5f7128e8f8401d5397a4_13669_1024x0_resize_box_3.png 1024w"
 loading="lazy"
 alt="error"
 class="gallery-image"
@@ -1615,7 +1868,7 @@ data-flex-basis="356px"
 &lt;td>&lt;/td>
 &lt;/tr>
 &lt;/tbody>
-&lt;/table></description></item><item><title>chapter 1 solution</title><link>https://todd.scuteee.com/analog/chapter01/solution/</link><pubDate>Fri, 19 Aug 2022 21:20:30 +0800</pubDate><guid>https://todd.scuteee.com/analog/chapter01/solution/</guid><description>&lt;blockquote>
+&lt;/table></description></item><item><title>chapter 1 solution</title><link>https://todd.scuteee.com/analog/ta/chapter01/solution/</link><pubDate>Fri, 19 Aug 2022 21:20:30 +0800</pubDate><guid>https://todd.scuteee.com/analog/ta/chapter01/solution/</guid><description>&lt;blockquote>
 &lt;p>&lt;strong>请不要抄答案！被助教发现的当次作业记为0分！&lt;/strong>&lt;/p>
 &lt;p>&lt;strong>以下为简略过程，只列出公式和结果。考试要写详细一点。&lt;/strong>&lt;/p>
 &lt;p>&lt;strong>有问题请向助教反馈。&lt;/strong>&lt;/p>
@@ -1895,7 +2148,7 @@ $$&lt;/p>
 &lt;blockquote>
 &lt;p>和pdf答案出入较大，pdf答案是 0.1A&lt;/p>
 &lt;/blockquote>
-&lt;p>$V_{DC} = V_T \ln \l( \dfrac{0.2}{5\times 10^{-14}}+1 \r) = 0.75445$&lt;/p></description></item><item><title>1.3-1.4 Diode Circuits</title><link>https://todd.scuteee.com/analog/chapter01/1.3-1.4/</link><pubDate>Fri, 19 Aug 2022 20:44:08 +0800</pubDate><guid>https://todd.scuteee.com/analog/chapter01/1.3-1.4/</guid><description>&lt;h2 id="dc-diode-model">DC Diode Model&lt;/h2>
+&lt;p>$V_{DC} = V_T \ln \l( \dfrac{0.2}{5\times 10^{-14}}+1 \r) = 0.75445$&lt;/p></description></item><item><title>1.3-1.4 Diode Circuits</title><link>https://todd.scuteee.com/analog/ta/chapter01/1.3-1.4/</link><pubDate>Fri, 19 Aug 2022 20:44:08 +0800</pubDate><guid>https://todd.scuteee.com/analog/ta/chapter01/1.3-1.4/</guid><description>&lt;h2 id="dc-diode-model">DC Diode Model&lt;/h2>
 &lt;h3 id="ideal-model">Ideal Model&lt;/h3>
 &lt;p>$$
 i_D =
@@ -1935,7 +2188,7 @@ r_d = \frac{1}{g_d} = \frac{V_T}{I_{DQ}}
 $$&lt;/p>
 &lt;p>$$
 C_d = \frac{\dif Q}{\dif V_D}
-$$&lt;/p></description></item><item><title>1.2 The pn Junction</title><link>https://todd.scuteee.com/analog/chapter01/1.2/</link><pubDate>Fri, 19 Aug 2022 16:54:00 +0800</pubDate><guid>https://todd.scuteee.com/analog/chapter01/1.2/</guid><description>&lt;h2 id="terms">Terms&lt;/h2>
+$$&lt;/p></description></item><item><title>1.2 The pn Junction</title><link>https://todd.scuteee.com/analog/ta/chapter01/1.2/</link><pubDate>Fri, 19 Aug 2022 16:54:00 +0800</pubDate><guid>https://todd.scuteee.com/analog/ta/chapter01/1.2/</guid><description>&lt;h2 id="terms">Terms&lt;/h2>
 &lt;ul>
 &lt;li>pn junction
 &lt;ul>
@@ -2003,7 +2256,7 @@ $$&lt;/p>
 &lt;li>$n$ - emission coefficient ($1\le n \le 2$)&lt;/li>
 &lt;/ul>
 &lt;/li>
-&lt;/ul></description></item><item><title>1.1 Semiconductor Material and Properies</title><link>https://todd.scuteee.com/analog/chapter01/1.1/</link><pubDate>Thu, 18 Aug 2022 23:41:25 +0800</pubDate><guid>https://todd.scuteee.com/analog/chapter01/1.1/</guid><description>&lt;h2 id="terms">Terms&lt;/h2>
+&lt;/ul></description></item><item><title>1.1 Semiconductor Material and Properies</title><link>https://todd.scuteee.com/analog/ta/chapter01/1.1/</link><pubDate>Thu, 18 Aug 2022 23:41:25 +0800</pubDate><guid>https://todd.scuteee.com/analog/ta/chapter01/1.1/</guid><description>&lt;h2 id="terms">Terms&lt;/h2>
 &lt;ul>
 &lt;li>Semiconductors
 &lt;ul>
@@ -4438,6 +4691,10 @@ f.close()
 &lt;p>码率（bit rate）即单位时间内传输的数据，单位是 bps（bit per second）。对于一个视频，码率×时长=视频大小。&lt;/p>
 &lt;p>对于未压缩的视频，还有个公式：&lt;/p>
 &lt;p>码率 = 采样率 × 位深度 × 通道数&lt;/p>
+&lt;h2 id="参考链接">参考链接&lt;/h2>
+&lt;ul>
+&lt;li>[https://developer.mozilla.org/zh-CN/docs/Web/Media/Formats/Video_codecs](Web 开发技术 - 视频编码指南)&lt;/li>
+&lt;/ul>
 &lt;div class="footnotes" role="doc-endnotes">
 &lt;hr>
 &lt;ol>

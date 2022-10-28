@@ -1,0 +1,196 @@
+<!doctype html><html lang=zh-cn dir=ltr><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta name=description content="1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 &amp;lt;nav&amp;gt; &amp;lt;ol class=&amp;#34;nav-list&amp;#34;&amp;gt; &amp;lt;li {{ if $.IsHome }}class=&amp;#34;active&amp;#34;{{ end }}&amp;gt; &amp;lt;a href=&amp;#34;{{- `/` | absURL -}}&amp;#34;&amp;gt; {{ with $.Site.Params.logo }}{{ . | safeHTML }}{{ end }} &amp;lt;/a&amp;gt; &amp;lt;/li&amp;gt; {{- with $.Site.Sections -}} {{- range . -}} &amp;lt;li {{ if eq $.Section .Section }}class=&amp;#34;active&amp;#34;{{ end }}&amp;gt; &amp;lt;a href=&amp;#34;{{ .Permalink }}&amp;#34; title=&amp;#34;{{ .Title"><title>CSS 滑动效果</title><link rel=canonical href=https://todd.scuteee.com/posts/2022/2022-10-15-css-slide-effect/><link rel=stylesheet href=/scss/style.min.8e42dded4dec3cf5ad96c57b467ed9c26e9d9409f2e24a1fc14118bbba632f35.css><meta property="og:title" content="CSS 滑动效果"><meta property="og:description" content="1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 &amp;lt;nav&amp;gt; &amp;lt;ol class=&amp;#34;nav-list&amp;#34;&amp;gt; &amp;lt;li {{ if $.IsHome }}class=&amp;#34;active&amp;#34;{{ end }}&amp;gt; &amp;lt;a href=&amp;#34;{{- `/` | absURL -}}&amp;#34;&amp;gt; {{ with $.Site.Params.logo }}{{ . | safeHTML }}{{ end }} &amp;lt;/a&amp;gt; &amp;lt;/li&amp;gt; {{- with $.Site.Sections -}} {{- range . -}} &amp;lt;li {{ if eq $.Section .Section }}class=&amp;#34;active&amp;#34;{{ end }}&amp;gt; &amp;lt;a href=&amp;#34;{{ .Permalink }}&amp;#34; title=&amp;#34;{{ .Title"><meta property="og:url" content="https://todd.scuteee.com/posts/2022/2022-10-15-css-slide-effect/"><meta property="og:site_name" content="Todd's Blog"><meta property="og:type" content="article"><meta property="article:section" content="Posts"><meta property="article:published_time" content="2022-10-15T19:14:00+08:00"><meta property="article:modified_time" content="2022-10-15T19:14:00+08:00"><meta name=twitter:title content="CSS 滑动效果"><meta name=twitter:description content="1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 &amp;lt;nav&amp;gt; &amp;lt;ol class=&amp;#34;nav-list&amp;#34;&amp;gt; &amp;lt;li {{ if $.IsHome }}class=&amp;#34;active&amp;#34;{{ end }}&amp;gt; &amp;lt;a href=&amp;#34;{{- `/` | absURL -}}&amp;#34;&amp;gt; {{ with $.Site.Params.logo }}{{ . | safeHTML }}{{ end }} &amp;lt;/a&amp;gt; &amp;lt;/li&amp;gt; {{- with $.Site.Sections -}} {{- range . -}} &amp;lt;li {{ if eq $.Section .Section }}class=&amp;#34;active&amp;#34;{{ end }}&amp;gt; &amp;lt;a href=&amp;#34;{{ .Permalink }}&amp;#34; title=&amp;#34;{{ .Title"><link rel="shortcut icon" href=favicon.png></head><body class=article-page><script>(function(){const e="StackColorScheme";localStorage.getItem(e)||localStorage.setItem(e,"auto")})()</script><script>(function(){const t="StackColorScheme",e=localStorage.getItem(t),n=window.matchMedia("(prefers-color-scheme: dark)").matches===!0;e=="dark"||e==="auto"&&n?document.documentElement.dataset.scheme="dark":document.documentElement.dataset.scheme="light"})()</script><div class="container main-container flex on-phone--column extended"><aside class="sidebar left-sidebar sticky"><button class="hamburger hamburger--spin" type=button id=toggle-menu aria-label=切换菜单>
+<span class=hamburger-box><span class=hamburger-inner></span></span></button><header><figure class=site-avatar><a href=/><img src=/avatar_huab97f25f655a875cd3229d10d376a5bb_18063_300x0_resize_box_3.png width=300 height=300 class=site-logo loading=lazy alt=Avatar></a>
+<span class=emoji>💘</span></figure><div class=site-meta><h1 class=site-name><a href=/>Todd's Blog</a></h1><h2 class=site-description>Life & Work</h2></div></header><ol class=social-menu><li><a href=https://github.com/toddzzf target=_blank title=GitHub><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-github" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M9 19c-4.3 1.4-4.3-2.5-6-3m12 5v-3.5c0-1 .1-1.4-.5-2 2.8-.3 5.5-1.4 5.5-6a4.6 4.6.0 00-1.3-3.2 4.2 4.2.0 00-.1-3.2s-1.1-.3-3.5 1.3a12.3 12.3.0 00-6.2.0C6.5 2.8 5.4 3.1 5.4 3.1a4.2 4.2.0 00-.1 3.2A4.6 4.6.0 004 9.5c0 4.6 2.7 5.7 5.5 6-.6.6-.6 1.2-.5 2V21"/></svg></a></li></ol><ol class=menu id=main-menu><li class=current><a href=/posts/><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><polyline points="5 12 3 12 12 3 21 12 19 12"/><path d="M5 12v7a2 2 0 002 2h10a2 2 0 002-2v-7"/><path d="M9 21v-6a2 2 0 012-2h2a2 2 0 012 2v6"/></svg><span>日常</span></a></li><li><a href=/food/><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-tools-kitchen-2" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M19 3v12h-5c-.023-3.681.184-7.406 5-12zm0 12v6h-1v-3M8 4v17M5 4v3a3 3 0 106 0V4"/></svg><span>吃的</span></a></li><li><a href=/design/><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-code" width="44" height="44" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><polyline points="7 8 3 12 7 16"/><polyline points="17 8 21 12 17 16"/><line x1="14" y1="4" x2="10" y2="20"/></svg><span>网页设计</span></a></li><li><a href=/ppt/><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-presentation" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><line x1="3" y1="4" x2="21" y2="4"/><path d="M4 4v10a2 2 0 002 2h12a2 2 0 002-2V4"/><line x1="12" y1="16" x2="12" y2="20"/><line x1="9" y1="20" x2="15" y2="20"/><path d="M8 12l3-3 2 2 3-3"/></svg><span>PPT</span></a></li><li><a href=/analogic/><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-circuit-diode" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M22 12h-6"/><path d="M2 12h6"/><path d="M8 7l8 5-8 5z"/><path d="M16 7v10"/></svg><span>Analog IC</span></a></li><li><a href=/analogic/bandgap/><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-circuit-diode" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M22 12h-6"/><path d="M2 12h6"/><path d="M8 7l8 5-8 5z"/><path d="M16 7v10"/></svg><span>带隙基准</span></a></li><li><a href=/analog/><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-circuit-diode" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M22 12h-6"/><path d="M2 12h6"/><path d="M8 7l8 5-8 5z"/><path d="M16 7v10"/></svg><span>模拟电子技术</span></a></li><div class=menu-bottom-section><li id=dark-mode-toggle><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="8" cy="12" r="2"/><rect x="2" y="6" width="20" height="12" rx="6"/></svg><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="16" cy="12" r="2"/><rect x="2" y="6" width="20" height="12" rx="6"/></svg><span>暗色模式</span></li></div></ol></aside><main class="main full-width"><article class=main-article><header class=article-header><div class=article-details><div class=article-title-wrapper><h2 class=article-title><a href=/posts/2022/2022-10-15-css-slide-effect/>CSS 滑动效果</a></h2></div><footer class=article-time><div><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><path d="M11.795 21H5a2 2 0 01-2-2V7a2 2 0 012-2h12a2 2 0 012 2v4"/><circle cx="18" cy="18" r="4"/><path d="M15 3v4"/><path d="M7 3v4"/><path d="M3 11h16"/><path d="M18 16.496V18l1 1"/></svg><time class=article-time--published>Oct 15, 2022</time></div><div><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="12" cy="12" r="9"/><polyline points="12 7 12 12 15 15"/></svg><time class=article-time--reading>阅读时长: 1 分钟</time></div></footer></div></header><section class=article-content><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span><span class=lnt>18
+</span><span class=lnt>19
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-html data-lang=html><span class=line><span class=cl><span class=p>&lt;</span><span class=nt>nav</span><span class=p>&gt;</span>
+</span></span><span class=line><span class=cl>    <span class=p>&lt;</span><span class=nt>ol</span> <span class=na>class</span><span class=o>=</span><span class=s>&#34;nav-list&#34;</span><span class=p>&gt;</span>
+</span></span><span class=line><span class=cl>        <span class=p>&lt;</span><span class=nt>li</span> <span class=err>{{</span> <span class=na>if</span> <span class=err>$.</span><span class=na>IsHome</span> <span class=err>}}</span><span class=na>class</span><span class=o>=</span><span class=s>&#34;active&#34;</span><span class=err>{{</span> <span class=na>end</span> <span class=err>}}</span><span class=p>&gt;</span>
+</span></span><span class=line><span class=cl>            <span class=p>&lt;</span><span class=nt>a</span> <span class=na>href</span><span class=o>=</span><span class=s>&#34;{{- `/` | absURL -}}&#34;</span><span class=p>&gt;</span>
+</span></span><span class=line><span class=cl>                {{ with  $.Site.Params.logo }}{{ . | safeHTML }}{{ end }}
+</span></span><span class=line><span class=cl>            <span class=p>&lt;/</span><span class=nt>a</span><span class=p>&gt;</span>
+</span></span><span class=line><span class=cl>        <span class=p>&lt;/</span><span class=nt>li</span><span class=p>&gt;</span>
+</span></span><span class=line><span class=cl>        {{- with $.Site.Sections -}}
+</span></span><span class=line><span class=cl>        {{- range . -}}
+</span></span><span class=line><span class=cl>        <span class=p>&lt;</span><span class=nt>li</span> <span class=err>{{</span> <span class=na>if</span> <span class=na>eq</span> <span class=err>$.</span><span class=na>Section</span> <span class=err>.</span><span class=na>Section</span> <span class=err>}}</span><span class=na>class</span><span class=o>=</span><span class=s>&#34;active&#34;</span><span class=err>{{</span> <span class=na>end</span> <span class=err>}}</span><span class=p>&gt;</span>
+</span></span><span class=line><span class=cl>            <span class=p>&lt;</span><span class=nt>a</span> <span class=na>href</span><span class=o>=</span><span class=s>&#34;{{ .Permalink }}&#34;</span> <span class=na>title</span><span class=o>=</span><span class=s>&#34;{{ .Title }}&#34;</span><span class=p>&gt;</span>
+</span></span><span class=line><span class=cl>                {{ with .Params.icon}}{{ . | safeHTML }}{{ end }}
+</span></span><span class=line><span class=cl>            <span class=p>&lt;/</span><span class=nt>a</span><span class=p>&gt;</span>
+</span></span><span class=line><span class=cl>        <span class=p>&lt;/</span><span class=nt>li</span><span class=p>&gt;</span>
+</span></span><span class=line><span class=cl>        {{ end }}
+</span></span><span class=line><span class=cl>        {{ end }}
+</span></span><span class=line><span class=cl>        <span class=p>&lt;</span><span class=nt>li</span> <span class=na>class</span><span class=o>=</span><span class=s>&#34;nav-cursor&#34;</span><span class=p>&gt;&lt;/</span><span class=nt>li</span><span class=p>&gt;</span>
+</span></span><span class=line><span class=cl>    <span class=p>&lt;/</span><span class=nt>ol</span><span class=p>&gt;</span>
+</span></span><span class=line><span class=cl><span class=p>&lt;/</span><span class=nt>nav</span><span class=p>&gt;</span>
+</span></span></code></pre></td></tr></table></div></div><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span><span class=lnt>18
+</span><span class=lnt>19
+</span><span class=lnt>20
+</span><span class=lnt>21
+</span><span class=lnt>22
+</span><span class=lnt>23
+</span><span class=lnt>24
+</span><span class=lnt>25
+</span><span class=lnt>26
+</span><span class=lnt>27
+</span><span class=lnt>28
+</span><span class=lnt>29
+</span><span class=lnt>30
+</span><span class=lnt>31
+</span><span class=lnt>32
+</span><span class=lnt>33
+</span><span class=lnt>34
+</span><span class=lnt>35
+</span><span class=lnt>36
+</span><span class=lnt>37
+</span><span class=lnt>38
+</span><span class=lnt>39
+</span><span class=lnt>40
+</span><span class=lnt>41
+</span><span class=lnt>42
+</span><span class=lnt>43
+</span><span class=lnt>44
+</span><span class=lnt>45
+</span><span class=lnt>46
+</span><span class=lnt>47
+</span><span class=lnt>48
+</span><span class=lnt>49
+</span><span class=lnt>50
+</span><span class=lnt>51
+</span><span class=lnt>52
+</span><span class=lnt>53
+</span><span class=lnt>54
+</span><span class=lnt>55
+</span><span class=lnt>56
+</span><span class=lnt>57
+</span><span class=lnt>58
+</span><span class=lnt>59
+</span><span class=lnt>60
+</span><span class=lnt>61
+</span><span class=lnt>62
+</span><span class=lnt>63
+</span><span class=lnt>64
+</span><span class=lnt>65
+</span><span class=lnt>66
+</span><span class=lnt>67
+</span><span class=lnt>68
+</span><span class=lnt>69
+</span><span class=lnt>70
+</span><span class=lnt>71
+</span><span class=lnt>72
+</span><span class=lnt>73
+</span><span class=lnt>74
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-css data-lang=css><span class=line><span class=cl><span class=p>.</span><span class=nc>nav-list</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>    <span class=err>$</span><span class=n>nav-height</span><span class=p>:</span> <span class=mi>3</span><span class=kt>rem</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>    <span class=err>$</span><span class=n>nav-padding</span><span class=p>:</span> <span class=mf>0.5</span><span class=kt>rem</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>    <span class=k>background-color</span><span class=p>:</span> <span class=kc>orange</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>    <span class=k>list-style</span><span class=p>:</span> <span class=kc>none</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>    <span class=k>display</span><span class=p>:</span> <span class=kc>flex</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>    <span class=k>border-radius</span><span class=p>:</span> <span class=mi>9999</span><span class=kt>px</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>    <span class=k>padding</span><span class=p>:</span> <span class=err>$</span><span class=n>nav-padding</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>    <span class=k>position</span><span class=p>:</span> <span class=kc>relative</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    <span class=n>li</span><span class=p>:</span><span class=nf>not</span><span class=p>(</span><span class=err>.</span><span class=n>nav</span><span class=o>-</span><span class=n>cursor</span><span class=p>)</span> <span class=err>{</span>
+</span></span><span class=line><span class=cl>        <span class=k>height</span><span class=o>:</span> <span class=err>$</span><span class=n>nav-height</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>        <span class=n>aspect-ratio</span><span class=p>:</span> <span class=mi>1</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>        <span class=k>overflow</span><span class=p>:</span> <span class=kc>hidden</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>        <span class=k>z-index</span><span class=p>:</span> <span class=mi>10</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>        <span class=k>font-size</span><span class=p>:</span> <span class=mf>1.5</span><span class=kt>rem</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>        <span class=k>color</span><span class=p>:</span> <span class=nb>rgb</span><span class=p>(</span><span class=mi>255</span><span class=p>,</span> <span class=mi>24</span><span class=p>,</span> <span class=mi>24</span><span class=p>);</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>        <span class=err>a</span> <span class=err>{</span>
+</span></span><span class=line><span class=cl>            <span class=k>display</span><span class=p>:</span> <span class=k>grid</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>            <span class=k>width</span><span class=p>:</span> <span class=mi>100</span><span class=kt>%</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>            <span class=k>height</span><span class=p>:</span> <span class=mi>100</span><span class=kt>%</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>            <span class=k>align-items</span><span class=p>:</span> <span class=kc>center</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>            <span class=k>justify-content</span><span class=p>:</span> <span class=kc>center</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>            <span class=k>border-radius</span><span class=p>:</span> <span class=mi>9999</span><span class=kt>px</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>        <span class=p>}</span>
+</span></span><span class=line><span class=cl>    <span class=err>}</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    <span class=nt>li</span><span class=p>.</span><span class=nc>nav-cursor</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>        <span class=k>position</span><span class=p>:</span> <span class=kc>absolute</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>        <span class=k>background-color</span><span class=p>:</span> <span class=kc>white</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>        <span class=k>height</span><span class=p>:</span> <span class=err>$</span><span class=n>nav-height</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>        <span class=n>aspect-ratio</span><span class=p>:</span> <span class=mi>1</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>        <span class=k>border-radius</span><span class=p>:</span> <span class=mi>9999</span><span class=kt>px</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>        <span class=k>visibility</span><span class=p>:</span> <span class=kc>hidden</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>    <span class=p>}</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    <span class=p>@</span><span class=k>mixin</span> <span class=nt>fix-cursor</span><span class=o>($</span><span class=nt>left</span><span class=o>)</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>        <span class=nt>left</span><span class=o>:</span> <span class=o>$</span><span class=nt>left</span><span class=o>;</span>
+</span></span><span class=line><span class=cl>        <span class=nt>visibility</span><span class=o>:</span> <span class=nt>visible</span><span class=o>;</span>
+</span></span><span class=line><span class=cl>    <span class=p>}</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    <span class=o>$</span><span class=nt>li-count</span><span class=o>:</span> <span class=nt>10</span><span class=o>;</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    <span class=p>@</span><span class=k>for</span> <span class=o>$</span><span class=nt>i</span> <span class=nt>from</span> <span class=nt>1</span> <span class=nt>through</span> <span class=o>$</span><span class=nt>li-count</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>        <span class=o>$</span><span class=nt>offset</span><span class=o>:</span> <span class=o>$</span><span class=nt>li-count</span> <span class=nt>-</span> <span class=o>$</span><span class=nt>i</span><span class=o>;</span>
+</span></span><span class=line><span class=cl>        <span class=o>$</span><span class=nt>top</span><span class=o>:</span> <span class=o>($</span><span class=nt>i</span> <span class=nt>-</span> <span class=nt>1</span><span class=o>)</span> <span class=o>*</span> <span class=o>$</span><span class=nt>nav-height</span> <span class=o>+$</span><span class=nt>nav-padding</span><span class=o>;</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>        <span class=o>&gt;</span><span class=nt>li</span><span class=p>:</span><span class=nd>nth-child</span><span class=o>(</span><span class=err>#</span><span class=p>{</span><span class=err>$i</span><span class=p>}</span><span class=o>)</span><span class=p>.</span><span class=nc>active</span>
+</span></span><span class=line><span class=cl>        <span class=p>{</span>
+</span></span><span class=line><span class=cl>            <span class=err>~li.nav-cursor</span> <span class=err>{</span>
+</span></span><span class=line><span class=cl>                <span class=err>@include</span> <span class=err>fix-cursor($top)</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>            <span class=p>}</span>
+</span></span><span class=line><span class=cl>        <span class=p>}</span>
+</span></span><span class=line><span class=cl>    <span class=err>}</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    <span class=p>@</span><span class=k>for</span> <span class=o>$</span><span class=nt>i</span> <span class=nt>from</span> <span class=nt>1</span> <span class=nt>through</span> <span class=o>$</span><span class=nt>li-count</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>        <span class=o>$</span><span class=nt>offset</span><span class=o>:</span> <span class=o>$</span><span class=nt>li-count</span> <span class=nt>-</span> <span class=o>$</span><span class=nt>i</span><span class=o>;</span>
+</span></span><span class=line><span class=cl>        <span class=o>$</span><span class=nt>top</span><span class=o>:</span> <span class=o>($</span><span class=nt>i</span> <span class=nt>-</span> <span class=nt>1</span><span class=o>)</span> <span class=o>*</span> <span class=o>$</span><span class=nt>nav-height</span> <span class=o>+$</span><span class=nt>nav-padding</span><span class=o>;</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>        <span class=o>&gt;</span><span class=nt>li</span><span class=p>:</span><span class=nd>nth-child</span><span class=o>(</span><span class=err>#</span><span class=p>{</span><span class=err>$i</span><span class=p>}</span><span class=o>)</span><span class=p>:</span><span class=nd>hover</span> 
+</span></span><span class=line><span class=cl>        <span class=p>{</span>
+</span></span><span class=line><span class=cl>            <span class=err>~li.nav-cursor</span> <span class=err>{</span>
+</span></span><span class=line><span class=cl>                <span class=err>@include</span> <span class=err>fix-cursor($top)</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>            <span class=p>}</span>
+</span></span><span class=line><span class=cl>        <span class=p>}</span>
+</span></span><span class=line><span class=cl>    <span class=err>}</span>
+</span></span><span class=line><span class=cl><span class=err>}</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=p>@</span><span class=k>media</span> <span class=o>(</span><span class=nt>hover</span><span class=o>:</span> <span class=nt>hover</span><span class=o>)</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>    <span class=p>.</span><span class=nc>nav-list</span><span class=o>&gt;</span><span class=nt>li</span><span class=p>.</span><span class=nc>nav-cursor</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>        <span class=k>transition</span><span class=p>:</span> <span class=kc>left</span> <span class=mf>0.5</span><span class=kt>s</span> <span class=kc>ease</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>    <span class=p>}</span>
+</span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span></code></pre></td></tr></table></div></div></section><footer class=article-footer><section class=article-copyright><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-copyright" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="12" cy="12" r="9"/><path d="M14.5 9a3.5 4 0 100 6"/></svg><span>Licensed under CC BY-NC-SA 4.0</span></section></footer></article><footer class=site-footer><section class=copyright>&copy;
+2020 -
+2022 Todd's Blog</section><section class=powerby>Built with <a href=https://gohugo.io/ target=_blank rel=noopener>Hugo</a><br>主题 <b><a href=https://github.com/CaiJimmy/hugo-theme-stack target=_blank rel=noopener data-version=3.12.0>Stack</a></b> 由 <a href=https://jimmycai.com target=_blank rel=noopener>Jimmy</a> 设计</section></footer><div class=pswp tabindex=-1 role=dialog aria-hidden=true><div class=pswp__bg></div><div class=pswp__scroll-wrap><div class=pswp__container><div class=pswp__item></div><div class=pswp__item></div><div class=pswp__item></div></div><div class="pswp__ui pswp__ui--hidden"><div class=pswp__top-bar><div class=pswp__counter></div><button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+<button class="pswp__button pswp__button--share" title=Share></button>
+<button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+<button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button><div class=pswp__preloader><div class=pswp__preloader__icn><div class=pswp__preloader__cut><div class=pswp__preloader__donut></div></div></div></div></div><div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap"><div class=pswp__share-tooltip></div></div><button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)"></button>
+<button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)"></button><div class=pswp__caption><div class=pswp__caption__center></div></div></div></div></div><script src=https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo=" crossorigin=anonymous defer></script><script src=https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU=" crossorigin=anonymous defer></script><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css crossorigin=anonymous><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css crossorigin=anonymous></main></div><script src=https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z+KMkF24hUW8WePSA9HM=" crossorigin=anonymous></script><script type=text/javascript src=/ts/main.js defer></script>
+<script>(function(){const e=document.createElement("link");e.href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap",e.type="text/css",e.rel="stylesheet",document.head.appendChild(e)})()</script></body></html>
