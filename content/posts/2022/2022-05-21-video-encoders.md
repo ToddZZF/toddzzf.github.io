@@ -40,3 +40,7 @@ indent: True
 对于未压缩的视频，还有个公式：
 
 码率 = 采样率 × 位深度 × 通道数
+
+## 参考链接
+
+- [https://developer.mozilla.org/zh-CN/docs/Web/Media/Formats/Video_codecs](Web 开发技术 - 视频编码指南)
