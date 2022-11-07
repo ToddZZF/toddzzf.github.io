@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Chapter 4 on Todd's Blog</title><link>https://todd.scuteee.com/analog/ta/chapter04/</link><description>Recent content in Chapter 4 on Todd's Blog</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><lastBuildDate>Mon, 07 Nov 2022 17:36:39 +0800</lastBuildDate><atom:link href="https://todd.scuteee.com/analog/ta/chapter04/index.xml" rel="self" type="application/rss+xml"/><item><title>Chapter 4 solution</title><link>https://todd.scuteee.com/analog/ta/chapter04/solution/</link><pubDate>Mon, 07 Nov 2022 16:44:00 +0800</pubDate><guid>https://todd.scuteee.com/analog/ta/chapter04/solution/</guid><description>&lt;h2 id="410">4.10&lt;/h2>
+&lt;p>(a) $W/L=34.7$, $R_D=4{\rm k\Omega}$&lt;/p>
+&lt;p>(b) $g_m=1.666{\rm mA/V}$&lt;/p>
+&lt;p>$r_o=133.3{\rm k\Omega}$&lt;/p>
+&lt;p>(c) $A_v = -6.47$&lt;/p>
+&lt;h2 id="425">4.25&lt;/h2>
+&lt;p>(a) $R_S=7.76{\rm K}$, $R_D=10.2{\rm K}$&lt;/p>
+&lt;p>(b) $g_m=0.8944{\rm mA/V}$, $A_v=-1.5$&lt;/p>
+&lt;h2 id="433">4.33&lt;/h2>
+&lt;p>(a) $V_{GSQ}=0.594{\rm V}$&lt;/p>
+&lt;p>(b) $g_m=1.549{\rm mA/V}$, $r_o=333{\rm k\Omega}$, $A_v = 0.938$&lt;/p>
+&lt;p>(c) $R_o=0.6456|9.708$ 或 $R_o=605{\rm \Omega}$&lt;/p>
+&lt;h2 id="456">4.56&lt;/h2>
+&lt;p>(a) $V_o=4.92{\rm V}$&lt;/p>
+&lt;p>(b) $A_v=-4.08$&lt;/p>
+&lt;h2 id="465">4.65&lt;/h2>
+&lt;p>(a) $V_{GSDQ}=1.307{\rm V}$&lt;/p>
+&lt;p>$V_{SGLQ}=2.014{\rm V}$&lt;/p>
+&lt;p>$V_{DSDQ}=2.593{\rm V}$&lt;/p>
+&lt;p>(b) $A_v=\sqrt{\dfrac{K_n}{K_p}}$&lt;/p>
+&lt;p>(c) $A_v=2$&lt;/p>
+&lt;h2 id="470">4.70&lt;/h2>
+&lt;p>$K_{p1}=0.4{\rm mA/V^2}$, $K_{n2}=4.0{\rm mA/V^2}$&lt;/p>
+&lt;p>(a) $R_{S1}=6{\rm k\Omega}$&lt;/p>
+&lt;p>$R_{D1}=20{\rm k\Omega}$&lt;/p>
+&lt;p>$R_{1}=343{\rm k\Omega}$&lt;/p>
+&lt;p>$R_{2}=480{\rm k\Omega}$&lt;/p>
+&lt;p>$R_{S2}=4.42{\rm k\Omega}$&lt;/p>
+&lt;p>&lt;a class="link" href="https://imgse.com/i/xvYYwD" target="_blank" rel="noopener"
+>&lt;img src="https://s1.ax1x.com/2022/11/07/xvYYwD.png"
+loading="lazy"
+alt="xvYYwD.png"
+>&lt;/a>&lt;/p>
+&lt;p>(b) $g_{m1}=0.4{\rm mA/V}$, $g_{m2}=2.191{\rm mA/V}$, $A_v=-2.13$&lt;/p>
+&lt;p>(c) $R_o=414{\rm \Omega}$&lt;/p>
+&lt;hr>
+&lt;p>为了方便批改，把第七章的答案也贴一下：&lt;/p>
+&lt;h2 id="71">7.1&lt;/h2>
+&lt;p>(a) $T(s)=\dfrac{1}{1+sR_1C_1}$&lt;/p>
+&lt;p>(b) $f_H=159{\rm Hz}$&lt;/p>
+&lt;p>(c) $v_o(t)=1-e^{-t/R_1C_1}$&lt;/p>
+&lt;h2 id="72">7.2&lt;/h2>
+&lt;p>(a) $T(s)=\dfrac{sR_2C_2}{1+sR_2C_2}$&lt;/p>
+&lt;p>(b) $f_L=1.59{\rm kHz}$&lt;/p>
+&lt;p>(c) $v_o(t)=e^{-t/R_2C_2}$&lt;/p>
+&lt;h2 id="711">7.11&lt;/h2>
+&lt;p>(a) $| T_{\rm midband} |=159$&lt;/p>
+&lt;p>(b) $\tau_s=5.31{\rm ms}$, Open-Circuit&lt;/p>
+&lt;p>$\tau_p=0.332{\rm \mu s}$, Short-Circuit&lt;/p>
+&lt;p>(c) $C_c=0.932{\rm \mu F}$&lt;/p>
+&lt;p>$C_L=55.3{\rm pF}$&lt;/p></description></item></channel></rss>
