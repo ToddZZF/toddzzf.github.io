@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Cascode on Todd's Blog</title><link>https://todd.scuteee.com/analogic/amplifier/cascode/</link><description>Recent content in Cascode on Todd's Blog</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><lastBuildDate>Fri, 11 Nov 2022 17:37:00 +0800</lastBuildDate><atom:link href="https://todd.scuteee.com/analogic/amplifier/cascode/index.xml" rel="self" type="application/rss+xml"/><item><title>CS-CG 共源-共栅 Cascode</title><link>https://todd.scuteee.com/analogic/amplifier/cascode/cs-cg/</link><pubDate>Fri, 11 Nov 2022 17:36:00 +0800</pubDate><guid>https://todd.scuteee.com/analogic/amplifier/cascode/cs-cg/</guid><description>&lt;p>&lt;img src="https://todd.scuteee.com/analogic/amplifier/cascode/cs-cg/images/CS-CG-cascode.png"
+width="389"
+height="338"
+srcset="https://todd.scuteee.com/analogic/amplifier/cascode/cs-cg/images/CS-CG-cascode_huc51ec6962f8352378ba81a6237739239_9178_480x0_resize_box_3.png 480w, https://todd.scuteee.com/analogic/amplifier/cascode/cs-cg/images/CS-CG-cascode_huc51ec6962f8352378ba81a6237739239_9178_1024x0_resize_box_3.png 1024w"
+loading="lazy"
+alt="共源-共栅电路"
+class="gallery-image"
+data-flex-grow="115"
+data-flex-basis="276px"
+>&lt;/p>
+&lt;h2 id="频率响应">频率响应&lt;/h2>
+&lt;p>主要看主极点，其余的忽略。我们一个一个电容（结点）分析：&lt;/p>
+&lt;ul>
+&lt;li>在 M2 漏端，$C_{GS2}$ 比较小，电阻也比较小，所以不是主极点&lt;/li>
+&lt;li>在 M2 源端，电阻 $1/g_m$ 比较小，所以也不是主极点&lt;/li>
+&lt;li>在 M1 栅端，$C_{GS1}$ 经过 Miller Effect 比较大，并且电阻也比较大，所以是主极点。&lt;/li>
+&lt;/ul>
+&lt;p>$C_{GS1}$ 经过 Miller Effect 后，等效为 M1 栅端的 $2C_{GS1}$（$A_{v1}=-g_{m1} \cdot \frac{1}{g_{m2}} \approx -1$），从而主极点为：&lt;/p>
+&lt;p>$$
+\omega_{p1} = \frac{1}{R_{\rm sig}(C_{GS1}+2C_{GD1})}
+$$&lt;/p></description></item></channel></rss>
