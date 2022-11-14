@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Chapter 7 on Todd's Blog</title><link>https://todd.scuteee.com/analog/ta/chapter07/</link><description>Recent content in Chapter 7 on Todd's Blog</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><lastBuildDate>Mon, 14 Nov 2022 12:11:16 +0800</lastBuildDate><atom:link href="https://todd.scuteee.com/analog/ta/chapter07/index.xml" rel="self" type="application/rss+xml"/><item><title>Chapter 7 solution</title><link>https://todd.scuteee.com/analog/ta/chapter07/solution/</link><pubDate>Mon, 14 Nov 2022 12:05:18 +0800</pubDate><guid>https://todd.scuteee.com/analog/ta/chapter07/solution/</guid><description>&lt;h2 id="724">7.24&lt;/h2>
+&lt;p>(a) $g_m=40.92{\rm mA/V}$, $r_\pi=2.44{\rm k\Omega}$&lt;/p>
+&lt;p>(b) $\tau_1=1.053{\rm ms}$, $\tau_2=49{\rm ms}$&lt;/p>
+&lt;p>(c) $f_1=f_{\rm 3dB}=151{\rm Hz}$, $f_2=3.24{\rm Hz}$&lt;/p>
+&lt;h2 id="d730">D7.30&lt;/h2>
+&lt;p>$C_{C2}=504{\rm \mu F}$, $C_{C1}=760{\rm \mu F}$&lt;/p>
+&lt;h2 id="740">7.40&lt;/h2>
+&lt;p>(a) 电容的不同&lt;/p>
+&lt;p>(b) 带通&lt;/p>
+&lt;p>(c) $|A_m | = 43.7{\rm dB}$&lt;/p>
+&lt;p>$\tau_L=3.29\times 10^2{\rm s}$, $f_L=4.83{\rm Hz}$&lt;/p>
+&lt;p>$\tau_H=5.05\times 10^{-8}{\rm s}$, $f_H=3.15{\rm MHz}$&lt;/p>
+&lt;h2 id="748">7.48&lt;/h2>
+&lt;p>(a) $A_v(s)= \dfrac{g_m R_L r_\pi}{r_\pi + r_b + sr_b r_\pi C_1}$&lt;/p>
+&lt;p>(b) $A_{v1}=-148.1$, $A_{v2}=-129$&lt;/p>
+&lt;p>(c) $\tau_1=2.11\times 10^{-10}{\rm s}$, $f_{3-db}=751{\rm MHz}$&lt;/p>
+&lt;p>$\tau_2=9.23\times 10^{-10}{\rm s}$, $f_{3-db}=173{\rm MHz}$&lt;/p>
+&lt;h2 id="752">7.52&lt;/h2>
+&lt;p>$f_L=540{\rm Hz}$, $f_H=344{\rm kHz}$&lt;/p>
+&lt;h2 id="765">7.65&lt;/h2>
+&lt;p>$r_\pi=9.94{\rm k\Omega}$, $r_o=318{\rm k\Omega}$&lt;/p>
+&lt;p>(a) $C_\pi = 2.20{\rm pF}$, $C_M=27.6{\rm pF}$&lt;/p>
+&lt;p>(b) $f_H=3.61{\rm MHz}$, $A_v=-19.7$&lt;/p></description></item></channel></rss>

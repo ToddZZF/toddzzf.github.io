@@ -1,10 +1,85 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Todd's Blog</title><link>https://todd.scuteee.com/</link><description>Recent content on Todd's Blog</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><lastBuildDate>Fri, 11 Nov 2022 18:51:00 +0800</lastBuildDate><atom:link href="https://todd.scuteee.com/index.xml" rel="self" type="application/rss+xml"/><item><title>单极共漏放大器</title><link>https://todd.scuteee.com/analogic/amplifier/singe-stage/common-drain/</link><pubDate>Fri, 11 Nov 2022 18:51:00 +0800</pubDate><guid>https://todd.scuteee.com/analogic/amplifier/singe-stage/common-drain/</guid><description>&lt;h2 id="频率响应">频率响应&lt;/h2>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Todd's Blog</title><link>https://todd.scuteee.com/</link><description>Recent content on Todd's Blog</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><lastBuildDate>Mon, 14 Nov 2022 12:11:16 +0800</lastBuildDate><atom:link href="https://todd.scuteee.com/index.xml" rel="self" type="application/rss+xml"/><item><title>Chapter 7 solution</title><link>https://todd.scuteee.com/analog/ta/chapter07/solution/</link><pubDate>Mon, 14 Nov 2022 12:05:18 +0800</pubDate><guid>https://todd.scuteee.com/analog/ta/chapter07/solution/</guid><description>&lt;h2 id="724">7.24&lt;/h2>
+&lt;p>(a) $g_m=40.92{\rm mA/V}$, $r_\pi=2.44{\rm k\Omega}$&lt;/p>
+&lt;p>(b) $\tau_1=1.053{\rm ms}$, $\tau_2=49{\rm ms}$&lt;/p>
+&lt;p>(c) $f_1=f_{\rm 3dB}=151{\rm Hz}$, $f_2=3.24{\rm Hz}$&lt;/p>
+&lt;h2 id="d730">D7.30&lt;/h2>
+&lt;p>$C_{C2}=504{\rm \mu F}$, $C_{C1}=760{\rm \mu F}$&lt;/p>
+&lt;h2 id="740">7.40&lt;/h2>
+&lt;p>(a) 电容的不同&lt;/p>
+&lt;p>(b) 带通&lt;/p>
+&lt;p>(c) $|A_m | = 43.7{\rm dB}$&lt;/p>
+&lt;p>$\tau_L=3.29\times 10^2{\rm s}$, $f_L=4.83{\rm Hz}$&lt;/p>
+&lt;p>$\tau_H=5.05\times 10^{-8}{\rm s}$, $f_H=3.15{\rm MHz}$&lt;/p>
+&lt;h2 id="748">7.48&lt;/h2>
+&lt;p>(a) $A_v(s)= \dfrac{g_m R_L r_\pi}{r_\pi + r_b + sr_b r_\pi C_1}$&lt;/p>
+&lt;p>(b) $A_{v1}=-148.1$, $A_{v2}=-129$&lt;/p>
+&lt;p>(c) $\tau_1=2.11\times 10^{-10}{\rm s}$, $f_{3-db}=751{\rm MHz}$&lt;/p>
+&lt;p>$\tau_2=9.23\times 10^{-10}{\rm s}$, $f_{3-db}=173{\rm MHz}$&lt;/p>
+&lt;h2 id="752">7.52&lt;/h2>
+&lt;p>$f_L=540{\rm Hz}$, $f_H=344{\rm kHz}$&lt;/p>
+&lt;h2 id="765">7.65&lt;/h2>
+&lt;p>$r_\pi=9.94{\rm k\Omega}$, $r_o=318{\rm k\Omega}$&lt;/p>
+&lt;p>(a) $C_\pi = 2.20{\rm pF}$, $C_M=27.6{\rm pF}$&lt;/p>
+&lt;p>(b) $f_H=3.61{\rm MHz}$, $A_v=-19.7$&lt;/p></description></item><item><title>Degeneration</title><link>https://todd.scuteee.com/analogic/amplifier/singe-stage/degeneration/</link><pubDate>Sat, 12 Nov 2022 11:14:00 +0800</pubDate><guid>https://todd.scuteee.com/analogic/amplifier/singe-stage/degeneration/</guid><description>&lt;h2 id="优点">优点&lt;/h2>
+&lt;ol>
+&lt;li>
+&lt;p>Single-ended self-biasing 可以用作自偏置&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>Linearity 线性度增加：图中展示了加入 Degeneration 后，差分放大器的线性区间会变大（变大 $I_{EE}R_E$ 或 $I_{SS}R_{S}$），相应的线性度也会增加。&lt;/p>
+&lt;p>&lt;img src="https://todd.scuteee.com/analogic/amplifier/singe-stage/degeneration/images/degeneration-advantage-linearity.png"
+width="1065"
+height="523"
+srcset="https://todd.scuteee.com/analogic/amplifier/singe-stage/degeneration/images/degeneration-advantage-linearity_hu2b7e059264e202d404f86a4e5dc36233_346995_480x0_resize_box_3.png 480w, https://todd.scuteee.com/analogic/amplifier/singe-stage/degeneration/images/degeneration-advantage-linearity_hu2b7e059264e202d404f86a4e5dc36233_346995_1024x0_resize_box_3.png 1024w"
+loading="lazy"
+alt="degeneration 的优点（线性度）"
+class="gallery-image"
+data-flex-grow="203"
+data-flex-basis="488px"
+>&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>Equalization 均衡化（CTLE）：信号经过传输线后，高频会下降，配合上 degeneration amp（引入一个较低的零点），可以使低频/高频均衡。&lt;/p>
+&lt;p>&lt;img src="https://todd.scuteee.com/analogic/amplifier/singe-stage/degeneration/images/degeneration-advantage-equalization.png"
+width="428"
+height="349"
+srcset="https://todd.scuteee.com/analogic/amplifier/singe-stage/degeneration/images/degeneration-advantage-equalization_hu8ae0ff5a09f822e7a667ab7400e8ddec_117488_480x0_resize_box_3.png 480w, https://todd.scuteee.com/analogic/amplifier/singe-stage/degeneration/images/degeneration-advantage-equalization_hu8ae0ff5a09f822e7a667ab7400e8ddec_117488_1024x0_resize_box_3.png 1024w"
+loading="lazy"
+alt="degeneration 的优点（均衡化）"
+class="gallery-image"
+data-flex-grow="122"
+data-flex-basis="294px"
+>&lt;/p>
+&lt;/li>
+&lt;/ol>
+&lt;p>degeneration 的本质是一个负反馈（Local Feedback），输出电流流过 $R_S$ 会使得输入 $V_{GS}$ 减小（输入电压，输出电流）。图中右上部分的电路是输入电流输出电压的负反馈。&lt;/p>
+&lt;p>&lt;img src="https://todd.scuteee.com/analogic/amplifier/singe-stage/degeneration/images/degeneration-local-feedback.png"
+width="539"
+height="417"
+srcset="https://todd.scuteee.com/analogic/amplifier/singe-stage/degeneration/images/degeneration-local-feedback_hua943d50e9695782fe87b8dfa0ed079f8_137782_480x0_resize_box_3.png 480w, https://todd.scuteee.com/analogic/amplifier/singe-stage/degeneration/images/degeneration-local-feedback_hua943d50e9695782fe87b8dfa0ed079f8_137782_1024x0_resize_box_3.png 1024w"
+loading="lazy"
+alt="degeneration 负反馈"
+class="gallery-image"
+data-flex-grow="129"
+data-flex-basis="310px"
+>&lt;/p>
+&lt;h2 id="示例电路">示例电路&lt;/h2>
+&lt;p>&lt;img src="https://todd.scuteee.com/analogic/amplifier/singe-stage/degeneration/images/degeneration-example.jpg"
+width="1668"
+height="633"
+srcset="https://todd.scuteee.com/analogic/amplifier/singe-stage/degeneration/images/degeneration-example_hu9dbda68653d908f498c8d5ce9e9d3dbc_588402_480x0_resize_q75_box.jpg 480w, https://todd.scuteee.com/analogic/amplifier/singe-stage/degeneration/images/degeneration-example_hu9dbda68653d908f498c8d5ce9e9d3dbc_588402_1024x0_resize_q75_box.jpg 1024w"
+loading="lazy"
+alt="示例电路（音频功率放大器）"
+class="gallery-image"
+data-flex-grow="263"
+data-flex-basis="632px"
+>&lt;/p></description></item><item><title>单极共漏放大器</title><link>https://todd.scuteee.com/analogic/amplifier/singe-stage/common-drain/</link><pubDate>Fri, 11 Nov 2022 18:51:00 +0800</pubDate><guid>https://todd.scuteee.com/analogic/amplifier/singe-stage/common-drain/</guid><description>&lt;h2 id="频率响应">频率响应&lt;/h2>
 &lt;p>&lt;img src="https://todd.scuteee.com/analogic/amplifier/singe-stage/common-drain/images/common-drain-small-signal-with-cap.png"
 width="531"
 height="428"
-srcset="https://todd.scuteee.com/analogic/amplifier/singe-stage/common-drain/images/common-drain-small-signal-with-cap_hua5fb3696a0613e26781690e6db05cc5e_10134_480x0_resize_box_3.png 480w, https://todd.scuteee.com/analogic/amplifier/singe-stage/common-drain/images/common-drain-small-signal-with-cap_hua5fb3696a0613e26781690e6db05cc5e_10134_1024x0_resize_box_3.png 1024w"
+srcset="https://todd.scuteee.com/analogic/amplifier/singe-stage/common-drain/images/common-drain-small-signal-with-cap_hu56352a23d9431a0cfa479c5b0adfd3bf_9543_480x0_resize_box_3.png 480w, https://todd.scuteee.com/analogic/amplifier/singe-stage/common-drain/images/common-drain-small-signal-with-cap_hu56352a23d9431a0cfa479c5b0adfd3bf_9543_1024x0_resize_box_3.png 1024w"
 loading="lazy"
-alt="单极共漏电路小信号电路"
+alt="单极共漏（共射）电路小信号电路"
 class="gallery-image"
 data-flex-grow="124"
 data-flex-basis="297px"
@@ -13,14 +88,41 @@ data-flex-basis="297px"
 &lt;p>$$
 A_v = \frac{R_E}{1/g_m+R_E}
 $$&lt;/p>
-&lt;p>对于 $C_{GD}$，其等效电阻为：&lt;/p>
+&lt;p>对于 $C_{GS}$，其等效电阻为：&lt;/p>
 &lt;p>$$
 \begin{cases}
 \dfrac{V_D+V_t}{R_{\rm sig}} = I_t\
 \dfrac{V_t}{1/g_m} = I_t + \dfrac{V_D}{R_E}
 \end{cases}\
 \Rightarrow \omega_{p1} = \frac{1}{C_{GS}\l( \frac{R_{\rm sig}+R_E}{1+g_m R_E}\r)}
-$$&lt;/p></description></item><item><title>CS-CG 共源-共栅 Cascode</title><link>https://todd.scuteee.com/analogic/amplifier/cascode/cs-cg/</link><pubDate>Fri, 11 Nov 2022 17:36:00 +0800</pubDate><guid>https://todd.scuteee.com/analogic/amplifier/cascode/cs-cg/</guid><description>&lt;p>&lt;img src="https://todd.scuteee.com/analogic/amplifier/cascode/cs-cg/images/CS-CG-cascode.png"
+$$&lt;/p>
+&lt;p>对于零点，要使输出为 0，则流过 $R_E$ 的电流为 0，因此有：&lt;/p>
+&lt;p>$$
+V_G \cdot sC_{GS} + V_G g_m = 0\
+\Rightarrow s_{z1} = -g_m / C_{GS}\
+\Rightarrow \omega_{z1} = g_m/C_{GS}
+$$&lt;/p>
+&lt;p>零点和极点都不算太高/太低。&lt;/p>
+&lt;p>对于 $C_{GD}$，易知，极点为 $\omega_{p2} = \frac{1}{C_{GD} R_{\rm sig}}$，零点为 $\omega_{z2}=\infty$&lt;/p>
+&lt;p>总的带宽为（OCTC法）：&lt;/p>
+&lt;p>$$
+{\rm BW} = \frac{1}{C_{GS}\l( \frac{R_{\rm sig}+R_E}{1+g_m R_E}\r)+C_{GD} R_{\rm sig}}
+$$&lt;/p>
+&lt;p>这两个极点靠得比较近，虽然这个电路本身的增益是 0dB（也就是一定会稳定），但在两个极点处会迅速到180，也就是其 Phrase Margin 很小。&lt;/p>
+&lt;p>另外，该电路的输出电阻随频率的变化而变大，就像一个电感（见下面推导），就会导致输入方波时，边缘会有震荡（Ringing）。这也是 Phrase Margin 很小导致的。&lt;/p>
+&lt;p>&lt;img src="https://todd.scuteee.com/analogic/amplifier/singe-stage/common-drain/images/common-drain-output-resistor.png"
+width="1209"
+height="444"
+srcset="https://todd.scuteee.com/analogic/amplifier/singe-stage/common-drain/images/common-drain-output-resistor_hud9a9f8e5966c5bb21a75fb039e0be8c0_337005_480x0_resize_box_3.png 480w, https://todd.scuteee.com/analogic/amplifier/singe-stage/common-drain/images/common-drain-output-resistor_hud9a9f8e5966c5bb21a75fb039e0be8c0_337005_1024x0_resize_box_3.png 1024w"
+loading="lazy"
+alt="共漏电路输出电阻"
+class="gallery-image"
+data-flex-grow="272"
+data-flex-basis="653px"
+>&lt;/p>
+&lt;h2 id="该电路的问题">该电路的问题&lt;/h2>
+&lt;p>对于 Bipolar，由于 $V_{BE}$ 可以维持在 0.7，所以其输出可以跟随输入。因此可以用作 Buffer&lt;/p>
+&lt;p>但对于 CMOS，由于 $I_D$ 不是恒定的（就算用电流源来代替 $R_E$，也会有 Body Effect），会导致 $V_{GS}$ 变化，因此输出的跟随不是很好。如果实在要用，则可以连接 BS，利用体效应来抑制 $V_{GS}$ 的变化，但尽管如此，Ringing 也使得它不适合作为 Ringing.&lt;/p></description></item><item><title>CS-CG 共源-共栅 Cascode</title><link>https://todd.scuteee.com/analogic/amplifier/cascode/cs-cg/</link><pubDate>Fri, 11 Nov 2022 17:36:00 +0800</pubDate><guid>https://todd.scuteee.com/analogic/amplifier/cascode/cs-cg/</guid><description>&lt;p>&lt;img src="https://todd.scuteee.com/analogic/amplifier/cascode/cs-cg/images/CS-CG-cascode.png"
 width="389"
 height="338"
 srcset="https://todd.scuteee.com/analogic/amplifier/cascode/cs-cg/images/CS-CG-cascode_huc51ec6962f8352378ba81a6237739239_9178_480x0_resize_box_3.png 480w, https://todd.scuteee.com/analogic/amplifier/cascode/cs-cg/images/CS-CG-cascode_huc51ec6962f8352378ba81a6237739239_9178_1024x0_resize_box_3.png 1024w"
