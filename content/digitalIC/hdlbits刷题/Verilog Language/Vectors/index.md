@@ -280,7 +280,7 @@ module top_module(
 endmodule
 ```
 
-利用 generate-for-loop（编译器在预处理阶段展开）：
+利用 generate-for-loop（编译器在预处理阶段展开，并对定义的 genvar 做简单替换）：
 
 ```verilog
 module top_module( 
