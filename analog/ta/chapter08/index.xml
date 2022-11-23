@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Chapter 8 on Todd's Blog</title><link>https://todd.scuteee.com/analog/ta/chapter08/</link><description>Recent content in Chapter 8 on Todd's Blog</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><lastBuildDate>Tue, 22 Nov 2022 20:43:00 +0800</lastBuildDate><atom:link href="https://todd.scuteee.com/analog/ta/chapter08/index.xml" rel="self" type="application/rss+xml"/><item><title>Chapter 8 solution</title><link>https://todd.scuteee.com/analog/ta/chapter08/solution/</link><pubDate>Tue, 22 Nov 2022 20:44:18 +0800</pubDate><guid>https://todd.scuteee.com/analog/ta/chapter08/solution/</guid><description>&lt;h2 id="811">8.11&lt;/h2>
+&lt;p>(a) $P_T=13.4{\rm W}$&lt;/p>
+&lt;p>(b) $V_{CEQ}=4.48{\rm V}$, $V_{CC}=2V_{CEQ}=8.96{\rm V}$&lt;/p>
+&lt;h2 id="813">8.13&lt;/h2>
+&lt;p>(a) $A_v=\frac{(1+\beta)R_L}{\frac{\beta V_T}{I_C}+(1+\beta)R_L}$&lt;/p>
+&lt;p>$(1+\beta)\approx \beta$&lt;/p>
+&lt;p>$$
+A_v = \frac{I_C R_L}{I_C R_L+V_T}=\frac{R_L}{R_L+\dfrac{V_T}{I_C}}=\frac{R_L}{R_L+\dfrac{1}{g_m}}
+$$&lt;/p>
+&lt;p>(b)&lt;/p>
+&lt;p>(i) $g_m=1.125{\rm A/V}$, $I_C=29.25{\rm mA}$&lt;/p>
+&lt;p>(ii) $g_m=2.375{\rm A/V}$, $I_C=61.75{\rm mA}$&lt;/p>
+&lt;p>(iii) $g_m=41.54{\rm A/V}$, $I_C=108{\rm mA}$&lt;/p>
+&lt;h2 id="815">8.15&lt;/h2>
+&lt;p>(a) $A_v=0.9928$&lt;/p>
+&lt;p>(b) $A_v=0.9872$&lt;/p>
+&lt;p>(c) $A_v=0.939$&lt;/p>
+&lt;h2 id="824">8.24&lt;/h2>
+&lt;p>(a) $V_o(\max)=8{\rm V}$&lt;/p>
+&lt;p>$i_L=1.6{\rm mA}$&lt;/p>
+&lt;p>$V_I=10V$&lt;/p>
+&lt;p>(b)&lt;/p>
+&lt;p>$\eta=62.7%$&lt;/p>
+&lt;h2 id="828">8.28&lt;/h2>
+&lt;p>(a) $R_1=53.97{\rm \Omega}$, $i_P=0.208{\rm mA}$&lt;/p>
+&lt;p>(b) $i_D=545{\rm mA}$, $i_N=i_P=545{\rm mA}$&lt;/p>
+&lt;h2 id="833">8.33&lt;/h2>
+&lt;p>(a) $I_{BQ}=2.473{\rm mA}$&lt;/p>
+&lt;p>(b) $I_{CQ}=98.91{\rm mA}$&lt;/p>
+&lt;p>(c) $\overline{P}_L=333.9{\rm mA}$, $\overline{P}_S=1.187{\rm mA}$&lt;/p>
+&lt;p>(d) $\eta = 28.1%$&lt;/p></description></item></channel></rss>

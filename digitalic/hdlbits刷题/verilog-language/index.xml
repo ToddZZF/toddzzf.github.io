@@ -1,4 +1,762 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Verilog 语言 on Todd's Blog</title><link>https://todd.scuteee.com/digitalic/hdlbits%E5%88%B7%E9%A2%98/verilog-language/</link><description>Recent content in Verilog 语言 on Todd's Blog</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><lastBuildDate>Thu, 17 Nov 2022 15:07:00 +0800</lastBuildDate><atom:link href="https://todd.scuteee.com/digitalic/hdlbits%E5%88%B7%E9%A2%98/verilog-language/index.xml" rel="self" type="application/rss+xml"/><item><title>模块</title><link>https://todd.scuteee.com/digitalic/hdlbits%E5%88%B7%E9%A2%98/verilog-language/module/</link><pubDate>Thu, 17 Nov 2022 20:43:00 +0800</pubDate><guid>https://todd.scuteee.com/digitalic/hdlbits%E5%88%B7%E9%A2%98/verilog-language/module/</guid><description>&lt;h2 id="module">Module&lt;/h2>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Verilog 语言 on Todd's Blog</title><link>https://todd.scuteee.com/digitalic/hdlbits%E5%88%B7%E9%A2%98/verilog-language/</link><description>Recent content in Verilog 语言 on Todd's Blog</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><lastBuildDate>Thu, 17 Nov 2022 15:07:00 +0800</lastBuildDate><atom:link href="https://todd.scuteee.com/digitalic/hdlbits%E5%88%B7%E9%A2%98/verilog-language/index.xml" rel="self" type="application/rss+xml"/><item><title>More Verilog Features</title><link>https://todd.scuteee.com/digitalic/hdlbits%E5%88%B7%E9%A2%98/verilog-language/more-verilog-features/</link><pubDate>Fri, 18 Nov 2022 21:22:00 +0800</pubDate><guid>https://todd.scuteee.com/digitalic/hdlbits%E5%88%B7%E9%A2%98/verilog-language/more-verilog-features/</guid><description/></item><item><title>Procedures</title><link>https://todd.scuteee.com/digitalic/hdlbits%E5%88%B7%E9%A2%98/verilog-language/procedures/</link><pubDate>Fri, 18 Nov 2022 13:36:00 +0800</pubDate><guid>https://todd.scuteee.com/digitalic/hdlbits%E5%88%B7%E9%A2%98/verilog-language/procedures/</guid><description>&lt;h2 id="always-blockscombinational">Always Blocks(Combinational)&lt;/h2>
+&lt;p>For synthesizing hardware, two types of always blocks are relevant:&lt;/p>
+&lt;ul>
+&lt;li>&lt;code>Combinational: always @(*)&lt;/code>&lt;/li>
+&lt;li>&lt;code>Clocked: always @(posedge clk)&lt;/code>&lt;/li>
+&lt;/ul>
+&lt;p>Combinational always blocks are equivalent to assign statements, 哪个方便用哪个。但是， procedural block 里面的语句有一些不同。Procedural blocks 可以用 &lt;code>if-then&lt;/code>、&lt;code>case&lt;/code> 等语句，但不能包含连续赋值（Procedural continuous assignments 无法综合）。&lt;/p>
+&lt;p>比如，下面两个会生成同样的组合逻辑：&lt;/p>
+&lt;ul>
+&lt;li>&lt;code>assign out1 = a &amp;amp; b | c ^ d;&lt;/code>&lt;/li>
+&lt;li>&lt;code>always @(*) out2 = a &amp;amp; b | c ^ d;&lt;/code>&lt;/li>
+&lt;/ul>
+&lt;p>combinational always的敏感表是 &lt;code>(*)&lt;/code>，表示在always内部所有出现的信号。我们也可以手动列信号，但一旦漏了信号，那么：the synthesized hardware will still behave as though (*) was specified, but the simulation will not and not match the hardware&amp;rsquo;s behaviour.&lt;/p>
+&lt;p>注意：&lt;code>assign&lt;/code> 等号的左边必须是一个 net type(e.g., wire)，而 procedural assignment 的等号的左边必须是 variable type(e.g., reg).&lt;/p>
+&lt;h3 id="问题30">问题30&lt;/h3>
+&lt;ul>
+&lt;li>题目：分别用组合逻辑与时序逻辑实现一个与门：&lt;/li>
+&lt;/ul>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;/span>&lt;span class="lnt"> 2
+&lt;/span>&lt;span class="lnt"> 3
+&lt;/span>&lt;span class="lnt"> 4
+&lt;/span>&lt;span class="lnt"> 5
+&lt;/span>&lt;span class="lnt"> 6
+&lt;/span>&lt;span class="lnt"> 7
+&lt;/span>&lt;span class="lnt"> 8
+&lt;/span>&lt;span class="lnt"> 9
+&lt;/span>&lt;span class="lnt">10
+&lt;/span>&lt;span class="lnt">11
+&lt;/span>&lt;span class="lnt">12
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-verilog" data-lang="verilog">&lt;span class="line">&lt;span class="cl">&lt;span class="c1">// synthesis verilog_input_version verilog_2001
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">&lt;/span>&lt;span class="k">module&lt;/span> &lt;span class="n">top_module&lt;/span>&lt;span class="p">(&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">input&lt;/span> &lt;span class="n">a&lt;/span>&lt;span class="p">,&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">input&lt;/span> &lt;span class="n">b&lt;/span>&lt;span class="p">,&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">output&lt;/span> &lt;span class="kt">wire&lt;/span> &lt;span class="n">out_assign&lt;/span>&lt;span class="p">,&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">output&lt;/span> &lt;span class="kt">reg&lt;/span> &lt;span class="n">out_alwaysblock&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="p">);&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">assign&lt;/span> &lt;span class="n">out_assign&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="n">a&lt;/span>&lt;span class="o">&amp;amp;&lt;/span>&lt;span class="n">b&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">always&lt;/span> &lt;span class="p">@(&lt;/span>&lt;span class="o">*&lt;/span>&lt;span class="p">)&lt;/span> &lt;span class="n">out_alwaysblock&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="n">a&lt;/span>&lt;span class="o">&amp;amp;&lt;/span>&lt;span class="n">b&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="k">endmodule&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>&lt;img src="https://todd.scuteee.com/digitalic/hdlbits%E5%88%B7%E9%A2%98/verilog-language/procedures/images/%E9%97%AE%E9%A2%9830-testbench.png"
+width="546"
+height="332"
+srcset="https://todd.scuteee.com/digitalic/hdlbits%E5%88%B7%E9%A2%98/verilog-language/procedures/images/%E9%97%AE%E9%A2%9830-testbench_hu25646ae2b401f54cd0deda34252bb23a_13863_480x0_resize_box_3.png 480w, https://todd.scuteee.com/digitalic/hdlbits%E5%88%B7%E9%A2%98/verilog-language/procedures/images/%E9%97%AE%E9%A2%9830-testbench_hu25646ae2b401f54cd0deda34252bb23a_13863_1024x0_resize_box_3.png 1024w"
+loading="lazy"
+alt="问题30-testbench"
+class="gallery-image"
+data-flex-grow="164"
+data-flex-basis="394px"
+>&lt;/p>
+&lt;h2 id="always-blocksclocked">Always Blocks(clocked)&lt;/h2>
+&lt;p>For hardware synthesis, there are two types of always blocks that are relevant:&lt;/p>
+&lt;ul>
+&lt;li>Combinational: &lt;code>always @(*)&lt;/code>&lt;/li>
+&lt;li>Clocked: &lt;code>always @(posedge clk)&lt;/code>&lt;/li>
+&lt;/ul>
+&lt;h3 id="blocking-vs-non-blocking-assignment">Blocking vs. Non-Blocking Assignment&lt;/h3>
+&lt;p>There are three types of assignments in Verilog:&lt;/p>
+&lt;ul>
+&lt;li>Continuous assignments (&lt;code>assign x = y;&lt;/code>). Can only be used when not inside a procedure (&amp;ldquo;always block&amp;rdquo;).&lt;/li>
+&lt;li>Procedural blocking assignment: (&lt;code>x = y;&lt;/code>). Can only be used inside a procedure.&lt;/li>
+&lt;li>Procedural non-blocking assignment: (&lt;code>x &amp;lt;= y;&lt;/code>). Can only be used inside a procedure.&lt;/li>
+&lt;/ul>
+&lt;p>In a combinational always block, use blocking assignments. In a clocked always block, use non-blocking assignments.&lt;/p>
+&lt;h3 id="问题31">问题31&lt;/h3>
+&lt;ul>
+&lt;li>题目：用三种赋值方法实现 xor&lt;/li>
+&lt;/ul>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;/span>&lt;span class="lnt"> 2
+&lt;/span>&lt;span class="lnt"> 3
+&lt;/span>&lt;span class="lnt"> 4
+&lt;/span>&lt;span class="lnt"> 5
+&lt;/span>&lt;span class="lnt"> 6
+&lt;/span>&lt;span class="lnt"> 7
+&lt;/span>&lt;span class="lnt"> 8
+&lt;/span>&lt;span class="lnt"> 9
+&lt;/span>&lt;span class="lnt">10
+&lt;/span>&lt;span class="lnt">11
+&lt;/span>&lt;span class="lnt">12
+&lt;/span>&lt;span class="lnt">13
+&lt;/span>&lt;span class="lnt">14
+&lt;/span>&lt;span class="lnt">15
+&lt;/span>&lt;span class="lnt">16
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-verilog" data-lang="verilog">&lt;span class="line">&lt;span class="cl">&lt;span class="c1">// synthesis verilog_input_version verilog_2001
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">&lt;/span>&lt;span class="k">module&lt;/span> &lt;span class="n">top_module&lt;/span>&lt;span class="p">(&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">input&lt;/span> &lt;span class="n">clk&lt;/span>&lt;span class="p">,&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">input&lt;/span> &lt;span class="n">a&lt;/span>&lt;span class="p">,&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">input&lt;/span> &lt;span class="n">b&lt;/span>&lt;span class="p">,&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">output&lt;/span> &lt;span class="kt">wire&lt;/span> &lt;span class="n">out_assign&lt;/span>&lt;span class="p">,&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">output&lt;/span> &lt;span class="kt">reg&lt;/span> &lt;span class="n">out_always_comb&lt;/span>&lt;span class="p">,&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">output&lt;/span> &lt;span class="kt">reg&lt;/span> &lt;span class="n">out_always_ff&lt;/span> &lt;span class="p">);&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">assign&lt;/span> &lt;span class="n">out_assign&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="n">a&lt;/span>&lt;span class="o">^&lt;/span>&lt;span class="n">b&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">always&lt;/span> &lt;span class="p">@(&lt;/span>&lt;span class="o">*&lt;/span>&lt;span class="p">)&lt;/span> &lt;span class="n">out_always_comb&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="n">a&lt;/span>&lt;span class="o">^&lt;/span>&lt;span class="n">b&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">always&lt;/span> &lt;span class="p">@(&lt;/span>&lt;span class="k">posedge&lt;/span> &lt;span class="n">clk&lt;/span>&lt;span class="p">)&lt;/span> &lt;span class="n">out_always_ff&lt;/span> &lt;span class="o">&amp;lt;=&lt;/span> &lt;span class="n">a&lt;/span>&lt;span class="o">^&lt;/span>&lt;span class="n">b&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="k">endmodule&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>&lt;img src="https://todd.scuteee.com/digitalic/hdlbits%E5%88%B7%E9%A2%98/verilog-language/procedures/images/%E9%97%AE%E9%A2%9831-testbench.png"
+width="552"
+height="417"
+srcset="https://todd.scuteee.com/digitalic/hdlbits%E5%88%B7%E9%A2%98/verilog-language/procedures/images/%E9%97%AE%E9%A2%9831-testbench_hu2a859df688033ad185e15f7196dcdeeb_17677_480x0_resize_box_3.png 480w, https://todd.scuteee.com/digitalic/hdlbits%E5%88%B7%E9%A2%98/verilog-language/procedures/images/%E9%97%AE%E9%A2%9831-testbench_hu2a859df688033ad185e15f7196dcdeeb_17677_1024x0_resize_box_3.png 1024w"
+loading="lazy"
+alt="问题31-testbench"
+class="gallery-image"
+data-flex-grow="132"
+data-flex-basis="317px"
+>&lt;/p>
+&lt;h2 id="if-statement">If Statement&lt;/h2>
+&lt;p>if statement 可以用来弄2-1选择器：&lt;/p>
+&lt;p>&lt;img src="https://todd.scuteee.com/digitalic/hdlbits%E5%88%B7%E9%A2%98/verilog-language/procedures/images/Always_if_mux.png"
+width="207"
+height="117"
+srcset="https://todd.scuteee.com/digitalic/hdlbits%E5%88%B7%E9%A2%98/verilog-language/procedures/images/Always_if_mux_hu82fa104dedda6028f82c3a8f25c3a352_3790_480x0_resize_box_3.png 480w, https://todd.scuteee.com/digitalic/hdlbits%E5%88%B7%E9%A2%98/verilog-language/procedures/images/Always_if_mux_hu82fa104dedda6028f82c3a8f25c3a352_3790_1024x0_resize_box_3.png 1024w"
+loading="lazy"
+alt="Always_if_mux"
+class="gallery-image"
+data-flex-grow="176"
+data-flex-basis="424px"
+>&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;span class="lnt">5
+&lt;/span>&lt;span class="lnt">6
+&lt;/span>&lt;span class="lnt">7
+&lt;/span>&lt;span class="lnt">8
+&lt;/span>&lt;span class="lnt">9
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-verilog" data-lang="verilog">&lt;span class="line">&lt;span class="cl">&lt;span class="n">Always&lt;/span> &lt;span class="k">if&lt;/span> &lt;span class="n">mux&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="n">png&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="k">always&lt;/span> &lt;span class="p">@(&lt;/span>&lt;span class="o">*&lt;/span>&lt;span class="p">)&lt;/span> &lt;span class="k">begin&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">if&lt;/span> &lt;span class="p">(&lt;/span>&lt;span class="n">condition&lt;/span>&lt;span class="p">)&lt;/span> &lt;span class="k">begin&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">out&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="n">x&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">end&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">else&lt;/span> &lt;span class="k">begin&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">out&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="n">y&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">end&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="k">end&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>等价于：&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-verilog" data-lang="verilog">&lt;span class="line">&lt;span class="cl">&lt;span class="k">assign&lt;/span> &lt;span class="n">out&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="p">(&lt;/span>&lt;span class="n">condition&lt;/span>&lt;span class="p">)&lt;/span> &lt;span class="o">?&lt;/span> &lt;span class="n">x&lt;/span> &lt;span class="o">:&lt;/span> &lt;span class="n">y&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>However, the procedural if statement provides a new way to make mistakes. &lt;strong>The circuit is combinational only if out is always assigned a value.&lt;/strong>&lt;/p>
+&lt;h3 id="问题32">问题32&lt;/h3>
+&lt;ul>
+&lt;li>题目：Build a 2-to-1 mux that chooses between a and b. Choose b if both sel_b1 and sel_b2 are true. Otherwise, choose a. Do the same twice, once using assign statements and once using a procedural if statement.&lt;/li>
+&lt;/ul>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>sel_b1&lt;/th>
+&lt;th>sel_b2&lt;/th>
+&lt;th>out&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>0&lt;/td>
+&lt;td>0&lt;/td>
+&lt;td>a&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>0&lt;/td>
+&lt;td>1&lt;/td>
+&lt;td>a&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>1&lt;/td>
+&lt;td>0&lt;/td>
+&lt;td>a&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>1&lt;/td>
+&lt;td>1&lt;/td>
+&lt;td>b&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;/span>&lt;span class="lnt"> 2
+&lt;/span>&lt;span class="lnt"> 3
+&lt;/span>&lt;span class="lnt"> 4
+&lt;/span>&lt;span class="lnt"> 5
+&lt;/span>&lt;span class="lnt"> 6
+&lt;/span>&lt;span class="lnt"> 7
+&lt;/span>&lt;span class="lnt"> 8
+&lt;/span>&lt;span class="lnt"> 9
+&lt;/span>&lt;span class="lnt">10
+&lt;/span>&lt;span class="lnt">11
+&lt;/span>&lt;span class="lnt">12
+&lt;/span>&lt;span class="lnt">13
+&lt;/span>&lt;span class="lnt">14
+&lt;/span>&lt;span class="lnt">15
+&lt;/span>&lt;span class="lnt">16
+&lt;/span>&lt;span class="lnt">17
+&lt;/span>&lt;span class="lnt">18
+&lt;/span>&lt;span class="lnt">19
+&lt;/span>&lt;span class="lnt">20
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-verilog" data-lang="verilog">&lt;span class="line">&lt;span class="cl">&lt;span class="c1">// synthesis verilog_input_version verilog_2001
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">&lt;/span>&lt;span class="k">module&lt;/span> &lt;span class="n">top_module&lt;/span>&lt;span class="p">(&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">input&lt;/span> &lt;span class="n">a&lt;/span>&lt;span class="p">,&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">input&lt;/span> &lt;span class="n">b&lt;/span>&lt;span class="p">,&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">input&lt;/span> &lt;span class="n">sel_b1&lt;/span>&lt;span class="p">,&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">input&lt;/span> &lt;span class="n">sel_b2&lt;/span>&lt;span class="p">,&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">output&lt;/span> &lt;span class="kt">wire&lt;/span> &lt;span class="n">out_assign&lt;/span>&lt;span class="p">,&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">output&lt;/span> &lt;span class="kt">reg&lt;/span> &lt;span class="n">out_always&lt;/span> &lt;span class="p">);&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="c1">//assign out_assign = a&amp;amp;~(sel_b1&amp;amp;sel_b2) | b&amp;amp;(sel_b1&amp;amp;sel_b2);
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">&lt;/span> &lt;span class="k">assign&lt;/span> &lt;span class="n">out_assign&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="p">(&lt;/span>&lt;span class="n">sel_b1&lt;/span>&lt;span class="o">&amp;amp;&lt;/span>&lt;span class="n">sel_b2&lt;/span>&lt;span class="p">)&lt;/span> &lt;span class="o">?&lt;/span> &lt;span class="n">b&lt;/span> &lt;span class="o">:&lt;/span> &lt;span class="n">a&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">always&lt;/span> &lt;span class="p">@(&lt;/span>&lt;span class="o">*&lt;/span>&lt;span class="p">)&lt;/span> &lt;span class="k">begin&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">if&lt;/span> &lt;span class="p">(&lt;/span>&lt;span class="n">sel_b1&lt;/span> &lt;span class="o">&amp;amp;&lt;/span> &lt;span class="n">sel_b2&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">out_always&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="n">b&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">else&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">out_always&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="n">a&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">end&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="k">endmodule&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>&lt;img src="https://todd.scuteee.com/digitalic/hdlbits%E5%88%B7%E9%A2%98/verilog-language/procedures/images/%E9%97%AE%E9%A2%9832-testbench.png"
+width="596"
+height="387"
+srcset="https://todd.scuteee.com/digitalic/hdlbits%E5%88%B7%E9%A2%98/verilog-language/procedures/images/%E9%97%AE%E9%A2%9832-testbench_hu4997b3c78685765a2afccc2564d9dfcd_15821_480x0_resize_box_3.png 480w, https://todd.scuteee.com/digitalic/hdlbits%E5%88%B7%E9%A2%98/verilog-language/procedures/images/%E9%97%AE%E9%A2%9832-testbench_hu4997b3c78685765a2afccc2564d9dfcd_15821_1024x0_resize_box_3.png 1024w"
+loading="lazy"
+alt="问题32-testbench"
+class="gallery-image"
+data-flex-grow="154"
+data-flex-basis="369px"
+>&lt;/p>
+&lt;h2 id="if-statement-latches">If Statement Latches&lt;/h2>
+&lt;h3 id="a-common-source-of-errors-how-to-avoid-making-latches">A common source of errors: How to avoid making latches&lt;/h3>
+&lt;p>如果没有指定某些情况，那么 Verilog 就会认为在这些情况下，输出不变。而这就会引入 Latch. 注意编译时的 Warning (10240): &amp;hellip; inferring latch(es)&amp;quot; messages. 除非你需要那个latch，否则这意味着存在一个bug. Combinational circuits must have a value assigned to all outputs under all conditions. This usually means you always need else clauses or a default value assigned to the outputs.&lt;/p>
+&lt;h3 id="demonstration-问题33">Demonstration (问题33)&lt;/h3>
+&lt;ul>
+&lt;li>题目：The following code contains incorrect behaviour that creates a latch. Fix the bugs so that you will shut off the computer only if it&amp;rsquo;s really overheated, and stop driving if you&amp;rsquo;ve arrived at your destination or you need to refuel.&lt;/li>
+&lt;/ul>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;span class="lnt">5
+&lt;/span>&lt;span class="lnt">6
+&lt;/span>&lt;span class="lnt">7
+&lt;/span>&lt;span class="lnt">8
+&lt;/span>&lt;span class="lnt">9
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-verilog" data-lang="verilog">&lt;span class="line">&lt;span class="cl">&lt;span class="k">always&lt;/span> &lt;span class="p">@(&lt;/span>&lt;span class="o">*&lt;/span>&lt;span class="p">)&lt;/span> &lt;span class="k">begin&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">if&lt;/span> &lt;span class="p">(&lt;/span>&lt;span class="n">cpu_overheated&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">shut_off_computer&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="mh">1&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="k">end&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="k">always&lt;/span> &lt;span class="p">@(&lt;/span>&lt;span class="o">*&lt;/span>&lt;span class="p">)&lt;/span> &lt;span class="k">begin&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">if&lt;/span> &lt;span class="p">(&lt;/span>&lt;span class="o">~&lt;/span>&lt;span class="n">arrived&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">keep_driving&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="o">~&lt;/span>&lt;span class="n">gas_tank_empty&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="k">end&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;/span>&lt;span class="lnt"> 2
+&lt;/span>&lt;span class="lnt"> 3
+&lt;/span>&lt;span class="lnt"> 4
+&lt;/span>&lt;span class="lnt"> 5
+&lt;/span>&lt;span class="lnt"> 6
+&lt;/span>&lt;span class="lnt"> 7
+&lt;/span>&lt;span class="lnt"> 8
+&lt;/span>&lt;span class="lnt"> 9
+&lt;/span>&lt;span class="lnt">10
+&lt;/span>&lt;span class="lnt">11
+&lt;/span>&lt;span class="lnt">12
+&lt;/span>&lt;span class="lnt">13
+&lt;/span>&lt;span class="lnt">14
+&lt;/span>&lt;span class="lnt">15
+&lt;/span>&lt;span class="lnt">16
+&lt;/span>&lt;span class="lnt">17
+&lt;/span>&lt;span class="lnt">18
+&lt;/span>&lt;span class="lnt">19
+&lt;/span>&lt;span class="lnt">20
+&lt;/span>&lt;span class="lnt">21
+&lt;/span>&lt;span class="lnt">22
+&lt;/span>&lt;span class="lnt">23
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-verilog" data-lang="verilog">&lt;span class="line">&lt;span class="cl">&lt;span class="c1">// synthesis verilog_input_version verilog_2001
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">&lt;/span>&lt;span class="k">module&lt;/span> &lt;span class="n">top_module&lt;/span> &lt;span class="p">(&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">input&lt;/span> &lt;span class="n">cpu_overheated&lt;/span>&lt;span class="p">,&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">output&lt;/span> &lt;span class="kt">reg&lt;/span> &lt;span class="n">shut_off_computer&lt;/span>&lt;span class="p">,&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">input&lt;/span> &lt;span class="n">arrived&lt;/span>&lt;span class="p">,&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">input&lt;/span> &lt;span class="n">gas_tank_empty&lt;/span>&lt;span class="p">,&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">output&lt;/span> &lt;span class="kt">reg&lt;/span> &lt;span class="n">keep_driving&lt;/span> &lt;span class="p">);&lt;/span> &lt;span class="c1">//
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">always&lt;/span> &lt;span class="p">@(&lt;/span>&lt;span class="o">*&lt;/span>&lt;span class="p">)&lt;/span> &lt;span class="k">begin&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">if&lt;/span> &lt;span class="p">(&lt;/span>&lt;span class="n">cpu_overheated&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">shut_off_computer&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="mh">1&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">else&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">shut_off_computer&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="mh">0&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">end&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">always&lt;/span> &lt;span class="p">@(&lt;/span>&lt;span class="o">*&lt;/span>&lt;span class="p">)&lt;/span> &lt;span class="k">begin&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">if&lt;/span> &lt;span class="p">(&lt;/span>&lt;span class="o">~&lt;/span>&lt;span class="n">arrived&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">keep_driving&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="o">~&lt;/span>&lt;span class="n">gas_tank_empty&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">else&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">keep_driving&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="mh">0&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">end&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="k">endmodule&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>&lt;img src="https://todd.scuteee.com/digitalic/hdlbits%E5%88%B7%E9%A2%98/verilog-language/procedures/images/%E9%97%AE%E9%A2%9833-testbench.png"
+width="555"
+height="358"
+srcset="https://todd.scuteee.com/digitalic/hdlbits%E5%88%B7%E9%A2%98/verilog-language/procedures/images/%E9%97%AE%E9%A2%9833-testbench_hucc2f302e188051e802d14cc2f6ff91e0_16687_480x0_resize_box_3.png 480w, https://todd.scuteee.com/digitalic/hdlbits%E5%88%B7%E9%A2%98/verilog-language/procedures/images/%E9%97%AE%E9%A2%9833-testbench_hucc2f302e188051e802d14cc2f6ff91e0_16687_1024x0_resize_box_3.png 1024w"
+loading="lazy"
+alt="问题33-testbench"
+class="gallery-image"
+data-flex-grow="155"
+data-flex-basis="372px"
+>&lt;/p>
+&lt;h2 id="case-statement">Case Statement&lt;/h2>
+&lt;p>Case statements in Verilog are nearly equivalent to a sequence of if-elseif-else that compares one expression to a list of others.&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;span class="lnt">5
+&lt;/span>&lt;span class="lnt">6
+&lt;/span>&lt;span class="lnt">7
+&lt;/span>&lt;span class="lnt">8
+&lt;/span>&lt;span class="lnt">9
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-verilog" data-lang="verilog">&lt;span class="line">&lt;span class="cl">&lt;span class="k">always&lt;/span> &lt;span class="p">@(&lt;/span>&lt;span class="o">*&lt;/span>&lt;span class="p">)&lt;/span> &lt;span class="k">begin&lt;/span> &lt;span class="c1">// This is a combinational circuit
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">&lt;/span> &lt;span class="k">case&lt;/span> &lt;span class="p">(&lt;/span>&lt;span class="n">in&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="mh">1&lt;/span>&lt;span class="mb">&amp;#39;b1&lt;/span>&lt;span class="o">:&lt;/span> &lt;span class="k">begin&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">out&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="mh">1&lt;/span>&lt;span class="mb">&amp;#39;b1&lt;/span>&lt;span class="p">;&lt;/span> &lt;span class="c1">// begin-end if &amp;gt;1 statement
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">&lt;/span> &lt;span class="k">end&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="mh">1&lt;/span>&lt;span class="mb">&amp;#39;b0&lt;/span>&lt;span class="o">:&lt;/span> &lt;span class="n">out&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="mh">1&lt;/span>&lt;span class="mb">&amp;#39;b0&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">default&lt;/span>&lt;span class="o">:&lt;/span> &lt;span class="n">out&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="mh">1&lt;/span>&lt;span class="p">&amp;#39;&lt;/span>&lt;span class="n">bx&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">endcase&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="k">end&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;ul>
+&lt;li>Each case item can execute exactly one statement. This makes the &amp;ldquo;break&amp;rdquo; used in C unnecessary. But this means that if you need more than one statement, you must use &lt;code>begin ... end&lt;/code>.&lt;/li>
+&lt;li>Duplicate (and partially overlapping) case items are permitted. The first one that matches is used. C does not allow duplicate case items.&lt;/li>
+&lt;/ul>
+&lt;h3 id="问题34">问题34&lt;/h3>
+&lt;ul>
+&lt;li>题目：Case statements are more convenient than if statements if there are a large number of cases. So, in this exercise, create a 6-to-1 multiplexer. When sel is between 0 and 5, choose the corresponding data input. Otherwise, output 0. The data inputs and outputs are all 4 bits wide.&lt;/li>
+&lt;li>提示：Be careful of inferring latches&lt;/li>
+&lt;/ul>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;/span>&lt;span class="lnt"> 2
+&lt;/span>&lt;span class="lnt"> 3
+&lt;/span>&lt;span class="lnt"> 4
+&lt;/span>&lt;span class="lnt"> 5
+&lt;/span>&lt;span class="lnt"> 6
+&lt;/span>&lt;span class="lnt"> 7
+&lt;/span>&lt;span class="lnt"> 8
+&lt;/span>&lt;span class="lnt"> 9
+&lt;/span>&lt;span class="lnt">10
+&lt;/span>&lt;span class="lnt">11
+&lt;/span>&lt;span class="lnt">12
+&lt;/span>&lt;span class="lnt">13
+&lt;/span>&lt;span class="lnt">14
+&lt;/span>&lt;span class="lnt">15
+&lt;/span>&lt;span class="lnt">16
+&lt;/span>&lt;span class="lnt">17
+&lt;/span>&lt;span class="lnt">18
+&lt;/span>&lt;span class="lnt">19
+&lt;/span>&lt;span class="lnt">20
+&lt;/span>&lt;span class="lnt">21
+&lt;/span>&lt;span class="lnt">22
+&lt;/span>&lt;span class="lnt">23
+&lt;/span>&lt;span class="lnt">24
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-verilog" data-lang="verilog">&lt;span class="line">&lt;span class="cl">&lt;span class="c1">// synthesis verilog_input_version verilog_2001
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">&lt;/span>&lt;span class="k">module&lt;/span> &lt;span class="n">top_module&lt;/span> &lt;span class="p">(&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">input&lt;/span> &lt;span class="p">[&lt;/span>&lt;span class="mh">2&lt;/span>&lt;span class="o">:&lt;/span>&lt;span class="mh">0&lt;/span>&lt;span class="p">]&lt;/span> &lt;span class="n">sel&lt;/span>&lt;span class="p">,&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">input&lt;/span> &lt;span class="p">[&lt;/span>&lt;span class="mh">3&lt;/span>&lt;span class="o">:&lt;/span>&lt;span class="mh">0&lt;/span>&lt;span class="p">]&lt;/span> &lt;span class="n">data0&lt;/span>&lt;span class="p">,&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">input&lt;/span> &lt;span class="p">[&lt;/span>&lt;span class="mh">3&lt;/span>&lt;span class="o">:&lt;/span>&lt;span class="mh">0&lt;/span>&lt;span class="p">]&lt;/span> &lt;span class="n">data1&lt;/span>&lt;span class="p">,&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">input&lt;/span> &lt;span class="p">[&lt;/span>&lt;span class="mh">3&lt;/span>&lt;span class="o">:&lt;/span>&lt;span class="mh">0&lt;/span>&lt;span class="p">]&lt;/span> &lt;span class="n">data2&lt;/span>&lt;span class="p">,&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">input&lt;/span> &lt;span class="p">[&lt;/span>&lt;span class="mh">3&lt;/span>&lt;span class="o">:&lt;/span>&lt;span class="mh">0&lt;/span>&lt;span class="p">]&lt;/span> &lt;span class="n">data3&lt;/span>&lt;span class="p">,&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">input&lt;/span> &lt;span class="p">[&lt;/span>&lt;span class="mh">3&lt;/span>&lt;span class="o">:&lt;/span>&lt;span class="mh">0&lt;/span>&lt;span class="p">]&lt;/span> &lt;span class="n">data4&lt;/span>&lt;span class="p">,&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">input&lt;/span> &lt;span class="p">[&lt;/span>&lt;span class="mh">3&lt;/span>&lt;span class="o">:&lt;/span>&lt;span class="mh">0&lt;/span>&lt;span class="p">]&lt;/span> &lt;span class="n">data5&lt;/span>&lt;span class="p">,&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">output&lt;/span> &lt;span class="kt">reg&lt;/span> &lt;span class="p">[&lt;/span>&lt;span class="mh">3&lt;/span>&lt;span class="o">:&lt;/span>&lt;span class="mh">0&lt;/span>&lt;span class="p">]&lt;/span> &lt;span class="n">out&lt;/span> &lt;span class="p">);&lt;/span>&lt;span class="c1">//
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">always&lt;/span>&lt;span class="p">@(&lt;/span>&lt;span class="o">*&lt;/span>&lt;span class="p">)&lt;/span> &lt;span class="k">begin&lt;/span> &lt;span class="c1">// This is a combinational circuit
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">&lt;/span> &lt;span class="k">case&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">sel&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="mh">0&lt;/span>&lt;span class="o">:&lt;/span> &lt;span class="n">out&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="n">data0&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="mh">1&lt;/span>&lt;span class="o">:&lt;/span> &lt;span class="n">out&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="n">data1&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="mh">2&lt;/span>&lt;span class="o">:&lt;/span> &lt;span class="n">out&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="n">data2&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="mh">3&lt;/span>&lt;span class="o">:&lt;/span> &lt;span class="n">out&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="n">data3&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="mh">4&lt;/span>&lt;span class="o">:&lt;/span> &lt;span class="n">out&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="n">data4&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="mh">5&lt;/span>&lt;span class="o">:&lt;/span> &lt;span class="n">out&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="n">data5&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">default&lt;/span>&lt;span class="o">:&lt;/span> &lt;span class="n">out&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="mh">0&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">endcase&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">end&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="k">endmodule&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h2 id="priority-encoder问题35">Priority Encoder（问题35）&lt;/h2>
+&lt;ul>
+&lt;li>
+&lt;p>题目：A priority encoder is a combinational circuit that, when given an input bit vector, outputs the position of the first 1 bit in the vector. For example, a 8-bit priority encoder given the input 8&amp;rsquo;b10010000 would output 3&amp;rsquo;d4, because bit[4] is first bit that is high.&lt;/p>
+&lt;p>Build a 4-bit priority encoder. For this problem, if none of the input bits are high (i.e., input is zero), output zero. Note that a 4-bit number has 16 possible combinations.&lt;/p>
+&lt;/li>
+&lt;/ul>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;/span>&lt;span class="lnt"> 2
+&lt;/span>&lt;span class="lnt"> 3
+&lt;/span>&lt;span class="lnt"> 4
+&lt;/span>&lt;span class="lnt"> 5
+&lt;/span>&lt;span class="lnt"> 6
+&lt;/span>&lt;span class="lnt"> 7
+&lt;/span>&lt;span class="lnt"> 8
+&lt;/span>&lt;span class="lnt"> 9
+&lt;/span>&lt;span class="lnt">10
+&lt;/span>&lt;span class="lnt">11
+&lt;/span>&lt;span class="lnt">12
+&lt;/span>&lt;span class="lnt">13
+&lt;/span>&lt;span class="lnt">14
+&lt;/span>&lt;span class="lnt">15
+&lt;/span>&lt;span class="lnt">16
+&lt;/span>&lt;span class="lnt">17
+&lt;/span>&lt;span class="lnt">18
+&lt;/span>&lt;span class="lnt">19
+&lt;/span>&lt;span class="lnt">20
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-verilog" data-lang="verilog">&lt;span class="line">&lt;span class="cl">&lt;span class="c1">// synthesis verilog_input_version verilog_2001
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">&lt;/span>&lt;span class="k">module&lt;/span> &lt;span class="n">top_module&lt;/span> &lt;span class="p">(&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">input&lt;/span> &lt;span class="p">[&lt;/span>&lt;span class="mh">3&lt;/span>&lt;span class="o">:&lt;/span>&lt;span class="mh">0&lt;/span>&lt;span class="p">]&lt;/span> &lt;span class="n">in&lt;/span>&lt;span class="p">,&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">output&lt;/span> &lt;span class="kt">reg&lt;/span> &lt;span class="p">[&lt;/span>&lt;span class="mh">1&lt;/span>&lt;span class="o">:&lt;/span>&lt;span class="mh">0&lt;/span>&lt;span class="p">]&lt;/span> &lt;span class="n">pos&lt;/span> &lt;span class="p">);&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">always&lt;/span> &lt;span class="p">@(&lt;/span>&lt;span class="o">*&lt;/span>&lt;span class="p">)&lt;/span> &lt;span class="k">begin&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">case&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">in&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="mh">4&lt;/span>&lt;span class="mb">&amp;#39;b0001&lt;/span>&lt;span class="o">:&lt;/span> &lt;span class="n">pos&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="mh">0&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="mh">4&lt;/span>&lt;span class="mb">&amp;#39;b0010&lt;/span>&lt;span class="o">:&lt;/span> &lt;span class="n">pos&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="mh">1&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="mh">4&lt;/span>&lt;span class="mb">&amp;#39;b0110&lt;/span>&lt;span class="o">:&lt;/span> &lt;span class="n">pos&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="mh">1&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="mh">4&lt;/span>&lt;span class="mb">&amp;#39;b1010&lt;/span>&lt;span class="o">:&lt;/span> &lt;span class="n">pos&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="mh">1&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="mh">4&lt;/span>&lt;span class="mb">&amp;#39;b1110&lt;/span>&lt;span class="o">:&lt;/span> &lt;span class="n">pos&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="mh">1&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="mh">4&lt;/span>&lt;span class="mb">&amp;#39;b0100&lt;/span>&lt;span class="o">:&lt;/span> &lt;span class="n">pos&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="mh">2&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="mh">4&lt;/span>&lt;span class="mb">&amp;#39;b1100&lt;/span>&lt;span class="o">:&lt;/span> &lt;span class="n">pos&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="mh">2&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="mh">4&lt;/span>&lt;span class="mb">&amp;#39;b1000&lt;/span>&lt;span class="o">:&lt;/span> &lt;span class="n">pos&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="mh">3&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">default&lt;/span>&lt;span class="o">:&lt;/span> &lt;span class="n">pos&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="mh">0&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">endcase&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">end&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="k">endmodule&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>&lt;img src="https://todd.scuteee.com/digitalic/hdlbits%E5%88%B7%E9%A2%98/verilog-language/procedures/images/%E9%97%AE%E9%A2%9835-testbench.png"
+width="936"
+height="237"
+srcset="https://todd.scuteee.com/digitalic/hdlbits%E5%88%B7%E9%A2%98/verilog-language/procedures/images/%E9%97%AE%E9%A2%9835-testbench_hua6d11ce3e78734952cfdfac00540e64a_15352_480x0_resize_box_3.png 480w, https://todd.scuteee.com/digitalic/hdlbits%E5%88%B7%E9%A2%98/verilog-language/procedures/images/%E9%97%AE%E9%A2%9835-testbench_hua6d11ce3e78734952cfdfac00540e64a_15352_1024x0_resize_box_3.png 1024w"
+loading="lazy"
+alt="问题35-testbench"
+class="gallery-image"
+data-flex-grow="394"
+data-flex-basis="947px"
+>&lt;/p>
+&lt;h3 id="priority-encoder-with-casez问题36">Priority encoder with casez（问题36）&lt;/h3>
+&lt;p>可以利用 &lt;code>casez&lt;/code> 来简化 priority encode. &lt;code>casez&lt;/code> 会把 &lt;code>z&lt;/code> 当作无关紧要的值，比如：&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;span class="lnt">5
+&lt;/span>&lt;span class="lnt">6
+&lt;/span>&lt;span class="lnt">7
+&lt;/span>&lt;span class="lnt">8
+&lt;/span>&lt;span class="lnt">9
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-verilog" data-lang="verilog">&lt;span class="line">&lt;span class="cl">&lt;span class="k">always&lt;/span> &lt;span class="p">@(&lt;/span>&lt;span class="o">*&lt;/span>&lt;span class="p">)&lt;/span> &lt;span class="k">begin&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">casez&lt;/span> &lt;span class="p">(&lt;/span>&lt;span class="n">in&lt;/span>&lt;span class="p">[&lt;/span>&lt;span class="mh">3&lt;/span>&lt;span class="o">:&lt;/span>&lt;span class="mh">0&lt;/span>&lt;span class="p">])&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="mh">4&lt;/span>&lt;span class="p">&amp;#39;&lt;/span>&lt;span class="nl">bzzz1:&lt;/span> &lt;span class="n">out&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="mh">0&lt;/span>&lt;span class="p">;&lt;/span> &lt;span class="c1">// in[3:1] can be anything
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">&lt;/span> &lt;span class="mh">4&lt;/span>&lt;span class="p">&amp;#39;&lt;/span>&lt;span class="nl">bzz1z:&lt;/span> &lt;span class="n">out&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="mh">1&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="mh">4&lt;/span>&lt;span class="p">&amp;#39;&lt;/span>&lt;span class="nl">bz1zz:&lt;/span> &lt;span class="n">out&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="mh">2&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="mh">4&lt;/span>&lt;span class="mb">&amp;#39;b1&lt;/span>&lt;span class="nl">zzz:&lt;/span> &lt;span class="n">out&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="mh">3&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">default&lt;/span>&lt;span class="o">:&lt;/span> &lt;span class="n">out&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="mh">0&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">endcase&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="k">end&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>case statement 会逐个检查每一项，会选择第一个匹配的项。&lt;/p>
+&lt;p>另外还有一个 &lt;code>casex&lt;/code> 会把 &lt;code>x&lt;/code> 和 &lt;code>z&lt;/code> 都看作无关紧要的。另外，&lt;code>?&lt;/code> is a synonym for &lt;code>z&lt;/code>.&lt;/p>
+&lt;ul>
+&lt;li>题目：Build a priority encoder for 8-bit inputs. Given an 8-bit vector, the output should report the first (least significant) bit in the vector that is 1. Report zero if the input vector has no bits that are high. For example, the input 8&amp;rsquo;b10010000 should output 3&amp;rsquo;d4, because bit[4] is first bit that is high.&lt;/li>
+&lt;/ul>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;/span>&lt;span class="lnt"> 2
+&lt;/span>&lt;span class="lnt"> 3
+&lt;/span>&lt;span class="lnt"> 4
+&lt;/span>&lt;span class="lnt"> 5
+&lt;/span>&lt;span class="lnt"> 6
+&lt;/span>&lt;span class="lnt"> 7
+&lt;/span>&lt;span class="lnt"> 8
+&lt;/span>&lt;span class="lnt"> 9
+&lt;/span>&lt;span class="lnt">10
+&lt;/span>&lt;span class="lnt">11
+&lt;/span>&lt;span class="lnt">12
+&lt;/span>&lt;span class="lnt">13
+&lt;/span>&lt;span class="lnt">14
+&lt;/span>&lt;span class="lnt">15
+&lt;/span>&lt;span class="lnt">16
+&lt;/span>&lt;span class="lnt">17
+&lt;/span>&lt;span class="lnt">18
+&lt;/span>&lt;span class="lnt">19
+&lt;/span>&lt;span class="lnt">20
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-verilog" data-lang="verilog">&lt;span class="line">&lt;span class="cl">&lt;span class="c1">// synthesis verilog_input_version verilog_2001
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">&lt;/span>&lt;span class="k">module&lt;/span> &lt;span class="n">top_module&lt;/span> &lt;span class="p">(&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">input&lt;/span> &lt;span class="p">[&lt;/span>&lt;span class="mh">7&lt;/span>&lt;span class="o">:&lt;/span>&lt;span class="mh">0&lt;/span>&lt;span class="p">]&lt;/span> &lt;span class="n">in&lt;/span>&lt;span class="p">,&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">output&lt;/span> &lt;span class="kt">reg&lt;/span> &lt;span class="p">[&lt;/span>&lt;span class="mh">2&lt;/span>&lt;span class="o">:&lt;/span>&lt;span class="mh">0&lt;/span>&lt;span class="p">]&lt;/span> &lt;span class="n">pos&lt;/span> &lt;span class="p">);&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">always&lt;/span> &lt;span class="p">@(&lt;/span>&lt;span class="o">*&lt;/span>&lt;span class="p">)&lt;/span> &lt;span class="k">begin&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">casex&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">in&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="mh">8&lt;/span>&lt;span class="p">&amp;#39;&lt;/span>&lt;span class="nl">bxxxxxxx1:&lt;/span> &lt;span class="n">pos&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="mh">3&lt;/span>&lt;span class="mi">&amp;#39;d0&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="mh">8&lt;/span>&lt;span class="p">&amp;#39;&lt;/span>&lt;span class="nl">bxxxxxx1x:&lt;/span> &lt;span class="n">pos&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="mh">3&lt;/span>&lt;span class="mi">&amp;#39;d1&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="mh">8&lt;/span>&lt;span class="p">&amp;#39;&lt;/span>&lt;span class="nl">bxxxxx1xx:&lt;/span> &lt;span class="n">pos&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="mh">3&lt;/span>&lt;span class="mi">&amp;#39;d2&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="mh">8&lt;/span>&lt;span class="p">&amp;#39;&lt;/span>&lt;span class="nl">bxxxx1xxx:&lt;/span> &lt;span class="n">pos&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="mh">3&lt;/span>&lt;span class="mi">&amp;#39;d3&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="mh">8&lt;/span>&lt;span class="p">&amp;#39;&lt;/span>&lt;span class="nl">bxxx1xxxx:&lt;/span> &lt;span class="n">pos&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="mh">3&lt;/span>&lt;span class="mi">&amp;#39;d4&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="mh">8&lt;/span>&lt;span class="p">&amp;#39;&lt;/span>&lt;span class="nl">bxx1xxxxx:&lt;/span> &lt;span class="n">pos&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="mh">3&lt;/span>&lt;span class="mi">&amp;#39;d5&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="mh">8&lt;/span>&lt;span class="p">&amp;#39;&lt;/span>&lt;span class="nl">bx1xxxxx0:&lt;/span> &lt;span class="n">pos&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="mh">3&lt;/span>&lt;span class="mi">&amp;#39;d6&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="mh">8&lt;/span>&lt;span class="mb">&amp;#39;b1&lt;/span>&lt;span class="nl">xxxxxx0:&lt;/span> &lt;span class="n">pos&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="mh">3&lt;/span>&lt;span class="mi">&amp;#39;d7&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">default&lt;/span>&lt;span class="o">:&lt;/span> &lt;span class="n">pos&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="mh">3&lt;/span>&lt;span class="mi">&amp;#39;d0&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">endcase&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">end&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="k">endmodule&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>&lt;img src="https://todd.scuteee.com/digitalic/hdlbits%E5%88%B7%E9%A2%98/verilog-language/procedures/images/%E9%97%AE%E9%A2%9836-testbench.png"
+width="765"
+height="240"
+srcset="https://todd.scuteee.com/digitalic/hdlbits%E5%88%B7%E9%A2%98/verilog-language/procedures/images/%E9%97%AE%E9%A2%9836-testbench_huac6c6fceacc0fb59e3935633fafe5a0c_15212_480x0_resize_box_3.png 480w, https://todd.scuteee.com/digitalic/hdlbits%E5%88%B7%E9%A2%98/verilog-language/procedures/images/%E9%97%AE%E9%A2%9836-testbench_huac6c6fceacc0fb59e3935633fafe5a0c_15212_1024x0_resize_box_3.png 1024w"
+loading="lazy"
+alt="问题36-testbench"
+class="gallery-image"
+data-flex-grow="318"
+data-flex-basis="765px"
+>&lt;/p>
+&lt;h2 id="avoiding-latches问题37">Avoiding Latches（问题37）&lt;/h2>
+&lt;p>假设要扫描键盘的输入（假设只需要扫描上下左右4个键），如下：&lt;/p>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>Scancode [15:0]&lt;/th>
+&lt;th>Arrow key&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>16&amp;rsquo;he06b&lt;/td>
+&lt;td>left arrow&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>16&amp;rsquo;he072&lt;/td>
+&lt;td>down arrow&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>16&amp;rsquo;he074&lt;/td>
+&lt;td>right arrow&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>16&amp;rsquo;he075&lt;/td>
+&lt;td>up arrow&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Anything else&lt;/td>
+&lt;td>none&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;p>To avoid creating latches, all outputs must be assigned a value in all possible conditions. Simply having a default case is not enough. You must assign a value to all four outputs in all four cases and the default case.This can involve a lot of unnecessary typing. One easy way around this is to assign a &amp;ldquo;default value&amp;rdquo; to the outputs before the case statement:&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;span class="lnt">5
+&lt;/span>&lt;span class="lnt">6
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-verilog" data-lang="verilog">&lt;span class="line">&lt;span class="cl">&lt;span class="k">always&lt;/span> &lt;span class="p">@(&lt;/span>&lt;span class="o">*&lt;/span>&lt;span class="p">)&lt;/span> &lt;span class="k">begin&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">up&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="mh">1&lt;/span>&lt;span class="mb">&amp;#39;b0&lt;/span>&lt;span class="p">;&lt;/span> &lt;span class="n">down&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="mh">1&lt;/span>&lt;span class="mb">&amp;#39;b0&lt;/span>&lt;span class="p">;&lt;/span> &lt;span class="n">left&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="mh">1&lt;/span>&lt;span class="mb">&amp;#39;b0&lt;/span>&lt;span class="p">;&lt;/span> &lt;span class="n">right&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="mh">1&lt;/span>&lt;span class="mb">&amp;#39;b0&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">case&lt;/span> &lt;span class="p">(&lt;/span>&lt;span class="n">scancode&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">...&lt;/span> &lt;span class="c1">// Set to 1 as necessary.
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">&lt;/span> &lt;span class="k">endcase&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="k">end&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>This style of code ensures the outputs are assigned a value (of 0) in all possible cases unless the case statement overrides the assignment. This also means that a default: case item becomes unnecessary.&lt;/p>
+&lt;p>&lt;strong>Reminder&lt;/strong>: The logic synthesizer generates a combinational circuit that behaves equivalently to what the code describes. Hardware does not &amp;ldquo;execute&amp;rdquo; the lines of code in sequence.&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;/span>&lt;span class="lnt"> 2
+&lt;/span>&lt;span class="lnt"> 3
+&lt;/span>&lt;span class="lnt"> 4
+&lt;/span>&lt;span class="lnt"> 5
+&lt;/span>&lt;span class="lnt"> 6
+&lt;/span>&lt;span class="lnt"> 7
+&lt;/span>&lt;span class="lnt"> 8
+&lt;/span>&lt;span class="lnt"> 9
+&lt;/span>&lt;span class="lnt">10
+&lt;/span>&lt;span class="lnt">11
+&lt;/span>&lt;span class="lnt">12
+&lt;/span>&lt;span class="lnt">13
+&lt;/span>&lt;span class="lnt">14
+&lt;/span>&lt;span class="lnt">15
+&lt;/span>&lt;span class="lnt">16
+&lt;/span>&lt;span class="lnt">17
+&lt;/span>&lt;span class="lnt">18
+&lt;/span>&lt;span class="lnt">19
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-verilog" data-lang="verilog">&lt;span class="line">&lt;span class="cl">&lt;span class="c1">// synthesis verilog_input_version verilog_2001
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">&lt;/span>&lt;span class="k">module&lt;/span> &lt;span class="n">top_module&lt;/span> &lt;span class="p">(&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">input&lt;/span> &lt;span class="p">[&lt;/span>&lt;span class="mh">15&lt;/span>&lt;span class="o">:&lt;/span>&lt;span class="mh">0&lt;/span>&lt;span class="p">]&lt;/span> &lt;span class="n">scancode&lt;/span>&lt;span class="p">,&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">output&lt;/span> &lt;span class="kt">reg&lt;/span> &lt;span class="n">left&lt;/span>&lt;span class="p">,&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">output&lt;/span> &lt;span class="kt">reg&lt;/span> &lt;span class="n">down&lt;/span>&lt;span class="p">,&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">output&lt;/span> &lt;span class="kt">reg&lt;/span> &lt;span class="n">right&lt;/span>&lt;span class="p">,&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">output&lt;/span> &lt;span class="kt">reg&lt;/span> &lt;span class="n">up&lt;/span> &lt;span class="p">);&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">always&lt;/span> &lt;span class="p">@(&lt;/span>&lt;span class="o">*&lt;/span>&lt;span class="p">)&lt;/span> &lt;span class="k">begin&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">up&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="mh">1&lt;/span>&lt;span class="mb">&amp;#39;b0&lt;/span>&lt;span class="p">;&lt;/span> &lt;span class="n">down&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="mh">1&lt;/span>&lt;span class="mb">&amp;#39;b0&lt;/span>&lt;span class="p">;&lt;/span> &lt;span class="n">left&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="mh">1&lt;/span>&lt;span class="mb">&amp;#39;b0&lt;/span>&lt;span class="p">;&lt;/span> &lt;span class="n">right&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="mh">1&lt;/span>&lt;span class="mb">&amp;#39;b0&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">case&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">scancode&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="mh">16&amp;#39;he06b&lt;/span>&lt;span class="o">:&lt;/span> &lt;span class="n">left&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="mh">1&lt;/span>&lt;span class="mb">&amp;#39;b1&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="mh">16&amp;#39;he072&lt;/span>&lt;span class="o">:&lt;/span> &lt;span class="n">down&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="mh">1&lt;/span>&lt;span class="mb">&amp;#39;b1&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="mh">16&amp;#39;he074&lt;/span>&lt;span class="o">:&lt;/span> &lt;span class="n">right&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="mh">1&lt;/span>&lt;span class="mb">&amp;#39;b1&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="mh">16&amp;#39;he075&lt;/span>&lt;span class="o">:&lt;/span> &lt;span class="n">up&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="mh">1&lt;/span>&lt;span class="mb">&amp;#39;b1&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">endcase&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">end&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="k">endmodule&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>&lt;img src="https://todd.scuteee.com/digitalic/hdlbits%E5%88%B7%E9%A2%98/verilog-language/procedures/images/%E9%97%AE%E9%A2%9837-testbench.png"
+width="834"
+height="423"
+srcset="https://todd.scuteee.com/digitalic/hdlbits%E5%88%B7%E9%A2%98/verilog-language/procedures/images/%E9%97%AE%E9%A2%9837-testbench_huf066637dcf735b96d5313ab24660eda6_21555_480x0_resize_box_3.png 480w, https://todd.scuteee.com/digitalic/hdlbits%E5%88%B7%E9%A2%98/verilog-language/procedures/images/%E9%97%AE%E9%A2%9837-testbench_huf066637dcf735b96d5313ab24660eda6_21555_1024x0_resize_box_3.png 1024w"
+loading="lazy"
+alt="问题37-testbench"
+class="gallery-image"
+data-flex-grow="197"
+data-flex-basis="473px"
+>&lt;/p>
+&lt;p>下面是错误示范。&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;/span>&lt;span class="lnt"> 2
+&lt;/span>&lt;span class="lnt"> 3
+&lt;/span>&lt;span class="lnt"> 4
+&lt;/span>&lt;span class="lnt"> 5
+&lt;/span>&lt;span class="lnt"> 6
+&lt;/span>&lt;span class="lnt"> 7
+&lt;/span>&lt;span class="lnt"> 8
+&lt;/span>&lt;span class="lnt"> 9
+&lt;/span>&lt;span class="lnt">10
+&lt;/span>&lt;span class="lnt">11
+&lt;/span>&lt;span class="lnt">12
+&lt;/span>&lt;span class="lnt">13
+&lt;/span>&lt;span class="lnt">14
+&lt;/span>&lt;span class="lnt">15
+&lt;/span>&lt;span class="lnt">16
+&lt;/span>&lt;span class="lnt">17
+&lt;/span>&lt;span class="lnt">18
+&lt;/span>&lt;span class="lnt">19
+&lt;/span>&lt;span class="lnt">20
+&lt;/span>&lt;span class="lnt">21
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-verilog" data-lang="verilog">&lt;span class="line">&lt;span class="cl">&lt;span class="c1">// synthesis verilog_input_version verilog_2001
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">&lt;/span>&lt;span class="k">module&lt;/span> &lt;span class="n">top_module&lt;/span> &lt;span class="p">(&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">input&lt;/span> &lt;span class="p">[&lt;/span>&lt;span class="mh">15&lt;/span>&lt;span class="o">:&lt;/span>&lt;span class="mh">0&lt;/span>&lt;span class="p">]&lt;/span> &lt;span class="n">scancode&lt;/span>&lt;span class="p">,&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">output&lt;/span> &lt;span class="kt">reg&lt;/span> &lt;span class="n">left&lt;/span>&lt;span class="p">,&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">output&lt;/span> &lt;span class="kt">reg&lt;/span> &lt;span class="n">down&lt;/span>&lt;span class="p">,&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">output&lt;/span> &lt;span class="kt">reg&lt;/span> &lt;span class="n">right&lt;/span>&lt;span class="p">,&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">output&lt;/span> &lt;span class="kt">reg&lt;/span> &lt;span class="n">up&lt;/span> &lt;span class="p">);&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">always&lt;/span> &lt;span class="p">@(&lt;/span>&lt;span class="o">*&lt;/span>&lt;span class="p">)&lt;/span> &lt;span class="k">begin&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">case&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">scancode&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="mh">16&amp;#39;he06b&lt;/span>&lt;span class="o">:&lt;/span> &lt;span class="n">left&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="mh">1&lt;/span>&lt;span class="mb">&amp;#39;b1&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="mh">16&amp;#39;he072&lt;/span>&lt;span class="o">:&lt;/span> &lt;span class="n">down&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="mh">1&lt;/span>&lt;span class="mb">&amp;#39;b1&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="mh">16&amp;#39;he074&lt;/span>&lt;span class="o">:&lt;/span> &lt;span class="n">right&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="mh">1&lt;/span>&lt;span class="mb">&amp;#39;b1&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="mh">16&amp;#39;he075&lt;/span>&lt;span class="o">:&lt;/span> &lt;span class="n">up&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="mh">1&lt;/span>&lt;span class="mb">&amp;#39;b1&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">default&lt;/span>&lt;span class="o">:&lt;/span> &lt;span class="k">begin&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">up&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="mh">1&lt;/span>&lt;span class="mb">&amp;#39;b0&lt;/span>&lt;span class="p">;&lt;/span> &lt;span class="n">down&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="mh">1&lt;/span>&lt;span class="mb">&amp;#39;b0&lt;/span>&lt;span class="p">;&lt;/span> &lt;span class="n">left&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="mh">1&lt;/span>&lt;span class="mb">&amp;#39;b0&lt;/span>&lt;span class="p">;&lt;/span> &lt;span class="n">right&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="mh">1&lt;/span>&lt;span class="mb">&amp;#39;b0&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">end&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">endcase&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">end&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="k">endmodule&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>&lt;img src="https://todd.scuteee.com/digitalic/hdlbits%E5%88%B7%E9%A2%98/verilog-language/procedures/images/%E9%97%AE%E9%A2%9837-wrong-testbench.png"
+width="832"
+height="420"
+srcset="https://todd.scuteee.com/digitalic/hdlbits%E5%88%B7%E9%A2%98/verilog-language/procedures/images/%E9%97%AE%E9%A2%9837-wrong-testbench_hufc3b0dba5bd7f50149f58d709d94dc16_21610_480x0_resize_box_3.png 480w, https://todd.scuteee.com/digitalic/hdlbits%E5%88%B7%E9%A2%98/verilog-language/procedures/images/%E9%97%AE%E9%A2%9837-wrong-testbench_hufc3b0dba5bd7f50149f58d709d94dc16_21610_1024x0_resize_box_3.png 1024w"
+loading="lazy"
+alt="问题37-wrong-testbench"
+class="gallery-image"
+data-flex-grow="198"
+data-flex-basis="475px"
+>&lt;/p></description></item><item><title>模块</title><link>https://todd.scuteee.com/digitalic/hdlbits%E5%88%B7%E9%A2%98/verilog-language/module/</link><pubDate>Thu, 17 Nov 2022 20:43:00 +0800</pubDate><guid>https://todd.scuteee.com/digitalic/hdlbits%E5%88%B7%E9%A2%98/verilog-language/module/</guid><description>&lt;h2 id="module">Module&lt;/h2>
 &lt;p>多个小模块可以组合成更大的模块。比如假设有如下一个模块：&lt;/p>
 &lt;div class="highlight">&lt;div class="chroma">
 &lt;table class="lntable">&lt;tr>&lt;td class="lntd">
@@ -37,6 +795,7 @@
 &lt;/div>
 &lt;/div>&lt;/li>
 &lt;/ul>
+&lt;p>如果有端口需要悬空，则直接不写外部的连线即可，如&lt;code>mod_a instance1 ( wa, , wc );&lt;/code> 或 &lt;code>mod_a instance2 ( .out(wc), .in1(wa), .in2( ) );&lt;/code>&lt;/p>
 &lt;h3 id="问题20">问题20&lt;/h3>
 &lt;ul>
 &lt;li>
@@ -250,7 +1009,336 @@ class="gallery-image"
 data-flex-grow="271"
 data-flex-basis="651px"
 >&lt;/p>
-&lt;h3 id="问题24">问题24&lt;/h3></description></item><item><title>向量</title><link>https://todd.scuteee.com/digitalic/hdlbits%E5%88%B7%E9%A2%98/verilog-language/vectors/</link><pubDate>Thu, 17 Nov 2022 16:28:00 +0800</pubDate><guid>https://todd.scuteee.com/digitalic/hdlbits%E5%88%B7%E9%A2%98/verilog-language/vectors/</guid><description>&lt;h2 id="vertor0">Vertor0&lt;/h2>
+&lt;h3 id="问题24">问题24&lt;/h3>
+&lt;ul>
+&lt;li>
+&lt;p>题目：&lt;/p>
+&lt;p>&lt;img src="https://todd.scuteee.com/digitalic/hdlbits%E5%88%B7%E9%A2%98/verilog-language/module/images/Module_shift8.png"
+width="852"
+height="259"
+srcset="https://todd.scuteee.com/digitalic/hdlbits%E5%88%B7%E9%A2%98/verilog-language/module/images/Module_shift8_hu556eafcf008b9304a957acf9fc68ed9a_37165_480x0_resize_box_3.png 480w, https://todd.scuteee.com/digitalic/hdlbits%E5%88%B7%E9%A2%98/verilog-language/module/images/Module_shift8_hu556eafcf008b9304a957acf9fc68ed9a_37165_1024x0_resize_box_3.png 1024w"
+loading="lazy"
+alt="Module_shift8"
+class="gallery-image"
+data-flex-grow="328"
+data-flex-basis="789px"
+>&lt;/p>
+&lt;/li>
+&lt;/ul>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;/span>&lt;span class="lnt"> 2
+&lt;/span>&lt;span class="lnt"> 3
+&lt;/span>&lt;span class="lnt"> 4
+&lt;/span>&lt;span class="lnt"> 5
+&lt;/span>&lt;span class="lnt"> 6
+&lt;/span>&lt;span class="lnt"> 7
+&lt;/span>&lt;span class="lnt"> 8
+&lt;/span>&lt;span class="lnt"> 9
+&lt;/span>&lt;span class="lnt">10
+&lt;/span>&lt;span class="lnt">11
+&lt;/span>&lt;span class="lnt">12
+&lt;/span>&lt;span class="lnt">13
+&lt;/span>&lt;span class="lnt">14
+&lt;/span>&lt;span class="lnt">15
+&lt;/span>&lt;span class="lnt">16
+&lt;/span>&lt;span class="lnt">17
+&lt;/span>&lt;span class="lnt">18
+&lt;/span>&lt;span class="lnt">19
+&lt;/span>&lt;span class="lnt">20
+&lt;/span>&lt;span class="lnt">21
+&lt;/span>&lt;span class="lnt">22
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-verilog" data-lang="verilog">&lt;span class="line">&lt;span class="cl">&lt;span class="k">module&lt;/span> &lt;span class="n">top_module&lt;/span> &lt;span class="p">(&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">input&lt;/span> &lt;span class="n">clk&lt;/span>&lt;span class="p">,&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">input&lt;/span> &lt;span class="p">[&lt;/span>&lt;span class="mh">7&lt;/span>&lt;span class="o">:&lt;/span>&lt;span class="mh">0&lt;/span>&lt;span class="p">]&lt;/span> &lt;span class="n">d&lt;/span>&lt;span class="p">,&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">input&lt;/span> &lt;span class="p">[&lt;/span>&lt;span class="mh">1&lt;/span>&lt;span class="o">:&lt;/span>&lt;span class="mh">0&lt;/span>&lt;span class="p">]&lt;/span> &lt;span class="n">sel&lt;/span>&lt;span class="p">,&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">output&lt;/span> &lt;span class="p">[&lt;/span>&lt;span class="mh">7&lt;/span>&lt;span class="o">:&lt;/span>&lt;span class="mh">0&lt;/span>&lt;span class="p">]&lt;/span> &lt;span class="n">q&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="p">);&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="kt">wire&lt;/span> &lt;span class="p">[&lt;/span>&lt;span class="mh">7&lt;/span>&lt;span class="o">:&lt;/span>&lt;span class="mh">0&lt;/span>&lt;span class="p">]&lt;/span> &lt;span class="n">q1&lt;/span>&lt;span class="p">,&lt;/span>&lt;span class="n">q2&lt;/span>&lt;span class="p">,&lt;/span>&lt;span class="n">q3&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">my_dff8&lt;/span> &lt;span class="n">dff1&lt;/span>&lt;span class="p">(.&lt;/span>&lt;span class="n">clk&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">clk&lt;/span>&lt;span class="p">),&lt;/span> &lt;span class="p">.&lt;/span>&lt;span class="n">d&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">d&lt;/span>&lt;span class="p">),&lt;/span> &lt;span class="p">.&lt;/span>&lt;span class="n">q&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">q1&lt;/span>&lt;span class="p">));&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">my_dff8&lt;/span> &lt;span class="n">dff2&lt;/span>&lt;span class="p">(.&lt;/span>&lt;span class="n">clk&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">clk&lt;/span>&lt;span class="p">),&lt;/span> &lt;span class="p">.&lt;/span>&lt;span class="n">d&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">q1&lt;/span>&lt;span class="p">),&lt;/span> &lt;span class="p">.&lt;/span>&lt;span class="n">q&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">q2&lt;/span>&lt;span class="p">));&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">my_dff8&lt;/span> &lt;span class="n">dff3&lt;/span>&lt;span class="p">(.&lt;/span>&lt;span class="n">clk&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">clk&lt;/span>&lt;span class="p">),&lt;/span> &lt;span class="p">.&lt;/span>&lt;span class="n">d&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">q2&lt;/span>&lt;span class="p">),&lt;/span> &lt;span class="p">.&lt;/span>&lt;span class="n">q&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">q3&lt;/span>&lt;span class="p">));&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">always&lt;/span> &lt;span class="p">@(&lt;/span>&lt;span class="o">*&lt;/span>&lt;span class="p">)&lt;/span> &lt;span class="k">begin&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">case&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">sel&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="mh">0&lt;/span>&lt;span class="o">:&lt;/span> &lt;span class="n">q&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="n">d&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="mh">1&lt;/span>&lt;span class="o">:&lt;/span> &lt;span class="n">q&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="n">q1&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="mh">2&lt;/span>&lt;span class="o">:&lt;/span> &lt;span class="n">q&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="n">q2&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="mh">3&lt;/span>&lt;span class="o">:&lt;/span> &lt;span class="n">q&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="n">q3&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">endcase&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">end&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="k">endmodule&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>&lt;img src="https://todd.scuteee.com/digitalic/hdlbits%E5%88%B7%E9%A2%98/verilog-language/module/images/%E9%97%AE%E9%A2%9824-testbench.png"
+width="885"
+height="297"
+srcset="https://todd.scuteee.com/digitalic/hdlbits%E5%88%B7%E9%A2%98/verilog-language/module/images/%E9%97%AE%E9%A2%9824-testbench_hu870a87a991185caf01d325862636895a_18506_480x0_resize_box_3.png 480w, https://todd.scuteee.com/digitalic/hdlbits%E5%88%B7%E9%A2%98/verilog-language/module/images/%E9%97%AE%E9%A2%9824-testbench_hu870a87a991185caf01d325862636895a_18506_1024x0_resize_box_3.png 1024w"
+loading="lazy"
+alt="问题24-testbench"
+class="gallery-image"
+data-flex-grow="297"
+data-flex-basis="715px"
+>&lt;/p>
+&lt;h3 id="问题25">问题25&lt;/h3>
+&lt;ul>
+&lt;li>
+&lt;p>题目：&lt;/p>
+&lt;p>&lt;img src="https://todd.scuteee.com/digitalic/hdlbits%E5%88%B7%E9%A2%98/verilog-language/module/images/Module_add.png"
+width="491"
+height="304"
+srcset="https://todd.scuteee.com/digitalic/hdlbits%E5%88%B7%E9%A2%98/verilog-language/module/images/Module_add_hu758e14d9b76438a2705a00bf33f5db3e_24998_480x0_resize_box_3.png 480w, https://todd.scuteee.com/digitalic/hdlbits%E5%88%B7%E9%A2%98/verilog-language/module/images/Module_add_hu758e14d9b76438a2705a00bf33f5db3e_24998_1024x0_resize_box_3.png 1024w"
+loading="lazy"
+alt="Module_add"
+class="gallery-image"
+data-flex-grow="161"
+data-flex-basis="387px"
+>&lt;/p>
+&lt;/li>
+&lt;/ul>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;/span>&lt;span class="lnt"> 2
+&lt;/span>&lt;span class="lnt"> 3
+&lt;/span>&lt;span class="lnt"> 4
+&lt;/span>&lt;span class="lnt"> 5
+&lt;/span>&lt;span class="lnt"> 6
+&lt;/span>&lt;span class="lnt"> 7
+&lt;/span>&lt;span class="lnt"> 8
+&lt;/span>&lt;span class="lnt"> 9
+&lt;/span>&lt;span class="lnt">10
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-verilog" data-lang="verilog">&lt;span class="line">&lt;span class="cl">&lt;span class="k">module&lt;/span> &lt;span class="n">top_module&lt;/span>&lt;span class="p">(&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">input&lt;/span> &lt;span class="p">[&lt;/span>&lt;span class="mh">31&lt;/span>&lt;span class="o">:&lt;/span>&lt;span class="mh">0&lt;/span>&lt;span class="p">]&lt;/span> &lt;span class="n">a&lt;/span>&lt;span class="p">,&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">input&lt;/span> &lt;span class="p">[&lt;/span>&lt;span class="mh">31&lt;/span>&lt;span class="o">:&lt;/span>&lt;span class="mh">0&lt;/span>&lt;span class="p">]&lt;/span> &lt;span class="n">b&lt;/span>&lt;span class="p">,&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">output&lt;/span> &lt;span class="p">[&lt;/span>&lt;span class="mh">31&lt;/span>&lt;span class="o">:&lt;/span>&lt;span class="mh">0&lt;/span>&lt;span class="p">]&lt;/span> &lt;span class="n">sum&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="p">);&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="kt">wire&lt;/span> &lt;span class="n">carry&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">add16&lt;/span> &lt;span class="n">low&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">a&lt;/span>&lt;span class="p">[&lt;/span>&lt;span class="mh">15&lt;/span>&lt;span class="o">:&lt;/span>&lt;span class="mh">0&lt;/span>&lt;span class="p">],&lt;/span> &lt;span class="n">b&lt;/span>&lt;span class="p">[&lt;/span>&lt;span class="mh">15&lt;/span>&lt;span class="o">:&lt;/span>&lt;span class="mh">0&lt;/span>&lt;span class="p">],&lt;/span> &lt;span class="mh">1&lt;/span>&lt;span class="mb">&amp;#39;b0&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">sum&lt;/span>&lt;span class="p">[&lt;/span>&lt;span class="mh">15&lt;/span>&lt;span class="o">:&lt;/span>&lt;span class="mh">0&lt;/span>&lt;span class="p">],&lt;/span> &lt;span class="n">carry&lt;/span>&lt;span class="p">);&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">add16&lt;/span> &lt;span class="n">high&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">a&lt;/span>&lt;span class="p">[&lt;/span>&lt;span class="mh">31&lt;/span>&lt;span class="o">:&lt;/span>&lt;span class="mh">16&lt;/span>&lt;span class="p">],&lt;/span> &lt;span class="n">b&lt;/span>&lt;span class="p">[&lt;/span>&lt;span class="mh">31&lt;/span>&lt;span class="o">:&lt;/span>&lt;span class="mh">16&lt;/span>&lt;span class="p">],&lt;/span> &lt;span class="n">carry&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">sum&lt;/span>&lt;span class="p">[&lt;/span>&lt;span class="mh">31&lt;/span>&lt;span class="o">:&lt;/span>&lt;span class="mh">16&lt;/span>&lt;span class="p">],);&lt;/span> &lt;span class="c1">//悬空
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="k">endmodule&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>&lt;img src="https://todd.scuteee.com/digitalic/hdlbits%E5%88%B7%E9%A2%98/verilog-language/module/images/%E9%97%AE%E9%A2%9825-testbench.png"
+width="509"
+height="272"
+srcset="https://todd.scuteee.com/digitalic/hdlbits%E5%88%B7%E9%A2%98/verilog-language/module/images/%E9%97%AE%E9%A2%9825-testbench_hu8e277f0c01a555d5d97a5b169250f20d_11826_480x0_resize_box_3.png 480w, https://todd.scuteee.com/digitalic/hdlbits%E5%88%B7%E9%A2%98/verilog-language/module/images/%E9%97%AE%E9%A2%9825-testbench_hu8e277f0c01a555d5d97a5b169250f20d_11826_1024x0_resize_box_3.png 1024w"
+loading="lazy"
+alt="问题25-testbench"
+class="gallery-image"
+data-flex-grow="187"
+data-flex-basis="449px"
+>&lt;/p>
+&lt;h3 id="问题26">问题26&lt;/h3>
+&lt;ul>
+&lt;li>
+&lt;p>题目：there are three modules in this design:&lt;/p>
+&lt;ul>
+&lt;li>top_module — Your top-level module that contains two of&amp;hellip;&lt;/li>
+&lt;li>add16, provided — A 16-bit adder module that is composed of 16 of&amp;hellip;&lt;/li>
+&lt;li>add1 — A 1-bit full adder module.&lt;/li>
+&lt;/ul>
+&lt;p>&lt;img src="https://todd.scuteee.com/digitalic/hdlbits%E5%88%B7%E9%A2%98/verilog-language/module/images/Module_fadd.png"
+width="665"
+height="671"
+srcset="https://todd.scuteee.com/digitalic/hdlbits%E5%88%B7%E9%A2%98/verilog-language/module/images/Module_fadd_hued10dc26b6b2e240c19f1eb14853228c_46718_480x0_resize_box_3.png 480w, https://todd.scuteee.com/digitalic/hdlbits%E5%88%B7%E9%A2%98/verilog-language/module/images/Module_fadd_hued10dc26b6b2e240c19f1eb14853228c_46718_1024x0_resize_box_3.png 1024w"
+loading="lazy"
+alt="Module_fadd"
+class="gallery-image"
+data-flex-grow="99"
+data-flex-basis="237px"
+>&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>提示：Full adder equations: &lt;code>sum = a ^ b ^ cin&lt;/code> and &lt;code>cout = a&amp;amp;b | a&amp;amp;cin | b&amp;amp;cin&lt;/code>&lt;/p>
+&lt;/li>
+&lt;/ul>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;/span>&lt;span class="lnt"> 2
+&lt;/span>&lt;span class="lnt"> 3
+&lt;/span>&lt;span class="lnt"> 4
+&lt;/span>&lt;span class="lnt"> 5
+&lt;/span>&lt;span class="lnt"> 6
+&lt;/span>&lt;span class="lnt"> 7
+&lt;/span>&lt;span class="lnt"> 8
+&lt;/span>&lt;span class="lnt"> 9
+&lt;/span>&lt;span class="lnt">10
+&lt;/span>&lt;span class="lnt">11
+&lt;/span>&lt;span class="lnt">12
+&lt;/span>&lt;span class="lnt">13
+&lt;/span>&lt;span class="lnt">14
+&lt;/span>&lt;span class="lnt">15
+&lt;/span>&lt;span class="lnt">16
+&lt;/span>&lt;span class="lnt">17
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-verilog" data-lang="verilog">&lt;span class="line">&lt;span class="cl">&lt;span class="k">module&lt;/span> &lt;span class="n">top_module&lt;/span> &lt;span class="p">(&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">input&lt;/span> &lt;span class="p">[&lt;/span>&lt;span class="mh">31&lt;/span>&lt;span class="o">:&lt;/span>&lt;span class="mh">0&lt;/span>&lt;span class="p">]&lt;/span> &lt;span class="n">a&lt;/span>&lt;span class="p">,&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">input&lt;/span> &lt;span class="p">[&lt;/span>&lt;span class="mh">31&lt;/span>&lt;span class="o">:&lt;/span>&lt;span class="mh">0&lt;/span>&lt;span class="p">]&lt;/span> &lt;span class="n">b&lt;/span>&lt;span class="p">,&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">output&lt;/span> &lt;span class="p">[&lt;/span>&lt;span class="mh">31&lt;/span>&lt;span class="o">:&lt;/span>&lt;span class="mh">0&lt;/span>&lt;span class="p">]&lt;/span> &lt;span class="n">sum&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="p">);&lt;/span>&lt;span class="c1">//
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">&lt;/span> &lt;span class="kt">wire&lt;/span> &lt;span class="n">carry&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">add16&lt;/span> &lt;span class="n">low&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">a&lt;/span>&lt;span class="p">[&lt;/span>&lt;span class="mh">15&lt;/span>&lt;span class="o">:&lt;/span>&lt;span class="mh">0&lt;/span>&lt;span class="p">],&lt;/span> &lt;span class="n">b&lt;/span>&lt;span class="p">[&lt;/span>&lt;span class="mh">15&lt;/span>&lt;span class="o">:&lt;/span>&lt;span class="mh">0&lt;/span>&lt;span class="p">],&lt;/span> &lt;span class="mh">1&lt;/span>&lt;span class="mb">&amp;#39;b0&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">sum&lt;/span>&lt;span class="p">[&lt;/span>&lt;span class="mh">15&lt;/span>&lt;span class="o">:&lt;/span>&lt;span class="mh">0&lt;/span>&lt;span class="p">],&lt;/span> &lt;span class="n">carry&lt;/span>&lt;span class="p">);&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">add16&lt;/span> &lt;span class="n">high&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">a&lt;/span>&lt;span class="p">[&lt;/span>&lt;span class="mh">31&lt;/span>&lt;span class="o">:&lt;/span>&lt;span class="mh">16&lt;/span>&lt;span class="p">],&lt;/span> &lt;span class="n">b&lt;/span>&lt;span class="p">[&lt;/span>&lt;span class="mh">31&lt;/span>&lt;span class="o">:&lt;/span>&lt;span class="mh">16&lt;/span>&lt;span class="p">],&lt;/span> &lt;span class="n">carry&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">sum&lt;/span>&lt;span class="p">[&lt;/span>&lt;span class="mh">31&lt;/span>&lt;span class="o">:&lt;/span>&lt;span class="mh">16&lt;/span>&lt;span class="p">],);&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="k">endmodule&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="k">module&lt;/span> &lt;span class="n">add1&lt;/span> &lt;span class="p">(&lt;/span> &lt;span class="k">input&lt;/span> &lt;span class="n">a&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="k">input&lt;/span> &lt;span class="n">b&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="k">input&lt;/span> &lt;span class="n">cin&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="k">output&lt;/span> &lt;span class="n">sum&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="k">output&lt;/span> &lt;span class="n">cout&lt;/span> &lt;span class="p">);&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">// Full adder module here
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">&lt;/span> &lt;span class="k">assign&lt;/span> &lt;span class="p">{&lt;/span>&lt;span class="n">cout&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">sum&lt;/span>&lt;span class="p">}&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="n">a&lt;/span>&lt;span class="o">+&lt;/span>&lt;span class="n">b&lt;/span>&lt;span class="o">+&lt;/span>&lt;span class="n">cin&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="k">endmodule&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h3 id="问题28">问题28&lt;/h3>
+&lt;ul>
+&lt;li>
+&lt;p>题目：并行加法器&lt;/p>
+&lt;p>&lt;img src="https://todd.scuteee.com/digitalic/hdlbits%E5%88%B7%E9%A2%98/verilog-language/module/images/Module_cseladd.png"
+width="575"
+height="396"
+srcset="https://todd.scuteee.com/digitalic/hdlbits%E5%88%B7%E9%A2%98/verilog-language/module/images/Module_cseladd_huf57cd0f9f5e23a6fbc0bdc4979b17ac2_36103_480x0_resize_box_3.png 480w, https://todd.scuteee.com/digitalic/hdlbits%E5%88%B7%E9%A2%98/verilog-language/module/images/Module_cseladd_huf57cd0f9f5e23a6fbc0bdc4979b17ac2_36103_1024x0_resize_box_3.png 1024w"
+loading="lazy"
+alt="Module_cseladd"
+class="gallery-image"
+data-flex-grow="145"
+data-flex-basis="348px"
+>&lt;/p>
+&lt;/li>
+&lt;/ul>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;/span>&lt;span class="lnt"> 2
+&lt;/span>&lt;span class="lnt"> 3
+&lt;/span>&lt;span class="lnt"> 4
+&lt;/span>&lt;span class="lnt"> 5
+&lt;/span>&lt;span class="lnt"> 6
+&lt;/span>&lt;span class="lnt"> 7
+&lt;/span>&lt;span class="lnt"> 8
+&lt;/span>&lt;span class="lnt"> 9
+&lt;/span>&lt;span class="lnt">10
+&lt;/span>&lt;span class="lnt">11
+&lt;/span>&lt;span class="lnt">12
+&lt;/span>&lt;span class="lnt">13
+&lt;/span>&lt;span class="lnt">14
+&lt;/span>&lt;span class="lnt">15
+&lt;/span>&lt;span class="lnt">16
+&lt;/span>&lt;span class="lnt">17
+&lt;/span>&lt;span class="lnt">18
+&lt;/span>&lt;span class="lnt">19
+&lt;/span>&lt;span class="lnt">20
+&lt;/span>&lt;span class="lnt">21
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-verilog" data-lang="verilog">&lt;span class="line">&lt;span class="cl">&lt;span class="k">module&lt;/span> &lt;span class="n">top_module&lt;/span>&lt;span class="p">(&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">input&lt;/span> &lt;span class="p">[&lt;/span>&lt;span class="mh">31&lt;/span>&lt;span class="o">:&lt;/span>&lt;span class="mh">0&lt;/span>&lt;span class="p">]&lt;/span> &lt;span class="n">a&lt;/span>&lt;span class="p">,&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">input&lt;/span> &lt;span class="p">[&lt;/span>&lt;span class="mh">31&lt;/span>&lt;span class="o">:&lt;/span>&lt;span class="mh">0&lt;/span>&lt;span class="p">]&lt;/span> &lt;span class="n">b&lt;/span>&lt;span class="p">,&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">output&lt;/span> &lt;span class="p">[&lt;/span>&lt;span class="mh">31&lt;/span>&lt;span class="o">:&lt;/span>&lt;span class="mh">0&lt;/span>&lt;span class="p">]&lt;/span> &lt;span class="n">sum&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="p">);&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="kt">wire&lt;/span> &lt;span class="n">sel&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="kt">wire&lt;/span> &lt;span class="p">[&lt;/span>&lt;span class="mh">15&lt;/span>&lt;span class="o">:&lt;/span>&lt;span class="mh">0&lt;/span>&lt;span class="p">]&lt;/span> &lt;span class="n">high0_out&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">high1_out&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">add16&lt;/span> &lt;span class="n">low&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">a&lt;/span>&lt;span class="p">[&lt;/span>&lt;span class="mh">15&lt;/span>&lt;span class="o">:&lt;/span>&lt;span class="mh">0&lt;/span>&lt;span class="p">],&lt;/span> &lt;span class="n">b&lt;/span>&lt;span class="p">[&lt;/span>&lt;span class="mh">15&lt;/span>&lt;span class="o">:&lt;/span>&lt;span class="mh">0&lt;/span>&lt;span class="p">],&lt;/span> &lt;span class="mh">0&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">sum&lt;/span>&lt;span class="p">[&lt;/span>&lt;span class="mh">15&lt;/span>&lt;span class="o">:&lt;/span>&lt;span class="mh">0&lt;/span>&lt;span class="p">],&lt;/span> &lt;span class="n">sel&lt;/span>&lt;span class="p">);&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">add16&lt;/span> &lt;span class="n">high0&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">a&lt;/span>&lt;span class="p">[&lt;/span>&lt;span class="mh">31&lt;/span>&lt;span class="o">:&lt;/span>&lt;span class="mh">16&lt;/span>&lt;span class="p">],&lt;/span> &lt;span class="n">b&lt;/span>&lt;span class="p">[&lt;/span>&lt;span class="mh">31&lt;/span>&lt;span class="o">:&lt;/span>&lt;span class="mh">16&lt;/span>&lt;span class="p">],&lt;/span> &lt;span class="mh">0&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">high0_out&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="p">);&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">add16&lt;/span> &lt;span class="n">high1&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">a&lt;/span>&lt;span class="p">[&lt;/span>&lt;span class="mh">31&lt;/span>&lt;span class="o">:&lt;/span>&lt;span class="mh">16&lt;/span>&lt;span class="p">],&lt;/span> &lt;span class="n">b&lt;/span>&lt;span class="p">[&lt;/span>&lt;span class="mh">31&lt;/span>&lt;span class="o">:&lt;/span>&lt;span class="mh">16&lt;/span>&lt;span class="p">],&lt;/span> &lt;span class="mh">1&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">high1_out&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="p">);&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">always&lt;/span> &lt;span class="p">@(&lt;/span>&lt;span class="o">*&lt;/span>&lt;span class="p">)&lt;/span> &lt;span class="k">begin&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">case&lt;/span> &lt;span class="p">(&lt;/span>&lt;span class="n">sel&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="mh">1&lt;/span>&lt;span class="mb">&amp;#39;b0&lt;/span>&lt;span class="o">:&lt;/span> &lt;span class="n">sum&lt;/span>&lt;span class="p">[&lt;/span>&lt;span class="mh">31&lt;/span>&lt;span class="o">:&lt;/span>&lt;span class="mh">16&lt;/span>&lt;span class="p">]&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="n">high0_out&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="mh">1&lt;/span>&lt;span class="mb">&amp;#39;b1&lt;/span>&lt;span class="o">:&lt;/span> &lt;span class="n">sum&lt;/span>&lt;span class="p">[&lt;/span>&lt;span class="mh">31&lt;/span>&lt;span class="o">:&lt;/span>&lt;span class="mh">16&lt;/span>&lt;span class="p">]&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="n">high1_out&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">endcase&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">end&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="k">endmodule&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>&lt;img src="https://todd.scuteee.com/digitalic/hdlbits%E5%88%B7%E9%A2%98/verilog-language/module/images/%E9%97%AE%E9%A2%9828-testbench.png"
+width="508"
+height="263"
+srcset="https://todd.scuteee.com/digitalic/hdlbits%E5%88%B7%E9%A2%98/verilog-language/module/images/%E9%97%AE%E9%A2%9828-testbench_hua76993f06ace9505a21839975730d291_11761_480x0_resize_box_3.png 480w, https://todd.scuteee.com/digitalic/hdlbits%E5%88%B7%E9%A2%98/verilog-language/module/images/%E9%97%AE%E9%A2%9828-testbench_hua76993f06ace9505a21839975730d291_11761_1024x0_resize_box_3.png 1024w"
+loading="lazy"
+alt="问题28-testbench"
+class="gallery-image"
+data-flex-grow="193"
+data-flex-basis="463px"
+>&lt;/p>
+&lt;h3 id="问题29">问题29&lt;/h3>
+&lt;ul>
+&lt;li>
+&lt;p>题目：&lt;/p>
+&lt;p>&lt;img src="https://todd.scuteee.com/digitalic/hdlbits%E5%88%B7%E9%A2%98/verilog-language/module/images/Module_addsub.png"
+width="491"
+height="304"
+srcset="https://todd.scuteee.com/digitalic/hdlbits%E5%88%B7%E9%A2%98/verilog-language/module/images/Module_addsub_huea5a9bc2aa1955dca91e4ba0e81b6aa2_27018_480x0_resize_box_3.png 480w, https://todd.scuteee.com/digitalic/hdlbits%E5%88%B7%E9%A2%98/verilog-language/module/images/Module_addsub_huea5a9bc2aa1955dca91e4ba0e81b6aa2_27018_1024x0_resize_box_3.png 1024w"
+loading="lazy"
+alt="Module_addsub.png"
+class="gallery-image"
+data-flex-grow="161"
+data-flex-basis="387px"
+>&lt;/p>
+&lt;/li>
+&lt;/ul>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;/span>&lt;span class="lnt"> 2
+&lt;/span>&lt;span class="lnt"> 3
+&lt;/span>&lt;span class="lnt"> 4
+&lt;/span>&lt;span class="lnt"> 5
+&lt;/span>&lt;span class="lnt"> 6
+&lt;/span>&lt;span class="lnt"> 7
+&lt;/span>&lt;span class="lnt"> 8
+&lt;/span>&lt;span class="lnt"> 9
+&lt;/span>&lt;span class="lnt">10
+&lt;/span>&lt;span class="lnt">11
+&lt;/span>&lt;span class="lnt">12
+&lt;/span>&lt;span class="lnt">13
+&lt;/span>&lt;span class="lnt">14
+&lt;/span>&lt;span class="lnt">15
+&lt;/span>&lt;span class="lnt">16
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-verilog" data-lang="verilog">&lt;span class="line">&lt;span class="cl">&lt;span class="k">module&lt;/span> &lt;span class="n">top_module&lt;/span>&lt;span class="p">(&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">input&lt;/span> &lt;span class="p">[&lt;/span>&lt;span class="mh">31&lt;/span>&lt;span class="o">:&lt;/span>&lt;span class="mh">0&lt;/span>&lt;span class="p">]&lt;/span> &lt;span class="n">a&lt;/span>&lt;span class="p">,&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">input&lt;/span> &lt;span class="p">[&lt;/span>&lt;span class="mh">31&lt;/span>&lt;span class="o">:&lt;/span>&lt;span class="mh">0&lt;/span>&lt;span class="p">]&lt;/span> &lt;span class="n">b&lt;/span>&lt;span class="p">,&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">input&lt;/span> &lt;span class="n">sub&lt;/span>&lt;span class="p">,&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">output&lt;/span> &lt;span class="p">[&lt;/span>&lt;span class="mh">31&lt;/span>&lt;span class="o">:&lt;/span>&lt;span class="mh">0&lt;/span>&lt;span class="p">]&lt;/span> &lt;span class="n">sum&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="p">);&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="kt">wire&lt;/span> &lt;span class="n">cout_low&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="kt">wire&lt;/span> &lt;span class="p">[&lt;/span>&lt;span class="mh">31&lt;/span>&lt;span class="o">:&lt;/span>&lt;span class="mh">0&lt;/span>&lt;span class="p">]&lt;/span> &lt;span class="n">out_xor&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">assign&lt;/span> &lt;span class="n">out_xor&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="n">b&lt;/span>&lt;span class="o">^&lt;/span>&lt;span class="p">{&lt;/span>&lt;span class="mh">32&lt;/span>&lt;span class="p">{&lt;/span>&lt;span class="n">sub&lt;/span>&lt;span class="p">}};&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">add16&lt;/span> &lt;span class="n">low&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">a&lt;/span>&lt;span class="p">[&lt;/span>&lt;span class="mh">15&lt;/span>&lt;span class="o">:&lt;/span>&lt;span class="mh">0&lt;/span>&lt;span class="p">],&lt;/span> &lt;span class="n">out_xor&lt;/span>&lt;span class="p">[&lt;/span>&lt;span class="mh">15&lt;/span>&lt;span class="o">:&lt;/span>&lt;span class="mh">0&lt;/span>&lt;span class="p">],&lt;/span> &lt;span class="n">sub&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">sum&lt;/span>&lt;span class="p">[&lt;/span>&lt;span class="mh">15&lt;/span>&lt;span class="o">:&lt;/span>&lt;span class="mh">0&lt;/span>&lt;span class="p">],&lt;/span> &lt;span class="n">cout_low&lt;/span>&lt;span class="p">);&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">add16&lt;/span> &lt;span class="n">high&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">a&lt;/span>&lt;span class="p">[&lt;/span>&lt;span class="mh">31&lt;/span>&lt;span class="o">:&lt;/span>&lt;span class="mh">16&lt;/span>&lt;span class="p">],&lt;/span> &lt;span class="n">out_xor&lt;/span>&lt;span class="p">[&lt;/span>&lt;span class="mh">31&lt;/span>&lt;span class="o">:&lt;/span>&lt;span class="mh">16&lt;/span>&lt;span class="p">],&lt;/span> &lt;span class="n">cout_low&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">sum&lt;/span>&lt;span class="p">[&lt;/span>&lt;span class="mh">31&lt;/span>&lt;span class="o">:&lt;/span>&lt;span class="mh">16&lt;/span>&lt;span class="p">],&lt;/span> &lt;span class="p">);&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="k">endmodule&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>&lt;img src="https://todd.scuteee.com/digitalic/hdlbits%E5%88%B7%E9%A2%98/verilog-language/module/images/%E9%97%AE%E9%A2%9829-testbench.png"
+width="727"
+height="298"
+srcset="https://todd.scuteee.com/digitalic/hdlbits%E5%88%B7%E9%A2%98/verilog-language/module/images/%E9%97%AE%E9%A2%9829-testbench_hu249a6f11bf6f2873b723e1f3becc4ae8_14684_480x0_resize_box_3.png 480w, https://todd.scuteee.com/digitalic/hdlbits%E5%88%B7%E9%A2%98/verilog-language/module/images/%E9%97%AE%E9%A2%9829-testbench_hu249a6f11bf6f2873b723e1f3becc4ae8_14684_1024x0_resize_box_3.png 1024w"
+loading="lazy"
+alt="问题29-testbench"
+class="gallery-image"
+data-flex-grow="243"
+data-flex-basis="585px"
+>&lt;/p></description></item><item><title>向量</title><link>https://todd.scuteee.com/digitalic/hdlbits%E5%88%B7%E9%A2%98/verilog-language/vectors/</link><pubDate>Thu, 17 Nov 2022 16:28:00 +0800</pubDate><guid>https://todd.scuteee.com/digitalic/hdlbits%E5%88%B7%E9%A2%98/verilog-language/vectors/</guid><description>&lt;h2 id="vertor0">Vertor0&lt;/h2>
 &lt;p>向量是一组信号的集合，比如 &lt;code>wire [7:0] w;&lt;/code> 定义了一个 8-bit 向量。注意向量的位数放在变量名前面（与 C 语言不同），但选择某一位时则与 C 语言一样都是放在变量后面。&lt;/p>
 &lt;p>示例：&lt;/p>
 &lt;div class="highlight">&lt;div class="chroma">
@@ -738,7 +1826,7 @@ data-flex-basis="257px"
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="k">endmodule&lt;/span>
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
 &lt;/div>
-&lt;/div>&lt;p>利用 generate-for-loop（编译器在预处理阶段展开）：&lt;/p>
+&lt;/div>&lt;p>利用 generate-for-loop（编译器在预处理阶段展开，并对定义的 genvar 做简单替换）：&lt;/p>
 &lt;div class="highlight">&lt;div class="chroma">
 &lt;table class="lntable">&lt;tr>&lt;td class="lntd">
 &lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt"> 1
