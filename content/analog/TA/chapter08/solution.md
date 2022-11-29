@@ -56,9 +56,9 @@ $\eta=62.7\%$
 
 ## 8.33
 
-(a) $I_{BQ}=2.473{\rm mA}$
+(a) $I_{BQ}=2.473{\rm mA}$, $I_{CQ}=98.91{\rm mA}$
 
-(b) $I_{CQ}=98.91{\rm mA}$
+(b) $R_L'=121.3\Omega$, $a=3.89$
 
 (c) $\overline{P}_L=333.9{\rm mA}$, $\overline{P}_S=1.187{\rm mA}$
 
