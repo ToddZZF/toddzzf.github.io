@@ -1,4 +1,48 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Todd's Blog</title><link>https://todd.scuteee.com/</link><description>Recent content on Todd's Blog</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><lastBuildDate>Tue, 22 Nov 2022 20:44:18 +0800</lastBuildDate><atom:link href="https://todd.scuteee.com/index.xml" rel="self" type="application/rss+xml"/><item><title>Chapter 8 solution</title><link>https://todd.scuteee.com/analog/ta/chapter08/solution/</link><pubDate>Tue, 22 Nov 2022 20:44:18 +0800</pubDate><guid>https://todd.scuteee.com/analog/ta/chapter08/solution/</guid><description>&lt;h2 id="811">8.11&lt;/h2>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Todd's Blog</title><link>https://todd.scuteee.com/</link><description>Recent content on Todd's Blog</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><lastBuildDate>Tue, 29 Nov 2022 22:07:18 +0800</lastBuildDate><atom:link href="https://todd.scuteee.com/index.xml" rel="self" type="application/rss+xml"/><item><title>Chapter 9 solution</title><link>https://todd.scuteee.com/analog/ta/chapter09/solution/</link><pubDate>Tue, 29 Nov 2022 22:07:18 +0800</pubDate><guid>https://todd.scuteee.com/analog/ta/chapter09/solution/</guid><description>&lt;h2 id="839">8.39&lt;/h2>
+&lt;p>(a) $V_{BB}=1.473{\rm V}$&lt;/p>
+&lt;p>(b) $I_{CQ}=14{\rm mA}$&lt;/p>
+&lt;h2 id="842">8.42&lt;/h2>
+&lt;p>(a) $i_C=2.90{\rm mA}$&lt;/p>
+&lt;p>(b) let $R_L=200{\rm \Omega}$&lt;/p>
+&lt;p>$i_{B1}=41.11{\rm \mu A}$&lt;/p>
+&lt;p>$A_i=3.72\times 10^3$&lt;/p>
+&lt;p>$A_v=0.989$&lt;/p>
+&lt;h2 id="848b">8.48(b)&lt;/h2>
+&lt;p>(a) $V_{BB}=1.281{\rm V}$&lt;/p>
+&lt;p>$I_{C3}=0.4995{\rm mA}$&lt;/p>
+&lt;p>(b) $\overline{P}_L=1{\rm W}$&lt;/p>
+&lt;p>$P_{Q1}=0.2{\rm W}$&lt;/p>
+&lt;p>$P_{Q3}=3.40{\rm mW}$&lt;/p>
+&lt;p>$P_{Q2}=0.352{\rm W}$&lt;/p>
+&lt;h2 id="853">8.53&lt;/h2>
+&lt;h2 id="96">9.6&lt;/h2>
+&lt;p>$A_v=-10$, $R_i=20{\rm k\Omega}$&lt;/p>
+&lt;h2 id="d98">D9.8&lt;/h2>
+&lt;p>(a) $R_2=200{\rm k\Omega}$&lt;/p>
+&lt;p>(b) $i_1=i_2=-7.5{\rm \mu A}$, $v_I=-0.125{\rm V}$&lt;/p>
+&lt;p>(c) $$&lt;/p>
+&lt;h2 id="919">9.19&lt;/h2>
+&lt;p>(a) $v_o=8.8{\rm V}$&lt;/p>
+&lt;p>(b) $A_v=-21.8993$, $v_o=8.7597{\rm V}$&lt;/p>
+&lt;p>(c) $A_v=-21.956$, $A_{od}=1.1477\times 10^4$&lt;/p>
+&lt;h2 id="d935">D9.35&lt;/h2>
+&lt;p>(a) $\dfrac{R_F}{R_1}=\dfrac{1}{2}$, $\dfrac{R_F}{R_2}=4$, $\dfrac{R_F}{R_3}=2$&lt;/p>
+&lt;p>Set $R_1=250{\rm k\Omega}$, $R_F=125{\rm k\Omega}$, $R_2=31.25{\rm k\Omega}$, $R_3=62.5{\rm k\Omega}$&lt;/p>
+&lt;p>(b) $v_o=3{\rm V}$&lt;/p>
+&lt;p>$v_o=-3{\rm V}$&lt;/p>
+&lt;p>$|i_F|_{\rm max}=24{\rm \mu A}$&lt;/p>
+&lt;h2 id="948">9.48&lt;/h2>
+&lt;p>(a) $\dfrac{v_o}{v_I}=11$&lt;/p>
+&lt;p>(b) $v_o=2.75{\rm V}$&lt;/p>
+&lt;p>(c) for R1,R2: $|i|=5{\rm \mu A}$&lt;/p>
+&lt;p>$v_X=-0.45{\rm V}$&lt;/p>
+&lt;p>$V_o=-1.64{\rm V}$&lt;/p>
+&lt;p>$|i|=20{\rm \mu A}$&lt;/p>
+&lt;h2 id="951">9.51&lt;/h2>
+&lt;p>(a) $A_{v1}=(1+\dfrac{R_2}{R_1})$&lt;/p>
+&lt;p>$A_{v2}=-(1+\dfrac{R_2}{R_1})$&lt;/p>
+&lt;p>(b) $v_{o1}=-2{\rm V}$, $v_{o2}=2{\rm V}$&lt;/p>
+&lt;p>(c) $v_{o1}=6.4{\rm V}$&lt;/p></description></item><item><title>Chapter 8 solution</title><link>https://todd.scuteee.com/analog/ta/chapter08/solution/</link><pubDate>Tue, 22 Nov 2022 20:44:18 +0800</pubDate><guid>https://todd.scuteee.com/analog/ta/chapter08/solution/</guid><description>&lt;h2 id="811">8.11&lt;/h2>
 &lt;p>(a) $P_T=13.4{\rm W}$&lt;/p>
 &lt;p>(b) $V_{CEQ}=4.48{\rm V}$, $V_{CC}=2V_{CEQ}=8.96{\rm V}$&lt;/p>
 &lt;h2 id="813">8.13&lt;/h2>
@@ -25,8 +69,8 @@ $$&lt;/p>
 &lt;p>(a) $R_1=53.97{\rm \Omega}$, $i_P=0.208{\rm mA}$&lt;/p>
 &lt;p>(b) $i_D=545{\rm mA}$, $i_N=i_P=545{\rm mA}$&lt;/p>
 &lt;h2 id="833">8.33&lt;/h2>
-&lt;p>(a) $I_{BQ}=2.473{\rm mA}$&lt;/p>
-&lt;p>(b) $I_{CQ}=98.91{\rm mA}$&lt;/p>
+&lt;p>(a) $I_{BQ}=2.473{\rm mA}$, $I_{CQ}=98.91{\rm mA}$&lt;/p>
+&lt;p>(b) $R_L&amp;rsquo;=121.3\Omega$, $a=3.89$&lt;/p>
 &lt;p>(c) $\overline{P}_L=333.9{\rm mA}$, $\overline{P}_S=1.187{\rm mA}$&lt;/p>
 &lt;p>(d) $\eta = 28.1%$&lt;/p></description></item><item><title>关于电容悖论的讨论</title><link>https://todd.scuteee.com/posts/2022/2022-11-19-a-dicussion-of-capacitor/</link><pubDate>Sat, 19 Nov 2022 10:14:00 +0800</pubDate><guid>https://todd.scuteee.com/posts/2022/2022-11-19-a-dicussion-of-capacitor/</guid><description>&lt;h2 id="介绍">介绍&lt;/h2>
 &lt;p>在浏览开关电容的相关内容时看到这个很有意思的&lt;a class="link" href="https://en.wikipedia.org/wiki/Two_capacitor_paradox" target="_blank" rel="noopener"
@@ -155,7 +199,187 @@ $$&lt;/p>
 &lt;li>分析 3 支路电流源电路比 2 支路电流源电路的优越性&lt;/li>
 &lt;/ul>
 &lt;/li>
-&lt;/ol></description></item><item><title>More Verilog Features</title><link>https://todd.scuteee.com/digitalic/hdlbits%E5%88%B7%E9%A2%98/verilog-language/more-verilog-features/</link><pubDate>Fri, 18 Nov 2022 21:22:00 +0800</pubDate><guid>https://todd.scuteee.com/digitalic/hdlbits%E5%88%B7%E9%A2%98/verilog-language/more-verilog-features/</guid><description/></item><item><title>Procedures</title><link>https://todd.scuteee.com/digitalic/hdlbits%E5%88%B7%E9%A2%98/verilog-language/procedures/</link><pubDate>Fri, 18 Nov 2022 13:36:00 +0800</pubDate><guid>https://todd.scuteee.com/digitalic/hdlbits%E5%88%B7%E9%A2%98/verilog-language/procedures/</guid><description>&lt;h2 id="always-blockscombinational">Always Blocks(Combinational)&lt;/h2>
+&lt;/ol></description></item><item><title>More Verilog Features</title><link>https://todd.scuteee.com/digitalic/hdlbits%E5%88%B7%E9%A2%98/verilog-language/more-verilog-features/</link><pubDate>Fri, 18 Nov 2022 21:22:00 +0800</pubDate><guid>https://todd.scuteee.com/digitalic/hdlbits%E5%88%B7%E9%A2%98/verilog-language/more-verilog-features/</guid><description>&lt;h2 id="conditional-ternary-operator">Conditional Ternary Operator&lt;/h2>
+&lt;p>Verilog 有 C 一样的三元运算符 &lt;code>?:&lt;/code>&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;/span>&lt;span class="lnt"> 2
+&lt;/span>&lt;span class="lnt"> 3
+&lt;/span>&lt;span class="lnt"> 4
+&lt;/span>&lt;span class="lnt"> 5
+&lt;/span>&lt;span class="lnt"> 6
+&lt;/span>&lt;span class="lnt"> 7
+&lt;/span>&lt;span class="lnt"> 8
+&lt;/span>&lt;span class="lnt"> 9
+&lt;/span>&lt;span class="lnt">10
+&lt;/span>&lt;span class="lnt">11
+&lt;/span>&lt;span class="lnt">12
+&lt;/span>&lt;span class="lnt">13
+&lt;/span>&lt;span class="lnt">14
+&lt;/span>&lt;span class="lnt">15
+&lt;/span>&lt;span class="lnt">16
+&lt;/span>&lt;span class="lnt">17
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-verilog" data-lang="verilog">&lt;span class="line">&lt;span class="cl">&lt;span class="p">(&lt;/span>&lt;span class="mh">0&lt;/span> &lt;span class="o">?&lt;/span> &lt;span class="mh">3&lt;/span> &lt;span class="o">:&lt;/span> &lt;span class="mh">5&lt;/span>&lt;span class="p">)&lt;/span> &lt;span class="c1">// This is 5 because the condition is false.
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">sel&lt;/span> &lt;span class="o">?&lt;/span> &lt;span class="n">b&lt;/span> &lt;span class="o">:&lt;/span> &lt;span class="n">a&lt;/span>&lt;span class="p">)&lt;/span> &lt;span class="c1">// A 2-to-1 multiplexer between a and b selected by sel.
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="k">always&lt;/span> &lt;span class="p">@(&lt;/span>&lt;span class="k">posedge&lt;/span> &lt;span class="n">clk&lt;/span>&lt;span class="p">)&lt;/span> &lt;span class="c1">// A T-flip-flop.
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">&lt;/span> &lt;span class="n">q&lt;/span> &lt;span class="o">&amp;lt;=&lt;/span> &lt;span class="n">toggle&lt;/span> &lt;span class="o">?&lt;/span> &lt;span class="o">~&lt;/span>&lt;span class="n">q&lt;/span> &lt;span class="o">:&lt;/span> &lt;span class="n">q&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="k">always&lt;/span> &lt;span class="p">@(&lt;/span>&lt;span class="o">*&lt;/span>&lt;span class="p">)&lt;/span> &lt;span class="c1">// State transition logic for a one-input FSM
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">&lt;/span> &lt;span class="k">case&lt;/span> &lt;span class="p">(&lt;/span>&lt;span class="n">state&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nl">A:&lt;/span> &lt;span class="n">next&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="n">w&lt;/span> &lt;span class="o">?&lt;/span> &lt;span class="n">B&lt;/span> &lt;span class="o">:&lt;/span> &lt;span class="n">A&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nl">B:&lt;/span> &lt;span class="n">next&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="n">w&lt;/span> &lt;span class="o">?&lt;/span> &lt;span class="n">A&lt;/span> &lt;span class="o">:&lt;/span> &lt;span class="n">B&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">endcase&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="k">assign&lt;/span> &lt;span class="n">out&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="n">ena&lt;/span> &lt;span class="o">?&lt;/span> &lt;span class="n">q&lt;/span> &lt;span class="o">:&lt;/span> &lt;span class="mh">1&lt;/span>&lt;span class="p">&amp;#39;&lt;/span>&lt;span class="n">bz&lt;/span>&lt;span class="p">;&lt;/span> &lt;span class="c1">// A tri-state buffer
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="p">((&lt;/span>&lt;span class="n">sel&lt;/span>&lt;span class="p">[&lt;/span>&lt;span class="mh">1&lt;/span>&lt;span class="o">:&lt;/span>&lt;span class="mh">0&lt;/span>&lt;span class="p">]&lt;/span> &lt;span class="o">==&lt;/span> &lt;span class="mh">2&amp;#39;h0&lt;/span>&lt;span class="p">)&lt;/span> &lt;span class="o">?&lt;/span> &lt;span class="n">a&lt;/span> &lt;span class="o">:&lt;/span> &lt;span class="c1">// A 3-to-1 mux
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">&lt;/span> &lt;span class="p">(&lt;/span>&lt;span class="n">sel&lt;/span>&lt;span class="p">[&lt;/span>&lt;span class="mh">1&lt;/span>&lt;span class="o">:&lt;/span>&lt;span class="mh">0&lt;/span>&lt;span class="p">]&lt;/span> &lt;span class="o">==&lt;/span> &lt;span class="mh">2&amp;#39;h1&lt;/span>&lt;span class="p">)&lt;/span> &lt;span class="o">?&lt;/span> &lt;span class="n">b&lt;/span> &lt;span class="o">:&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">c&lt;/span> &lt;span class="p">)&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h3 id="问题38">问题38&lt;/h3>
+&lt;ul>
+&lt;li>题目：Given four unsigned numbers, find the minimum. Unsigned numbers can be compared with standard comparison operators (a &amp;lt; b). Use the conditional operator to make two-way min circuits, then compose a few of them to create a 4-way min circuit.&lt;/li>
+&lt;/ul>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;/span>&lt;span class="lnt"> 2
+&lt;/span>&lt;span class="lnt"> 3
+&lt;/span>&lt;span class="lnt"> 4
+&lt;/span>&lt;span class="lnt"> 5
+&lt;/span>&lt;span class="lnt"> 6
+&lt;/span>&lt;span class="lnt"> 7
+&lt;/span>&lt;span class="lnt"> 8
+&lt;/span>&lt;span class="lnt"> 9
+&lt;/span>&lt;span class="lnt">10
+&lt;/span>&lt;span class="lnt">11
+&lt;/span>&lt;span class="lnt">12
+&lt;/span>&lt;span class="lnt">13
+&lt;/span>&lt;span class="lnt">14
+&lt;/span>&lt;span class="lnt">15
+&lt;/span>&lt;span class="lnt">16
+&lt;/span>&lt;span class="lnt">17
+&lt;/span>&lt;span class="lnt">18
+&lt;/span>&lt;span class="lnt">19
+&lt;/span>&lt;span class="lnt">20
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-verilog" data-lang="verilog">&lt;span class="line">&lt;span class="cl">&lt;span class="k">module&lt;/span> &lt;span class="n">top_module&lt;/span> &lt;span class="p">(&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">input&lt;/span> &lt;span class="p">[&lt;/span>&lt;span class="mh">7&lt;/span>&lt;span class="o">:&lt;/span>&lt;span class="mh">0&lt;/span>&lt;span class="p">]&lt;/span> &lt;span class="n">a&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">b&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">c&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">d&lt;/span>&lt;span class="p">,&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">output&lt;/span> &lt;span class="p">[&lt;/span>&lt;span class="mh">7&lt;/span>&lt;span class="o">:&lt;/span>&lt;span class="mh">0&lt;/span>&lt;span class="p">]&lt;/span> &lt;span class="n">min&lt;/span>&lt;span class="p">);&lt;/span>&lt;span class="c1">//
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="c1">// assign intermediate_result1 = compare? true: false;
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">&lt;/span> &lt;span class="kt">wire&lt;/span> &lt;span class="p">[&lt;/span>&lt;span class="mh">7&lt;/span>&lt;span class="o">:&lt;/span>&lt;span class="mh">0&lt;/span>&lt;span class="p">]&lt;/span> &lt;span class="n">min1_output&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">min2_output&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">min_2&lt;/span> &lt;span class="n">min1&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">a&lt;/span>&lt;span class="p">,&lt;/span>&lt;span class="n">b&lt;/span>&lt;span class="p">,&lt;/span>&lt;span class="n">min1_output&lt;/span>&lt;span class="p">);&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">min_2&lt;/span> &lt;span class="n">min2&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">c&lt;/span>&lt;span class="p">,&lt;/span>&lt;span class="n">d&lt;/span>&lt;span class="p">,&lt;/span>&lt;span class="n">min2_output&lt;/span>&lt;span class="p">);&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">min_2&lt;/span> &lt;span class="n">min3&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">min1_output&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">min2_output&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">min&lt;/span>&lt;span class="p">);&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="k">endmodule&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="k">module&lt;/span> &lt;span class="n">min_2&lt;/span>&lt;span class="p">(&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">input&lt;/span> &lt;span class="p">[&lt;/span>&lt;span class="mh">7&lt;/span>&lt;span class="o">:&lt;/span>&lt;span class="mh">0&lt;/span>&lt;span class="p">]&lt;/span> &lt;span class="n">a&lt;/span>&lt;span class="p">,&lt;/span>&lt;span class="n">b&lt;/span>&lt;span class="p">,&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">output&lt;/span> &lt;span class="p">[&lt;/span>&lt;span class="mh">7&lt;/span>&lt;span class="o">:&lt;/span>&lt;span class="mh">0&lt;/span>&lt;span class="p">]&lt;/span> &lt;span class="n">min&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="p">);&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">assign&lt;/span> &lt;span class="n">min&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="n">a&lt;/span>&lt;span class="o">&amp;lt;&lt;/span>&lt;span class="n">b&lt;/span> &lt;span class="o">?&lt;/span> &lt;span class="n">a&lt;/span> &lt;span class="o">:&lt;/span> &lt;span class="n">b&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="k">endmodule&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>&lt;img src="https://todd.scuteee.com/digitalic/hdlbits%E5%88%B7%E9%A2%98/verilog-language/more-verilog-features/images/%E9%97%AE%E9%A2%9838-testbench.png"
+width="487"
+height="326"
+srcset="https://todd.scuteee.com/digitalic/hdlbits%E5%88%B7%E9%A2%98/verilog-language/more-verilog-features/images/%E9%97%AE%E9%A2%9838-testbench_hu34b39bf4b5b570949a8a1b97f5168d14_11760_480x0_resize_box_3.png 480w, https://todd.scuteee.com/digitalic/hdlbits%E5%88%B7%E9%A2%98/verilog-language/more-verilog-features/images/%E9%97%AE%E9%A2%9838-testbench_hu34b39bf4b5b570949a8a1b97f5168d14_11760_1024x0_resize_box_3.png 1024w"
+loading="lazy"
+alt="问题38-testbench"
+class="gallery-image"
+data-flex-grow="149"
+data-flex-basis="358px"
+>&lt;/p>
+&lt;h2 id="reduction-operators">Reduction Operators&lt;/h2>
+&lt;p>Reduction Operators 可以对一个向量的所有位都进行操作，比如：&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-verilog" data-lang="verilog">&lt;span class="line">&lt;span class="cl">&lt;span class="o">&amp;amp;&lt;/span> &lt;span class="n">a&lt;/span>&lt;span class="p">[&lt;/span>&lt;span class="mh">3&lt;/span>&lt;span class="o">:&lt;/span>&lt;span class="mh">0&lt;/span>&lt;span class="p">]&lt;/span> &lt;span class="c1">// AND: a[3]&amp;amp;a[2]&amp;amp;a[1]&amp;amp;a[0]. Equivalent to (a[3:0] == 4&amp;#39;hf)
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">&lt;/span>&lt;span class="o">|&lt;/span> &lt;span class="n">b&lt;/span>&lt;span class="p">[&lt;/span>&lt;span class="mh">3&lt;/span>&lt;span class="o">:&lt;/span>&lt;span class="mh">0&lt;/span>&lt;span class="p">]&lt;/span> &lt;span class="c1">// OR: b[3]|b[2]|b[1]|b[0]. Equivalent to (b[3:0] != 4&amp;#39;h0)
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">&lt;/span>&lt;span class="o">^&lt;/span> &lt;span class="n">c&lt;/span>&lt;span class="p">[&lt;/span>&lt;span class="mh">2&lt;/span>&lt;span class="o">:&lt;/span>&lt;span class="mh">0&lt;/span>&lt;span class="p">]&lt;/span> &lt;span class="c1">// XOR: c[2]^c[1]^c[0]
+&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h3 id="问题39">问题39&lt;/h3>
+&lt;ul>
+&lt;li>题目：Parity checking is often used as a simple method of detecting errors when transmitting data through an imperfect channel. Create a circuit that will compute a parity bit for a 8-bit byte (which will add a 9th bit to the byte). We will use &amp;ldquo;even&amp;rdquo; parity, where the parity bit is just the XOR of all 8 data bits.（偶校验）&lt;/li>
+&lt;/ul>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;span class="lnt">5
+&lt;/span>&lt;span class="lnt">6
+&lt;/span>&lt;span class="lnt">7
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-verilog" data-lang="verilog">&lt;span class="line">&lt;span class="cl">&lt;span class="k">module&lt;/span> &lt;span class="n">top_module&lt;/span> &lt;span class="p">(&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">input&lt;/span> &lt;span class="p">[&lt;/span>&lt;span class="mh">7&lt;/span>&lt;span class="o">:&lt;/span>&lt;span class="mh">0&lt;/span>&lt;span class="p">]&lt;/span> &lt;span class="n">in&lt;/span>&lt;span class="p">,&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">output&lt;/span> &lt;span class="n">parity&lt;/span>&lt;span class="p">);&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">assign&lt;/span> &lt;span class="n">parity&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="o">^&lt;/span>&lt;span class="n">in&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="k">endmodule&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h3 id="问题40">问题40&lt;/h3>
+&lt;ul>
+&lt;li>
+&lt;p>题目：Build a combinational circuit with 100 inputs, in[99:0].&lt;/p>
+&lt;p>There are 3 outputs:&lt;/p>
+&lt;ul>
+&lt;li>out_and: output of a 100-input AND gate.&lt;/li>
+&lt;li>out_or: output of a 100-input OR gate.&lt;/li>
+&lt;li>out_xor: output of a 100-input XOR gate.&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;/span>&lt;span class="lnt"> 2
+&lt;/span>&lt;span class="lnt"> 3
+&lt;/span>&lt;span class="lnt"> 4
+&lt;/span>&lt;span class="lnt"> 5
+&lt;/span>&lt;span class="lnt"> 6
+&lt;/span>&lt;span class="lnt"> 7
+&lt;/span>&lt;span class="lnt"> 8
+&lt;/span>&lt;span class="lnt"> 9
+&lt;/span>&lt;span class="lnt">10
+&lt;/span>&lt;span class="lnt">11
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-verilog" data-lang="verilog">&lt;span class="line">&lt;span class="cl">&lt;span class="k">module&lt;/span> &lt;span class="n">top_module&lt;/span>&lt;span class="p">(&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">input&lt;/span> &lt;span class="p">[&lt;/span>&lt;span class="mh">99&lt;/span>&lt;span class="o">:&lt;/span>&lt;span class="mh">0&lt;/span>&lt;span class="p">]&lt;/span> &lt;span class="n">in&lt;/span>&lt;span class="p">,&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">output&lt;/span> &lt;span class="n">out_and&lt;/span>&lt;span class="p">,&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">output&lt;/span> &lt;span class="n">out_or&lt;/span>&lt;span class="p">,&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">output&lt;/span> &lt;span class="n">out_xor&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="p">);&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">assign&lt;/span> &lt;span class="n">out_and&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="o">&amp;amp;&lt;/span>&lt;span class="n">in&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">assign&lt;/span> &lt;span class="n">out_or&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="o">|&lt;/span>&lt;span class="n">in&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">assign&lt;/span> &lt;span class="n">out_xor&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="o">^&lt;/span>&lt;span class="n">in&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="k">endmodule&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div></description></item><item><title>Procedures</title><link>https://todd.scuteee.com/digitalic/hdlbits%E5%88%B7%E9%A2%98/verilog-language/procedures/</link><pubDate>Fri, 18 Nov 2022 13:36:00 +0800</pubDate><guid>https://todd.scuteee.com/digitalic/hdlbits%E5%88%B7%E9%A2%98/verilog-language/procedures/</guid><description>&lt;h2 id="always-blockscombinational">Always Blocks(Combinational)&lt;/h2>
 &lt;p>For synthesizing hardware, two types of always blocks are relevant:&lt;/p>
 &lt;ul>
 &lt;li>&lt;code>Combinational: always @(*)&lt;/code>&lt;/li>
@@ -6944,58 +7168,58 @@ data-flex-basis="320px"
 &lt;/span>&lt;/code>&lt;/pre>&lt;/td>
 &lt;td class="lntd">
 &lt;pre tabindex="0" class="chroma">&lt;code class="language-go" data-lang="go">&lt;span class="line">&lt;span class="cl">&lt;span class="p">{{&lt;/span>&lt;span class="cm">/* a comment */&lt;/span>&lt;span class="p">}}&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nx">注释&lt;/span>&lt;span class="err">，&lt;/span>&lt;span class="nx">执行时会忽略&lt;/span>&lt;span class="err">。&lt;/span>&lt;span class="nx">可以多行&lt;/span>&lt;span class="err">。&lt;/span>&lt;span class="nx">注释不能嵌套&lt;/span>&lt;span class="err">，&lt;/span>&lt;span class="nx">并且必须紧贴分界符始止&lt;/span>&lt;span class="err">，&lt;/span>&lt;span class="nx">就像这里表示的一样&lt;/span>&lt;span class="err">。&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="err">注释，执行时会忽略。可以多行。注释不能嵌套，并且必须紧贴分界符始止，就像这里表示的一样。&lt;/span>
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="p">{{&lt;/span>&lt;span class="nx">pipeline&lt;/span>&lt;span class="p">}}&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nx">pipeline的值的默认文本表示会被拷贝到输出里&lt;/span>&lt;span class="err">。&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nx">pipeline&lt;/span>&lt;span class="err">的值的默认文本表示会被拷贝到输出里。&lt;/span>
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="p">{{&lt;/span>&lt;span class="k">if&lt;/span> &lt;span class="nx">pipeline&lt;/span>&lt;span class="p">}}&lt;/span> &lt;span class="nx">T1&lt;/span> &lt;span class="p">{{&lt;/span>&lt;span class="nx">end&lt;/span>&lt;span class="p">}}&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nx">如果pipeline的值为empty&lt;/span>&lt;span class="err">，&lt;/span>&lt;span class="nx">不产生输出&lt;/span>&lt;span class="err">，&lt;/span>&lt;span class="nx">否则输出T1执行结果&lt;/span>&lt;span class="err">。&lt;/span>&lt;span class="nx">不改变dot的值&lt;/span>&lt;span class="err">。&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nx">Empty值包括false&lt;/span>&lt;span class="err">、&lt;/span>&lt;span class="mi">0&lt;/span>&lt;span class="err">、&lt;/span>&lt;span class="nx">任意nil指针或者nil接口&lt;/span>&lt;span class="err">，&lt;/span>&lt;span class="nx">任意长度为0的数组&lt;/span>&lt;span class="err">、&lt;/span>&lt;span class="nx">切片&lt;/span>&lt;span class="err">、&lt;/span>&lt;span class="nx">字典&lt;/span>&lt;span class="err">。&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="err">如果&lt;/span>&lt;span class="nx">pipeline&lt;/span>&lt;span class="err">的值为&lt;/span>&lt;span class="nx">empty&lt;/span>&lt;span class="err">，不产生输出，否则输出&lt;/span>&lt;span class="nx">T1&lt;/span>&lt;span class="err">执行结果。不改变&lt;/span>&lt;span class="nx">dot&lt;/span>&lt;span class="err">的值。&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nx">Empty&lt;/span>&lt;span class="err">值包括&lt;/span>&lt;span class="kc">false&lt;/span>&lt;span class="err">、&lt;/span>&lt;span class="mi">0&lt;/span>&lt;span class="err">、任意&lt;/span>&lt;span class="nx">nil&lt;/span>&lt;span class="err">指针或者&lt;/span>&lt;span class="nx">nil&lt;/span>&lt;span class="err">接口，任意长度为&lt;/span>&lt;span class="mi">0&lt;/span>&lt;span class="err">的数组、切片、字典。&lt;/span>
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="p">{{&lt;/span>&lt;span class="k">if&lt;/span> &lt;span class="nx">pipeline&lt;/span>&lt;span class="p">}}&lt;/span> &lt;span class="nx">T1&lt;/span> &lt;span class="p">{{&lt;/span>&lt;span class="k">else&lt;/span>&lt;span class="p">}}&lt;/span> &lt;span class="nx">T0&lt;/span> &lt;span class="p">{{&lt;/span>&lt;span class="nx">end&lt;/span>&lt;span class="p">}}&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nx">如果pipeline的值为empty&lt;/span>&lt;span class="err">，&lt;/span>&lt;span class="nx">输出T0执行结果&lt;/span>&lt;span class="err">，&lt;/span>&lt;span class="nx">否则输出T1执行结果&lt;/span>&lt;span class="err">。&lt;/span>&lt;span class="nx">不改变dot的值&lt;/span>&lt;span class="err">。&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="err">如果&lt;/span>&lt;span class="nx">pipeline&lt;/span>&lt;span class="err">的值为&lt;/span>&lt;span class="nx">empty&lt;/span>&lt;span class="err">，输出&lt;/span>&lt;span class="nx">T0&lt;/span>&lt;span class="err">执行结果，否则输出&lt;/span>&lt;span class="nx">T1&lt;/span>&lt;span class="err">执行结果。不改变&lt;/span>&lt;span class="nx">dot&lt;/span>&lt;span class="err">的值。&lt;/span>
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="p">{{&lt;/span>&lt;span class="k">if&lt;/span> &lt;span class="nx">pipeline&lt;/span>&lt;span class="p">}}&lt;/span> &lt;span class="nx">T1&lt;/span> &lt;span class="p">{{&lt;/span>&lt;span class="k">else&lt;/span> &lt;span class="k">if&lt;/span> &lt;span class="nx">pipeline&lt;/span>&lt;span class="p">}}&lt;/span> &lt;span class="nx">T0&lt;/span> &lt;span class="p">{{&lt;/span>&lt;span class="nx">end&lt;/span>&lt;span class="p">}}&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nx">用于简化if&lt;/span>&lt;span class="o">-&lt;/span>&lt;span class="nx">else链条&lt;/span>&lt;span class="err">，&lt;/span>&lt;span class="k">else&lt;/span> &lt;span class="nx">action可以直接包含另一个if&lt;/span>&lt;span class="err">；&lt;/span>&lt;span class="nx">等价于&lt;/span>&lt;span class="err">：&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="err">用于简化&lt;/span>&lt;span class="k">if&lt;/span>&lt;span class="o">-&lt;/span>&lt;span class="nx">else&lt;/span>&lt;span class="err">链条，&lt;/span>&lt;span class="k">else&lt;/span> &lt;span class="nx">action&lt;/span>&lt;span class="err">可以直接包含另一个&lt;/span>&lt;span class="k">if&lt;/span>&lt;span class="err">；等价于：&lt;/span>
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">{{&lt;/span>&lt;span class="k">if&lt;/span> &lt;span class="nx">pipeline&lt;/span>&lt;span class="p">}}&lt;/span> &lt;span class="nx">T1&lt;/span> &lt;span class="p">{{&lt;/span>&lt;span class="k">else&lt;/span>&lt;span class="p">}}{{&lt;/span>&lt;span class="k">if&lt;/span> &lt;span class="nx">pipeline&lt;/span>&lt;span class="p">}}&lt;/span> &lt;span class="nx">T0&lt;/span> &lt;span class="p">{{&lt;/span>&lt;span class="nx">end&lt;/span>&lt;span class="p">}}{{&lt;/span>&lt;span class="nx">end&lt;/span>&lt;span class="p">}}&lt;/span>
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="p">{{&lt;/span>&lt;span class="k">range&lt;/span> &lt;span class="nx">pipeline&lt;/span>&lt;span class="p">}}&lt;/span> &lt;span class="nx">T1&lt;/span> &lt;span class="p">{{&lt;/span>&lt;span class="nx">end&lt;/span>&lt;span class="p">}}&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nx">pipeline的值必须是数组&lt;/span>&lt;span class="err">、&lt;/span>&lt;span class="nx">切片&lt;/span>&lt;span class="err">、&lt;/span>&lt;span class="nx">字典或者通道&lt;/span>&lt;span class="err">。&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nx">如果pipeline的值其长度为0&lt;/span>&lt;span class="err">，&lt;/span>&lt;span class="nx">不会有任何输出&lt;/span>&lt;span class="err">；&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nx">否则dot遍历数组&lt;/span>&lt;span class="err">、&lt;/span>&lt;span class="nx">切片&lt;/span>&lt;span class="err">、&lt;/span>&lt;span class="nx">字典或者通道的每一个成员元素并执行T1&lt;/span>&lt;span class="err">；&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nx">如果pipeline的值为字典&lt;/span>&lt;span class="err">，&lt;/span>&lt;span class="nx">且键可排序的基本类型&lt;/span>&lt;span class="err">，&lt;/span>&lt;span class="nx">元素也会按键的顺序排序&lt;/span>&lt;span class="err">。&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nx">pipeline&lt;/span>&lt;span class="err">的值必须是数组、切片、字典或者通道。&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="err">如果&lt;/span>&lt;span class="nx">pipeline&lt;/span>&lt;span class="err">的值其长度为&lt;/span>&lt;span class="mi">0&lt;/span>&lt;span class="err">，不会有任何输出；&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="err">否则&lt;/span>&lt;span class="nx">dot&lt;/span>&lt;span class="err">遍历数组、切片、字典或者通道的每一个成员元素并执行&lt;/span>&lt;span class="nx">T1&lt;/span>&lt;span class="err">；&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="err">如果&lt;/span>&lt;span class="nx">pipeline&lt;/span>&lt;span class="err">的值为字典，且键可排序的基本类型，元素也会按键的顺序排序。&lt;/span>
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="p">{{&lt;/span>&lt;span class="k">range&lt;/span> &lt;span class="nx">pipeline&lt;/span>&lt;span class="p">}}&lt;/span> &lt;span class="nx">T1&lt;/span> &lt;span class="p">{{&lt;/span>&lt;span class="k">else&lt;/span>&lt;span class="p">}}&lt;/span> &lt;span class="nx">T0&lt;/span> &lt;span class="p">{{&lt;/span>&lt;span class="nx">end&lt;/span>&lt;span class="p">}}&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nx">pipeline的值必须是数组&lt;/span>&lt;span class="err">、&lt;/span>&lt;span class="nx">切片&lt;/span>&lt;span class="err">、&lt;/span>&lt;span class="nx">字典或者通道&lt;/span>&lt;span class="err">。&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nx">如果pipeline的值其长度为0&lt;/span>&lt;span class="err">，&lt;/span>&lt;span class="nx">不改变dot的值并执行T0&lt;/span>&lt;span class="err">；&lt;/span>&lt;span class="nx">否则dot会遍历其中的元素并执行T1&lt;/span>&lt;span class="err">。&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nx">pipeline&lt;/span>&lt;span class="err">的值必须是数组、切片、字典或者通道。&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="err">如果&lt;/span>&lt;span class="nx">pipeline&lt;/span>&lt;span class="err">的值其长度为&lt;/span>&lt;span class="mi">0&lt;/span>&lt;span class="err">，不改变&lt;/span>&lt;span class="nx">dot&lt;/span>&lt;span class="err">的值并执行&lt;/span>&lt;span class="nx">T0&lt;/span>&lt;span class="err">；否则&lt;/span>&lt;span class="nx">dot&lt;/span>&lt;span class="err">会遍历其中的元素并执行&lt;/span>&lt;span class="nx">T1&lt;/span>&lt;span class="err">。&lt;/span>
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="p">{{&lt;/span>&lt;span class="k">break&lt;/span>&lt;span class="p">}}&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nx">提前结束&lt;/span>&lt;span class="p">{{&lt;/span>&lt;span class="k">range&lt;/span> &lt;span class="nx">pipeline&lt;/span>&lt;span class="p">}}&lt;/span>&lt;span class="nx">的所有遍历&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="err">提前结束&lt;/span>&lt;span class="p">{{&lt;/span>&lt;span class="k">range&lt;/span> &lt;span class="nx">pipeline&lt;/span>&lt;span class="p">}}&lt;/span>&lt;span class="err">的所有遍历&lt;/span>
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="p">{{&lt;/span>&lt;span class="k">continue&lt;/span>&lt;span class="p">}}&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nx">提前结束&lt;/span>&lt;span class="p">{{&lt;/span>&lt;span class="k">range&lt;/span> &lt;span class="nx">pipeline&lt;/span>&lt;span class="p">}}&lt;/span>&lt;span class="nx">的当次遍历&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="err">提前结束&lt;/span>&lt;span class="p">{{&lt;/span>&lt;span class="k">range&lt;/span> &lt;span class="nx">pipeline&lt;/span>&lt;span class="p">}}&lt;/span>&lt;span class="err">的当次遍历&lt;/span>
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="p">{{&lt;/span>&lt;span class="nx">define&lt;/span> &lt;span class="s">&amp;#34;name&amp;#34;&lt;/span>&lt;span class="p">}}&lt;/span> &lt;span class="nx">T1&lt;/span> &lt;span class="p">{{&lt;/span>&lt;span class="nx">end&lt;/span>&lt;span class="p">}}&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nx">定义为name的模板&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="err">定义为&lt;/span>&lt;span class="nx">name&lt;/span>&lt;span class="err">的模板&lt;/span>
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="p">{{&lt;/span>&lt;span class="nx">template&lt;/span> &lt;span class="s">&amp;#34;name&amp;#34;&lt;/span>&lt;span class="p">}}&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nx">执行名为name的模板&lt;/span>&lt;span class="err">，&lt;/span>&lt;span class="nx">提供给模板的参数为nil&lt;/span>&lt;span class="err">，&lt;/span>&lt;span class="nx">如模板不存在输出为&lt;/span>&lt;span class="s">&amp;#34;&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="err">执行名为&lt;/span>&lt;span class="nx">name&lt;/span>&lt;span class="err">的模板，提供给模板的参数为&lt;/span>&lt;span class="kc">nil&lt;/span>&lt;span class="err">，如模板不存在输出为&lt;/span>&lt;span class="s">&amp;#34;&amp;#34;&lt;/span>
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="p">{{&lt;/span>&lt;span class="nx">template&lt;/span> &lt;span class="s">&amp;#34;name&amp;#34;&lt;/span> &lt;span class="nx">pipeline&lt;/span>&lt;span class="p">}}&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nx">执行名为name的模板&lt;/span>&lt;span class="err">，&lt;/span>&lt;span class="nx">提供给模板的参数为pipeline的值&lt;/span>&lt;span class="err">。&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="err">执行名为&lt;/span>&lt;span class="nx">name&lt;/span>&lt;span class="err">的模板，提供给模板的参数为&lt;/span>&lt;span class="nx">pipeline&lt;/span>&lt;span class="err">的值。&lt;/span>
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="p">{{&lt;/span>&lt;span class="nx">block&lt;/span> &lt;span class="s">&amp;#34;name&amp;#34;&lt;/span> &lt;span class="nx">pipeline&lt;/span>&lt;span class="p">}}&lt;/span> &lt;span class="nx">T1&lt;/span> &lt;span class="p">{{&lt;/span>&lt;span class="nx">end&lt;/span>&lt;span class="p">}}&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nx">先定义一个名为name的模板&lt;/span>&lt;span class="err">，&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="err">先定义一个名为&lt;/span>&lt;span class="nx">name&lt;/span>&lt;span class="err">的模板，&lt;/span>
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">{{&lt;/span>&lt;span class="nx">define&lt;/span> &lt;span class="s">&amp;#34;name&amp;#34;&lt;/span>&lt;span class="p">}}&lt;/span> &lt;span class="nx">T1&lt;/span> &lt;span class="p">{{&lt;/span>&lt;span class="nx">end&lt;/span>&lt;span class="p">}}&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nx">再将pipeline作为参数&lt;/span>&lt;span class="err">，&lt;/span>&lt;span class="nx">执行该模板&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="err">再将&lt;/span>&lt;span class="nx">pipeline&lt;/span>&lt;span class="err">作为参数，执行该模板&lt;/span>
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">{{&lt;/span>&lt;span class="nx">template&lt;/span> &lt;span class="s">&amp;#34;name&amp;#34;&lt;/span> &lt;span class="nx">pipeline&lt;/span>&lt;span class="p">}}&lt;/span>
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="p">{{&lt;/span>&lt;span class="nx">with&lt;/span> &lt;span class="nx">pipeline&lt;/span>&lt;span class="p">}}&lt;/span> &lt;span class="nx">T1&lt;/span> &lt;span class="p">{{&lt;/span>&lt;span class="nx">end&lt;/span>&lt;span class="p">}}&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nx">如果pipeline为empty不产生输出&lt;/span>&lt;span class="err">，&lt;/span>&lt;span class="nx">否则将dot设为pipeline的值并执行T1&lt;/span>&lt;span class="err">。&lt;/span>&lt;span class="nx">不修改外面的dot&lt;/span>&lt;span class="err">。&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="err">如果&lt;/span>&lt;span class="nx">pipeline&lt;/span>&lt;span class="err">为&lt;/span>&lt;span class="nx">empty&lt;/span>&lt;span class="err">不产生输出，否则将&lt;/span>&lt;span class="nx">dot&lt;/span>&lt;span class="err">设为&lt;/span>&lt;span class="nx">pipeline&lt;/span>&lt;span class="err">的值并执行&lt;/span>&lt;span class="nx">T1&lt;/span>&lt;span class="err">。不修改外面的&lt;/span>&lt;span class="nx">dot&lt;/span>&lt;span class="err">。&lt;/span>
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="p">{{&lt;/span>&lt;span class="nx">with&lt;/span> &lt;span class="nx">pipeline&lt;/span>&lt;span class="p">}}&lt;/span> &lt;span class="nx">T1&lt;/span> &lt;span class="p">{{&lt;/span>&lt;span class="k">else&lt;/span>&lt;span class="p">}}&lt;/span> &lt;span class="nx">T0&lt;/span> &lt;span class="p">{{&lt;/span>&lt;span class="nx">end&lt;/span>&lt;span class="p">}}&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nx">如果pipeline为empty&lt;/span>&lt;span class="err">，&lt;/span>&lt;span class="nx">不改变dot并执行T0&lt;/span>&lt;span class="err">，&lt;/span>&lt;span class="nx">否则dot设为pipeline的值并执行T1&lt;/span>&lt;span class="err">。&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="err">如果&lt;/span>&lt;span class="nx">pipeline&lt;/span>&lt;span class="err">为&lt;/span>&lt;span class="nx">empty&lt;/span>&lt;span class="err">，不改变&lt;/span>&lt;span class="nx">dot&lt;/span>&lt;span class="err">并执行&lt;/span>&lt;span class="nx">T0&lt;/span>&lt;span class="err">，否则&lt;/span>&lt;span class="nx">dot&lt;/span>&lt;span class="err">设为&lt;/span>&lt;span class="nx">pipeline&lt;/span>&lt;span class="err">的值并执行&lt;/span>&lt;span class="nx">T1&lt;/span>&lt;span class="err">。&lt;/span>
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
 &lt;/div>
 &lt;/div>&lt;h4 id="arguments">Arguments&lt;/h4>
@@ -7041,12 +7265,12 @@ print (.F1 arg1) (.F2 arg2)
 &lt;/span>&lt;/code>&lt;/pre>&lt;/td>
 &lt;td class="lntd">
 &lt;pre tabindex="0" class="chroma">&lt;code class="language-go" data-lang="go">&lt;span class="line">&lt;span class="cl">&lt;span class="nx">Argument&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nx">执行结果是argument的执行结果&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="err">执行结果是&lt;/span>&lt;span class="nx">argument&lt;/span>&lt;span class="err">的执行结果&lt;/span>
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="p">.&lt;/span>&lt;span class="nx">Method&lt;/span> &lt;span class="p">[&lt;/span>&lt;span class="nx">Argument&lt;/span>&lt;span class="o">...&lt;/span>&lt;span class="p">]&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nx">方法可以独立调用或者位于链式调用的末端&lt;/span>&lt;span class="err">，&lt;/span>&lt;span class="nx">不同于链式调用中间的方法&lt;/span>&lt;span class="err">，&lt;/span>&lt;span class="nx">可以使用参数&lt;/span>&lt;span class="err">；&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nx">执行结果是使用给出的参数调用该方法的返回值&lt;/span>&lt;span class="err">：&lt;/span>&lt;span class="nx">dot&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nf">Method&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="nx">Argument1&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="nx">etc&lt;/span>&lt;span class="p">.)&lt;/span>&lt;span class="err">；&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="err">方法可以独立调用或者位于链式调用的末端，不同于链式调用中间的方法，可以使用参数；&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="err">执行结果是使用给出的参数调用该方法的返回值：&lt;/span>&lt;span class="nx">dot&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nf">Method&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="nx">Argument1&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="nx">etc&lt;/span>&lt;span class="p">.)&lt;/span>&lt;span class="err">；&lt;/span>
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nx">functionName&lt;/span> &lt;span class="p">[&lt;/span>&lt;span class="nx">Argument&lt;/span>&lt;span class="o">...&lt;/span>&lt;span class="p">]&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nx">执行结果是使用给定的参数调用函数名指定的函数的返回值&lt;/span>&lt;span class="err">：&lt;/span>&lt;span class="nf">function&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="nx">Argument1&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="nx">etc&lt;/span>&lt;span class="p">.)&lt;/span>&lt;span class="err">；&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="err">执行结果是使用给定的参数调用函数名指定的函数的返回值：&lt;/span>&lt;span class="nf">function&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="nx">Argument1&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="nx">etc&lt;/span>&lt;span class="p">.)&lt;/span>&lt;span class="err">；&lt;/span>
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
 &lt;/div>
 &lt;/div>&lt;p>pipeline可以链式执行，用管道符 &lt;code>|&lt;/code> 隔开（与 Liquid 一样）在一个链式的pipeline里，每个command的结果都作为下一个command的最后一个参数。pipeline最后一个command的输出作为整个管道执行的结果。&lt;/p>
@@ -7828,7 +8052,7 @@ f.close()
 &lt;td class="lntd">
 &lt;pre tabindex="0" class="chroma">&lt;code class="language-verilog" data-lang="verilog">&lt;span class="line">&lt;span class="cl">&lt;span class="k">module&lt;/span> &lt;span class="n">hello&lt;/span>&lt;span class="p">();&lt;/span> &lt;span class="err">\\模块名&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="err">输入、输出&lt;/span>&lt;span class="p">)&lt;/span>
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">initial&lt;/span> &lt;span class="k">begin&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nb">$display&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s">&amp;#34;Hello world.&lt;/span>&lt;span class="se">\n&lt;/span>&lt;span class="s">&amp;#34;&lt;/span>&lt;span class="p">);&lt;/span> &lt;span class="err">\\调用&lt;/span>&lt;span class="n">display函数&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nb">$display&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s">&amp;#34;Hello world.&lt;/span>&lt;span class="se">\n&lt;/span>&lt;span class="s">&amp;#34;&lt;/span>&lt;span class="p">);&lt;/span> &lt;span class="err">\\调用&lt;/span>&lt;span class="n">display&lt;/span>&lt;span class="err">函数&lt;/span>
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">end&lt;/span>
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="k">endmodule&lt;/span>
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>

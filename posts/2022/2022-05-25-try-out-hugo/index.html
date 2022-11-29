@@ -198,58 +198,58 @@
 </span><span class=lnt>52
 </span><span class=lnt>53
 </span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-go data-lang=go><span class=line><span class=cl><span class=p>{{</span><span class=cm>/* a comment */</span><span class=p>}}</span>
-</span></span><span class=line><span class=cl>    <span class=nx>注释</span><span class=err>，</span><span class=nx>执行时会忽略</span><span class=err>。</span><span class=nx>可以多行</span><span class=err>。</span><span class=nx>注释不能嵌套</span><span class=err>，</span><span class=nx>并且必须紧贴分界符始止</span><span class=err>，</span><span class=nx>就像这里表示的一样</span><span class=err>。</span>
+</span></span><span class=line><span class=cl>    <span class=err>注释，执行时会忽略。可以多行。注释不能嵌套，并且必须紧贴分界符始止，就像这里表示的一样。</span>
 </span></span><span class=line><span class=cl>
 </span></span><span class=line><span class=cl><span class=p>{{</span><span class=nx>pipeline</span><span class=p>}}</span>
-</span></span><span class=line><span class=cl>    <span class=nx>pipeline的值的默认文本表示会被拷贝到输出里</span><span class=err>。</span>
+</span></span><span class=line><span class=cl>    <span class=nx>pipeline</span><span class=err>的值的默认文本表示会被拷贝到输出里。</span>
 </span></span><span class=line><span class=cl>  
 </span></span><span class=line><span class=cl><span class=p>{{</span><span class=k>if</span> <span class=nx>pipeline</span><span class=p>}}</span> <span class=nx>T1</span> <span class=p>{{</span><span class=nx>end</span><span class=p>}}</span>
-</span></span><span class=line><span class=cl>    <span class=nx>如果pipeline的值为empty</span><span class=err>，</span><span class=nx>不产生输出</span><span class=err>，</span><span class=nx>否则输出T1执行结果</span><span class=err>。</span><span class=nx>不改变dot的值</span><span class=err>。</span>
-</span></span><span class=line><span class=cl>    <span class=nx>Empty值包括false</span><span class=err>、</span><span class=mi>0</span><span class=err>、</span><span class=nx>任意nil指针或者nil接口</span><span class=err>，</span><span class=nx>任意长度为0的数组</span><span class=err>、</span><span class=nx>切片</span><span class=err>、</span><span class=nx>字典</span><span class=err>。</span>
+</span></span><span class=line><span class=cl>    <span class=err>如果</span><span class=nx>pipeline</span><span class=err>的值为</span><span class=nx>empty</span><span class=err>，不产生输出，否则输出</span><span class=nx>T1</span><span class=err>执行结果。不改变</span><span class=nx>dot</span><span class=err>的值。</span>
+</span></span><span class=line><span class=cl>    <span class=nx>Empty</span><span class=err>值包括</span><span class=kc>false</span><span class=err>、</span><span class=mi>0</span><span class=err>、任意</span><span class=nx>nil</span><span class=err>指针或者</span><span class=nx>nil</span><span class=err>接口，任意长度为</span><span class=mi>0</span><span class=err>的数组、切片、字典。</span>
 </span></span><span class=line><span class=cl>
 </span></span><span class=line><span class=cl><span class=p>{{</span><span class=k>if</span> <span class=nx>pipeline</span><span class=p>}}</span> <span class=nx>T1</span> <span class=p>{{</span><span class=k>else</span><span class=p>}}</span> <span class=nx>T0</span> <span class=p>{{</span><span class=nx>end</span><span class=p>}}</span>
-</span></span><span class=line><span class=cl>    <span class=nx>如果pipeline的值为empty</span><span class=err>，</span><span class=nx>输出T0执行结果</span><span class=err>，</span><span class=nx>否则输出T1执行结果</span><span class=err>。</span><span class=nx>不改变dot的值</span><span class=err>。</span>
+</span></span><span class=line><span class=cl>    <span class=err>如果</span><span class=nx>pipeline</span><span class=err>的值为</span><span class=nx>empty</span><span class=err>，输出</span><span class=nx>T0</span><span class=err>执行结果，否则输出</span><span class=nx>T1</span><span class=err>执行结果。不改变</span><span class=nx>dot</span><span class=err>的值。</span>
 </span></span><span class=line><span class=cl>
 </span></span><span class=line><span class=cl><span class=p>{{</span><span class=k>if</span> <span class=nx>pipeline</span><span class=p>}}</span> <span class=nx>T1</span> <span class=p>{{</span><span class=k>else</span> <span class=k>if</span> <span class=nx>pipeline</span><span class=p>}}</span> <span class=nx>T0</span> <span class=p>{{</span><span class=nx>end</span><span class=p>}}</span>
-</span></span><span class=line><span class=cl>    <span class=nx>用于简化if</span><span class=o>-</span><span class=nx>else链条</span><span class=err>，</span><span class=k>else</span> <span class=nx>action可以直接包含另一个if</span><span class=err>；</span><span class=nx>等价于</span><span class=err>：</span>
+</span></span><span class=line><span class=cl>    <span class=err>用于简化</span><span class=k>if</span><span class=o>-</span><span class=nx>else</span><span class=err>链条，</span><span class=k>else</span> <span class=nx>action</span><span class=err>可以直接包含另一个</span><span class=k>if</span><span class=err>；等价于：</span>
 </span></span><span class=line><span class=cl>        <span class=p>{{</span><span class=k>if</span> <span class=nx>pipeline</span><span class=p>}}</span> <span class=nx>T1</span> <span class=p>{{</span><span class=k>else</span><span class=p>}}{{</span><span class=k>if</span> <span class=nx>pipeline</span><span class=p>}}</span> <span class=nx>T0</span> <span class=p>{{</span><span class=nx>end</span><span class=p>}}{{</span><span class=nx>end</span><span class=p>}}</span>
 </span></span><span class=line><span class=cl>
 </span></span><span class=line><span class=cl><span class=p>{{</span><span class=k>range</span> <span class=nx>pipeline</span><span class=p>}}</span> <span class=nx>T1</span> <span class=p>{{</span><span class=nx>end</span><span class=p>}}</span>
-</span></span><span class=line><span class=cl>    <span class=nx>pipeline的值必须是数组</span><span class=err>、</span><span class=nx>切片</span><span class=err>、</span><span class=nx>字典或者通道</span><span class=err>。</span>
-</span></span><span class=line><span class=cl>    <span class=nx>如果pipeline的值其长度为0</span><span class=err>，</span><span class=nx>不会有任何输出</span><span class=err>；</span>
-</span></span><span class=line><span class=cl>    <span class=nx>否则dot遍历数组</span><span class=err>、</span><span class=nx>切片</span><span class=err>、</span><span class=nx>字典或者通道的每一个成员元素并执行T1</span><span class=err>；</span>
-</span></span><span class=line><span class=cl>    <span class=nx>如果pipeline的值为字典</span><span class=err>，</span><span class=nx>且键可排序的基本类型</span><span class=err>，</span><span class=nx>元素也会按键的顺序排序</span><span class=err>。</span>
+</span></span><span class=line><span class=cl>    <span class=nx>pipeline</span><span class=err>的值必须是数组、切片、字典或者通道。</span>
+</span></span><span class=line><span class=cl>    <span class=err>如果</span><span class=nx>pipeline</span><span class=err>的值其长度为</span><span class=mi>0</span><span class=err>，不会有任何输出；</span>
+</span></span><span class=line><span class=cl>    <span class=err>否则</span><span class=nx>dot</span><span class=err>遍历数组、切片、字典或者通道的每一个成员元素并执行</span><span class=nx>T1</span><span class=err>；</span>
+</span></span><span class=line><span class=cl>    <span class=err>如果</span><span class=nx>pipeline</span><span class=err>的值为字典，且键可排序的基本类型，元素也会按键的顺序排序。</span>
 </span></span><span class=line><span class=cl>
 </span></span><span class=line><span class=cl><span class=p>{{</span><span class=k>range</span> <span class=nx>pipeline</span><span class=p>}}</span> <span class=nx>T1</span> <span class=p>{{</span><span class=k>else</span><span class=p>}}</span> <span class=nx>T0</span> <span class=p>{{</span><span class=nx>end</span><span class=p>}}</span>
-</span></span><span class=line><span class=cl>    <span class=nx>pipeline的值必须是数组</span><span class=err>、</span><span class=nx>切片</span><span class=err>、</span><span class=nx>字典或者通道</span><span class=err>。</span>
-</span></span><span class=line><span class=cl>    <span class=nx>如果pipeline的值其长度为0</span><span class=err>，</span><span class=nx>不改变dot的值并执行T0</span><span class=err>；</span><span class=nx>否则dot会遍历其中的元素并执行T1</span><span class=err>。</span>
+</span></span><span class=line><span class=cl>    <span class=nx>pipeline</span><span class=err>的值必须是数组、切片、字典或者通道。</span>
+</span></span><span class=line><span class=cl>    <span class=err>如果</span><span class=nx>pipeline</span><span class=err>的值其长度为</span><span class=mi>0</span><span class=err>，不改变</span><span class=nx>dot</span><span class=err>的值并执行</span><span class=nx>T0</span><span class=err>；否则</span><span class=nx>dot</span><span class=err>会遍历其中的元素并执行</span><span class=nx>T1</span><span class=err>。</span>
 </span></span><span class=line><span class=cl>
 </span></span><span class=line><span class=cl><span class=p>{{</span><span class=k>break</span><span class=p>}}</span>
-</span></span><span class=line><span class=cl>    <span class=nx>提前结束</span><span class=p>{{</span><span class=k>range</span> <span class=nx>pipeline</span><span class=p>}}</span><span class=nx>的所有遍历</span>
+</span></span><span class=line><span class=cl>    <span class=err>提前结束</span><span class=p>{{</span><span class=k>range</span> <span class=nx>pipeline</span><span class=p>}}</span><span class=err>的所有遍历</span>
 </span></span><span class=line><span class=cl>
 </span></span><span class=line><span class=cl><span class=p>{{</span><span class=k>continue</span><span class=p>}}</span>
-</span></span><span class=line><span class=cl>    <span class=nx>提前结束</span><span class=p>{{</span><span class=k>range</span> <span class=nx>pipeline</span><span class=p>}}</span><span class=nx>的当次遍历</span>
+</span></span><span class=line><span class=cl>    <span class=err>提前结束</span><span class=p>{{</span><span class=k>range</span> <span class=nx>pipeline</span><span class=p>}}</span><span class=err>的当次遍历</span>
 </span></span><span class=line><span class=cl>
 </span></span><span class=line><span class=cl><span class=p>{{</span><span class=nx>define</span> <span class=s>&#34;name&#34;</span><span class=p>}}</span> <span class=nx>T1</span> <span class=p>{{</span><span class=nx>end</span><span class=p>}}</span>
-</span></span><span class=line><span class=cl>    <span class=nx>定义为name的模板</span>
+</span></span><span class=line><span class=cl>    <span class=err>定义为</span><span class=nx>name</span><span class=err>的模板</span>
 </span></span><span class=line><span class=cl>
 </span></span><span class=line><span class=cl><span class=p>{{</span><span class=nx>template</span> <span class=s>&#34;name&#34;</span><span class=p>}}</span>
-</span></span><span class=line><span class=cl>    <span class=nx>执行名为name的模板</span><span class=err>，</span><span class=nx>提供给模板的参数为nil</span><span class=err>，</span><span class=nx>如模板不存在输出为</span><span class=s>&#34;&#34;</span>
+</span></span><span class=line><span class=cl>    <span class=err>执行名为</span><span class=nx>name</span><span class=err>的模板，提供给模板的参数为</span><span class=kc>nil</span><span class=err>，如模板不存在输出为</span><span class=s>&#34;&#34;</span>
 </span></span><span class=line><span class=cl>
 </span></span><span class=line><span class=cl><span class=p>{{</span><span class=nx>template</span> <span class=s>&#34;name&#34;</span> <span class=nx>pipeline</span><span class=p>}}</span>
-</span></span><span class=line><span class=cl>    <span class=nx>执行名为name的模板</span><span class=err>，</span><span class=nx>提供给模板的参数为pipeline的值</span><span class=err>。</span>
+</span></span><span class=line><span class=cl>    <span class=err>执行名为</span><span class=nx>name</span><span class=err>的模板，提供给模板的参数为</span><span class=nx>pipeline</span><span class=err>的值。</span>
 </span></span><span class=line><span class=cl>
 </span></span><span class=line><span class=cl><span class=p>{{</span><span class=nx>block</span> <span class=s>&#34;name&#34;</span> <span class=nx>pipeline</span><span class=p>}}</span> <span class=nx>T1</span> <span class=p>{{</span><span class=nx>end</span><span class=p>}}</span>
-</span></span><span class=line><span class=cl> <span class=nx>先定义一个名为name的模板</span><span class=err>，</span>
+</span></span><span class=line><span class=cl> <span class=err>先定义一个名为</span><span class=nx>name</span><span class=err>的模板，</span>
 </span></span><span class=line><span class=cl>    <span class=p>{{</span><span class=nx>define</span> <span class=s>&#34;name&#34;</span><span class=p>}}</span> <span class=nx>T1</span> <span class=p>{{</span><span class=nx>end</span><span class=p>}}</span>
-</span></span><span class=line><span class=cl> <span class=nx>再将pipeline作为参数</span><span class=err>，</span><span class=nx>执行该模板</span>
+</span></span><span class=line><span class=cl> <span class=err>再将</span><span class=nx>pipeline</span><span class=err>作为参数，执行该模板</span>
 </span></span><span class=line><span class=cl>    <span class=p>{{</span><span class=nx>template</span> <span class=s>&#34;name&#34;</span> <span class=nx>pipeline</span><span class=p>}}</span>
 </span></span><span class=line><span class=cl>
 </span></span><span class=line><span class=cl><span class=p>{{</span><span class=nx>with</span> <span class=nx>pipeline</span><span class=p>}}</span> <span class=nx>T1</span> <span class=p>{{</span><span class=nx>end</span><span class=p>}}</span>
-</span></span><span class=line><span class=cl>    <span class=nx>如果pipeline为empty不产生输出</span><span class=err>，</span><span class=nx>否则将dot设为pipeline的值并执行T1</span><span class=err>。</span><span class=nx>不修改外面的dot</span><span class=err>。</span>
+</span></span><span class=line><span class=cl>    <span class=err>如果</span><span class=nx>pipeline</span><span class=err>为</span><span class=nx>empty</span><span class=err>不产生输出，否则将</span><span class=nx>dot</span><span class=err>设为</span><span class=nx>pipeline</span><span class=err>的值并执行</span><span class=nx>T1</span><span class=err>。不修改外面的</span><span class=nx>dot</span><span class=err>。</span>
 </span></span><span class=line><span class=cl>
 </span></span><span class=line><span class=cl><span class=p>{{</span><span class=nx>with</span> <span class=nx>pipeline</span><span class=p>}}</span> <span class=nx>T1</span> <span class=p>{{</span><span class=k>else</span><span class=p>}}</span> <span class=nx>T0</span> <span class=p>{{</span><span class=nx>end</span><span class=p>}}</span>
-</span></span><span class=line><span class=cl>    <span class=nx>如果pipeline为empty</span><span class=err>，</span><span class=nx>不改变dot并执行T0</span><span class=err>，</span><span class=nx>否则dot设为pipeline的值并执行T1</span><span class=err>。</span>
+</span></span><span class=line><span class=cl>    <span class=err>如果</span><span class=nx>pipeline</span><span class=err>为</span><span class=nx>empty</span><span class=err>，不改变</span><span class=nx>dot</span><span class=err>并执行</span><span class=nx>T0</span><span class=err>，否则</span><span class=nx>dot</span><span class=err>设为</span><span class=nx>pipeline</span><span class=err>的值并执行</span><span class=nx>T1</span><span class=err>。</span>
 </span></span></code></pre></td></tr></table></div></div><h4 id=arguments>Arguments</h4><p>参数代表一个简单的，由下面的某一条表示的值：</p><ul><li>go语法的布尔值、字符串、字符、整数、浮点数、虚数、复数，视为无类型字面常数，字符串不能跨行</li><li>关键字nil，代表一个go的无类型的nil值</li><li>字符&rsquo;.&rsquo;（句点，用时不加单引号），代表dot的值</li><li>变量名，以美元符号起始加上（可为空的）字母和数字构成的字符串，如：$piOver2和$；
 执行结果为变量的值，变量参见下面的介绍</li><li>结构体数据的字段名，以句点起始，如：.Field；
 执行结果为字段的值，支持链式调用：.Field1.Field2；
@@ -274,12 +274,12 @@ print (.F1 arg1) (.F2 arg2)
 </span><span class=lnt>6
 </span><span class=lnt>7
 </span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-go data-lang=go><span class=line><span class=cl><span class=nx>Argument</span>
-</span></span><span class=line><span class=cl>    <span class=nx>执行结果是argument的执行结果</span>
+</span></span><span class=line><span class=cl>    <span class=err>执行结果是</span><span class=nx>argument</span><span class=err>的执行结果</span>
 </span></span><span class=line><span class=cl><span class=p>.</span><span class=nx>Method</span> <span class=p>[</span><span class=nx>Argument</span><span class=o>...</span><span class=p>]</span>
-</span></span><span class=line><span class=cl>    <span class=nx>方法可以独立调用或者位于链式调用的末端</span><span class=err>，</span><span class=nx>不同于链式调用中间的方法</span><span class=err>，</span><span class=nx>可以使用参数</span><span class=err>；</span>
-</span></span><span class=line><span class=cl>    <span class=nx>执行结果是使用给出的参数调用该方法的返回值</span><span class=err>：</span><span class=nx>dot</span><span class=p>.</span><span class=nf>Method</span><span class=p>(</span><span class=nx>Argument1</span><span class=p>,</span> <span class=nx>etc</span><span class=p>.)</span><span class=err>；</span>
+</span></span><span class=line><span class=cl>    <span class=err>方法可以独立调用或者位于链式调用的末端，不同于链式调用中间的方法，可以使用参数；</span>
+</span></span><span class=line><span class=cl>    <span class=err>执行结果是使用给出的参数调用该方法的返回值：</span><span class=nx>dot</span><span class=p>.</span><span class=nf>Method</span><span class=p>(</span><span class=nx>Argument1</span><span class=p>,</span> <span class=nx>etc</span><span class=p>.)</span><span class=err>；</span>
 </span></span><span class=line><span class=cl><span class=nx>functionName</span> <span class=p>[</span><span class=nx>Argument</span><span class=o>...</span><span class=p>]</span>
-</span></span><span class=line><span class=cl>    <span class=nx>执行结果是使用给定的参数调用函数名指定的函数的返回值</span><span class=err>：</span><span class=nf>function</span><span class=p>(</span><span class=nx>Argument1</span><span class=p>,</span> <span class=nx>etc</span><span class=p>.)</span><span class=err>；</span>
+</span></span><span class=line><span class=cl>    <span class=err>执行结果是使用给定的参数调用函数名指定的函数的返回值：</span><span class=nf>function</span><span class=p>(</span><span class=nx>Argument1</span><span class=p>,</span> <span class=nx>etc</span><span class=p>.)</span><span class=err>；</span>
 </span></span></code></pre></td></tr></table></div></div><p>pipeline可以链式执行，用管道符 <code>|</code> 隔开（与 Liquid 一样）在一个链式的pipeline里，每个command的结果都作为下一个command的最后一个参数。pipeline最后一个command的输出作为整个管道执行的结果。</p><h4 id=variables>Variables</h4><p>Action里可以初始化一个变量来捕获管道的执行结果。变量无论是定义还是使用时都要在前面加 <code>$</code>。变量初始化语法如下：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
 </span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-go data-lang=go><span class=line><span class=cl><span class=err>$</span><span class=nx>variable</span> <span class=o>:=</span> <span class=nx>pipeline</span>
 </span></span></code></pre></td></tr></table></div></div><p>变量可以重新赋值：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
