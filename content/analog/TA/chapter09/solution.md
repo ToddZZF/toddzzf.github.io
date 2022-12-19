@@ -48,8 +48,6 @@ $A_v=-10$, $R_i=20{\rm k\Omega}$
 
 (b) $i_1=i_2=-7.5{\rm \mu A}$, $v_I=-0.125{\rm V}$
 
-(c) $$
-
 ## 9.19
 
 (a) $v_o=8.8{\rm V}$
@@ -78,11 +76,9 @@ $|i_F|_{\rm max}=24{\rm \mu A}$
 
 (c) for R1,R2: $|i|=5{\rm \mu A}$
 
-$v_X=-0.45{\rm V}$
+for R3: $|i|=20{\rm \mu A}$
 
-$V_o=-1.64{\rm V}$
-
-$|i|=20{\rm \mu A}$
+for R4: $|i|=20{\rm \mu A}$
 
 ## 9.51
 
