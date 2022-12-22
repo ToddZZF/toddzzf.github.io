@@ -44,7 +44,7 @@ $A_v=-10$, $R_i=20{\rm k\Omega}$
 
 ## D9.8
 
-(a) $R_2=200{\rm k\Omega}$
+(a) $R_1=16.67{\rm k\Omega}$, $R_2=200{\rm k\Omega}$
 
 (b) $i_1=i_2=-7.5{\rm \mu A}$, $v_I=-0.125{\rm V}$
 
@@ -76,7 +76,7 @@ $|i_F|_{\rm max}=24{\rm \mu A}$
 
 (c) for R1,R2: $|i|=5{\rm \mu A}$
 
-for R3: $|i|=20{\rm \mu A}$
+for R3: $|i|=15{\rm \mu A}$
 
 for R4: $|i|=20{\rm \mu A}$
 
