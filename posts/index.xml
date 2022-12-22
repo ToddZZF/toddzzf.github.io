@@ -1,4 +1,53 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>日常 on Todd's Blog</title><link>https://todd.scuteee.com/posts/</link><description>Recent content in 日常 on Todd's Blog</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><lastBuildDate>Wed, 01 Jun 2022 14:30:21 +0800</lastBuildDate><atom:link href="https://todd.scuteee.com/posts/index.xml" rel="self" type="application/rss+xml"/><item><title>关于电容悖论的讨论</title><link>https://todd.scuteee.com/posts/2022/2022-11-19-a-dicussion-of-capacitor/</link><pubDate>Sat, 19 Nov 2022 10:14:00 +0800</pubDate><guid>https://todd.scuteee.com/posts/2022/2022-11-19-a-dicussion-of-capacitor/</guid><description>&lt;h2 id="介绍">介绍&lt;/h2>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>日常 on Todd's Blog</title><link>https://todd.scuteee.com/posts/</link><description>Recent content in 日常 on Todd's Blog</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><lastBuildDate>Wed, 01 Jun 2022 14:30:21 +0800</lastBuildDate><atom:link href="https://todd.scuteee.com/posts/index.xml" rel="self" type="application/rss+xml"/><item><title>数据大整理</title><link>https://todd.scuteee.com/posts/2022/2022-12-14-the-big-cleanup-of-data/</link><pubDate>Wed, 14 Dec 2022 17:17:00 +0800</pubDate><guid>https://todd.scuteee.com/posts/2022/2022-12-14-the-big-cleanup-of-data/</guid><description>&lt;p>我有很多块硬盘，包括：&lt;/p>
+&lt;ol>
+&lt;li>高中时买的 500G 机械硬盘&lt;/li>
+&lt;li>大二买的 4T 机械硬盘&lt;/li>
+&lt;li>大二阿帆给的 128G 固态硬盘&lt;/li>
+&lt;li>大三买的 2T 机械硬盘&lt;/li>
+&lt;li>大三室友给的 240G 机械硬盘&lt;/li>
+&lt;li>大四舅舅给的 3T 机械硬盘&lt;/li>
+&lt;li>大四买的京造 500G 固态硬盘&lt;/li>
+&lt;li>还有两块 2T 的固态硬盘分别装在台式电脑和笔记本电脑里&lt;/li>
+&lt;/ol>
+&lt;p>我的各种数据就混杂在这些硬盘里面，趁着有时间，就分门别类、整理一下。&lt;/p>
+&lt;p>目前的存储分配如下：&lt;/p>
+&lt;ol>
+&lt;li>京造500G固态硬盘（放在海康威视的硬盘盒里）：主要用于存放最重要文件，还有一些不好存在机械硬盘的小文件，包括：
+&lt;ul>
+&lt;li>Todd&amp;amp;Molly的记录&lt;/li>
+&lt;li>Books书籍&lt;/li>
+&lt;li>Ehentai漫画&lt;/li>
+&lt;li>开发工具&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ol>
+&lt;h2 id="x86p2配置">x86p2配置&lt;/h2>
+&lt;h3 id="pve8006端口">pve(8006端口)&lt;/h3>
+&lt;h3 id="openwrt80端口">openwrt(80端口)&lt;/h3>
+&lt;h3 id="omv681端口">OMV6(81端口)&lt;/h3>
+&lt;p>4T 硬盘由OMV6进行管理。&lt;/p>
+&lt;h3 id="docker9000端口">Docker(9000端口)&lt;/h3>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;span class="lnt">5
+&lt;/span>&lt;span class="lnt">6
+&lt;/span>&lt;span class="lnt">7
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">nano /etc/fstab
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># 增加下面一行，设置samba地址和位置&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># //10.0.0.176/HDD4T /mnt/nas4T cifs credentials=/root/.smbcredentials,iocharset=utf8 0 0&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># 其中/root/.smbcredentials如下&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># username=[用户名]&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># password=[密码]&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">mount -a
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div></description></item><item><title>关于电容悖论的讨论</title><link>https://todd.scuteee.com/posts/2022/2022-11-19-a-dicussion-of-capacitor/</link><pubDate>Sat, 19 Nov 2022 10:14:00 +0800</pubDate><guid>https://todd.scuteee.com/posts/2022/2022-11-19-a-dicussion-of-capacitor/</guid><description>&lt;h2 id="介绍">介绍&lt;/h2>
 &lt;p>在浏览开关电容的相关内容时看到这个很有意思的&lt;a class="link" href="https://en.wikipedia.org/wiki/Two_capacitor_paradox" target="_blank" rel="noopener"
 >电容悖论&lt;/a> ，内容如下：&lt;/p>
 &lt;p>有两个相同的电容并联，中间有一个开关。其中一个电容被 $V_i$ 的电压源充满电，另一个则未充电。当开关闭合时，前者的电荷 $Q=CV_i$ 会被平分到两个电容上，而电压会变为 $V_f=\frac{Q}{2C}=\frac{V_i}{2}$. 开始时的能量为：$W_i=\frac{1}{2}C V_i^2$，而结束时的能量为 $W_f=2\cdot \frac{1}{2} C V_f^2=\frac{1}{4}C V_i^2=\frac{1}{2} W_i$. 也就是说有一半的能量消失了？&lt;/p>
@@ -7725,4 +7774,66 @@ alt="宜家桌子"
 &lt;ul>
 &lt;li>&lt;a class="link" href="https://www.zhihu.com/question/21562137/answer/253200876" target="_blank" rel="noopener"
 >为什么品牌衣柜的主材多是实木颗粒？ - 装小蜜监理王志峰的回答 - 知乎&lt;/a> 该文介绍了胶合板、大芯板、指接板、密度板、刨花板、欧松板（OSB板）的制作方法与优缺点&lt;/li>
-&lt;/ul></description></item></channel></rss>
+&lt;/ul></description></item><item><title>论文写作课程</title><link>https://todd.scuteee.com/posts/2022/2022-12-3-thesis-writing-course/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://todd.scuteee.com/posts/2022/2022-12-3-thesis-writing-course/</guid><description>&lt;h2 id="research-proposal-homework">Research Proposal Homework&lt;/h2>
+&lt;h3 id="title">Title&lt;/h3>
+&lt;p>Research on Hot Carrier Injection Model of nanoscale MOS Transistor for EDA tools&lt;/p>
+&lt;h3 id="abstract">Abstract&lt;/h3>
+&lt;p>Hot carrier injection (HCI) is one of the main mechanisms of transistor performance degradation. In order to better evaluate the degradation effect caused by HCI in the circuit design stage, it is necessary to carry out HCI effect modeling research suitable for EDA tool simulation. In this research, we will performance hot carrier test on nanoscale MOS devices, analyse the mechanism of HCI, and derive HCI model from the experiment data.&lt;/p>
+&lt;h3 id="introduction">Introduction&lt;/h3>
+&lt;p>Hot carriers refer to carriers whose energy is several kT or more higher than the Fermi level. These carriers are not in thermal equilibrium with the lattice, and when the energy reaches or exceeds the Si/SiO2 interface barrier, they will Injected into the oxide layer to generate interface states in the oxide layer or be trapped, making the charge of the oxide layer increase or fluctuate unstable. This is the hot carrier injection (HCI) effect. [1] The hot carrier injection effect will affect the parameters of the MOS device, causing the flat band voltage (VFB), threshold voltage (Vth) to drift, and the transconductance (gm) to decrease. The degradation of device parameters further affects the performance of integrated circuits, and when the degradation reaches a certain level, it will lead to circuit failure.&lt;/p>
+&lt;p>In order to make the integrated circuit achieve the expected life, it is necessary to simulate the reliability of the circuit in the design stage. Currently the most commonly used hot carrier degradation model is the lucky electron model (LEM) proposed by Hu et al. [2], which is also the guiding principle for most industry standard hot carrier models and prediction methods. However, with the continuous reduction of device size and the decrease of operating voltage, the lucky electron model can no longer express the hot carrier effect of nanoscale field effect transistors well. Therefore, new mechanisms need to be considered in the model.&lt;/p>
+&lt;p>This research will deliver a HCI model that is based on HCI experiment on nanoscale MOS. It provides better prediction device degradation, and consumes small computational resource, so it is suitable for EDA simulation.&lt;/p>
+&lt;h3 id="literature-review摘自论文">Literature Review(摘自论文)&lt;/h3>
+&lt;p>As the size of devices shrinks to the nanoscale, researchers have proposed some new mechanisms to describe the generation of hot carrier effects, such as electron-electron scattering (Electron-Electron Scattering, EES), multiple vibration excitation (Multiple Vibration Excitation, MVE ), etc. These mechanisms are related to the energy distribution function of carriers, so this type of model is called the energy-driven paradigm model [3,4]. The key to this model is to solve the carrier energy distribution function (Energy Distribution Function, EDF), so as to find out the contribution of different mechanisms to the hot carrier effect. The carrier energy distribution function can be obtained by solving the Boltzmann Transport Equation (BTE). There are two methods used to obtain the solution of BTE: Monte-Carlo method and method based on Spherial Harmonics Expansion. Both methods require a lot of calculations, so they are not suitable for integration into EDA simulation tools. Therefore, it is necessary to simplify these physical models to obtain a compact model suitable for EDA, which can fully reflect the hot carrier effect of nanoscale devices and improve its computational efficiency.&lt;/p>
+&lt;h3 id="research-approach">Research Approach&lt;/h3>
+&lt;p>Commonly used device models in circuit simulators include analytical model, look-up table model, and empirical model [5]:&lt;/p>
+&lt;ul>
+&lt;li>Analytic models: Model equations are derived directly from the device physics, and these models accurately describe the device to a first-order approximation.&lt;/li>
+&lt;li>Look-up table model: Store the IV characteristics of devices with different degrees of degradation in the form of a table, and the basic data comes from the results obtained from experiments or simulators. The advantage of the look-up table model is that it is not dependent on process technology and can be built in a shorter time than the physical model. Its disadvantage is that this model cannot give the physical meaning of device characteristics.&lt;/li>
+&lt;li>Empirical model: not based on device physics, but purely obtained by fitting experimental curves. The advantage of this type of model is that it requires less data storage than the look-up table model, and it takes less time to build the model than other approximate models.&lt;/li>
+&lt;/ul>
+&lt;p>Considering that the HCI experiment takes a long time, and the damage to the device is irreversible, and the cost of testing the device is too high to carry out a large number of tests, it is not suitable to establish a look-up table model. Therefore, this research will model the hot carrier degradation on the basis of analytical model and empirical model.&lt;/p>
+&lt;h3 id="research-deliverables">Research Deliverables&lt;/h3>
+&lt;p>In this work, we are going to deliver:&lt;/p>
+&lt;ol>
+&lt;li>a paper&lt;/li>
+&lt;li>a model that can be used in EDA simulation&lt;/li>
+&lt;/ol>
+&lt;h3 id="timetable">Timetable&lt;/h3>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>Stage&lt;/th>
+&lt;th>Details&lt;/th>
+&lt;th>Time&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>Experiment&lt;/td>
+&lt;td>Conduct hot carrier test on PMOS device&lt;/td>
+&lt;td>1 month&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Data Processing&lt;/td>
+&lt;td>Extract device parameters from experiment data&lt;/td>
+&lt;td>1 week&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Modeling&lt;/td>
+&lt;td>Modeling with experimental data&lt;/td>
+&lt;td>2 weeks&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Paper writing&lt;/td>
+&lt;td>Draft our paper&lt;/td>
+&lt;td>2 weeks&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;h3 id="reference">Reference&lt;/h3>
+&lt;p>[1] Xiaowen Zhang, Yunfei en. Reliability and Evaluation Method of Semiconductor Integrated Circuit[M]. Beijing: Publishing House of Electronics Industry, 2015. 142.&lt;/p>
+&lt;p>[2] Tam S, Ko P K, Hu C. Lucky-electron model of channel hot-electron injection in MOSFET&amp;rsquo;s[J]. IEEE Transactions on Electron Devices, 1984, 31(9): 1116-1125.&lt;/p>
+&lt;p>[3] Rauch S E, Guarin F. The Energy Driven Hot Carrier Model[A]. Tibor. Hot Carrier Degradation in Semiconductor Devices[C]. London: Springer, 2015: 29-56.&lt;/p>
+&lt;p>[4] A. Bravaix, V. Huard, F. Cacho, X. Federspiel, D. Roy et al., Hot-carrier degradation in decananometer CMOS nodes: From an energy driven to a unified current degradation modeling by multiple carrier degradation process, in Hot-Carrier Degradation, ed. by T. Grasser (Springer, Wien/New York, 2015)&lt;/p>
+&lt;p>[5] Starkov I. Comprehensive physical modeling of hot-carrier induced degradation[D]. TU Wien, 2013.&lt;/p></description></item></channel></rss>

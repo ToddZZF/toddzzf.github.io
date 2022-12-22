@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Chapter 11 on Todd's Blog</title><link>https://todd.scuteee.com/analog/ta/chapter11/</link><description>Recent content in Chapter 11 on Todd's Blog</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><lastBuildDate>Fri, 09 Dec 2022 13:41:00 +0800</lastBuildDate><atom:link href="https://todd.scuteee.com/analog/ta/chapter11/index.xml" rel="self" type="application/rss+xml"/><item><title>Chapter 11 solution</title><link>https://todd.scuteee.com/analog/ta/chapter11/solution/</link><pubDate>Fri, 09 Dec 2022 22:07:18 +0800</pubDate><guid>https://todd.scuteee.com/analog/ta/chapter11/solution/</guid><description>&lt;h2 id="d958">D9.58&lt;/h2>
+&lt;p>(a) $i_1=-i_1(\dfrac{R_F}{R_2})+i_D$&lt;/p>
+&lt;p>or $i_D=i_1(1+\dfrac{R_F}{R_2})$&lt;/p>
+&lt;p>(b) $R_1=5{\rm k\Omega}$&lt;/p>
+&lt;p>$\dfrac{R_F}{R_2}=11$&lt;/p>
+&lt;h2 id="d971">D9.71&lt;/h2>
+&lt;p>For $A_d=200$, $R_1(fixed)=1{\rm k\Omega}$, $R_2=39.5{\rm k\Omega}$&lt;/p>
+&lt;p>For $A_d=5$, $R_1(var)=78{\rm k\Omega}$&lt;/p>
+&lt;h2 id="973">9.73&lt;/h2>
+&lt;p>(a) $f=398{\rm Hz}$, ${\rm Phase}=90^\circ$&lt;/p>
+&lt;p>(b)&lt;/p>
+&lt;p>(i) $f=66.3{\rm Hz}$&lt;/p>
+&lt;p>(ii) $f=663{\rm Hz}$&lt;/p>
+&lt;h2 id="d983">D9.83&lt;/h2>
+&lt;p>$\dfrac{R_F}{R_1}=10$, $\dfrac{R_F}{R_2}=1$, $(1+\dfrac{R_F}{R_N})(\dfrac{R_P}{R_A})=2$, $(1+\dfrac{R_F}{R_N})(\dfrac{R_P}{R_B})=3$&lt;/p>
+&lt;p>$R_P=R_A|R_B|R_C$&lt;/p>
+&lt;p>Typical value: $R_F=R_A=R_2=500{\rm k\Omega}$, $R_1=50{\rm k\Omega}$, $R_C=142.8{\rm k\Omega}$&lt;/p>
+&lt;h2 id="d986">D9.86&lt;/h2>
+&lt;p>$R_1=3.2{\rm k\Omega}$, $\dfrac{R_2}{R_3}=1.143{\rm k\Omega}$,&lt;/p>
+&lt;p>$R_3=2.8{\rm k\Omega}$&lt;/p>
+&lt;p>Let $I_R=6$, $R_2+R_3=6$, $R_2=3.2{\rm k\Omega}$&lt;/p>
+&lt;p>Let $I_{R4}=4{\rm mA}$, $R_4=(15-12)/4=0.75{\rm k\Omega}$&lt;/p>
+&lt;h2 id="d987">D9.87&lt;/h2>
+&lt;p>保证放大倍数为 40 倍即可。&lt;/p>
+&lt;p>典型值：$\dfrac{R_4}{R_3}=4$ 且 $\dfrac{R_2}{R_1}=4.5$&lt;/p>
+&lt;p>或 $\dfrac{R_2}{R_1}=39$&lt;/p>
+&lt;h2 id="111">11.1&lt;/h2>
+&lt;p>(a) $v_o=0.375\sin \omega t$&lt;/p>
+&lt;p>(b) $A_{cm}=0.025$, $v_o=0.45\sin \omega t$&lt;/p>
+&lt;p>(c) $A_{cm}=0.791$, $v_o=2.75\sin \omega t$&lt;/p>
+&lt;h2 id="1110">11.10&lt;/h2>
+&lt;p>(a) $R_E=23.7{\rm k\Omega}$, $R_C=30{\rm k\Omega}$&lt;/p>
+&lt;p>(b)&lt;/p>
+&lt;p>(i) $I_E=59.07{\rm \mu A}$&lt;/p>
+&lt;p>$I_{C1}=29.17{\rm \mu A}$&lt;/p>
+&lt;p>$v_{C1}=v_{C2}=-2.125{\rm V}$&lt;/p>
+&lt;p>(ii) $v_{C2}=-2.327{\rm V}$, $v_{C1}=-1.923{\rm V}$&lt;/p>
+&lt;h2 id="1116">11.16&lt;/h2>
+&lt;p>(a) $R_c=2.6{\rm K}$&lt;/p>
+&lt;p>(b) $v_{cm}(max)=7.4{\rm V}$&lt;/p>
+&lt;h2 id="1119">11.19&lt;/h2>
+&lt;p>(a) $v_d(\rm max)\approx 14{\rm mV}$&lt;/p>
+&lt;p>(b) $v_d(\rm max)\approx 21.2{\rm mV}$&lt;/p>
+&lt;h2 id="1127">11.27&lt;/h2>
+&lt;p>$-0.22\leq v_{o2} \leq +0.22{\rm V}$&lt;/p>
+&lt;h2 id="1128">11.28&lt;/h2>
+&lt;p>(a) $R_{id}=49.9{\rm k\Omega}$&lt;/p>
+&lt;p>(b) $R_{icm}=968{\rm M\Omega}$&lt;/p></description></item></channel></rss>

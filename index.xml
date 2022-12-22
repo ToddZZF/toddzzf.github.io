@@ -1,4 +1,218 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Todd's Blog</title><link>https://todd.scuteee.com/</link><description>Recent content on Todd's Blog</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><lastBuildDate>Tue, 29 Nov 2022 22:07:18 +0800</lastBuildDate><atom:link href="https://todd.scuteee.com/index.xml" rel="self" type="application/rss+xml"/><item><title>Chapter 9 solution</title><link>https://todd.scuteee.com/analog/ta/chapter09/solution/</link><pubDate>Tue, 29 Nov 2022 22:07:18 +0800</pubDate><guid>https://todd.scuteee.com/analog/ta/chapter09/solution/</guid><description>&lt;h2 id="839">8.39&lt;/h2>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Todd's Blog</title><link>https://todd.scuteee.com/</link><description>Recent content on Todd's Blog</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><lastBuildDate>Wed, 21 Dec 2022 10:48:18 +0800</lastBuildDate><atom:link href="https://todd.scuteee.com/index.xml" rel="self" type="application/rss+xml"/><item><title>Chapter 15 solution2</title><link>https://todd.scuteee.com/analog/ta/chapter15/solution2/</link><pubDate>Wed, 21 Dec 2022 10:48:18 +0800</pubDate><guid>https://todd.scuteee.com/analog/ta/chapter15/solution2/</guid><description>&lt;h2 id="1547">15.47&lt;/h2>
+&lt;p>(a)&lt;/p>
+&lt;p>$$
+V_{TH,TL} = \frac{\frac{V_{REF}}{R_3} \pm \frac{V_P}{R_2}}{\frac{1}{R_1}+\frac{1}{R_2}+\frac{1}{R_3}}
+$$&lt;/p>
+&lt;p>(b) $R_2=600{\rm k\Omega}$, $R_1=10.17{\rm k\Omega}$&lt;/p>
+&lt;p>(c) $V_{TH}=-4.9$, $V_{TL}=-5.1$&lt;/p>
+&lt;h2 id="1548">15.48&lt;/h2>
+&lt;p>如果正负饱和电压小于 5.6+0.6=6.2，那么电路是一个阈值为 0 的比较器。否则，是一个锁定在输出值的电压源。&lt;/p>
+&lt;h2 id="1551">15.51&lt;/h2>
+&lt;p>(a)&lt;/p>
+&lt;p>$$
+V_{TH,TL} = (\frac{R_1}{R_1+R_3}) (\pm V_\gamma) = \pm 0.175{\rm V}
+$$&lt;/p>
+&lt;p>(b)&lt;/p>
+&lt;p>(i) $I_{D1}=0$, $I_{D2}=0.458{\rm mA}$&lt;/p>
+&lt;p>$I_{R_2}=- 0.465{\rm mA}$&lt;/p>
+&lt;p>$I_{R3}= 7{\mu A}$&lt;/p>
+&lt;p>(ii) $I_{D2}=0$, $I_{D1}=0.458{\rm mA}$&lt;/p>
+&lt;p>$I_{R_2}= 0.465{\rm mA}$&lt;/p>
+&lt;p>$I_{R3}=- 7{\mu A}$&lt;/p>
+&lt;h2 id="1559">15.59&lt;/h2>
+&lt;p>$t_1=1.1{\rm ms}$&lt;/p>
+&lt;p>$\tau_\gamma = 4\times 10^{-5} {\rm s}$&lt;/p>
+&lt;p>$\dfrac{t_1}{\tau_\gamma}=2.75$&lt;/p>
+&lt;h2 id="1566">15.66&lt;/h2>
+&lt;p>$627{\rm Hz} \leq f \leq 4.81{\rm kHz}$&lt;/p>
+&lt;p>$52.2\leq \text{duty cycle} \leq 66.7%$&lt;/p>
+&lt;h2 id="1569">15.69&lt;/h2>
+&lt;p>$\text{maximum power} = 3.7{\rm W}$&lt;/p>
+&lt;p>$V^+=19{\rm V}$&lt;/p>
+&lt;p>$V_P=8.6{\rm V}$&lt;/p>
+&lt;h2 id="1574">15.74&lt;/h2>
+&lt;p>$\frac{\Delta V_0}{\Delta V^+}=1.61%$&lt;/p>
+&lt;h2 id="1575">15.75&lt;/h2>
+&lt;p>$R_{of}=4{\rm m\Omega}$&lt;/p>
+&lt;p>$\Delta V_O = 12{\rm mV}$&lt;/p>
+&lt;h2 id="1579">15.79&lt;/h2>
+&lt;p>(a) $R_1=2.07{\rm k\Omega}$&lt;/p>
+&lt;p>(b) $7.659\leq V_O \leq 22.976{\rm V}$&lt;/p>
+&lt;p>(c) $\text{Load regulation} = 4.169\times 10^{-4} %$&lt;/p>
+&lt;h2 id="1580">15.80&lt;/h2>
+&lt;p>(a) $0\leq R_L \leq 9.38{\rm k\Omega}$&lt;/p>
+&lt;p>(b) $1.3468\leq I_O \leq 1.3484 {\rm mA}$&lt;/p></description></item><item><title>Chapter 15 solution</title><link>https://todd.scuteee.com/analog/ta/chapter15/solution/</link><pubDate>Mon, 19 Dec 2022 10:48:18 +0800</pubDate><guid>https://todd.scuteee.com/analog/ta/chapter15/solution/</guid><description>&lt;p>大部分题目可看作一个比较复杂的电路求解，画出小信号模型，列出 KCL、KVL，求出 $i_o$, $v_s$ 即可。&lt;/p>
+&lt;h2 id="1259">12.59&lt;/h2>
+&lt;p>$\frac{I_0}{V_S}=-(0.0653) {\rm mA/V}$&lt;/p>
+&lt;h2 id="1261">12.61&lt;/h2>
+&lt;p>(a) $I_{CQ}=2.448{\rm mA}$, $I_{EQ}=2.479{\rm mA}$&lt;/p>
+&lt;p>(b) $A_{zf}=-8.666{\rm V/mA}$&lt;/p>
+&lt;p>(c) $R_{if}=0.1037{\rm k\Omega}$&lt;/p>
+&lt;p>(d) $R_{of}=0.1186{\rm k\Omega}$&lt;/p>
+&lt;h2 id="1270">12.70&lt;/h2>
+&lt;p>$T=84.45$ （或 $T=76.15$）&lt;/p>
+&lt;h2 id="1276">12.76&lt;/h2>
+&lt;p>$\phi=-163.7^\circ$, system is stable&lt;/p>
+&lt;p>$\phi=-203.1^\circ$, system is unstable&lt;/p>
+&lt;h2 id="1282">12.82&lt;/h2>
+&lt;p>$f_{120}=2.31\times 10^5{\rm Hz}$&lt;/p>
+&lt;p>$f_{PD}=66.8{\rm Hz}$&lt;/p>
+&lt;h2 id="1289">12.89&lt;/h2>
+&lt;p>$f_{120}=2.05\times 10^6{\rm Hz}$&lt;/p>
+&lt;p>$f_{PD}=577{\rm Hz}$&lt;/p>
+&lt;h2 id="d154">D15.4&lt;/h2>
+&lt;p>(a)&lt;/p>
+&lt;p>$RC=6.366\times 10^{-6}$&lt;/p>
+&lt;p>$R_3=4.5{\rm k\Omega}$&lt;/p>
+&lt;p>$R_4=9.0{\rm k\Omega}$&lt;/p>
+&lt;p>(b)&lt;/p>
+&lt;p>(i) $-4.26{\rm dB}$&lt;/p>
+&lt;p>(ii) $-3{\rm dB}$&lt;/p>
+&lt;p>(iii) $-2.14{\rm dB}$&lt;/p>
+&lt;h2 id="1515">15.15&lt;/h2>
+&lt;p>(a)&lt;/p>
+&lt;p>$$
+A_v(s) = \frac{-\frac{1}{R_4}}{\frac{1}{R_1}+j\omega C+\frac{1}{j\omega C R_2 R_3}}
+$$&lt;/p>
+&lt;p>(b)&lt;/p>
+&lt;p>$f=5.315{\rm kHz}$&lt;/p>
+&lt;p>$f=5.296{\rm kHz}$&lt;/p>
+&lt;h2 id="1523">15.23&lt;/h2>
+&lt;p>(a) $\tau = 60 {\rm \mu s}$&lt;/p>
+&lt;p>(b) $\Delta v+-=0.167{\rm V}$&lt;/p>
+&lt;p>(c) $N=78$&lt;/p>
+&lt;h2 id="1528">15.28&lt;/h2>
+&lt;p>$\omega_0 = \frac{\sqrt{5}}{RC}$&lt;/p>
+&lt;p>$\frac{R_F}{R}=2$&lt;/p>
+&lt;h2 id="1539">15.39&lt;/h2>
+&lt;p>$\frac{R_2}{R_1}=2$&lt;/p></description></item><item><title>数据大整理</title><link>https://todd.scuteee.com/posts/2022/2022-12-14-the-big-cleanup-of-data/</link><pubDate>Wed, 14 Dec 2022 17:17:00 +0800</pubDate><guid>https://todd.scuteee.com/posts/2022/2022-12-14-the-big-cleanup-of-data/</guid><description>&lt;p>我有很多块硬盘，包括：&lt;/p>
+&lt;ol>
+&lt;li>高中时买的 500G 机械硬盘&lt;/li>
+&lt;li>大二买的 4T 机械硬盘&lt;/li>
+&lt;li>大二阿帆给的 128G 固态硬盘&lt;/li>
+&lt;li>大三买的 2T 机械硬盘&lt;/li>
+&lt;li>大三室友给的 240G 机械硬盘&lt;/li>
+&lt;li>大四舅舅给的 3T 机械硬盘&lt;/li>
+&lt;li>大四买的京造 500G 固态硬盘&lt;/li>
+&lt;li>还有两块 2T 的固态硬盘分别装在台式电脑和笔记本电脑里&lt;/li>
+&lt;/ol>
+&lt;p>我的各种数据就混杂在这些硬盘里面，趁着有时间，就分门别类、整理一下。&lt;/p>
+&lt;p>目前的存储分配如下：&lt;/p>
+&lt;ol>
+&lt;li>京造500G固态硬盘（放在海康威视的硬盘盒里）：主要用于存放最重要文件，还有一些不好存在机械硬盘的小文件，包括：
+&lt;ul>
+&lt;li>Todd&amp;amp;Molly的记录&lt;/li>
+&lt;li>Books书籍&lt;/li>
+&lt;li>Ehentai漫画&lt;/li>
+&lt;li>开发工具&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ol>
+&lt;h2 id="x86p2配置">x86p2配置&lt;/h2>
+&lt;h3 id="pve8006端口">pve(8006端口)&lt;/h3>
+&lt;h3 id="openwrt80端口">openwrt(80端口)&lt;/h3>
+&lt;h3 id="omv681端口">OMV6(81端口)&lt;/h3>
+&lt;p>4T 硬盘由OMV6进行管理。&lt;/p>
+&lt;h3 id="docker9000端口">Docker(9000端口)&lt;/h3>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;span class="lnt">5
+&lt;/span>&lt;span class="lnt">6
+&lt;/span>&lt;span class="lnt">7
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">nano /etc/fstab
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># 增加下面一行，设置samba地址和位置&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># //10.0.0.176/HDD4T /mnt/nas4T cifs credentials=/root/.smbcredentials,iocharset=utf8 0 0&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># 其中/root/.smbcredentials如下&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># username=[用户名]&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># password=[密码]&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">mount -a
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div></description></item><item><title>Chapter 11 solution</title><link>https://todd.scuteee.com/analog/ta/chapter11/solution/</link><pubDate>Fri, 09 Dec 2022 22:07:18 +0800</pubDate><guid>https://todd.scuteee.com/analog/ta/chapter11/solution/</guid><description>&lt;h2 id="d958">D9.58&lt;/h2>
+&lt;p>(a) $i_1=-i_1(\dfrac{R_F}{R_2})+i_D$&lt;/p>
+&lt;p>or $i_D=i_1(1+\dfrac{R_F}{R_2})$&lt;/p>
+&lt;p>(b) $R_1=5{\rm k\Omega}$&lt;/p>
+&lt;p>$\dfrac{R_F}{R_2}=11$&lt;/p>
+&lt;h2 id="d971">D9.71&lt;/h2>
+&lt;p>For $A_d=200$, $R_1(fixed)=1{\rm k\Omega}$, $R_2=39.5{\rm k\Omega}$&lt;/p>
+&lt;p>For $A_d=5$, $R_1(var)=78{\rm k\Omega}$&lt;/p>
+&lt;h2 id="973">9.73&lt;/h2>
+&lt;p>(a) $f=398{\rm Hz}$, ${\rm Phase}=90^\circ$&lt;/p>
+&lt;p>(b)&lt;/p>
+&lt;p>(i) $f=66.3{\rm Hz}$&lt;/p>
+&lt;p>(ii) $f=663{\rm Hz}$&lt;/p>
+&lt;h2 id="d983">D9.83&lt;/h2>
+&lt;p>$\dfrac{R_F}{R_1}=10$, $\dfrac{R_F}{R_2}=1$, $(1+\dfrac{R_F}{R_N})(\dfrac{R_P}{R_A})=2$, $(1+\dfrac{R_F}{R_N})(\dfrac{R_P}{R_B})=3$&lt;/p>
+&lt;p>$R_P=R_A|R_B|R_C$&lt;/p>
+&lt;p>Typical value: $R_F=R_A=R_2=500{\rm k\Omega}$, $R_1=50{\rm k\Omega}$, $R_C=142.8{\rm k\Omega}$&lt;/p>
+&lt;h2 id="d986">D9.86&lt;/h2>
+&lt;p>$R_1=3.2{\rm k\Omega}$, $\dfrac{R_2}{R_3}=1.143{\rm k\Omega}$,&lt;/p>
+&lt;p>$R_3=2.8{\rm k\Omega}$&lt;/p>
+&lt;p>Let $I_R=6$, $R_2+R_3=6$, $R_2=3.2{\rm k\Omega}$&lt;/p>
+&lt;p>Let $I_{R4}=4{\rm mA}$, $R_4=(15-12)/4=0.75{\rm k\Omega}$&lt;/p>
+&lt;h2 id="d987">D9.87&lt;/h2>
+&lt;p>保证放大倍数为 40 倍即可。&lt;/p>
+&lt;p>典型值：$\dfrac{R_4}{R_3}=4$ 且 $\dfrac{R_2}{R_1}=4.5$&lt;/p>
+&lt;p>或 $\dfrac{R_2}{R_1}=39$&lt;/p>
+&lt;h2 id="111">11.1&lt;/h2>
+&lt;p>(a) $v_o=0.375\sin \omega t$&lt;/p>
+&lt;p>(b) $A_{cm}=0.025$, $v_o=0.45\sin \omega t$&lt;/p>
+&lt;p>(c) $A_{cm}=0.791$, $v_o=2.75\sin \omega t$&lt;/p>
+&lt;h2 id="1110">11.10&lt;/h2>
+&lt;p>(a) $R_E=23.7{\rm k\Omega}$, $R_C=30{\rm k\Omega}$&lt;/p>
+&lt;p>(b)&lt;/p>
+&lt;p>(i) $I_E=59.07{\rm \mu A}$&lt;/p>
+&lt;p>$I_{C1}=29.17{\rm \mu A}$&lt;/p>
+&lt;p>$v_{C1}=v_{C2}=-2.125{\rm V}$&lt;/p>
+&lt;p>(ii) $v_{C2}=-2.327{\rm V}$, $v_{C1}=-1.923{\rm V}$&lt;/p>
+&lt;h2 id="1116">11.16&lt;/h2>
+&lt;p>(a) $R_c=2.6{\rm K}$&lt;/p>
+&lt;p>(b) $v_{cm}(max)=7.4{\rm V}$&lt;/p>
+&lt;h2 id="1119">11.19&lt;/h2>
+&lt;p>(a) $v_d(\rm max)\approx 14{\rm mV}$&lt;/p>
+&lt;p>(b) $v_d(\rm max)\approx 21.2{\rm mV}$&lt;/p>
+&lt;h2 id="1127">11.27&lt;/h2>
+&lt;p>$-0.22\leq v_{o2} \leq +0.22{\rm V}$&lt;/p>
+&lt;h2 id="1128">11.28&lt;/h2>
+&lt;p>(a) $R_{id}=49.9{\rm k\Omega}$&lt;/p>
+&lt;p>(b) $R_{icm}=968{\rm M\Omega}$&lt;/p></description></item><item><title>Chapter 12 solution</title><link>https://todd.scuteee.com/analog/ta/chapter12/solution/</link><pubDate>Wed, 07 Dec 2022 10:48:18 +0800</pubDate><guid>https://todd.scuteee.com/analog/ta/chapter12/solution/</guid><description>&lt;h2 id="124">12.4&lt;/h2>
+&lt;p>(a) $A_f = \frac{A}{1+A\beta}\approx \frac{1}{\beta} = 125$&lt;/p>
+&lt;p>$\beta=0.0080$&lt;/p>
+&lt;p>(b) $A_f=125\times 0.9975 = 124.6875$&lt;/p>
+&lt;p>$A=49875$&lt;/p>
+&lt;h2 id="126">12.6&lt;/h2>
+&lt;p>$\beta=1.98\times 10^{-3}$&lt;/p>
+&lt;p>$A_f=500$&lt;/p>
+&lt;h2 id="127">12.7&lt;/h2>
+&lt;p>(a) $\beta_1=0.096685$, $\beta_2=0.0195$&lt;/p>
+&lt;p>(b) circuit (a) $-5.43%$&lt;/p>
+&lt;p>circuit (b) $-0.28%$&lt;/p>
+&lt;h2 id="1219">12.19&lt;/h2>
+&lt;p>(a)&lt;/p>
+&lt;p>$A_{vf}=\frac{A}{1+[A/(1+R_2/R_1)]}$&lt;/p>
+&lt;p>(b)&lt;/p>
+&lt;p>$\beta=\frac{1}{1+R_2/R_1}$&lt;/p>
+&lt;p>(c)&lt;/p>
+&lt;p>$\beta=0.04999$, $R_2/R_1=19.004$&lt;/p>
+&lt;p>(d)&lt;/p>
+&lt;p>$A_f=19.99956$&lt;/p>
+&lt;p>$\frac{\Delta A_f}{A_f}=-2.22\times 10^{-3}%$&lt;/p>
+&lt;h2 id="1237">12.37&lt;/h2>
+&lt;p>$R_{if}=62.4{\rm k\Omega}$&lt;/p>
+&lt;p>$R_{of}=1.39{\rm \Omega}$（题目没要求）&lt;/p>
+&lt;h2 id="1249">12.49&lt;/h2>
+&lt;p>(a)&lt;/p>
+&lt;p>Q1: $r_{\pi1}=13.1{\rm k\Omega}$, $g_{m1}=7.62{\rm mA/V}$&lt;/p>
+&lt;p>Q2: $r_{\pi2}=1.90{\rm k\Omega}$, $g_{m2}=52.7{\rm mA/V}$&lt;/p>
+&lt;p>(b) $A=\frac{I_O}{I_S}=8.6$&lt;/p>
+&lt;p>(c) $R_i=0.04713$&lt;/p>
+&lt;p>$R_{if}=47.4{\rm \Omega}$&lt;/p></description></item><item><title>Chapter 9 solution</title><link>https://todd.scuteee.com/analog/ta/chapter09/solution/</link><pubDate>Tue, 29 Nov 2022 22:07:18 +0800</pubDate><guid>https://todd.scuteee.com/analog/ta/chapter09/solution/</guid><description>&lt;h2 id="839">8.39&lt;/h2>
 &lt;p>(a) $V_{BB}=1.473{\rm V}$&lt;/p>
 &lt;p>(b) $I_{CQ}=14{\rm mA}$&lt;/p>
 &lt;h2 id="842">8.42&lt;/h2>
@@ -18,9 +232,8 @@
 &lt;h2 id="96">9.6&lt;/h2>
 &lt;p>$A_v=-10$, $R_i=20{\rm k\Omega}$&lt;/p>
 &lt;h2 id="d98">D9.8&lt;/h2>
-&lt;p>(a) $R_2=200{\rm k\Omega}$&lt;/p>
+&lt;p>(a) $R_1=16.67{\rm k\Omega}$, $R_2=200{\rm k\Omega}$&lt;/p>
 &lt;p>(b) $i_1=i_2=-7.5{\rm \mu A}$, $v_I=-0.125{\rm V}$&lt;/p>
-&lt;p>(c) $$&lt;/p>
 &lt;h2 id="919">9.19&lt;/h2>
 &lt;p>(a) $v_o=8.8{\rm V}$&lt;/p>
 &lt;p>(b) $A_v=-21.8993$, $v_o=8.7597{\rm V}$&lt;/p>
@@ -35,9 +248,8 @@
 &lt;p>(a) $\dfrac{v_o}{v_I}=11$&lt;/p>
 &lt;p>(b) $v_o=2.75{\rm V}$&lt;/p>
 &lt;p>(c) for R1,R2: $|i|=5{\rm \mu A}$&lt;/p>
-&lt;p>$v_X=-0.45{\rm V}$&lt;/p>
-&lt;p>$V_o=-1.64{\rm V}$&lt;/p>
-&lt;p>$|i|=20{\rm \mu A}$&lt;/p>
+&lt;p>for R3: $|i|=15{\rm \mu A}$&lt;/p>
+&lt;p>for R4: $|i|=20{\rm \mu A}$&lt;/p>
 &lt;h2 id="951">9.51&lt;/h2>
 &lt;p>(a) $A_{v1}=(1+\dfrac{R_2}{R_1})$&lt;/p>
 &lt;p>$A_{v2}=-(1+\dfrac{R_2}{R_1})$&lt;/p>
@@ -16730,4 +16942,66 @@ has_return.focus();
 function clear_input() {
 has_return.value = '';
 }
-&lt;/script></description></item></channel></rss>
+&lt;/script></description></item><item><title>论文写作课程</title><link>https://todd.scuteee.com/posts/2022/2022-12-3-thesis-writing-course/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://todd.scuteee.com/posts/2022/2022-12-3-thesis-writing-course/</guid><description>&lt;h2 id="research-proposal-homework">Research Proposal Homework&lt;/h2>
+&lt;h3 id="title">Title&lt;/h3>
+&lt;p>Research on Hot Carrier Injection Model of nanoscale MOS Transistor for EDA tools&lt;/p>
+&lt;h3 id="abstract">Abstract&lt;/h3>
+&lt;p>Hot carrier injection (HCI) is one of the main mechanisms of transistor performance degradation. In order to better evaluate the degradation effect caused by HCI in the circuit design stage, it is necessary to carry out HCI effect modeling research suitable for EDA tool simulation. In this research, we will performance hot carrier test on nanoscale MOS devices, analyse the mechanism of HCI, and derive HCI model from the experiment data.&lt;/p>
+&lt;h3 id="introduction">Introduction&lt;/h3>
+&lt;p>Hot carriers refer to carriers whose energy is several kT or more higher than the Fermi level. These carriers are not in thermal equilibrium with the lattice, and when the energy reaches or exceeds the Si/SiO2 interface barrier, they will Injected into the oxide layer to generate interface states in the oxide layer or be trapped, making the charge of the oxide layer increase or fluctuate unstable. This is the hot carrier injection (HCI) effect. [1] The hot carrier injection effect will affect the parameters of the MOS device, causing the flat band voltage (VFB), threshold voltage (Vth) to drift, and the transconductance (gm) to decrease. The degradation of device parameters further affects the performance of integrated circuits, and when the degradation reaches a certain level, it will lead to circuit failure.&lt;/p>
+&lt;p>In order to make the integrated circuit achieve the expected life, it is necessary to simulate the reliability of the circuit in the design stage. Currently the most commonly used hot carrier degradation model is the lucky electron model (LEM) proposed by Hu et al. [2], which is also the guiding principle for most industry standard hot carrier models and prediction methods. However, with the continuous reduction of device size and the decrease of operating voltage, the lucky electron model can no longer express the hot carrier effect of nanoscale field effect transistors well. Therefore, new mechanisms need to be considered in the model.&lt;/p>
+&lt;p>This research will deliver a HCI model that is based on HCI experiment on nanoscale MOS. It provides better prediction device degradation, and consumes small computational resource, so it is suitable for EDA simulation.&lt;/p>
+&lt;h3 id="literature-review摘自论文">Literature Review(摘自论文)&lt;/h3>
+&lt;p>As the size of devices shrinks to the nanoscale, researchers have proposed some new mechanisms to describe the generation of hot carrier effects, such as electron-electron scattering (Electron-Electron Scattering, EES), multiple vibration excitation (Multiple Vibration Excitation, MVE ), etc. These mechanisms are related to the energy distribution function of carriers, so this type of model is called the energy-driven paradigm model [3,4]. The key to this model is to solve the carrier energy distribution function (Energy Distribution Function, EDF), so as to find out the contribution of different mechanisms to the hot carrier effect. The carrier energy distribution function can be obtained by solving the Boltzmann Transport Equation (BTE). There are two methods used to obtain the solution of BTE: Monte-Carlo method and method based on Spherial Harmonics Expansion. Both methods require a lot of calculations, so they are not suitable for integration into EDA simulation tools. Therefore, it is necessary to simplify these physical models to obtain a compact model suitable for EDA, which can fully reflect the hot carrier effect of nanoscale devices and improve its computational efficiency.&lt;/p>
+&lt;h3 id="research-approach">Research Approach&lt;/h3>
+&lt;p>Commonly used device models in circuit simulators include analytical model, look-up table model, and empirical model [5]:&lt;/p>
+&lt;ul>
+&lt;li>Analytic models: Model equations are derived directly from the device physics, and these models accurately describe the device to a first-order approximation.&lt;/li>
+&lt;li>Look-up table model: Store the IV characteristics of devices with different degrees of degradation in the form of a table, and the basic data comes from the results obtained from experiments or simulators. The advantage of the look-up table model is that it is not dependent on process technology and can be built in a shorter time than the physical model. Its disadvantage is that this model cannot give the physical meaning of device characteristics.&lt;/li>
+&lt;li>Empirical model: not based on device physics, but purely obtained by fitting experimental curves. The advantage of this type of model is that it requires less data storage than the look-up table model, and it takes less time to build the model than other approximate models.&lt;/li>
+&lt;/ul>
+&lt;p>Considering that the HCI experiment takes a long time, and the damage to the device is irreversible, and the cost of testing the device is too high to carry out a large number of tests, it is not suitable to establish a look-up table model. Therefore, this research will model the hot carrier degradation on the basis of analytical model and empirical model.&lt;/p>
+&lt;h3 id="research-deliverables">Research Deliverables&lt;/h3>
+&lt;p>In this work, we are going to deliver:&lt;/p>
+&lt;ol>
+&lt;li>a paper&lt;/li>
+&lt;li>a model that can be used in EDA simulation&lt;/li>
+&lt;/ol>
+&lt;h3 id="timetable">Timetable&lt;/h3>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>Stage&lt;/th>
+&lt;th>Details&lt;/th>
+&lt;th>Time&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>Experiment&lt;/td>
+&lt;td>Conduct hot carrier test on PMOS device&lt;/td>
+&lt;td>1 month&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Data Processing&lt;/td>
+&lt;td>Extract device parameters from experiment data&lt;/td>
+&lt;td>1 week&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Modeling&lt;/td>
+&lt;td>Modeling with experimental data&lt;/td>
+&lt;td>2 weeks&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Paper writing&lt;/td>
+&lt;td>Draft our paper&lt;/td>
+&lt;td>2 weeks&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;h3 id="reference">Reference&lt;/h3>
+&lt;p>[1] Xiaowen Zhang, Yunfei en. Reliability and Evaluation Method of Semiconductor Integrated Circuit[M]. Beijing: Publishing House of Electronics Industry, 2015. 142.&lt;/p>
+&lt;p>[2] Tam S, Ko P K, Hu C. Lucky-electron model of channel hot-electron injection in MOSFET&amp;rsquo;s[J]. IEEE Transactions on Electron Devices, 1984, 31(9): 1116-1125.&lt;/p>
+&lt;p>[3] Rauch S E, Guarin F. The Energy Driven Hot Carrier Model[A]. Tibor. Hot Carrier Degradation in Semiconductor Devices[C]. London: Springer, 2015: 29-56.&lt;/p>
+&lt;p>[4] A. Bravaix, V. Huard, F. Cacho, X. Federspiel, D. Roy et al., Hot-carrier degradation in decananometer CMOS nodes: From an energy driven to a unified current degradation modeling by multiple carrier degradation process, in Hot-Carrier Degradation, ed. by T. Grasser (Springer, Wien/New York, 2015)&lt;/p>
+&lt;p>[5] Starkov I. Comprehensive physical modeling of hot-carrier induced degradation[D]. TU Wien, 2013.&lt;/p></description></item></channel></rss>

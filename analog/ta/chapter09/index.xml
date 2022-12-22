@@ -18,9 +18,8 @@
 &lt;h2 id="96">9.6&lt;/h2>
 &lt;p>$A_v=-10$, $R_i=20{\rm k\Omega}$&lt;/p>
 &lt;h2 id="d98">D9.8&lt;/h2>
-&lt;p>(a) $R_2=200{\rm k\Omega}$&lt;/p>
+&lt;p>(a) $R_1=16.67{\rm k\Omega}$, $R_2=200{\rm k\Omega}$&lt;/p>
 &lt;p>(b) $i_1=i_2=-7.5{\rm \mu A}$, $v_I=-0.125{\rm V}$&lt;/p>
-&lt;p>(c) $$&lt;/p>
 &lt;h2 id="919">9.19&lt;/h2>
 &lt;p>(a) $v_o=8.8{\rm V}$&lt;/p>
 &lt;p>(b) $A_v=-21.8993$, $v_o=8.7597{\rm V}$&lt;/p>
@@ -35,9 +34,8 @@
 &lt;p>(a) $\dfrac{v_o}{v_I}=11$&lt;/p>
 &lt;p>(b) $v_o=2.75{\rm V}$&lt;/p>
 &lt;p>(c) for R1,R2: $|i|=5{\rm \mu A}$&lt;/p>
-&lt;p>$v_X=-0.45{\rm V}$&lt;/p>
-&lt;p>$V_o=-1.64{\rm V}$&lt;/p>
-&lt;p>$|i|=20{\rm \mu A}$&lt;/p>
+&lt;p>for R3: $|i|=15{\rm \mu A}$&lt;/p>
+&lt;p>for R4: $|i|=20{\rm \mu A}$&lt;/p>
 &lt;h2 id="951">9.51&lt;/h2>
 &lt;p>(a) $A_{v1}=(1+\dfrac{R_2}{R_1})$&lt;/p>
 &lt;p>$A_{v2}=-(1+\dfrac{R_2}{R_1})$&lt;/p>
