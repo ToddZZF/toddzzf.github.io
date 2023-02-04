@@ -1,4 +1,116 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Todd's Blog</title><link>https://todd.scuteee.com/</link><description>Recent content on Todd's Blog</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><lastBuildDate>Wed, 21 Dec 2022 10:48:18 +0800</lastBuildDate><atom:link href="https://todd.scuteee.com/index.xml" rel="self" type="application/rss+xml"/><item><title>Chapter 15 solution2</title><link>https://todd.scuteee.com/analog/ta/chapter15/solution2/</link><pubDate>Wed, 21 Dec 2022 10:48:18 +0800</pubDate><guid>https://todd.scuteee.com/analog/ta/chapter15/solution2/</guid><description>&lt;h2 id="1547">15.47&lt;/h2>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Todd's Blog</title><link>https://todd.scuteee.com/</link><description>Recent content on Todd's Blog</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><lastBuildDate>Sat, 04 Feb 2023 10:26:00 +0800</lastBuildDate><atom:link href="https://todd.scuteee.com/index.xml" rel="self" type="application/rss+xml"/><item><title>LaTeX OCR（截图转LaTeX）软件</title><link>https://todd.scuteee.com/posts/2023/2023-02-04-latex-ocr/</link><pubDate>Sat, 04 Feb 2023 10:26:00 +0800</pubDate><guid>https://todd.scuteee.com/posts/2023/2023-02-04-latex-ocr/</guid><description>&lt;p>已经有这类的软件：&lt;a class="link" href="https://mathpix.com/" target="_blank" rel="noopener"
+>Mathpix&lt;/a>，但教育用户（用教育邮箱注册）每月只能识别 100 张图片，pro用户可以识别 5000 张（一年340RMB）。目前找到两个替代品。&lt;/p>
+&lt;h2 id="simpletex">SimpleTex&lt;/h2>
+&lt;p>&lt;a class="link" href="https://simpletex.cn/" target="_blank" rel="noopener"
+>SimpleTex&lt;/a> 是学生开发的，目前用起来速度不错（使用的是他们的服务器），可以识别多行公式，但不清楚未来会不会限制次数。目前推荐使用。&lt;/p>
+&lt;h2 id="pix2tex">pix2tex&lt;/h2>
+&lt;p>Github 上开源免费的软件 &lt;a class="link" href="https://github.com/lukas-blecher/LaTeX-OCR" target="_blank" rel="noopener"
+>pix2tex - LaTeX OCR&lt;/a>，本地运行无需联网，但安装复杂。&lt;/p>
+&lt;h3 id="安装过程">安装过程&lt;/h3>
+&lt;p>为了更好的管理 Python，我们先安装 Miniconda，直接到 &lt;a class="link" href="https://docs.conda.io/en/latest/miniconda.html" target="_blank" rel="noopener"
+>https://docs.conda.io/en/latest/miniconda.html&lt;/a> 安装最新的 Windows 64-bit 版本。全点确定即可。&lt;/p>
+&lt;p>安装好后，会弹出 &lt;a class="link" href="https://conda.io/projects/conda/en/latest/user-guide/getting-started.html" target="_blank" rel="noopener"
+>Getting started with conda&lt;/a> 的网页，这里简单介绍了 Miniconda 的用法，建议简要过一遍。然后我们开始为软件配置环境。&lt;/p>
+&lt;ol>
+&lt;li>
+&lt;p>打开 Anaconda Prompt 软件，然后输入下面的命令（可能需要）&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>新建一个环境：&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-cmd" data-lang="cmd">&lt;span class="line">&lt;span class="cl">conda create --name latex_ocr
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;/li>
+&lt;li>
+&lt;p>激活环境&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-cmd" data-lang="cmd">&lt;span class="line">&lt;span class="cl">conda activate latex_ocr
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;/li>
+&lt;li>
+&lt;p>&lt;a class="link" href="https://pytorch.org/get-started/locally/" target="_blank" rel="noopener"
+>安装 pytorth&lt;/a> （人工智能框架）&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-cmd" data-lang="cmd">&lt;span class="line">&lt;span class="cl">conda install pytorch torchvision torchaudio cpuonly -c pytorch
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>然后会出现一堆要安装的软件包，按 &lt;code>y&lt;/code> 来确认。如果速度太慢或出现 CondaError，可以尝试挂代理或 &lt;a class="link" href="https://blog.csdn.net/adreammaker/article/details/123396951" target="_blank" rel="noopener"
+>换源&lt;/a>。这一步是比较慢的，得有耐心。&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>安装 pix2tex&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-cmd" data-lang="cmd">&lt;span class="line">&lt;span class="cl">pip install pix2tex[gui]
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;/li>
+&lt;li>
+&lt;p>输入 &lt;code>latexocr&lt;/code> 来启动软件。如果出现：&lt;code>ImportError: DLL load failed while importing _imaging: 找不到指定的模块。&lt;/code>，可以尝试升级 PIllow：&lt;code>pip install --upgrade Pillow&lt;/code>。第一次启动需要下载模型文件。&lt;/p>
+&lt;p>另外，如果出现了 &lt;code>远程主机强迫关闭了一个现有的连接&lt;/code>，重新启动输入命令。&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>如果后续想要删除，可以运行：&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-cmd" data-lang="cmd">&lt;span class="line">&lt;span class="cl">conda env remove --name latex_ocr
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;/li>
+&lt;/ol>
+&lt;h3 id="使用测试">使用&amp;amp;测试&lt;/h3>
+&lt;p>点击 Snip，截图，识别成功后直接粘贴（无需复制）。&lt;/p>
+&lt;p>测试设备：小新 R5-4600U，识别过程中CPU使用率约为 65%。另外识别速度和准确率受截图大小的影响（我是把PDF打开为屏幕一半大小，此时截出来的公式大概是 80px 高），图片太大或太小都会影响准确率。&lt;/p>
+&lt;blockquote>
+&lt;p>$$
+N\cong\frac{D_{\infty}(\delta_{p},\delta_{s})-F(\delta_{p},\delta_{s})\left[\frac{(\omega_{s}-\omega_{p})}{2\pi}\right]^{2}}{\left[\frac{(\omega_{s}-\omega_{p})}{2\pi}\right]}
+$$&lt;/p>
+&lt;p>4s&lt;/p>
+&lt;/blockquote>
+&lt;blockquote>
+&lt;p>$$
+\beta=\left{\begin{array}{l l}{{0.1102(\alpha_{s}-8.7)}}&amp;amp;{{\mathrm{for~}\alpha_{s}\gt 50}}\\ {{0.5842(\alpha_{s}-21)^{0.4}+0.07886(\alpha_{s}-21)}}&amp;amp;{{\mathrm{for~}21\le\alpha_{s}\le50}}\\ {{0}}&amp;amp;{{\mathrm{for~}\alpha_{s}\lt 21}}\end{array}\right.
+$$
+10s&lt;/p>
+&lt;/blockquote>
+&lt;blockquote>
+&lt;p>$$
+H(e^{-j\omega})=e^{-j[(N\omega-\pi)/2]}\left{2\sum_{n=1}^{(N+1)/2}h\left[\frac{N+1}{2}-n\right]\sin\left(\left(n-\frac12\right)\omega\right)\right}
+$$
+6s&lt;/p>
+&lt;/blockquote>
+&lt;blockquote>
+&lt;p>$$
+\begin{aligned}
+H\left(e^{j \omega}\right)= &amp;amp; \sum_{n=0}^N h(n) e^{-j n \omega} \\
+= &amp;amp; h(0)+h(1) e^{-j \omega}+h(2) e^{-j 2 \omega}+\cdots+h(N-1) e^{-j(N \omega)} \\
+= &amp;amp; e^{-j[(N / 2) \omega]}\left{2 h(0) \cos \left(\frac{N \omega}{2}\right)+2 h(1) \cos \left(\left(\frac{N}{2}-1\right) \omega\right)\right. \\
+&amp;amp; \left.+2 h(2) \cos \left(\left(\frac{N}{2}-2\right) \omega\right)+\cdots+h\left(\frac{N}{2}\right)\right}
+\end{aligned}
+$$
+识别失败，只能用 Mathpix&lt;/p>
+&lt;/blockquote>
+&lt;p>对于单行公式，速度很快，且准确率很高。但对于多行公式，速度极慢且有时会失败。但总体表现不如 SimpleTex。&lt;/p></description></item><item><title>Chapter 15 solution2</title><link>https://todd.scuteee.com/analog/ta/chapter15/solution2/</link><pubDate>Wed, 21 Dec 2022 10:48:18 +0800</pubDate><guid>https://todd.scuteee.com/analog/ta/chapter15/solution2/</guid><description>&lt;h2 id="1547">15.47&lt;/h2>
 &lt;p>(a)&lt;/p>
 &lt;p>$$
 V_{TH,TL} = \frac{\frac{V_{REF}}{R_3} \pm \frac{V_P}{R_2}}{\frac{1}{R_1}+\frac{1}{R_2}+\frac{1}{R_3}}
