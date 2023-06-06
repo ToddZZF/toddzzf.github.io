@@ -1,4 +1,77 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Todd's Blog</title><link>https://todd.scuteee.com/</link><description>Recent content on Todd's Blog</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><lastBuildDate>Sat, 04 Feb 2023 10:26:00 +0800</lastBuildDate><atom:link href="https://todd.scuteee.com/index.xml" rel="self" type="application/rss+xml"/><item><title>LaTeX OCR（截图转LaTeX）软件</title><link>https://todd.scuteee.com/posts/2023/2023-02-04-latex-ocr/</link><pubDate>Sat, 04 Feb 2023 10:26:00 +0800</pubDate><guid>https://todd.scuteee.com/posts/2023/2023-02-04-latex-ocr/</guid><description>&lt;p>已经有这类的软件：&lt;a class="link" href="https://mathpix.com/" target="_blank" rel="noopener"
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Todd's Blog</title><link>https://todd.scuteee.com/</link><description>Recent content on Todd's Blog</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><lastBuildDate>Fri, 02 Jun 2023 12:27:00 +0800</lastBuildDate><atom:link href="https://todd.scuteee.com/index.xml" rel="self" type="application/rss+xml"/><item><title>更换固态</title><link>https://todd.scuteee.com/posts/2023/2023-06-06-change-ssd/</link><pubDate>Fri, 02 Jun 2023 12:27:00 +0800</pubDate><guid>https://todd.scuteee.com/posts/2023/2023-06-06-change-ssd/</guid><description>&lt;p>美美在618送了我一个固态硬盘（致钛的TiPlus7100），我把原来的 TiPlus5000 换下来给她。&lt;/p>
+&lt;h2 id="1-备份文件">1. 备份文件&lt;/h2>
+&lt;p>更换固态之前，确保重要文件都已经备份了，并且记录下有用的软件的名字。&lt;/p>
+&lt;h2 id="2-制作系统安装u盘">2. 制作系统安装U盘&lt;/h2>
+&lt;ol>
+&lt;li>下载系统文件（以.iso结尾），很多高校都有微软正版化网站，上面就有系统文件；或者使用下面的磁力链接。根据自己需要选择 11 或 10（我选择 11）
+&lt;ul>
+&lt;li>Windows 11 (business editions), version 22H2：&lt;a class="link" href="magnet:?xt=urn:btih:bdfd6c7500a4726870c4d5214250657f6d00015c&amp;amp;dn=zh-cn_windows_11_business_editions_version_22h2_updated_may_2023_x64_dvd_76248ab3.iso&amp;amp;xl=5757857792" >magnet:?xt=urn:btih:bdfd6c7500a4726870c4d5214250657f6d00015c&amp;dn=zh-cn_windows_11_business_editions_version_22h2_updated_may_2023_x64_dvd_76248ab3.iso&amp;xl=5757857792&lt;/a>&lt;/li>
+&lt;li>Windows 10 (business editions), version 22H2：&lt;a class="link" href="magnet:?xt=urn:btih:41f65f6a113077a9c5b6b1f160fd862be545cce4&amp;amp;dn=zh-cn_windows_10_business_editions_version_22h2_updated_may_2023_x64_dvd_b7e877b8.iso&amp;amp;xl=5975597056" >magnet:?xt=urn:btih:41f65f6a113077a9c5b6b1f160fd862be545cce4&amp;dn=zh-cn_windows_10_business_editions_version_22h2_updated_may_2023_x64_dvd_b7e877b8.iso&amp;xl=5975597056&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>下载 Rufus 软件，去 &lt;a class="link" href="https://rufus.ie/zh/" target="_blank" rel="noopener"
+>官网&lt;/a> 下载就行&lt;/li>
+&lt;li>将一个空闲的U盘插到电脑上，注意备份里面的资料&lt;/li>
+&lt;li>打开 Rufus，选择 U 盘，选择 iso 文件，然后点开始就行。选项都保持默认就行。&lt;/li>
+&lt;/ol>
+&lt;h2 id="3-更换固态">3. 更换固态&lt;/h2>
+&lt;ol>
+&lt;li>关机&lt;/li>
+&lt;li>把后盖的螺丝拧下来，并放到一个小盒子里，避免丢失。&lt;/li>
+&lt;li>然后用卡片或吸盘把后盖打开，注意不要用蛮力，避免卡扣断裂（虽然断裂也可以用螺丝固定，但心里还是会膈应的）&lt;/li>
+&lt;li>断开电池排线（嫌麻烦可不做）&lt;/li>
+&lt;li>确保手上没有静电&lt;/li>
+&lt;li>把固态螺丝拧下来，放到另一个小盒子里，避免与后盖螺丝混淆&lt;/li>
+&lt;li>把旧固态斜向上拔出来&lt;/li>
+&lt;li>把新固态斜着插进去，然后再放平&lt;/li>
+&lt;li>用螺丝将固态固定住&lt;/li>
+&lt;li>将盖子掩盖上，不要盖严，以免后续有问题又要打开。&lt;/li>
+&lt;/ol>
+&lt;h2 id="4-安装系统">4. 安装系统&lt;/h2>
+&lt;ol>
+&lt;li>将前面的 U 盘插上&lt;/li>
+&lt;li>开机&lt;/li>
+&lt;li>正常来说会进到安装系统的界面，如果进到 Bios，说明 U 盘有问题，请重新制作 U 盘&lt;/li>
+&lt;li>然后根据提示安装系统就行&lt;/li>
+&lt;li>系统安装好后，会自动联网安装驱动（在设置的 Windows 更新里），需要手动重启一两次。如果有驱动没安装，去电脑厂商的官网里找对应驱动。&lt;/li>
+&lt;/ol>
+&lt;h2 id="5-激活系统">5. 激活系统&lt;/h2>
+&lt;ol>
+&lt;li>关闭 Windows 安全中心的实时保护（在病毒和威胁防护，“病毒和威胁防护”设置，管理设置，实时保护）&lt;/li>
+&lt;li>下载 &lt;a class="link" href="https://github.com/zbezj/HEU_KMS_Activator/releases" target="_blank" rel="noopener"
+>HEU KMS Activator&lt;/a>&lt;/li>
+&lt;li>然后点“开始”就行&lt;/li>
+&lt;li>这个软件也可以激活 Office&lt;/li>
+&lt;/ol>
+&lt;h2 id="6-安装软件">6. 安装软件&lt;/h2>
+&lt;p>软件这个因人而异，这里只推荐常见的工具软件（下面给出了下载链接）：&lt;/p>
+&lt;ol>
+&lt;li>解压软件：&lt;a class="link" href="https://www.7-zip.org/" target="_blank" rel="noopener"
+>7zip&lt;/a> 或更好看的 &lt;a class="link" href="https://github.com/M2Team/NanaZip" target="_blank" rel="noopener"
+>NanaZip&lt;/a>&lt;/li>
+&lt;li>视频播放器：&lt;a class="link" href="https://www.videolan.org/vlc/" target="_blank" rel="noopener"
+>VLC&lt;/a>&lt;/li>
+&lt;li>图片浏览器：&lt;a class="link" href="https://imageglass.org/" target="_blank" rel="noopener"
+>ImageGlass&lt;/a>&lt;/li>
+&lt;li>浏览器：Windows 自带的 Edge，或 &lt;a class="link" href="https://www.mozilla.org/en-US/firefox/new/" target="_blank" rel="noopener"
+>Firefox&lt;/a>&lt;/li>
+&lt;li>截图：&lt;a class="link" href="https://www.snipaste.com/" target="_blank" rel="noopener"
+>Snipaste&lt;/a>&lt;/li>
+&lt;li>录屏：&lt;a class="link" href="https://obsproject.com/" target="_blank" rel="noopener"
+>OBS&lt;/a>&lt;/li>
+&lt;li>PDF浏览器：&lt;a class="link" href="https://www.sumatrapdfreader.org/free-pdf-reader" target="_blank" rel="noopener"
+>Sumatra PDF&lt;/a>&lt;/li>
+&lt;li>音乐播放器：&lt;a class="link" href="https://getmusicbee.com/" target="_blank" rel="noopener"
+>MusicBee&lt;/a>&lt;/li>
+&lt;/ol>
+&lt;h2 id="附让win11变成win10">附：让Win11变成Win10&lt;/h2>
+&lt;ul>
+&lt;li>右键菜单：&lt;a class="link" href="https://zhuanlan.zhihu.com/p/427268135" target="_blank" rel="noopener"
+>https://zhuanlan.zhihu.com/p/427268135&lt;/a>&lt;/li>
+&lt;li>开始菜单：&lt;a class="link" href="https://github.com/wwwwwhj/ExplorerPatcher-" target="_blank" rel="noopener"
+>https://github.com/wwwwwhj/ExplorerPatcher-&lt;/a> 或者直接使用 &lt;a class="link" href="https://github.com/coodesker/coodesker-desktop/releases" target="_blank" rel="noopener"
+>Coodesker&lt;/a>&lt;/li>
+&lt;/ul></description></item><item><title>LaTeX OCR（截图转LaTeX）软件</title><link>https://todd.scuteee.com/posts/2023/2023-02-04-latex-ocr/</link><pubDate>Sat, 04 Feb 2023 10:26:00 +0800</pubDate><guid>https://todd.scuteee.com/posts/2023/2023-02-04-latex-ocr/</guid><description>&lt;p>已经有这类的软件：&lt;a class="link" href="https://mathpix.com/" target="_blank" rel="noopener"
 >Mathpix&lt;/a>，但教育用户（用教育邮箱注册）每月只能识别 100 张图片，pro用户可以识别 5000 张（一年340RMB）。目前找到两个替代品。&lt;/p>
 &lt;h2 id="simpletex">SimpleTex&lt;/h2>
 &lt;p>&lt;a class="link" href="https://simpletex.cn/" target="_blank" rel="noopener"
