@@ -1,0 +1,3 @@
+{{/*  Replace `\\` at the end of each line with `\\\\`, so that the math can break line properly*/}}
+
+{{ return (replaceRE "(\\\\)\n" "\\\\\\" .) }}
