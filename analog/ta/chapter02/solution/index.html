@@ -10,7 +10,12 @@ $$</p><p>$$
 I_Z=\l[ \frac{V_{PS}-V_{ZO}}{R_i}-I_L \r] \big/ \l( 1+\frac{r_Z}{R_i} \r)
 $$</p><p>Because $r_Z/R_i&lt;3/500=0.06\ll 1$, $I_Z\approx \l[ \dfrac{V_{PS}-V_{ZO}}{R_i}-I_L \r]$</p><hr><p>The &ldquo;percent regulation&rdquo; is the same as load regulation.</p><p>$$
 \begin{aligned}
-\text{% Regulation}&=\frac{v_{L,\text{no load}}-v_{L,\text{full load}}}{v_{L, \text{full load}}}\\&=\frac{v_L(\max)-v_L(\min)}{v_L(\min)}\\&=\frac{[V_{ZO}+I_Z(\max)r_Z]-[V_{ZO}+I_Z(\min)r_Z]}{[V_{ZO}+I_Z(\min)r_Z]}\\&=\frac{[I_Z(\max)-I_Z(\min)]r_Z}{V_{ZO}+I_Z(\min)r_Z}\\&\approx \frac{[I_Z(\max)-I_Z(\min)]r_Z}{V_{ZO}}\\&=5%
+\text{% Regulation}&=\frac{v_{L,\text{no load}}-v_{L,\text{full load}}}{v_{L, \text{full load}}}\
+&=\frac{v_L(\max)-v_L(\min)}{v_L(\min)}\
+&=\frac{[V_{ZO}+I_Z(\max)r_Z]-[V_{ZO}+I_Z(\min)r_Z]}{[V_{ZO}+I_Z(\min)r_Z]}\
+&=\frac{[I_Z(\max)-I_Z(\min)]r_Z}{V_{ZO}+I_Z(\min)r_Z}\
+&\approx \frac{[I_Z(\max)-I_Z(\min)]r_Z}{V_{ZO}}\
+&=5%
 \end{aligned}
 $$</p><p>so $I_Z(\max)-I_Z(\min)=0.1{\rm A}$</p><hr><p>$I_L(\max)\approx \dfrac{v_{ZO}}{R_L(\min)}=\dfrac{6}{500}=0.012{\rm A}$</p><p>$I_L(\min)=\dfrac{v_{ZO}}{R_L(\max)}=\dfrac{6}{1000}=0.006{\rm A}$</p><hr><p>From $R_i=\dfrac{V_{PS}(\min)-V_{ZO}}{I_Z(\min)+I_L(\max)}$, we have</p><p>$$
 280 = \frac{15-6}{I_Z(\min)+0.012}
