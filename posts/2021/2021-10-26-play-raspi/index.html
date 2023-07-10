@@ -12,48 +12,10 @@
 </span></span><span class=line><span class=cl>sudo apt install jellyfin
 </span></span></code></pre></td></tr></table></div></div><p>  安装完提示找不到 jellyfin-web，需要创建软链接：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
 </span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>ln -s /usr/share/jellyfin/web/ /usr/lib/jellyfin/bin/jellyfin-web
-</span></span></code></pre></td></tr></table></div></div><p>  但在树莓派上，硬件解码是不可能的，所以这个只能当作一乐。</p><h4 id=wikijs>Wikijs</h4><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
-</span><span class=lnt> 2
-</span><span class=lnt> 3
-</span><span class=lnt> 4
-</span><span class=lnt> 5
-</span><span class=lnt> 6
-</span><span class=lnt> 7
-</span><span class=lnt> 8
-</span><span class=lnt> 9
-</span><span class=lnt>10
-</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>docker run -d <span class=se>\
-</span></span></span><span class=line><span class=cl><span class=se></span>  --name<span class=o>=</span>wikijs <span class=se>\
-</span></span></span><span class=line><span class=cl><span class=se></span>  -e <span class=nv>PUID</span><span class=o>=</span><span class=m>1000</span> <span class=se>\
-</span></span></span><span class=line><span class=cl><span class=se></span>  -e <span class=nv>PGID</span><span class=o>=</span><span class=m>1000</span> <span class=se>\
-</span></span></span><span class=line><span class=cl><span class=se></span>  -e <span class=nv>TZ</span><span class=o>=</span>Asia/Shanghai <span class=se>\
-</span></span></span><span class=line><span class=cl><span class=se></span>  -p 3000:3000 <span class=se>\
-</span></span></span><span class=line><span class=cl><span class=se></span>  -v ~/Docker/wikijs/config:/config <span class=se>\
-</span></span></span><span class=line><span class=cl><span class=se></span>  -v ~/Docker/wikijs/data:/data <span class=se>\
-</span></span></span><span class=line><span class=cl><span class=se></span>  --restart unless-stopped <span class=se>\
-</span></span></span><span class=line><span class=cl><span class=se></span>  lscr.io/linuxserver/wikijs <span class=c1>#or linuxserver/wikijs</span>
-</span></span></code></pre></td></tr></table></div></div><p>  然后访问 ip:3000，根据指引注册管理员账号。</p><h4 id=code-server>code-server</h4><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
-</span><span class=lnt> 2
-</span><span class=lnt> 3
-</span><span class=lnt> 4
-</span><span class=lnt> 5
-</span><span class=lnt> 6
-</span><span class=lnt> 7
-</span><span class=lnt> 8
-</span><span class=lnt> 9
-</span><span class=lnt>10
-</span><span class=lnt>11
-</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>docker run -d <span class=se>\
-</span></span></span><span class=line><span class=cl><span class=se></span>  --name<span class=o>=</span>code-server <span class=se>\
-</span></span></span><span class=line><span class=cl><span class=se></span>  -e <span class=nv>PUID</span><span class=o>=</span><span class=m>1000</span> <span class=se>\
-</span></span></span><span class=line><span class=cl><span class=se></span>  -e <span class=nv>PGID</span><span class=o>=</span><span class=m>1000</span> <span class=se>\
-</span></span></span><span class=line><span class=cl><span class=se></span>  -e <span class=nv>TZ</span><span class=o>=</span>Asia/Shanghai <span class=se>\
-</span></span></span><span class=line><span class=cl><span class=se></span>  -e <span class=nv>PASSWORD</span><span class=o>=</span>toddraspi <span class=se>\
-</span></span></span><span class=line><span class=cl><span class=se></span>  -e <span class=nv>SUDO_PASSWORD</span><span class=o>=</span>toddraspi <span class=se>\
-</span></span></span><span class=line><span class=cl><span class=se></span>  -p 8888:8443 <span class=se>\
-</span></span></span><span class=line><span class=cl><span class=se></span>  -v ~/Docker/code-server/config:/config <span class=se>\
-</span></span></span><span class=line><span class=cl><span class=se></span>  --restart unless-stopped <span class=se>\
-</span></span></span><span class=line><span class=cl><span class=se></span>  lscr.io/linuxserver/code-server <span class=c1>#or linuxserver/code-server</span>
+</span></span></code></pre></td></tr></table></div></div><p>  但在树莓派上，硬件解码是不可能的，所以这个只能当作一乐。</p><h4 id=wikijs>Wikijs</h4><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>docker run -d <span class=se>\\\ </span> --name<span class=o>=</span>wikijs <span class=se>\\\ </span> -e <span class=nv>PUID</span><span class=o>=</span><span class=m>1000</span> <span class=se>\\\ </span> -e <span class=nv>PGID</span><span class=o>=</span><span class=m>1000</span> <span class=se>\\\ </span> -e <span class=nv>TZ</span><span class=o>=</span>Asia/Shanghai <span class=se>\\\ </span> -p 3000:3000 <span class=se>\\\ </span> -v ~/Docker/wikijs/config:/config <span class=se>\\\ </span> -v ~/Docker/wikijs/data:/data <span class=se>\\\ </span> --restart unless-stopped <span class=se>\\\ </span> lscr.io/linuxserver/wikijs <span class=c1>#or linuxserver/wikijs</span>
+</span></span></code></pre></td></tr></table></div></div><p>  然后访问 ip:3000，根据指引注册管理员账号。</p><h4 id=code-server>code-server</h4><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>docker run -d <span class=se>\\\ </span> --name<span class=o>=</span>code-server <span class=se>\\\ </span> -e <span class=nv>PUID</span><span class=o>=</span><span class=m>1000</span> <span class=se>\\\ </span> -e <span class=nv>PGID</span><span class=o>=</span><span class=m>1000</span> <span class=se>\\\ </span> -e <span class=nv>TZ</span><span class=o>=</span>Asia/Shanghai <span class=se>\\\ </span> -e <span class=nv>PASSWORD</span><span class=o>=</span>toddraspi <span class=se>\\\ </span> -e <span class=nv>SUDO_PASSWORD</span><span class=o>=</span>toddraspi <span class=se>\\\ </span> -p 8888:8443 <span class=se>\\\ </span> -v ~/Docker/code-server/config:/config <span class=se>\\\ </span> --restart unless-stopped <span class=se>\\\ </span> lscr.io/linuxserver/code-server <span class=c1>#or linuxserver/code-server</span>
 </span></span></code></pre></td></tr></table></div></div><p>  然后访问 ip:8888，开始安装一些编程语言。</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
 </span><span class=lnt>2
 </span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>sudo apt update
