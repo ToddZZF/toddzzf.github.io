@@ -1,4 +1,1880 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Todd's Blog</title><link>https://todd.scuteee.com/</link><description>Recent content on Todd's Blog</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><lastBuildDate>Fri, 02 Jun 2023 12:27:00 +0800</lastBuildDate><atom:link href="https://todd.scuteee.com/index.xml" rel="self" type="application/rss+xml"/><item><title>更换固态</title><link>https://todd.scuteee.com/posts/2023/2023-06-06-change-ssd/</link><pubDate>Fri, 02 Jun 2023 12:27:00 +0800</pubDate><guid>https://todd.scuteee.com/posts/2023/2023-06-06-change-ssd/</guid><description>&lt;p>美美在618送了我一个固态硬盘（致钛的TiPlus7100），我把原来的 TiPlus5000 换下来给她。&lt;/p>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Todd's Blog</title><link>https://todd.scuteee.com/</link><description>Recent content on Todd's Blog</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><lastBuildDate>Mon, 10 Jul 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://todd.scuteee.com/index.xml" rel="self" type="application/rss+xml"/><item><title>乘法</title><link>https://todd.scuteee.com/digitalic/%E6%95%B0%E5%AD%97%E9%9B%86%E6%88%90%E7%94%B5%E8%B7%AF/11-%E7%AE%97%E6%9C%AF%E5%8D%95%E5%85%83/%E4%B9%98%E6%B3%95/</link><pubDate>Mon, 10 Jul 2023 00:00:00 +0000</pubDate><guid>https://todd.scuteee.com/digitalic/%E6%95%B0%E5%AD%97%E9%9B%86%E6%88%90%E7%94%B5%E8%B7%AF/11-%E7%AE%97%E6%9C%AF%E5%8D%95%E5%85%83/%E4%B9%98%E6%B3%95/</guid><description>&lt;h1 id="乘法器">乘法器&lt;/h1>
+&lt;h2 id="简单乘法器">简单乘法器&lt;/h2>
+&lt;p>按照小学的写法，乘法首先是用下面那个数的每一位，去乘上面那个数，得到部分积（partial products）。然后把得到的结果相加。&lt;/p>
+&lt;p>&lt;img src="https://todd.scuteee.com/digitalic/%E6%95%B0%E5%AD%97%E9%9B%86%E6%88%90%E7%94%B5%E8%B7%AF/11-%E7%AE%97%E6%9C%AF%E5%8D%95%E5%85%83/%E4%B9%98%E6%B3%95/images/multiply_general_form.png"
+width="1149"
+height="818"
+srcset="https://todd.scuteee.com/digitalic/%E6%95%B0%E5%AD%97%E9%9B%86%E6%88%90%E7%94%B5%E8%B7%AF/11-%E7%AE%97%E6%9C%AF%E5%8D%95%E5%85%83/%E4%B9%98%E6%B3%95/images/multiply_general_form_hu3447903b63b9bd3ea7574854526c2b69_106203_480x0_resize_box_3.png 480w, https://todd.scuteee.com/digitalic/%E6%95%B0%E5%AD%97%E9%9B%86%E6%88%90%E7%94%B5%E8%B7%AF/11-%E7%AE%97%E6%9C%AF%E5%8D%95%E5%85%83/%E4%B9%98%E6%B3%95/images/multiply_general_form_hu3447903b63b9bd3ea7574854526c2b69_106203_1024x0_resize_box_3.png 1024w"
+loading="lazy"
+alt="乘法器原理"
+class="gallery-image"
+data-flex-grow="140"
+data-flex-basis="337px"
+>&lt;/p>
+&lt;p>为了简化，用“点”来表示：&lt;/p>
+&lt;p>&lt;img src="https://todd.scuteee.com/digitalic/%E6%95%B0%E5%AD%97%E9%9B%86%E6%88%90%E7%94%B5%E8%B7%AF/11-%E7%AE%97%E6%9C%AF%E5%8D%95%E5%85%83/%E4%B9%98%E6%B3%95/images/dot_notation.png"
+width="1081"
+height="759"
+srcset="https://todd.scuteee.com/digitalic/%E6%95%B0%E5%AD%97%E9%9B%86%E6%88%90%E7%94%B5%E8%B7%AF/11-%E7%AE%97%E6%9C%AF%E5%8D%95%E5%85%83/%E4%B9%98%E6%B3%95/images/dot_notation_hu8e9d1dae1a92fa83eac040d9b82da9c3_157966_480x0_resize_box_3.png 480w, https://todd.scuteee.com/digitalic/%E6%95%B0%E5%AD%97%E9%9B%86%E6%88%90%E7%94%B5%E8%B7%AF/11-%E7%AE%97%E6%9C%AF%E5%8D%95%E5%85%83/%E4%B9%98%E6%B3%95/images/dot_notation_hu8e9d1dae1a92fa83eac040d9b82da9c3_157966_1024x0_resize_box_3.png 1024w"
+loading="lazy"
+alt="dot notation"
+class="gallery-image"
+data-flex-grow="142"
+data-flex-basis="341px"
+>&lt;/p>
+&lt;ul>
+&lt;li>点的数量即所需的门的数量&lt;/li>
+&lt;li>行数（或高度）就是延迟&lt;/li>
+&lt;/ul>
+&lt;p>每个点可以看作是一个 1bit乘以1bit 的乘法，可以用一个与门来表示，而点与点之间的连线则是加法器。因此总的延时为：&lt;/p>
+&lt;p>$$
+T = [(M-1)+(N-2)]t_{carry}+(N-1)t_{sum}+t_{AND}
+$$&lt;/p>
+&lt;ul>
+&lt;li>$M$ 是被乘数的位数（也就是上面那个数，即每行的宽度）&lt;/li>
+&lt;li>$N$ 是乘数的位数（也就是行数）&lt;/li>
+&lt;li>箭头方向向左就是一个 $t_{carry}$&lt;/li>
+&lt;li>箭头方向向下就是一个 $t_{sum}$&lt;/li>
+&lt;li>$t_{AND}$ 是最开始的相乘&lt;/li>
+&lt;/ul>
+&lt;p>&lt;img src="https://todd.scuteee.com/digitalic/%E6%95%B0%E5%AD%97%E9%9B%86%E6%88%90%E7%94%B5%E8%B7%AF/11-%E7%AE%97%E6%9C%AF%E5%8D%95%E5%85%83/%E4%B9%98%E6%B3%95/images/delay_in_array_multiplier.png"
+width="942"
+height="701"
+srcset="https://todd.scuteee.com/digitalic/%E6%95%B0%E5%AD%97%E9%9B%86%E6%88%90%E7%94%B5%E8%B7%AF/11-%E7%AE%97%E6%9C%AF%E5%8D%95%E5%85%83/%E4%B9%98%E6%B3%95/images/delay_in_array_multiplier_hu03f22355769f492b0fbdeafb460feccc_177399_480x0_resize_box_3.png 480w, https://todd.scuteee.com/digitalic/%E6%95%B0%E5%AD%97%E9%9B%86%E6%88%90%E7%94%B5%E8%B7%AF/11-%E7%AE%97%E6%9C%AF%E5%8D%95%E5%85%83/%E4%B9%98%E6%B3%95/images/delay_in_array_multiplier_hu03f22355769f492b0fbdeafb460feccc_177399_1024x0_resize_box_3.png 1024w"
+loading="lazy"
+alt="乘法阵列的延迟"
+class="gallery-image"
+data-flex-grow="134"
+data-flex-basis="322px"
+>&lt;/p>
+&lt;p>可以看出，$t_{carry}$（进位）消耗了大量时间，因为每一级都要等上一级的 carry 算出来后才开始算。因此我们不妨改变一下 carry 的接法，把它接到下一级（P.S. 下图没有问题，只是没有把 $z_2,z_1,z_0$ 标出来而已）：&lt;/p>
+&lt;p>&lt;img src="https://todd.scuteee.com/digitalic/%E6%95%B0%E5%AD%97%E9%9B%86%E6%88%90%E7%94%B5%E8%B7%AF/11-%E7%AE%97%E6%9C%AF%E5%8D%95%E5%85%83/%E4%B9%98%E6%B3%95/images/carry_save_multiplier.png"
+width="1169"
+height="750"
+srcset="https://todd.scuteee.com/digitalic/%E6%95%B0%E5%AD%97%E9%9B%86%E6%88%90%E7%94%B5%E8%B7%AF/11-%E7%AE%97%E6%9C%AF%E5%8D%95%E5%85%83/%E4%B9%98%E6%B3%95/images/carry_save_multiplier_hu73df3c55cdd84183370a7ccb2b3dc2e1_105096_480x0_resize_box_3.png 480w, https://todd.scuteee.com/digitalic/%E6%95%B0%E5%AD%97%E9%9B%86%E6%88%90%E7%94%B5%E8%B7%AF/11-%E7%AE%97%E6%9C%AF%E5%8D%95%E5%85%83/%E4%B9%98%E6%B3%95/images/carry_save_multiplier_hu73df3c55cdd84183370a7ccb2b3dc2e1_105096_1024x0_resize_box_3.png 1024w"
+loading="lazy"
+alt="进位保存加法器"
+class="gallery-image"
+data-flex-grow="155"
+data-flex-basis="374px"
+>&lt;/p>
+&lt;p>延迟为：&lt;/p>
+&lt;p>$$
+T = t_{AND} + (N-1)t_{carry}+t_{merge}
+$$&lt;/p>
+&lt;ul>
+&lt;li>$t_{merge}$ 是最下面的 Vector Merging Adder 的时间。&lt;/li>
+&lt;li>这里不考虑 $t_{sum}$ 是因为我们认为 $t_{sum}$ 和 $t_{carry}$ 是同时发生的，且 $t_{sum}\leq t_{carry}$。并且我们这里没有走向下的箭头。&lt;/li>
+&lt;/ul>
+&lt;p>但是上面还有一个问题，就是要做加法的次数太多了。假如我们要算 $A+B+C+D+E+F$对比下面两种做法：&lt;/p>
+&lt;ol>
+&lt;li>旧的方法
+&lt;ul>
+&lt;li>$S_1=A+B$&lt;/li>
+&lt;li>$S_2=S_1+C$&lt;/li>
+&lt;li>$S_3=S_2+D$&lt;/li>
+&lt;li>$S_4=S_3+E$&lt;/li>
+&lt;li>$S=S_4+F$&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>更好的方法
+&lt;ul>
+&lt;li>同时计算：$S_1=A+B$，$S_2=C+D$，$S_3=E+F$&lt;/li>
+&lt;li>$S=S_1+S_2+S_3$&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ol>
+&lt;p>显然，做法2 的高度（层数）更少，算起来也更快。这就是我们下面这种 Wallace Tree 的思想，先减少层数，再算。&lt;/p>
+&lt;p>&lt;img src="https://todd.scuteee.com/digitalic/%E6%95%B0%E5%AD%97%E9%9B%86%E6%88%90%E7%94%B5%E8%B7%AF/11-%E7%AE%97%E6%9C%AF%E5%8D%95%E5%85%83/%E4%B9%98%E6%B3%95/images/Wallace_Tree.png"
+width="1110"
+height="795"
+srcset="https://todd.scuteee.com/digitalic/%E6%95%B0%E5%AD%97%E9%9B%86%E6%88%90%E7%94%B5%E8%B7%AF/11-%E7%AE%97%E6%9C%AF%E5%8D%95%E5%85%83/%E4%B9%98%E6%B3%95/images/Wallace_Tree_hu3ca07f4a9e011cf2474d52aa7e69bd93_89630_480x0_resize_box_3.png 480w, https://todd.scuteee.com/digitalic/%E6%95%B0%E5%AD%97%E9%9B%86%E6%88%90%E7%94%B5%E8%B7%AF/11-%E7%AE%97%E6%9C%AF%E5%8D%95%E5%85%83/%E4%B9%98%E6%B3%95/images/Wallace_Tree_hu3ca07f4a9e011cf2474d52aa7e69bd93_89630_1024x0_resize_box_3.png 1024w"
+loading="lazy"
+alt="Wallace Tree"
+class="gallery-image"
+data-flex-grow="139"
+data-flex-basis="335px"
+>&lt;/p>
+&lt;p>&lt;img src="https://todd.scuteee.com/digitalic/%E6%95%B0%E5%AD%97%E9%9B%86%E6%88%90%E7%94%B5%E8%B7%AF/11-%E7%AE%97%E6%9C%AF%E5%8D%95%E5%85%83/%E4%B9%98%E6%B3%95/images/Wallace_Tree2.png"
+width="1182"
+height="741"
+srcset="https://todd.scuteee.com/digitalic/%E6%95%B0%E5%AD%97%E9%9B%86%E6%88%90%E7%94%B5%E8%B7%AF/11-%E7%AE%97%E6%9C%AF%E5%8D%95%E5%85%83/%E4%B9%98%E6%B3%95/images/Wallace_Tree2_hud15639e671980a70ba34c4759e558964_92325_480x0_resize_box_3.png 480w, https://todd.scuteee.com/digitalic/%E6%95%B0%E5%AD%97%E9%9B%86%E6%88%90%E7%94%B5%E8%B7%AF/11-%E7%AE%97%E6%9C%AF%E5%8D%95%E5%85%83/%E4%B9%98%E6%B3%95/images/Wallace_Tree2_hud15639e671980a70ba34c4759e558964_92325_1024x0_resize_box_3.png 1024w"
+loading="lazy"
+alt="Wallace Tree"
+class="gallery-image"
+data-flex-grow="159"
+data-flex-basis="382px"
+>&lt;/p>
+&lt;p>当然，Wallace Tree 看起来很简洁，但是由于它是不规则的，所以走线会很困难。在此基础上，进一步改进，把两个 &lt;code>FA&lt;/code> 结合成一个 &lt;code>4-2 Compressors&lt;/code>&lt;/p>
+&lt;p>&lt;img src="https://todd.scuteee.com/digitalic/%E6%95%B0%E5%AD%97%E9%9B%86%E6%88%90%E7%94%B5%E8%B7%AF/11-%E7%AE%97%E6%9C%AF%E5%8D%95%E5%85%83/%E4%B9%98%E6%B3%95/images/4-2-Compressor.png"
+width="1071"
+height="570"
+srcset="https://todd.scuteee.com/digitalic/%E6%95%B0%E5%AD%97%E9%9B%86%E6%88%90%E7%94%B5%E8%B7%AF/11-%E7%AE%97%E6%9C%AF%E5%8D%95%E5%85%83/%E4%B9%98%E6%B3%95/images/4-2-Compressor_hu9be193e577962c1aec4af19c08f8fa2b_109597_480x0_resize_box_3.png 480w, https://todd.scuteee.com/digitalic/%E6%95%B0%E5%AD%97%E9%9B%86%E6%88%90%E7%94%B5%E8%B7%AF/11-%E7%AE%97%E6%9C%AF%E5%8D%95%E5%85%83/%E4%B9%98%E6%B3%95/images/4-2-Compressor_hu9be193e577962c1aec4af19c08f8fa2b_109597_1024x0_resize_box_3.png 1024w"
+loading="lazy"
+alt="4-2 Compressors"
+class="gallery-image"
+data-flex-grow="187"
+data-flex-basis="450px"
+>&lt;/p>
+&lt;p>&lt;img src="https://todd.scuteee.com/digitalic/%E6%95%B0%E5%AD%97%E9%9B%86%E6%88%90%E7%94%B5%E8%B7%AF/11-%E7%AE%97%E6%9C%AF%E5%8D%95%E5%85%83/%E4%B9%98%E6%B3%95/images/4-2-Compressor_in_multipliers.png"
+width="996"
+height="809"
+srcset="https://todd.scuteee.com/digitalic/%E6%95%B0%E5%AD%97%E9%9B%86%E6%88%90%E7%94%B5%E8%B7%AF/11-%E7%AE%97%E6%9C%AF%E5%8D%95%E5%85%83/%E4%B9%98%E6%B3%95/images/4-2-Compressor_in_multipliers_hu3237dd4ab1bd7470b905f4cb23246b1d_93139_480x0_resize_box_3.png 480w, https://todd.scuteee.com/digitalic/%E6%95%B0%E5%AD%97%E9%9B%86%E6%88%90%E7%94%B5%E8%B7%AF/11-%E7%AE%97%E6%9C%AF%E5%8D%95%E5%85%83/%E4%B9%98%E6%B3%95/images/4-2-Compressor_in_multipliers_hu3237dd4ab1bd7470b905f4cb23246b1d_93139_1024x0_resize_box_3.png 1024w"
+loading="lazy"
+alt="4-2 Compressors 乘法器"
+class="gallery-image"
+data-flex-grow="123"
+data-flex-basis="295px"
+>&lt;/p>
+&lt;h2 id="booth编码">Booth编码&lt;/h2>
+&lt;p>上面的计算可以进一步改进：&lt;/p>
+&lt;ul>
+&lt;li>如果是某一位是 0，那么这一位的乘积就是0，我们跳过这个加法&lt;/li>
+&lt;li>如果乘数是 0111，我们可以改为用 (100-001)相乘。后者只需要做两次乘法和一次加法&lt;/li>
+&lt;/ul>
+&lt;p>那么如何实现上面的算法呢？听起来需要复杂的逻辑判断是吧？非也，只需要改变编码就行，下面介绍 Booth 编码。&lt;/p>
+&lt;p>对于一个 $n$ 位的数：&lt;/p>
+&lt;p>$$
+y=-2^{n-1}y_{n-1}+2^{n-2}y_{n-2}+2^{n-3}y_{n-3}+\cdots+y_0
+$$&lt;/p>
+&lt;p>可以改写成：&lt;/p>
+&lt;p>$$
+\begin{aligned}
+y=&amp;amp;2^{n-2}(-2y_{n-1}+y_{n-2}+y_{n-3})\
+&amp;amp;+2^{n-4}(-2y_{n-3}+y_{n-4}+y_{n-5})\
+&amp;amp;+\cdots+(-2y_1+y_0+y_{-1})
+\end{aligned}
+$$&lt;/p>
+&lt;p>其中，最高位是符号位，而 $y_{-1}=0$。把括号中的数当作一组新的数，其可能的取值为（下表中左边三列）：&lt;/p>
+&lt;p>&lt;img src="https://todd.scuteee.com/digitalic/%E6%95%B0%E5%AD%97%E9%9B%86%E6%88%90%E7%94%B5%E8%B7%AF/11-%E7%AE%97%E6%9C%AF%E5%8D%95%E5%85%83/%E4%B9%98%E6%B3%95/images/Booth_encoding_values.png"
+width="590"
+height="301"
+srcset="https://todd.scuteee.com/digitalic/%E6%95%B0%E5%AD%97%E9%9B%86%E6%88%90%E7%94%B5%E8%B7%AF/11-%E7%AE%97%E6%9C%AF%E5%8D%95%E5%85%83/%E4%B9%98%E6%B3%95/images/Booth_encoding_values_hu87e171fd957712184a9e4a59d4140d81_31154_480x0_resize_box_3.png 480w, https://todd.scuteee.com/digitalic/%E6%95%B0%E5%AD%97%E9%9B%86%E6%88%90%E7%94%B5%E8%B7%AF/11-%E7%AE%97%E6%9C%AF%E5%8D%95%E5%85%83/%E4%B9%98%E6%B3%95/images/Booth_encoding_values_hu87e171fd957712184a9e4a59d4140d81_31154_1024x0_resize_box_3.png 1024w"
+loading="lazy"
+alt="Booth编码取值"
+class="gallery-image"
+data-flex-grow="196"
+data-flex-basis="470px"
+>&lt;/p>
+&lt;p>而其对应的操作就是中间 $PP_i$ 列，比如：当 $-2y_1+y_0+y_{-1}=-2$，对应 $P P_i=-2Y$ 就是将被乘数取反、+1、再左移一位（注意如果是负数，那么高位需要补1）。&lt;/p>
+&lt;p>因此，我们可以将 $2i+1,2i,2i-1$ 三个数划分为一组，根据上表得到对应操作，然后乘以被乘数，最后再相加。&lt;/p>
+&lt;p>Booth编码可以配合 Carry-Save 来使用。&lt;/p>
+&lt;p>我们可以进一步扩展 3 位 Booth编码为 4 位的Booth编码，但是这样的话就 $PP_i$ 的情况会很复杂，所以一般不会超过 4 位。&lt;/p></description></item><item><title>存储单元</title><link>https://todd.scuteee.com/digitalic/%E6%95%B0%E5%AD%97%E9%9B%86%E6%88%90%E7%94%B5%E8%B7%AF/12-%E5%AD%98%E5%82%A8%E5%8D%95%E5%85%83/</link><pubDate>Mon, 10 Jul 2023 00:00:00 +0000</pubDate><guid>https://todd.scuteee.com/digitalic/%E6%95%B0%E5%AD%97%E9%9B%86%E6%88%90%E7%94%B5%E8%B7%AF/12-%E5%AD%98%E5%82%A8%E5%8D%95%E5%85%83/</guid><description>&lt;h2 id="概论">概论&lt;/h2>
+&lt;p>&lt;img src="https://todd.scuteee.com/digitalic/%E6%95%B0%E5%AD%97%E9%9B%86%E6%88%90%E7%94%B5%E8%B7%AF/12-%E5%AD%98%E5%82%A8%E5%8D%95%E5%85%83/images/%E5%AD%98%E5%82%A8%E5%99%A8%E7%9A%84%E5%88%86%E7%B1%BB.png"
+width="1015"
+height="598"
+srcset="https://todd.scuteee.com/digitalic/%E6%95%B0%E5%AD%97%E9%9B%86%E6%88%90%E7%94%B5%E8%B7%AF/12-%E5%AD%98%E5%82%A8%E5%8D%95%E5%85%83/images/%E5%AD%98%E5%82%A8%E5%99%A8%E7%9A%84%E5%88%86%E7%B1%BB_hu40e6bb6921478865541dfc3beb647fae_83908_480x0_resize_box_3.png 480w, https://todd.scuteee.com/digitalic/%E6%95%B0%E5%AD%97%E9%9B%86%E6%88%90%E7%94%B5%E8%B7%AF/12-%E5%AD%98%E5%82%A8%E5%8D%95%E5%85%83/images/%E5%AD%98%E5%82%A8%E5%99%A8%E7%9A%84%E5%88%86%E7%B1%BB_hu40e6bb6921478865541dfc3beb647fae_83908_1024x0_resize_box_3.png 1024w"
+loading="lazy"
+alt="存储器的分类"
+class="gallery-image"
+data-flex-grow="169"
+data-flex-basis="407px"
+>&lt;/p>
+&lt;ul>
+&lt;li>RAM：Random Access Memory 随机读写存储器（常说的内存，掉电无数据）&lt;/li>
+&lt;li>ROM：Read-Only Memory 只读存储器（一开始是在制造过程中写死，不过现在也有可擦除的，后者包括日常使用的 U盘）&lt;/li>
+&lt;/ul>
+&lt;h2 id="rom">ROM&lt;/h2>
+&lt;h3 id="mask-rom">Mask ROM&lt;/h3>
+&lt;p>Mask 只的是掩模版，意识是需要通过修改掩模版来改变存储的值。其实现方式有三种：&lt;/p>
+&lt;ul>
+&lt;li>OR&lt;/li>
+&lt;li>NOR&lt;/li>
+&lt;li>NAND&lt;/li>
+&lt;/ul>
+&lt;p>OR 的实现很简单，所有 BL 默认为 0，所有 WL 默认为 0，选中的 WL 为 1。在需要输出 1 的 BL 上接一个 NMOS，NMOS 一端接 VDD，另一端接 BL，由于输入的 WL=1，NMOS 打开，就会使得对应 BL 为 1.&lt;/p>
+&lt;p>&lt;img src="https://todd.scuteee.com/digitalic/%E6%95%B0%E5%AD%97%E9%9B%86%E6%88%90%E7%94%B5%E8%B7%AF/12-%E5%AD%98%E5%82%A8%E5%8D%95%E5%85%83/images/OR_ROM.png"
+width="1002"
+height="811"
+srcset="https://todd.scuteee.com/digitalic/%E6%95%B0%E5%AD%97%E9%9B%86%E6%88%90%E7%94%B5%E8%B7%AF/12-%E5%AD%98%E5%82%A8%E5%8D%95%E5%85%83/images/OR_ROM_hu851461cce889c3434d10290984ec8abe_44242_480x0_resize_box_3.png 480w, https://todd.scuteee.com/digitalic/%E6%95%B0%E5%AD%97%E9%9B%86%E6%88%90%E7%94%B5%E8%B7%AF/12-%E5%AD%98%E5%82%A8%E5%8D%95%E5%85%83/images/OR_ROM_hu851461cce889c3434d10290984ec8abe_44242_1024x0_resize_box_3.png 1024w"
+loading="lazy"
+alt="OR ROM"
+class="gallery-image"
+data-flex-grow="123"
+data-flex-basis="296px"
+>&lt;/p>
+&lt;p>NOR 和 OR 类似，只不过所有 BL 默认为 1（WL 还是默认为 0）。在需要输出 1 的 BL 上接一个 NMOS，NMOS 一端接 GND，由于输入的 WL=1，NMOS 打开，就会使得对应 BL 为 0.&lt;/p>
+&lt;p>&lt;img src="https://todd.scuteee.com/digitalic/%E6%95%B0%E5%AD%97%E9%9B%86%E6%88%90%E7%94%B5%E8%B7%AF/12-%E5%AD%98%E5%82%A8%E5%8D%95%E5%85%83/images/NOR_ROM.png"
+width="948"
+height="806"
+srcset="https://todd.scuteee.com/digitalic/%E6%95%B0%E5%AD%97%E9%9B%86%E6%88%90%E7%94%B5%E8%B7%AF/12-%E5%AD%98%E5%82%A8%E5%8D%95%E5%85%83/images/NOR_ROM_hua88eede2af5f673b49a9e90503093524_45710_480x0_resize_box_3.png 480w, https://todd.scuteee.com/digitalic/%E6%95%B0%E5%AD%97%E9%9B%86%E6%88%90%E7%94%B5%E8%B7%AF/12-%E5%AD%98%E5%82%A8%E5%8D%95%E5%85%83/images/NOR_ROM_hua88eede2af5f673b49a9e90503093524_45710_1024x0_resize_box_3.png 1024w"
+loading="lazy"
+alt="NOR ROM"
+class="gallery-image"
+data-flex-grow="117"
+data-flex-basis="282px"
+>&lt;/p>
+&lt;p>可以看出，NOR、OR 的实现中，NMOS 管的一端都要接 VDD 或 GND。而 NAND 则不用，其实现方式如下：&lt;/p>
+&lt;p>WL 默认为 1，选中的 WL 为 0. 所有 BL 默认为 0。在需要输出 1 的 BL 上接一个 NMOS（注意 NMOS 在 BL 到地的路径上），由于 WL 为 0，所以 NMOS 开路，BL 被上拉（这要求上拉器件是弱上拉）&lt;/p>
+&lt;p>&lt;img src="https://todd.scuteee.com/digitalic/%E6%95%B0%E5%AD%97%E9%9B%86%E6%88%90%E7%94%B5%E8%B7%AF/12-%E5%AD%98%E5%82%A8%E5%8D%95%E5%85%83/images/NAND_ROM.png"
+width="914"
+height="805"
+srcset="https://todd.scuteee.com/digitalic/%E6%95%B0%E5%AD%97%E9%9B%86%E6%88%90%E7%94%B5%E8%B7%AF/12-%E5%AD%98%E5%82%A8%E5%8D%95%E5%85%83/images/NAND_ROM_hu1355fdb4031c4d144c9802e027267f6a_54394_480x0_resize_box_3.png 480w, https://todd.scuteee.com/digitalic/%E6%95%B0%E5%AD%97%E9%9B%86%E6%88%90%E7%94%B5%E8%B7%AF/12-%E5%AD%98%E5%82%A8%E5%8D%95%E5%85%83/images/NAND_ROM_hu1355fdb4031c4d144c9802e027267f6a_54394_1024x0_resize_box_3.png 1024w"
+loading="lazy"
+alt="NAND ROM"
+class="gallery-image"
+data-flex-grow="113"
+data-flex-basis="272px"
+>&lt;/p>
+&lt;p>三种中，NAND 的面积最小，但是它的性能（速度）不如 NOR ROM。&lt;/p>
+&lt;hr>
+&lt;p>设计要点：&lt;/p>
+&lt;p>如何减小 WL 延迟（毕竟这么长的 Poly）：&lt;/p>
+&lt;ul>
+&lt;li>用两个 driver 从两端驱动&lt;/li>
+&lt;li>加一条并联的 metal&lt;/li>
+&lt;/ul>
+&lt;h3 id="eeprom-和-flash">EEPROM 和 FLASH&lt;/h3>
+&lt;p>基本原理是，通过向栅极注入电子，来改变阈值电压。这么一来，注入电子的阈值电压变高，在同等栅压下就相当于断路。&lt;/p>
+&lt;p>&lt;img src="https://todd.scuteee.com/digitalic/%E6%95%B0%E5%AD%97%E9%9B%86%E6%88%90%E7%94%B5%E8%B7%AF/12-%E5%AD%98%E5%82%A8%E5%8D%95%E5%85%83/images/NOR_Flash_write.png"
+width="563"
+height="345"
+srcset="https://todd.scuteee.com/digitalic/%E6%95%B0%E5%AD%97%E9%9B%86%E6%88%90%E7%94%B5%E8%B7%AF/12-%E5%AD%98%E5%82%A8%E5%8D%95%E5%85%83/images/NOR_Flash_write_hu1e9eb4b41cf1700c12a4a6cfd7ec0538_27319_480x0_resize_box_3.png 480w, https://todd.scuteee.com/digitalic/%E6%95%B0%E5%AD%97%E9%9B%86%E6%88%90%E7%94%B5%E8%B7%AF/12-%E5%AD%98%E5%82%A8%E5%8D%95%E5%85%83/images/NOR_Flash_write_hu1e9eb4b41cf1700c12a4a6cfd7ec0538_27319_1024x0_resize_box_3.png 1024w"
+loading="lazy"
+alt="Flash 写入"
+class="gallery-image"
+data-flex-grow="163"
+data-flex-basis="391px"
+>&lt;/p>
+&lt;p>至于读取，则和 Mask ROM 一样。&lt;/p>
+&lt;p>EEPROM 与 FLASH 的区别：flash属于广义的EEPROM，因为它也是电擦除的rom。但是为了区别于一般的按字节为单位的擦写的EEPROM，我们都叫它flash。&lt;/p>
+&lt;h2 id="ram">RAM&lt;/h2>
+&lt;p>RAM 一般由以下部分组成&lt;/p>
+&lt;ul>
+&lt;li>Array&lt;/li>
+&lt;li>Decoder
+&lt;ul>
+&lt;li>Row Decoder&lt;/li>
+&lt;li>Column Decoder&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>Sense Amplifier&lt;/li>
+&lt;li>Read/Write Circuits&lt;/li>
+&lt;/ul>
+&lt;p>对于 n 行 m 列的 RAM，有 $2^m \times 2^n$ 个bits（不太确定，按道理是按字节存储的）&lt;/p>
+&lt;p>&lt;img src="https://todd.scuteee.com/digitalic/%E6%95%B0%E5%AD%97%E9%9B%86%E6%88%90%E7%94%B5%E8%B7%AF/12-%E5%AD%98%E5%82%A8%E5%8D%95%E5%85%83/images/SRAM_diagram.png"
+width="1154"
+height="728"
+srcset="https://todd.scuteee.com/digitalic/%E6%95%B0%E5%AD%97%E9%9B%86%E6%88%90%E7%94%B5%E8%B7%AF/12-%E5%AD%98%E5%82%A8%E5%8D%95%E5%85%83/images/SRAM_diagram_hu6c683b91f50b6ea2c69a801e687b99e5_72951_480x0_resize_box_3.png 480w, https://todd.scuteee.com/digitalic/%E6%95%B0%E5%AD%97%E9%9B%86%E6%88%90%E7%94%B5%E8%B7%AF/12-%E5%AD%98%E5%82%A8%E5%8D%95%E5%85%83/images/SRAM_diagram_hu6c683b91f50b6ea2c69a801e687b99e5_72951_1024x0_resize_box_3.png 1024w"
+loading="lazy"
+alt="SRAM框图"
+class="gallery-image"
+data-flex-grow="158"
+data-flex-basis="380px"
+>&lt;/p>
+&lt;h3 id="sram">SRAM&lt;/h3>
+&lt;p>下图是 SRAM 的电路图，我们会介绍图中的所有部分。&lt;/p>
+&lt;p>&lt;img src="https://todd.scuteee.com/digitalic/%E6%95%B0%E5%AD%97%E9%9B%86%E6%88%90%E7%94%B5%E8%B7%AF/12-%E5%AD%98%E5%82%A8%E5%8D%95%E5%85%83/images/SRAM_simulation_cross_section.png"
+width="985"
+height="744"
+srcset="https://todd.scuteee.com/digitalic/%E6%95%B0%E5%AD%97%E9%9B%86%E6%88%90%E7%94%B5%E8%B7%AF/12-%E5%AD%98%E5%82%A8%E5%8D%95%E5%85%83/images/SRAM_simulation_cross_section_hu7d99702cc5d4cafa6a24de5b698def22_95721_480x0_resize_box_3.png 480w, https://todd.scuteee.com/digitalic/%E6%95%B0%E5%AD%97%E9%9B%86%E6%88%90%E7%94%B5%E8%B7%AF/12-%E5%AD%98%E5%82%A8%E5%8D%95%E5%85%83/images/SRAM_simulation_cross_section_hu7d99702cc5d4cafa6a24de5b698def22_95721_1024x0_resize_box_3.png 1024w"
+loading="lazy"
+alt="SRAM电路图"
+class="gallery-image"
+data-flex-grow="132"
+data-flex-basis="317px"
+>&lt;/p>
+&lt;p>SRAM（Static RAM）与 DRAM 不同之处在于：&lt;/p>
+&lt;ul>
+&lt;li>DRAM 依靠“电容”来存储&lt;/li>
+&lt;li>SRAM 依靠“反馈”来存储&lt;/li>
+&lt;/ul>
+&lt;p>尽管 SRAM 需要额面积比 SRAM 大，但它有如下好处：&lt;/p>
+&lt;ol>
+&lt;li>相比于比 flip-flop，密度更大&lt;/li>
+&lt;li>可以用 CMOS 工艺实现&lt;/li>
+&lt;li>比 DRAM 快&lt;/li>
+&lt;li>比 DRAM 容易使用&lt;/li>
+&lt;/ol>
+&lt;p>一个最简单的 SRAM 单元是可以用 6 个晶体管实现（6T SRAM cell）：两个首尾相连的反相器+两个开关。&lt;/p>
+&lt;p>&lt;img src="https://todd.scuteee.com/digitalic/%E6%95%B0%E5%AD%97%E9%9B%86%E6%88%90%E7%94%B5%E8%B7%AF/12-%E5%AD%98%E5%82%A8%E5%8D%95%E5%85%83/images/6T-SRAM-cell.png"
+width="514"
+height="306"
+srcset="https://todd.scuteee.com/digitalic/%E6%95%B0%E5%AD%97%E9%9B%86%E6%88%90%E7%94%B5%E8%B7%AF/12-%E5%AD%98%E5%82%A8%E5%8D%95%E5%85%83/images/6T-SRAM-cell_hu6584cbc9161d0bb884f00bf3572d076c_13365_480x0_resize_box_3.png 480w, https://todd.scuteee.com/digitalic/%E6%95%B0%E5%AD%97%E9%9B%86%E6%88%90%E7%94%B5%E8%B7%AF/12-%E5%AD%98%E5%82%A8%E5%8D%95%E5%85%83/images/6T-SRAM-cell_hu6584cbc9161d0bb884f00bf3572d076c_13365_1024x0_resize_box_3.png 1024w"
+loading="lazy"
+alt="6T SRAM cell"
+class="gallery-image"
+data-flex-grow="167"
+data-flex-basis="403px"
+>&lt;/p>
+&lt;ul>
+&lt;li>读操作
+&lt;ul>
+&lt;li>预充电 bit、bit_b到VDD&lt;/li>
+&lt;li>N2、N4 打开&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>写操作
+&lt;ul>
+&lt;li>将数据驱动到 bit、bit_b&lt;/li>
+&lt;li>N2、N4 打开&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;p>需要注意的是，这 6 个晶体管的大小（宽度）为：N2,4&amp;lt;P1,2&amp;lt;N1,3，因为：&lt;/p>
+&lt;ul>
+&lt;li>读取时，bit 为 VDD，那么在 N2、N1 导通时，中间的电压一定不能超过 $\frac{1}{2} V_{DD}$，所以 N1 的电阻一定要比 N2 小、&lt;/li>
+&lt;li>写入时，假如原来是 1，要写入 0，那么在 N2、P1 导通时，中间的电压必须小于 $\frac{1}{2} V_{DD}$，所以 N2 的电阻一定要比 P1 小&lt;/li>
+&lt;/ul>
+&lt;h3 id="地址译码器">地址译码器&lt;/h3>
+&lt;h4 id="行译码器">行译码器&lt;/h4>
+&lt;p>行译码器的作用是从 $2^M$ 个存储行中确定一行，也就是选中这行的 Word Line。考虑一个 8 位地址译码器，它有 8 个输入和 127 个输出，每个输出的逻辑表达式为：&lt;/p>
+&lt;p>$$
+WL_0 = \bar{A}_0\bar{A}_1\bar{A}_2\bar{A}_3\bar{A}_4\bar{A}_5\bar{A}_6\bar{A}&lt;em>7\
+\vdots\
+WL&lt;/em>{127}=\bar{A}_0A_1A_2A_3A_4A_5A_6A_7
+$$&lt;/p>
+&lt;p>每行需要一个 8 输入的 NOR 门（De Morgan定理），大的扇入会导致延时很大，而每个 NOR 门也要驱动字线的大负载。因此这并不是一个好的设计。&lt;/p>
+&lt;p>我们可以把单级的译码器拆分为 2 级：&lt;/p>
+&lt;p>$$
+\begin{aligned}
+WL_0 &amp;amp;= \overline{\bar{A}_0\bar{A}_1\bar{A}_2\bar{A}_3\bar{A}_4\bar{A}_5\bar{A}_6\bar{A}_7}\
+&amp;amp;= \overline{(\overline{A_0+A_1}) (\overline{A_2+A_3}) (\overline{A_4+A_5}) (\overline{A_6+A_7})}
+\end{aligned}
+$$&lt;/p>
+&lt;ul>
+&lt;li>先用 4 个 2 输入的或非门（预译码器）&lt;/li>
+&lt;li>再用 1 个 4 输入的与非门&lt;/li>
+&lt;/ul>
+&lt;p>预译码器的优点：&lt;/p>
+&lt;ol>
+&lt;li>减少晶体管数目&lt;/li>
+&lt;li>减小传播延时&lt;/li>
+&lt;/ol>
+&lt;h4 id="列选择器">列选择器&lt;/h4>
+&lt;p>列选择器和行选择器类似，但不同的是，列选择器则是从 bit 和 bit_b 入手。它通过一个开关，将选中的 bit/bit_b 接出来。&lt;/p>
+&lt;p>&lt;img src="https://todd.scuteee.com/digitalic/%E6%95%B0%E5%AD%97%E9%9B%86%E6%88%90%E7%94%B5%E8%B7%AF/12-%E5%AD%98%E5%82%A8%E5%8D%95%E5%85%83/images/column_decoder.png"
+width="1132"
+height="816"
+srcset="https://todd.scuteee.com/digitalic/%E6%95%B0%E5%AD%97%E9%9B%86%E6%88%90%E7%94%B5%E8%B7%AF/12-%E5%AD%98%E5%82%A8%E5%8D%95%E5%85%83/images/column_decoder_hu2160148ca2adff0856168aecf91c569b_85654_480x0_resize_box_3.png 480w, https://todd.scuteee.com/digitalic/%E6%95%B0%E5%AD%97%E9%9B%86%E6%88%90%E7%94%B5%E8%B7%AF/12-%E5%AD%98%E5%82%A8%E5%8D%95%E5%85%83/images/column_decoder_hu2160148ca2adff0856168aecf91c569b_85654_1024x0_resize_box_3.png 1024w"
+loading="lazy"
+alt="列选择器"
+class="gallery-image"
+data-flex-grow="138"
+data-flex-basis="332px"
+>&lt;/p>
+&lt;p>当然，列选择器还要负责打开选中的 bit/bit_b 的充电开关，这样才能正确地读。&lt;/p>
+&lt;p>&lt;img src="https://todd.scuteee.com/digitalic/%E6%95%B0%E5%AD%97%E9%9B%86%E6%88%90%E7%94%B5%E8%B7%AF/12-%E5%AD%98%E5%82%A8%E5%8D%95%E5%85%83/images/bitline_precharge.png"
+width="946"
+height="534"
+srcset="https://todd.scuteee.com/digitalic/%E6%95%B0%E5%AD%97%E9%9B%86%E6%88%90%E7%94%B5%E8%B7%AF/12-%E5%AD%98%E5%82%A8%E5%8D%95%E5%85%83/images/bitline_precharge_hub79e7e5965f133f617b618f4fa9fd341_54827_480x0_resize_box_3.png 480w, https://todd.scuteee.com/digitalic/%E6%95%B0%E5%AD%97%E9%9B%86%E6%88%90%E7%94%B5%E8%B7%AF/12-%E5%AD%98%E5%82%A8%E5%8D%95%E5%85%83/images/bitline_precharge_hub79e7e5965f133f617b618f4fa9fd341_54827_1024x0_resize_box_3.png 1024w"
+loading="lazy"
+alt="bitline充电"
+class="gallery-image"
+data-flex-grow="177"
+data-flex-basis="425px"
+>&lt;/p>
+&lt;h5 id="灵敏放大器">灵敏放大器&lt;/h5>
+&lt;p>每个 bitline 上面都连接着所有行。假如是一个 128 rows×256 cols 的 SRAM，那么一个 bitline 上就有 128 个单元，上面的电容会很大很大，放电速度会很慢，因此读出的速度会很慢&lt;/p>
+&lt;p>因此，我们需要额外的方法帮助它放电。这就是灵敏放大器的用途。因此灵敏放大器一方面接受 bit/bit_b 的输入，另一方面输出到 sense/sense_b（作为新的读出数据）&lt;/p>
+&lt;p>灵敏放大器（Sense Amplifier）在存储器中的作用：&lt;/p>
+&lt;ol>
+&lt;li>放大&lt;/li>
+&lt;li>减小延时&lt;/li>
+&lt;li>降低功耗&lt;/li>
+&lt;li>恢复信号&lt;/li>
+&lt;/ol>
+&lt;p>灵敏放大器的速度是最重要的，增益次之。&lt;/p>
+&lt;p>为了降低功耗，可以在不读取数据时关闭灵敏放大器。&lt;/p>
+&lt;hr>
+&lt;p>下面来说说灵敏放大器到底是个什么结构：&lt;/p>
+&lt;ul>
+&lt;li>历史上多种放大器均被当做读出放大器使用。对于模拟集成电路学习者最容易理解的读出放大器则是&lt;strong>静态差分放大器&lt;/strong>。然而，这类放大器几乎可以作为反面教材，具有静态功耗大，无法将小信号放大至轨对轨等缺点。&lt;/li>
+&lt;li>&lt;strong>将电流而非电压作为输入信号的SRAM读出放大器&lt;/strong>在2000年左右曾被研究，因其具有可以忽略输入电容而几乎没有延迟的将存储单元的驱动电流作为信号放大的优点。然而，电流读出放大器电路往往需要多级放大结构，太过复杂而导致面积太大的问题。&lt;/li>
+&lt;li>经过长年的自然选择，一类读出放大器脱颖而出，它就是&lt;strong>锁存型读出放大器&lt;/strong>。锁存型读出放大器具有几乎所有的优点：高速，面积小/结构简单，功耗低（无静态功耗），轨对轨输出。&lt;/li>
+&lt;/ul>
+&lt;p>一个最简单的例子，就是 SRAM 自身。一开始 bit/bit_b 都是高电平，反相器处于非稳态。但是一旦有个下降得快，就会使得反相器输出一个稳态（一边是 0，另一边是 1）。另外，加入了时钟来节省功耗。&lt;/p>
+&lt;p>&lt;img src="https://todd.scuteee.com/digitalic/%E6%95%B0%E5%AD%97%E9%9B%86%E6%88%90%E7%94%B5%E8%B7%AF/12-%E5%AD%98%E5%82%A8%E5%8D%95%E5%85%83/images/sense_amplifier_1.png"
+width="1190"
+height="828"
+srcset="https://todd.scuteee.com/digitalic/%E6%95%B0%E5%AD%97%E9%9B%86%E6%88%90%E7%94%B5%E8%B7%AF/12-%E5%AD%98%E5%82%A8%E5%8D%95%E5%85%83/images/sense_amplifier_1_hu7733750bc7cbb260e287f94db0d04936_88321_480x0_resize_box_3.png 480w, https://todd.scuteee.com/digitalic/%E6%95%B0%E5%AD%97%E9%9B%86%E6%88%90%E7%94%B5%E8%B7%AF/12-%E5%AD%98%E5%82%A8%E5%8D%95%E5%85%83/images/sense_amplifier_1_hu7733750bc7cbb260e287f94db0d04936_88321_1024x0_resize_box_3.png 1024w"
+loading="lazy"
+alt="Clocked Sense Amp"
+class="gallery-image"
+data-flex-grow="143"
+data-flex-basis="344px"
+>&lt;/p>
+&lt;p>基于上面的电路，我们加一个去耦，把 sense amplifier 的输入和输出隔开，另外这个电路还能兼顾充电的功能。&lt;/p>
+&lt;p>&lt;img src="https://todd.scuteee.com/digitalic/%E6%95%B0%E5%AD%97%E9%9B%86%E6%88%90%E7%94%B5%E8%B7%AF/12-%E5%AD%98%E5%82%A8%E5%8D%95%E5%85%83/images/sense_amplifier_2.png"
+width="1193"
+height="831"
+srcset="https://todd.scuteee.com/digitalic/%E6%95%B0%E5%AD%97%E9%9B%86%E6%88%90%E7%94%B5%E8%B7%AF/12-%E5%AD%98%E5%82%A8%E5%8D%95%E5%85%83/images/sense_amplifier_2_hu8320dfed98f6238ea9c0095099b0bc6d_92895_480x0_resize_box_3.png 480w, https://todd.scuteee.com/digitalic/%E6%95%B0%E5%AD%97%E9%9B%86%E6%88%90%E7%94%B5%E8%B7%AF/12-%E5%AD%98%E5%82%A8%E5%8D%95%E5%85%83/images/sense_amplifier_2_hu8320dfed98f6238ea9c0095099b0bc6d_92895_1024x0_resize_box_3.png 1024w"
+loading="lazy"
+alt="De-coupled Sense Amplifier"
+class="gallery-image"
+data-flex-grow="143"
+data-flex-basis="344px"
+>&lt;/p>
+&lt;h3 id="cam">CAM&lt;/h3>
+&lt;p>（不知道这是啥，考到就死）&lt;/p>
+&lt;h3 id="dram">DRAM&lt;/h3>
+&lt;p>DRAM 除了核心的 Cell 不同，其他都和 SRAM 类似。&lt;/p>
+&lt;p>3-T DRAM：&lt;/p>
+&lt;ul>
+&lt;li>读：BL2 预充电为 1，然后选中 RWL=1，打开 M3，数据从 BL2 读出&lt;/li>
+&lt;li>写：BL1 写入数据，然后选中 WWL=1，将数据存到 Cs&lt;/li>
+&lt;/ul>
+&lt;p>&lt;img src="https://todd.scuteee.com/digitalic/%E6%95%B0%E5%AD%97%E9%9B%86%E6%88%90%E7%94%B5%E8%B7%AF/12-%E5%AD%98%E5%82%A8%E5%8D%95%E5%85%83/images/3-T-DRAM.png"
+width="1182"
+height="845"
+srcset="https://todd.scuteee.com/digitalic/%E6%95%B0%E5%AD%97%E9%9B%86%E6%88%90%E7%94%B5%E8%B7%AF/12-%E5%AD%98%E5%82%A8%E5%8D%95%E5%85%83/images/3-T-DRAM_hu177bc1604f5c158c26e719301516c246_84791_480x0_resize_box_3.png 480w, https://todd.scuteee.com/digitalic/%E6%95%B0%E5%AD%97%E9%9B%86%E6%88%90%E7%94%B5%E8%B7%AF/12-%E5%AD%98%E5%82%A8%E5%8D%95%E5%85%83/images/3-T-DRAM_hu177bc1604f5c158c26e719301516c246_84791_1024x0_resize_box_3.png 1024w"
+loading="lazy"
+alt="3-T DRAM"
+class="gallery-image"
+data-flex-grow="139"
+data-flex-basis="335px"
+>&lt;/p>
+&lt;p>1-T DRAM：&lt;/p>
+&lt;ul>
+&lt;li>读：BL 预充电为 1，然后选中 WL=1，打开 M1，数据从 BL 读出。注意读是&lt;strong>破坏性的&lt;/strong>，读完后需要立即回写数据。&lt;/li>
+&lt;li>写：同 3-T DRAM&lt;/li>
+&lt;/ul>
+&lt;p>&lt;img src="https://todd.scuteee.com/digitalic/%E6%95%B0%E5%AD%97%E9%9B%86%E6%88%90%E7%94%B5%E8%B7%AF/12-%E5%AD%98%E5%82%A8%E5%8D%95%E5%85%83/images/1-T-DRAM.png"
+width="1162"
+height="835"
+srcset="https://todd.scuteee.com/digitalic/%E6%95%B0%E5%AD%97%E9%9B%86%E6%88%90%E7%94%B5%E8%B7%AF/12-%E5%AD%98%E5%82%A8%E5%8D%95%E5%85%83/images/1-T-DRAM_hu2b50f81f4f4f7d1974867f47eb68303c_116671_480x0_resize_box_3.png 480w, https://todd.scuteee.com/digitalic/%E6%95%B0%E5%AD%97%E9%9B%86%E6%88%90%E7%94%B5%E8%B7%AF/12-%E5%AD%98%E5%82%A8%E5%8D%95%E5%85%83/images/1-T-DRAM_hu2b50f81f4f4f7d1974867f47eb68303c_116671_1024x0_resize_box_3.png 1024w"
+loading="lazy"
+alt="1-T DRAM"
+class="gallery-image"
+data-flex-grow="139"
+data-flex-basis="333px"
+>&lt;/p>
+&lt;p>由于存在电荷泄露，因此 DRAM 就算不读，也需要周期性地刷新数据。&lt;/p>
+&lt;p>习题：&lt;/p>
+&lt;p>&lt;img src="https://todd.scuteee.com/digitalic/%E6%95%B0%E5%AD%97%E9%9B%86%E6%88%90%E7%94%B5%E8%B7%AF/12-%E5%AD%98%E5%82%A8%E5%8D%95%E5%85%83/images/1-T-DRAM-example.png"
+width="1180"
+height="524"
+srcset="https://todd.scuteee.com/digitalic/%E6%95%B0%E5%AD%97%E9%9B%86%E6%88%90%E7%94%B5%E8%B7%AF/12-%E5%AD%98%E5%82%A8%E5%8D%95%E5%85%83/images/1-T-DRAM-example_hu53b01c9bb5835749cf10ac07d38fcee1_110479_480x0_resize_box_3.png 480w, https://todd.scuteee.com/digitalic/%E6%95%B0%E5%AD%97%E9%9B%86%E6%88%90%E7%94%B5%E8%B7%AF/12-%E5%AD%98%E5%82%A8%E5%8D%95%E5%85%83/images/1-T-DRAM-example_hu53b01c9bb5835749cf10ac07d38fcee1_110479_1024x0_resize_box_3.png 1024w"
+loading="lazy"
+alt="1-T DRAM 习题"
+class="gallery-image"
+data-flex-grow="225"
+data-flex-basis="540px"
+>&lt;/p>
+&lt;p>这实际上是电荷重分配的问题。我们知道，$Q=CV$，假如读的是 1，那么总的电荷为：&lt;/p>
+&lt;p>$$
+Q_{tot} = 1.25\cdot 1p +1.9\cdot 50f
+$$&lt;/p>
+&lt;p>由于最终两个电容上的电压相同，因此：&lt;/p>
+&lt;p>$$
+Q_{tot} = V\cdot (1p+50f)
+$$&lt;/p>
+&lt;p>从而：&lt;/p>
+&lt;p>$$
+V = \frac{1.25\cdot 1p +1.9\cdot 50f}{1p+50f}
+$$&lt;/p>
+&lt;p>$$
+\begin{aligned}
+\Delta V &amp;amp;= \frac{1.25\cdot 1p +1.9\cdot 50f}{1p+50f}-1.25\
+&amp;amp;= \frac{1.9\cdot 50f-1.25\cdot 50f}{1p+50f}\
+&amp;amp;=30.95mV
+\end{aligned}
+$$&lt;/p>
+&lt;p>同理，假如读的是 0，那么总的电荷为：&lt;/p>
+&lt;p>$$
+Q_{tot} = 1.25\cdot 1p +0\cdot 50f
+$$&lt;/p>
+&lt;p>由于最终两个电容上的电压相同，因此：&lt;/p>
+&lt;p>$$
+Q_{tot} = V\cdot (1p+50f)
+$$&lt;/p>
+&lt;p>从而：&lt;/p>
+&lt;p>$$
+V = \frac{1.25\cdot 1p +0\cdot 50f}{1p+50f}
+$$&lt;/p>
+&lt;p>$$
+\begin{aligned}
+\Delta V &amp;amp;= \frac{1.25\cdot 1p +0\cdot 50f}{1p+50f}-1.25\
+&amp;amp;= \frac{-1.25\cdot 50f}{1p+50f}\
+&amp;amp;=-59.52mV&lt;br>
+\end{aligned}
+$$&lt;/p></description></item><item><title>功耗</title><link>https://todd.scuteee.com/digitalic/%E6%95%B0%E5%AD%97%E9%9B%86%E6%88%90%E7%94%B5%E8%B7%AF/6-%E7%BB%84%E5%90%88%E9%80%BB%E8%BE%91%E7%94%B5%E8%B7%AF/%E5%8A%9F%E8%80%97/</link><pubDate>Mon, 10 Jul 2023 00:00:00 +0000</pubDate><guid>https://todd.scuteee.com/digitalic/%E6%95%B0%E5%AD%97%E9%9B%86%E6%88%90%E7%94%B5%E8%B7%AF/6-%E7%BB%84%E5%90%88%E9%80%BB%E8%BE%91%E7%94%B5%E8%B7%AF/%E5%8A%9F%E8%80%97/</guid><description>&lt;p>组合逻辑中的功耗主要分为：&lt;/p>
+&lt;ul>
+&lt;li>动态功耗：对电容充电的功耗&lt;/li>
+&lt;li>静态功耗：短路电流的功耗&lt;/li>
+&lt;li>漏电流的功耗&lt;/li>
+&lt;/ul>
+&lt;p>考试计算主要考静态逻辑的动态功耗，下面简单说说。&lt;/p>
+&lt;p>动态功耗主要是电容充电的功耗，也就是从 0 变到 1 的功耗：&lt;/p>
+&lt;p>$$
+P = \int_0^{V_{DD}} V_{DD}\cdot C_L \frac{{\rm d}V}{{\rm d}t}{\rm d}t = C_L\cdot V_{DD}^2
+$$&lt;/p>
+&lt;p>假设翻转的频率为 $f_{0\rightarrow 1}$（也就是单位时间内发生了 $f_{0\rightarrow 1}$ 次翻转），那么功耗就等于：&lt;/p>
+&lt;p>$$
+P = C_L \cdot V_{DD}^2 \cdot f_{0\rightarrow 1}
+$$&lt;/p>
+&lt;p>翻转频率和概率有关：&lt;/p>
+&lt;p>$$
+f_{0\rightarrow 1} = P_{0\rightarrow1} \cdot f
+$$&lt;/p>
+&lt;p>其中 $f$ 是翻转频率，乘以概论 $P_{0\rightarrow1}$ 就是其中有多少次翻转是 $f_{0\rightarrow 1}$&lt;/p>
+&lt;p>而 $P_{0\rightarrow1}$ 是概率的乘积：&lt;/p>
+&lt;p>$$
+\begin{aligned}
+P_{0\rightarrow1} &amp;amp;= P_{0}\cdot P_{1}\
+&amp;amp;=P_0 \cdot (1-P_0)
+\end{aligned}
+$$&lt;/p>
+&lt;p>总结：&lt;/p>
+&lt;ol>
+&lt;li>求每个节点的 $C_L$，包括本征的和外部的&lt;/li>
+&lt;li>求每个节点的 $P_0$&lt;/li>
+&lt;li>求每个节点的 $P_{0\rightarrow1}$&lt;/li>
+&lt;li>代入公式 $P = C_L \cdot V_{DD}^2 \cdot f_{0\rightarrow 1}$&lt;/li>
+&lt;/ol></description></item><item><title>互连线</title><link>https://todd.scuteee.com/digitalic/%E6%95%B0%E5%AD%97%E9%9B%86%E6%88%90%E7%94%B5%E8%B7%AF/9-%E4%BA%92%E8%BF%9E%E7%BA%BF/</link><pubDate>Mon, 10 Jul 2023 00:00:00 +0000</pubDate><guid>https://todd.scuteee.com/digitalic/%E6%95%B0%E5%AD%97%E9%9B%86%E6%88%90%E7%94%B5%E8%B7%AF/9-%E4%BA%92%E8%BF%9E%E7%BA%BF/</guid><description>&lt;h2 id="材料">材料&lt;/h2>
+&lt;ul>
+&lt;li>180nm 以上是 Al&lt;/li>
+&lt;li>180nm 以下是 Cu&lt;/li>
+&lt;/ul>
+&lt;h2 id="电阻">电阻&lt;/h2>
+&lt;p>一般用方块电阻来衡量：&lt;/p>
+&lt;p>$$
+R = R_\square \dfrac{l}{w}
+$$&lt;/p>
+&lt;p>$$
+R_\square = \frac{\rho}{t}
+$$&lt;/p>
+&lt;p>但电阻不是不变的，由于趋肤效应，当频率很高时，电流会集中在表面，电阻会增大。&lt;/p>
+&lt;h2 id="电容">电容&lt;/h2>
+&lt;p>导线和上下左右的导线间都有电容。&lt;/p>
+&lt;p>导线可以看作平板电容，容值为：&lt;/p>
+&lt;p>$$
+C = \frac{\varepsilon A}{d}
+$$&lt;/p>
+&lt;p>除此之外，还有侧壁电容（Fringing Capacitance）。&lt;/p>
+&lt;p>另外，密勒效应会导致电容变大。比如当两个相邻导线的电流方向相反时，电容会增大。&lt;/p>
+&lt;h2 id="延迟">延迟&lt;/h2>
+&lt;p>&lt;img src="https://todd.scuteee.com/digitalic/%E6%95%B0%E5%AD%97%E9%9B%86%E6%88%90%E7%94%B5%E8%B7%AF/9-%E4%BA%92%E8%BF%9E%E7%BA%BF/images/wire.png"
+width="745"
+height="418"
+srcset="https://todd.scuteee.com/digitalic/%E6%95%B0%E5%AD%97%E9%9B%86%E6%88%90%E7%94%B5%E8%B7%AF/9-%E4%BA%92%E8%BF%9E%E7%BA%BF/images/wire_huc4b84f0516f2c8f46751049d7fd33560_32190_480x0_resize_box_3.png 480w, https://todd.scuteee.com/digitalic/%E6%95%B0%E5%AD%97%E9%9B%86%E6%88%90%E7%94%B5%E8%B7%AF/9-%E4%BA%92%E8%BF%9E%E7%BA%BF/images/wire_huc4b84f0516f2c8f46751049d7fd33560_32190_1024x0_resize_box_3.png 1024w"
+loading="lazy"
+alt="wire"
+class="gallery-image"
+data-flex-grow="178"
+data-flex-basis="427px"
+>&lt;/p>
+&lt;p>一个长段的延迟可以用多个小部分组成。每个小部分的电阻、电容可以用 L-model、π-model、T-model 表示。这三个model中，&lt;strong>π-model&lt;/strong> 是最好的，把整个导线分成 3 个 π-model 就能和仿真相近似。L-model 则需要 100 个。&lt;/p>
+&lt;p>分割好后，可以用 Elmore 延迟模型来计算。这里 Elmore 延迟模型适用于 RC 树，即要求：&lt;/p>
+&lt;ul>
+&lt;li>有单一的输入（源）节点&lt;/li>
+&lt;li>没有任何电阻回路&lt;/li>
+&lt;li>所有电容都在节点和地之间&lt;/li>
+&lt;/ul>
+&lt;p>如果要计算任意两点间的电容，如 i→j，那么对每个节点 k，其电容电阻为：&lt;/p>
+&lt;ul>
+&lt;li>$C_k$：节点k和地之间的电容&lt;/li>
+&lt;li>$R_k$：“$i$ 到 $j$ 路径上的电阻” 与 “$i$ 到 $k$ 路径上的电阻” 的交集&lt;/li>
+&lt;/ul>
+&lt;p>总的延时为：&lt;/p>
+&lt;p>$$
+\tau_{i,j} = \sum_{k} C_k R_k
+$$&lt;/p>
+&lt;p>对于单根长导线，其延时可以写成：&lt;/p>
+&lt;p>$$
+\tau = \sum_{i=1}^N i \cdot \frac{rL}{N} \frac{cL}{N} = rcL^2 \frac{N(N+1)}{2N^2}\rightarrow \frac{rcL^2}{2}
+$$&lt;/p>
+&lt;p>因此延时和 $L^2$ 成正比。有没有什么方法减小延时呢？有，就是使用 Repeater（反相器或放大器），这样延时就只与长度线性相关。具体的延时如下：&lt;/p>
+&lt;p>&lt;img src="https://todd.scuteee.com/digitalic/%E6%95%B0%E5%AD%97%E9%9B%86%E6%88%90%E7%94%B5%E8%B7%AF/9-%E4%BA%92%E8%BF%9E%E7%BA%BF/images/repeater_delay.png"
+width="1065"
+height="619"
+srcset="https://todd.scuteee.com/digitalic/%E6%95%B0%E5%AD%97%E9%9B%86%E6%88%90%E7%94%B5%E8%B7%AF/9-%E4%BA%92%E8%BF%9E%E7%BA%BF/images/repeater_delay_hub76262cbcb20ce9bd0fe31dbf258d458_80784_480x0_resize_box_3.png 480w, https://todd.scuteee.com/digitalic/%E6%95%B0%E5%AD%97%E9%9B%86%E6%88%90%E7%94%B5%E8%B7%AF/9-%E4%BA%92%E8%BF%9E%E7%BA%BF/images/repeater_delay_hub76262cbcb20ce9bd0fe31dbf258d458_80784_1024x0_resize_box_3.png 1024w"
+loading="lazy"
+alt="repeater delay"
+class="gallery-image"
+data-flex-grow="172"
+data-flex-basis="412px"
+>&lt;/p>
+&lt;p>&lt;img src="https://todd.scuteee.com/digitalic/%E6%95%B0%E5%AD%97%E9%9B%86%E6%88%90%E7%94%B5%E8%B7%AF/9-%E4%BA%92%E8%BF%9E%E7%BA%BF/images/repeater_total_delay.png"
+width="1007"
+height="656"
+srcset="https://todd.scuteee.com/digitalic/%E6%95%B0%E5%AD%97%E9%9B%86%E6%88%90%E7%94%B5%E8%B7%AF/9-%E4%BA%92%E8%BF%9E%E7%BA%BF/images/repeater_total_delay_hu1a705fc76a7066a837d8840603554902_144481_480x0_resize_box_3.png 480w, https://todd.scuteee.com/digitalic/%E6%95%B0%E5%AD%97%E9%9B%86%E6%88%90%E7%94%B5%E8%B7%AF/9-%E4%BA%92%E8%BF%9E%E7%BA%BF/images/repeater_total_delay_hu1a705fc76a7066a837d8840603554902_144481_1024x0_resize_box_3.png 1024w"
+loading="lazy"
+alt="repeater total delay"
+class="gallery-image"
+data-flex-grow="153"
+data-flex-basis="368px"
+>&lt;/p>
+&lt;p>最后两个式子表示需要几个 Repeater，以及每个 Repeater 的大小。考试的时候建议先写 $t_{pd}$ 再求导来算。&lt;/p>
+&lt;h2 id="串扰">串扰&lt;/h2>
+&lt;p>当一个导线上的电压变化时，由于存在电容耦合，会导致相邻导线电压变化。&lt;/p>
+&lt;p>&lt;img src="https://todd.scuteee.com/digitalic/%E6%95%B0%E5%AD%97%E9%9B%86%E6%88%90%E7%94%B5%E8%B7%AF/9-%E4%BA%92%E8%BF%9E%E7%BA%BF/images/crosstalk.png"
+width="757"
+height="503"
+srcset="https://todd.scuteee.com/digitalic/%E6%95%B0%E5%AD%97%E9%9B%86%E6%88%90%E7%94%B5%E8%B7%AF/9-%E4%BA%92%E8%BF%9E%E7%BA%BF/images/crosstalk_hucc7f65824e2a13df01a1d11a92b0dc7e_35613_480x0_resize_box_3.png 480w, https://todd.scuteee.com/digitalic/%E6%95%B0%E5%AD%97%E9%9B%86%E6%88%90%E7%94%B5%E8%B7%AF/9-%E4%BA%92%E8%BF%9E%E7%BA%BF/images/crosstalk_hucc7f65824e2a13df01a1d11a92b0dc7e_35613_1024x0_resize_box_3.png 1024w"
+loading="lazy"
+alt="串扰"
+class="gallery-image"
+data-flex-grow="150"
+data-flex-basis="361px"
+>&lt;/p>
+&lt;p>解决方法是用差分耦合线。&lt;/p>
+&lt;h2 id="尺寸缩放">尺寸缩放&lt;/h2>
+&lt;p>当尺寸减小时，即长、宽、高、层间高度都减小时，有两个变化：&lt;/p>
+&lt;ul>
+&lt;li>电阻随横截面减小而增大&lt;/li>
+&lt;li>电容随比例不变而保持不变（甚至略微增大）&lt;/li>
+&lt;/ul></description></item><item><title>加法</title><link>https://todd.scuteee.com/digitalic/%E6%95%B0%E5%AD%97%E9%9B%86%E6%88%90%E7%94%B5%E8%B7%AF/11-%E7%AE%97%E6%9C%AF%E5%8D%95%E5%85%83/%E5%8A%A0%E6%B3%95/</link><pubDate>Mon, 10 Jul 2023 00:00:00 +0000</pubDate><guid>https://todd.scuteee.com/digitalic/%E6%95%B0%E5%AD%97%E9%9B%86%E6%88%90%E7%94%B5%E8%B7%AF/11-%E7%AE%97%E6%9C%AF%E5%8D%95%E5%85%83/%E5%8A%A0%E6%B3%95/</guid><description>&lt;h2 id="1-bit-加法">1-bit 加法&lt;/h2>
+&lt;h3 id="逻辑表达式">逻辑表达式&lt;/h3>
+&lt;p>1-bit 加法有两种类型：&lt;/p>
+&lt;ul>
+&lt;li>半加器：不可以接收上一位的进位&lt;/li>
+&lt;li>全加器：可以接收上一位的进位&lt;/li>
+&lt;/ul>
+&lt;p>&lt;img src="https://todd.scuteee.com/digitalic/%E6%95%B0%E5%AD%97%E9%9B%86%E6%88%90%E7%94%B5%E8%B7%AF/11-%E7%AE%97%E6%9C%AF%E5%8D%95%E5%85%83/%E5%8A%A0%E6%B3%95/images/half-and-full-adders.png"
+width="217"
+height="192"
+srcset="https://todd.scuteee.com/digitalic/%E6%95%B0%E5%AD%97%E9%9B%86%E6%88%90%E7%94%B5%E8%B7%AF/11-%E7%AE%97%E6%9C%AF%E5%8D%95%E5%85%83/%E5%8A%A0%E6%B3%95/images/half-and-full-adders_hu8e7c6178dc84aa6ed0901470fe12625b_11160_480x0_resize_box_3.png 480w, https://todd.scuteee.com/digitalic/%E6%95%B0%E5%AD%97%E9%9B%86%E6%88%90%E7%94%B5%E8%B7%AF/11-%E7%AE%97%E6%9C%AF%E5%8D%95%E5%85%83/%E5%8A%A0%E6%B3%95/images/half-and-full-adders_hu8e7c6178dc84aa6ed0901470fe12625b_11160_1024x0_resize_box_3.png 1024w"
+loading="lazy"
+alt="半加器和全加器"
+class="gallery-image"
+data-flex-grow="113"
+data-flex-basis="271px"
+>&lt;/p>
+&lt;p>它们对应的真值表不难写出：&lt;/p>
+&lt;p>&lt;img src="https://todd.scuteee.com/digitalic/%E6%95%B0%E5%AD%97%E9%9B%86%E6%88%90%E7%94%B5%E8%B7%AF/11-%E7%AE%97%E6%9C%AF%E5%8D%95%E5%85%83/%E5%8A%A0%E6%B3%95/images/truth-table-of-half-and-full-adders.png"
+width="603"
+height="494"
+srcset="https://todd.scuteee.com/digitalic/%E6%95%B0%E5%AD%97%E9%9B%86%E6%88%90%E7%94%B5%E8%B7%AF/11-%E7%AE%97%E6%9C%AF%E5%8D%95%E5%85%83/%E5%8A%A0%E6%B3%95/images/truth-table-of-half-and-full-adders_hu688b77d3bc083116c298891931d9a3a5_24218_480x0_resize_box_3.png 480w, https://todd.scuteee.com/digitalic/%E6%95%B0%E5%AD%97%E9%9B%86%E6%88%90%E7%94%B5%E8%B7%AF/11-%E7%AE%97%E6%9C%AF%E5%8D%95%E5%85%83/%E5%8A%A0%E6%B3%95/images/truth-table-of-half-and-full-adders_hu688b77d3bc083116c298891931d9a3a5_24218_1024x0_resize_box_3.png 1024w"
+loading="lazy"
+alt="半加器和全加器的真值表"
+class="gallery-image"
+data-flex-grow="122"
+data-flex-basis="292px"
+>&lt;/p>
+&lt;p>输入输出端口如下：&lt;/p>
+&lt;ul>
+&lt;li>$A$、$B$ 加数&lt;/li>
+&lt;li>$C$ 上一位的进位&lt;/li>
+&lt;li>$C_{out}$ 进位位&lt;/li>
+&lt;li>$S$ 和&lt;/li>
+&lt;/ul>
+&lt;p>另外还有三个中间变量：&lt;/p>
+&lt;ul>
+&lt;li>$G$enerate：进位产生，即这一位会产生一个进位（不论上一位的进位如何），$G=AB$&lt;/li>
+&lt;li>$P$ropagate：进位传播，即将上一位的进位传播到下一位，$P=A\oplus B$，有时候也定义为 $P=A+B$&lt;/li>
+&lt;li>$K$ill：进位取消，即这一位不会产生进位（即使上一位有进位），$D=\bar{A}\bar{B}$&lt;/li>
+&lt;/ul>
+&lt;p>从真值表，不难写出半加器的逻辑表达式：&lt;/p>
+&lt;p>$$
+S=A \oplus B\
+C_{out} = A \cdot B
+$$&lt;/p>
+&lt;p>全加器的逻辑表达式：&lt;/p>
+&lt;p>$$
+S = A \oplus B \oplus C\
+C_{out} = AB + AC + BC = {\rm MAJ}(A,B,C)
+$$&lt;/p>
+&lt;p>${\rm MAJ}$ 表示 majority，即取 A,B,C 中占大多数的值（也就是当至少有两个为 1 时输出 1）&lt;/p>
+&lt;p>全加器的另一种逻辑表达式：&lt;/p>
+&lt;p>$$
+S = = P \oplus C\
+C_{out} = G+PC
+$$&lt;/p>
+&lt;h3 id="电路实现">电路实现&lt;/h3>
+&lt;p>半加器的电路实现并不难，只需要一个异或门和一个与门就行。&lt;/p>
+&lt;p>&lt;img src="https://todd.scuteee.com/digitalic/%E6%95%B0%E5%AD%97%E9%9B%86%E6%88%90%E7%94%B5%E8%B7%AF/11-%E7%AE%97%E6%9C%AF%E5%8D%95%E5%85%83/%E5%8A%A0%E6%B3%95/images/half-adder-design.png"
+width="154"
+height="147"
+srcset="https://todd.scuteee.com/digitalic/%E6%95%B0%E5%AD%97%E9%9B%86%E6%88%90%E7%94%B5%E8%B7%AF/11-%E7%AE%97%E6%9C%AF%E5%8D%95%E5%85%83/%E5%8A%A0%E6%B3%95/images/half-adder-design_hu1b83a865498c791f392b645d88022b10_7683_480x0_resize_box_3.png 480w, https://todd.scuteee.com/digitalic/%E6%95%B0%E5%AD%97%E9%9B%86%E6%88%90%E7%94%B5%E8%B7%AF/11-%E7%AE%97%E6%9C%AF%E5%8D%95%E5%85%83/%E5%8A%A0%E6%B3%95/images/half-adder-design_hu1b83a865498c791f392b645d88022b10_7683_1024x0_resize_box_3.png 1024w"
+loading="lazy"
+alt="半加器的电路实现"
+class="gallery-image"
+data-flex-grow="104"
+data-flex-basis="251px"
+>&lt;/p>
+&lt;p>而全加器则复杂得多。我们先来看常规实现：用一个三输入异或门，和一个 MAJ 门&lt;/p>
+&lt;p>&lt;img src="https://todd.scuteee.com/digitalic/%E6%95%B0%E5%AD%97%E9%9B%86%E6%88%90%E7%94%B5%E8%B7%AF/11-%E7%AE%97%E6%9C%AF%E5%8D%95%E5%85%83/%E5%8A%A0%E6%B3%95/images/full-adder-design.png"
+width="617"
+height="383"
+srcset="https://todd.scuteee.com/digitalic/%E6%95%B0%E5%AD%97%E9%9B%86%E6%88%90%E7%94%B5%E8%B7%AF/11-%E7%AE%97%E6%9C%AF%E5%8D%95%E5%85%83/%E5%8A%A0%E6%B3%95/images/full-adder-design_hu9b030ae4d037b45895179725f1a92ff7_34976_480x0_resize_box_3.png 480w, https://todd.scuteee.com/digitalic/%E6%95%B0%E5%AD%97%E9%9B%86%E6%88%90%E7%94%B5%E8%B7%AF/11-%E7%AE%97%E6%9C%AF%E5%8D%95%E5%85%83/%E5%8A%A0%E6%B3%95/images/full-adder-design_hu9b030ae4d037b45895179725f1a92ff7_34976_1024x0_resize_box_3.png 1024w"
+loading="lazy"
+alt="全加器的电路实现"
+class="gallery-image"
+data-flex-grow="161"
+data-flex-basis="386px"
+>&lt;/p>
+&lt;ul>
+&lt;li>三输入的异或门中有很多支路是共享的。比如下拉网络中，$AB\overline{C}$ 和 $A\overline{B}C$ 共享了 $A$ 支路。&lt;/li>
+&lt;li>MAJ 门的实现借鉴了“G、P、K”，
+&lt;ul>
+&lt;li>当 A、B 都为 0 时，Kill，$C_{out}=0$；&lt;/li>
+&lt;li>当 A、B 都为 1 时，Generate，$C_{out}=1$；&lt;/li>
+&lt;li>当 A、B 有一个为 1 时，Propagate，$C_{out}$ 取决于 $C$&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>一共需要 32 个晶体管
+&lt;ul>
+&lt;li>反相器占 6 个&lt;/li>
+&lt;li>三输入异或门占 16 个&lt;/li>
+&lt;li>MAJ 门占 10 个&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;hr>
+&lt;p>另一种更紧凑的实现方法是求出 $C_{out}$ 后，再用来求 $S$：&lt;/p>
+&lt;p>$$
+S = ABC + (A+B+C) \overline{C}_{out}
+$$&lt;/p>
+&lt;p>&lt;img src="https://todd.scuteee.com/digitalic/%E6%95%B0%E5%AD%97%E9%9B%86%E6%88%90%E7%94%B5%E8%B7%AF/11-%E7%AE%97%E6%9C%AF%E5%8D%95%E5%85%83/%E5%8A%A0%E6%B3%95/images/mirror-adder.png"
+width="555"
+height="358"
+srcset="https://todd.scuteee.com/digitalic/%E6%95%B0%E5%AD%97%E9%9B%86%E6%88%90%E7%94%B5%E8%B7%AF/11-%E7%AE%97%E6%9C%AF%E5%8D%95%E5%85%83/%E5%8A%A0%E6%B3%95/images/mirror-adder_hu9d90fb53bc2d8902993a0b52168a734f_29231_480x0_resize_box_3.png 480w, https://todd.scuteee.com/digitalic/%E6%95%B0%E5%AD%97%E9%9B%86%E6%88%90%E7%94%B5%E8%B7%AF/11-%E7%AE%97%E6%9C%AF%E5%8D%95%E5%85%83/%E5%8A%A0%E6%B3%95/images/mirror-adder_hu9d90fb53bc2d8902993a0b52168a734f_29231_1024x0_resize_box_3.png 1024w"
+loading="lazy"
+alt="Mirror Adder"
+class="gallery-image"
+data-flex-grow="155"
+data-flex-basis="372px"
+>&lt;/p>
+&lt;ul>
+&lt;li>$\overline{C}_{out}$ 的求解使用的是 Minority 门，也就是将 MAJ 门的输入取反&lt;/li>
+&lt;li>整个电路是上下对称的，因此这种实现方式也叫做 mirror adder.&lt;/li>
+&lt;li>一共只使用了 28 个晶体管&lt;/li>
+&lt;/ul>
+&lt;p>另外，为了优化延时（下一节会讲到，关键路径是进位的路径，也即产生 $\overline{C}_{out}$ 的路径），这个电路作了如下优化：&lt;/p>
+&lt;ul>
+&lt;li>关键路径上的晶体管的尺寸较大&lt;/li>
+&lt;li>非关键路径上的晶体管的尺寸都取最小，以减小关键路径的 Branch Effort&lt;/li>
+&lt;li>将上一级的进位位 $C$ 放在内部，这样中间节点就已经提前放电了（通过 $A,B$）&lt;/li>
+&lt;li>为了移除输出的反相器，使用正负逻辑交替连接（下一节会讲到）&lt;/li>
+&lt;/ul>
+&lt;blockquote>
+&lt;p>这个电路的尺寸与教材的取值不同，我认为这里的取值更有道理。&lt;/p>
+&lt;/blockquote>
+&lt;h3 id="传输门加法器">传输门加法器&lt;/h3>
+&lt;h2 id="多bits加法器">多bits加法器&lt;/h2>
+&lt;h3 id="逐位进位加法器">逐位进位加法器&lt;/h3>
+&lt;p>通过将多个全加器串联在一起，可以实现多 bits 加法器。&lt;/p>
+&lt;p>&lt;img src="https://todd.scuteee.com/digitalic/%E6%95%B0%E5%AD%97%E9%9B%86%E6%88%90%E7%94%B5%E8%B7%AF/11-%E7%AE%97%E6%9C%AF%E5%8D%95%E5%85%83/%E5%8A%A0%E6%B3%95/images/carry-ripple-adder.png"
+width="581"
+height="690"
+srcset="https://todd.scuteee.com/digitalic/%E6%95%B0%E5%AD%97%E9%9B%86%E6%88%90%E7%94%B5%E8%B7%AF/11-%E7%AE%97%E6%9C%AF%E5%8D%95%E5%85%83/%E5%8A%A0%E6%B3%95/images/carry-ripple-adder_huac043f1fd23cd9985fb43e0fea9bf8de_60241_480x0_resize_box_3.png 480w, https://todd.scuteee.com/digitalic/%E6%95%B0%E5%AD%97%E9%9B%86%E6%88%90%E7%94%B5%E8%B7%AF/11-%E7%AE%97%E6%9C%AF%E5%8D%95%E5%85%83/%E5%8A%A0%E6%B3%95/images/carry-ripple-adder_huac043f1fd23cd9985fb43e0fea9bf8de_60241_1024x0_resize_box_3.png 1024w"
+loading="lazy"
+alt="逐位进位加法器"
+class="gallery-image"
+data-flex-grow="84"
+data-flex-basis="202px"
+>&lt;/p>
+&lt;p>这里为了符合算数规律，把低位放到右边。从图中可以看出，要算出最后一位 $S_4$，必须等前面的进位算出来。因此关键路径就是 $C_{in}\rightarrow C_1 \rightarrow C_2 \rightarrow C_3 \rightarrow S_4$，延时可以写为：&lt;/p>
+&lt;p>$$
+t_{adder} = (N-1) t_{carry} + t_{sum}
+$$&lt;/p>
+&lt;ul>
+&lt;li>$N$ 是加法器的位数&lt;/li>
+&lt;li>$t_{carry}$ 是从 $C_{in}$ 到 $C_{out}$ 的延时&lt;/li>
+&lt;li>$t_{sum}$ 是从 $C_{in}$ 到 $S$ 的延时&lt;/li>
+&lt;li>显然，优化 $t_{carry}$ 比优化 $t_{sum}$ 重要。&lt;/li>
+&lt;/ul>
+&lt;p>另外值得说的是，延时还取决于输入的 $A$ 和 $B$。延时最坏的情况为：$A=x001$ 和 $B=x111$（答案不唯一，可以交换 $A,B$ 中的某些位）&lt;/p>
+&lt;p>图(b)展示了&lt;strong>全加器&lt;/strong>的一个性质：&lt;strong>把输入反相，则输出也会反相&lt;/strong>。这点看真值表不难证明。利用这点就可以节省全加器中的反相器。&lt;/p>
+&lt;p>逐位进位加法器的缺点是，如果位数很多，进位只能一位一位传播，速度很慢。解决方法是，我们 bits 分组，比如 32bit 分为 8 个 4bit，然后每个 4bit 加法器内部用一些方法提高进位传播速度。&lt;/p>
+&lt;h3 id="旁路进位加法器">旁路进位加法器&lt;/h3>
+&lt;p>考虑一个 4bits 的加法器。当 $P_0P_1P_2P_3 = 1$ 时，进位可以直接传到输出，就不需要一位一位传了。根据这个，我们可以设计“旁路进位加法器”：&lt;/p>
+&lt;p>&lt;img src="https://todd.scuteee.com/digitalic/%E6%95%B0%E5%AD%97%E9%9B%86%E6%88%90%E7%94%B5%E8%B7%AF/11-%E7%AE%97%E6%9C%AF%E5%8D%95%E5%85%83/%E5%8A%A0%E6%B3%95/images/carry-skip-adder.png"
+width="722"
+height="461"
+srcset="https://todd.scuteee.com/digitalic/%E6%95%B0%E5%AD%97%E9%9B%86%E6%88%90%E7%94%B5%E8%B7%AF/11-%E7%AE%97%E6%9C%AF%E5%8D%95%E5%85%83/%E5%8A%A0%E6%B3%95/images/carry-skip-adder_hue45dcadca38a6940dff6798e28918cb6_242793_480x0_resize_box_3.png 480w, https://todd.scuteee.com/digitalic/%E6%95%B0%E5%AD%97%E9%9B%86%E6%88%90%E7%94%B5%E8%B7%AF/11-%E7%AE%97%E6%9C%AF%E5%8D%95%E5%85%83/%E5%8A%A0%E6%B3%95/images/carry-skip-adder_hue45dcadca38a6940dff6798e28918cb6_242793_1024x0_resize_box_3.png 1024w"
+loading="lazy"
+alt="旁路进位加法器"
+class="gallery-image"
+data-flex-grow="156"
+data-flex-basis="375px"
+>&lt;/p>
+&lt;p>将多个旁路进位加法器组合起来可以得到多 bits 的加法器。&lt;/p>
+&lt;p>&lt;img src="https://todd.scuteee.com/digitalic/%E6%95%B0%E5%AD%97%E9%9B%86%E6%88%90%E7%94%B5%E8%B7%AF/11-%E7%AE%97%E6%9C%AF%E5%8D%95%E5%85%83/%E5%8A%A0%E6%B3%95/images/4-16-bits-block-carry-skip-adder.png"
+width="1099"
+height="377"
+srcset="https://todd.scuteee.com/digitalic/%E6%95%B0%E5%AD%97%E9%9B%86%E6%88%90%E7%94%B5%E8%B7%AF/11-%E7%AE%97%E6%9C%AF%E5%8D%95%E5%85%83/%E5%8A%A0%E6%B3%95/images/4-16-bits-block-carry-skip-adder_huffc2aa280e15c125801a2f53a847bcde_110639_480x0_resize_box_3.png 480w, https://todd.scuteee.com/digitalic/%E6%95%B0%E5%AD%97%E9%9B%86%E6%88%90%E7%94%B5%E8%B7%AF/11-%E7%AE%97%E6%9C%AF%E5%8D%95%E5%85%83/%E5%8A%A0%E6%B3%95/images/4-16-bits-block-carry-skip-adder_huffc2aa280e15c125801a2f53a847bcde_110639_1024x0_resize_box_3.png 1024w"
+loading="lazy"
+alt="4/16 bits block carry skip adder"
+class="gallery-image"
+data-flex-grow="291"
+data-flex-basis="699px"
+>&lt;/p>
+&lt;p>其关键路径如图中绿色部分所示。出人意料的是，关键路径居然经过了旁路进位，按道理旁路进位不应该更快吗？首先，我们要树立这么一个意识：&lt;strong>所有的 $P$、$G$ 都是同时计算出来的&lt;/strong>。假如中间（bits 4 to 15）有一个 $P=0$，那么就依赖于 $G$ 来产生进位，前面的进位就没有用了。因此，如果关键路径必须经过旁路进位。&lt;/p>
+&lt;p>理解了上面一点，就可以简单地把延时计算出来：&lt;/p>
+&lt;p>$$
+T_{add} = t_{setup} + M t_{carry} + (\frac{N}{M}-1) t_{bypass} + (M-1) t_{carry} + t_{sum}
+$$&lt;/p>
+&lt;ul>
+&lt;li>$N$ 位加法器，划分为 $N/M$ 级，每级 $M$ 位&lt;/li>
+&lt;li>$t_{setup}$：产生 $P$、$G$ 信号所需的时间&lt;/li>
+&lt;li>$t_{carry}$：进位传播一位所需的延时&lt;/li>
+&lt;li>$t_{bypass}$：通过一级旁路多路开关的传播延时&lt;/li>
+&lt;li>$t_{sum}$：产生最后一级“和”所需的时间&lt;/li>
+&lt;/ul>
+&lt;p>我们可以进一步利用这种“旁路”的思想。比如在单个旁路加法器内，进一步增加旁路。这就是我们下面所要介绍的。&lt;/p>
+&lt;h3 id="并行前缀加法器">并行前缀加法器&lt;/h3>
+&lt;p>为了更清楚地说明，我们定义：&lt;/p>
+&lt;p>$$
+P_{i:j}=P_{i}P_{i-1}\cdots P_{j}=P_{i:k}P_{k-1:j}
+$$&lt;/p>
+&lt;p>$$
+G_{i:j} = G_{i:k}+P_{i:k}G_{k-1:j}
+$$&lt;/p>
+&lt;p>$i:j$ 表示从第 $i$ 级到第 $j$ 级（$i&amp;gt;j$）。为了简约起见，定义 $C_{i-1}=G_{i-1}$，且 $C_{-1}=G_{-1}=0$。以上式子可以代入到旁路进位加法器中来理解，在此不作过多解释。&lt;/p>
+&lt;p>一旦知道 $G_{i:j}$，就可以用 $S_{i}=A_i\oplus B_i\oplus G_{i-1:-1}$ 来算出和。因此，如何快速算出 $G_{i-1:-1}$ 就是关键。&lt;/p>
+&lt;p>以一个 16-bits 加法器为例。我们最终目标是要计算出 $G_{3:-1}$。逐次进位的做法是：&lt;/p>
+&lt;ol>
+&lt;li>$G_{0:-1}=G_{0}+P_{0}G_{-1}$&lt;/li>
+&lt;li>$G_{1:-1}=G_{1}+P_{1}G_{0:-1}$&lt;/li>
+&lt;li>$G_{2:-1}=G_{2}+P_{2}G_{1:-1}$&lt;/li>
+&lt;li>$G_{3:-1}=G_{3}+P_{3}G_{2:-1}$&lt;/li>
+&lt;li>……&lt;/li>
+&lt;li>$G_{15:-1}=G_{15}+P_{15}G_{14:-1}$&lt;/li>
+&lt;/ol>
+&lt;p>为了方便理解，我们可以用下图来表示逐次进位加法器。可以看出它从上到下有很多级。&lt;/p>
+&lt;p>&lt;img src="https://todd.scuteee.com/digitalic/%E6%95%B0%E5%AD%97%E9%9B%86%E6%88%90%E7%94%B5%E8%B7%AF/11-%E7%AE%97%E6%9C%AF%E5%8D%95%E5%85%83/%E5%8A%A0%E6%B3%95/images/carry-ripple-adder-pg-network.png"
+width="504"
+height="562"
+srcset="https://todd.scuteee.com/digitalic/%E6%95%B0%E5%AD%97%E9%9B%86%E6%88%90%E7%94%B5%E8%B7%AF/11-%E7%AE%97%E6%9C%AF%E5%8D%95%E5%85%83/%E5%8A%A0%E6%B3%95/images/carry-ripple-adder-pg-network_hu3b6787e63ec04593bf4b3b45d2198457_21875_480x0_resize_box_3.png 480w, https://todd.scuteee.com/digitalic/%E6%95%B0%E5%AD%97%E9%9B%86%E6%88%90%E7%94%B5%E8%B7%AF/11-%E7%AE%97%E6%9C%AF%E5%8D%95%E5%85%83/%E5%8A%A0%E6%B3%95/images/carry-ripple-adder-pg-network_hu3b6787e63ec04593bf4b3b45d2198457_21875_1024x0_resize_box_3.png 1024w"
+loading="lazy"
+alt="逐次进位加法器 PG 网络"
+class="gallery-image"
+data-flex-grow="89"
+data-flex-basis="215px"
+>&lt;/p>
+&lt;p>旁路进位的做法是：&lt;/p>
+&lt;ol>
+&lt;li>$G_{3:-1}=G_{3:0}+P_{3:0}G_{-1}$&lt;/li>
+&lt;li>$G_{7:-1}=G_{7:4}+P_{7:4}G_{3:-1}$&lt;/li>
+&lt;li>$G_{11:-1}=G_{11:8}+P_{11:8}G_{7:-1}$&lt;/li>
+&lt;li>$G_{15:-1}=G_{15:12}+P_{15:12}G_{11:-1}$&lt;/li>
+&lt;/ol>
+&lt;p>其中，&lt;/p>
+&lt;ul>
+&lt;li>$P_{3:0}=P_3P_2P_1P_0$&lt;/li>
+&lt;li>$G_{3:0}=G_3+P_3G_{2:-1}$
+&lt;ul>
+&lt;li>$G_{2:-1}=G_2+P_2G_{1:-1}$
+&lt;ul>
+&lt;li>$G_{1:-1}=G_1+P_1G_{0:-1}$
+&lt;ul>
+&lt;li>$G_{0:-1}=G_0+P_0G_{-1}=G_0$&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;p>下图表示旁路进位加法器。它从上到下的级数比逐次进位加法器少。&lt;/p>
+&lt;p>&lt;img src="https://todd.scuteee.com/digitalic/%E6%95%B0%E5%AD%97%E9%9B%86%E6%88%90%E7%94%B5%E8%B7%AF/11-%E7%AE%97%E6%9C%AF%E5%8D%95%E5%85%83/%E5%8A%A0%E6%B3%95/images/carry-skip-adder-pg-network.png"
+width="543"
+height="391"
+srcset="https://todd.scuteee.com/digitalic/%E6%95%B0%E5%AD%97%E9%9B%86%E6%88%90%E7%94%B5%E8%B7%AF/11-%E7%AE%97%E6%9C%AF%E5%8D%95%E5%85%83/%E5%8A%A0%E6%B3%95/images/carry-skip-adder-pg-network_hu8cb099047fdbbe22ba2449058cd7a172_23475_480x0_resize_box_3.png 480w, https://todd.scuteee.com/digitalic/%E6%95%B0%E5%AD%97%E9%9B%86%E6%88%90%E7%94%B5%E8%B7%AF/11-%E7%AE%97%E6%9C%AF%E5%8D%95%E5%85%83/%E5%8A%A0%E6%B3%95/images/carry-skip-adder-pg-network_hu8cb099047fdbbe22ba2449058cd7a172_23475_1024x0_resize_box_3.png 1024w"
+loading="lazy"
+alt="旁路进位加法器 PG 网络"
+class="gallery-image"
+data-flex-grow="138"
+data-flex-basis="333px"
+>&lt;/p>
+&lt;p>我们可以进一步拆分 $G_{3:0}$：&lt;/p>
+&lt;ul>
+&lt;li>$G_{3:0}=G_{3}+P_{3}G_{2:-1}$
+&lt;ul>
+&lt;li>$G_{2:-1}=G_{2:1}+P_{2:1}G_{0:-1}$
+&lt;ul>
+&lt;li>$G_{2:1}=G_{2}+P_{2}G_{1}$&lt;/li>
+&lt;li>$G_{0:-1}=G_{0}+P_{0}G_{-1}$&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;p>这样拆分的好处是：当 $G_0=1$ 时，$G_{0:-1}=1$，$G_{2:1}$ 就可以算出来。而如果不拆分，则 $G_{0:-1}$ 算出来后，还要算 $G_{1:-1}$，才能得到 $G_{2:1}$&lt;/p>
+&lt;p>以上公式可能有点抽象，下面这张图则更好理解：&lt;/p>
+&lt;p>&lt;img src="https://todd.scuteee.com/digitalic/%E6%95%B0%E5%AD%97%E9%9B%86%E6%88%90%E7%94%B5%E8%B7%AF/11-%E7%AE%97%E6%9C%AF%E5%8D%95%E5%85%83/%E5%8A%A0%E6%B3%95/images/16-bit-prefix-adder.png"
+width="786"
+height="546"
+srcset="https://todd.scuteee.com/digitalic/%E6%95%B0%E5%AD%97%E9%9B%86%E6%88%90%E7%94%B5%E8%B7%AF/11-%E7%AE%97%E6%9C%AF%E5%8D%95%E5%85%83/%E5%8A%A0%E6%B3%95/images/16-bit-prefix-adder_hufdd58866ae5961b2745a9fbdfdcf1d04_62786_480x0_resize_box_3.png 480w, https://todd.scuteee.com/digitalic/%E6%95%B0%E5%AD%97%E9%9B%86%E6%88%90%E7%94%B5%E8%B7%AF/11-%E7%AE%97%E6%9C%AF%E5%8D%95%E5%85%83/%E5%8A%A0%E6%B3%95/images/16-bit-prefix-adder_hufdd58866ae5961b2745a9fbdfdcf1d04_62786_1024x0_resize_box_3.png 1024w"
+loading="lazy"
+alt="16-bit prefix adder"
+class="gallery-image"
+data-flex-grow="143"
+data-flex-basis="345px"
+>&lt;/p>
+&lt;p>可以只看 $3:-1$，并对比上面的文字分析。这种加法器叫做并行前缀加法器（prefix adder），其好处是，如果中间某一位 $G_i=1$，那么只需要 4 级，就可以传到最后一位 $G_{14:-1}$。它从上到下的级数比旁路进位加法器还少。&lt;/p>
+&lt;p>它的延时可以写成：&lt;/p>
+&lt;p>$$
+T = t_{pg}+(\log_2 N)t_{AO}+t_{\rm xor}
+$$&lt;/p>
+&lt;ul>
+&lt;li>$t_{pg}$ 为计算 $P_i,G_i$ 的延时&lt;/li>
+&lt;li>$t_{AO}$ 为图中黑色方块的延时&lt;/li>
+&lt;li>$t_{\rm xor}$ 为异或门的延时&lt;/li>
+&lt;/ul>
+&lt;h3 id="超前进位加法器">超前进位加法器&lt;/h3>
+&lt;p>超前进位加法器是对旁路进位加法器的优化。简单来说就是，旁路进位器进位传播为：&lt;/p>
+&lt;ul>
+&lt;li>$G_{3:0}=G_3+P_3G_{2:-1}$
+&lt;ul>
+&lt;li>$G_{2:-1}=G_2+P_2G_{1:-1}$
+&lt;ul>
+&lt;li>$G_{1:-1}=G_1+P_1G_{0:-1}$
+&lt;ul>
+&lt;li>$G_{0:-1}=G_0+P_0G_{-1}=G_0$&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;p>超前进位就是把这个结合：&lt;/p>
+&lt;p>$$
+G_{3:0} = G_3+P_3{ G_2+P_2[G_1+P_1(G_0+P_0G_{-1})] }+P_{3:0}G_{-1}
+$$&lt;/p>
+&lt;p>实现电路如下：&lt;/p>
+&lt;p>&lt;img src="https://todd.scuteee.com/digitalic/%E6%95%B0%E5%AD%97%E9%9B%86%E6%88%90%E7%94%B5%E8%B7%AF/11-%E7%AE%97%E6%9C%AF%E5%8D%95%E5%85%83/%E5%8A%A0%E6%B3%95/images/carry-lookahead-adder.png"
+width="890"
+height="565"
+srcset="https://todd.scuteee.com/digitalic/%E6%95%B0%E5%AD%97%E9%9B%86%E6%88%90%E7%94%B5%E8%B7%AF/11-%E7%AE%97%E6%9C%AF%E5%8D%95%E5%85%83/%E5%8A%A0%E6%B3%95/images/carry-lookahead-adder_hua01c29128836565b3d06c687d39b1e9d_78501_480x0_resize_box_3.png 480w, https://todd.scuteee.com/digitalic/%E6%95%B0%E5%AD%97%E9%9B%86%E6%88%90%E7%94%B5%E8%B7%AF/11-%E7%AE%97%E6%9C%AF%E5%8D%95%E5%85%83/%E5%8A%A0%E6%B3%95/images/carry-lookahead-adder_hua01c29128836565b3d06c687d39b1e9d_78501_1024x0_resize_box_3.png 1024w"
+loading="lazy"
+alt="超前进位加法器"
+class="gallery-image"
+data-flex-grow="157"
+data-flex-basis="378px"
+>&lt;/p>
+&lt;p>下图是一个 16 位的超前进位加法器&lt;/p>
+&lt;p>&lt;img src="https://todd.scuteee.com/digitalic/%E6%95%B0%E5%AD%97%E9%9B%86%E6%88%90%E7%94%B5%E8%B7%AF/11-%E7%AE%97%E6%9C%AF%E5%8D%95%E5%85%83/%E5%8A%A0%E6%B3%95/images/16-bit-carry-lookahead-adder.png"
+width="1068"
+height="290"
+srcset="https://todd.scuteee.com/digitalic/%E6%95%B0%E5%AD%97%E9%9B%86%E6%88%90%E7%94%B5%E8%B7%AF/11-%E7%AE%97%E6%9C%AF%E5%8D%95%E5%85%83/%E5%8A%A0%E6%B3%95/images/16-bit-carry-lookahead-adder_hu64a680f1c59761bf2d8ada790721d66b_42159_480x0_resize_box_3.png 480w, https://todd.scuteee.com/digitalic/%E6%95%B0%E5%AD%97%E9%9B%86%E6%88%90%E7%94%B5%E8%B7%AF/11-%E7%AE%97%E6%9C%AF%E5%8D%95%E5%85%83/%E5%8A%A0%E6%B3%95/images/16-bit-carry-lookahead-adder_hu64a680f1c59761bf2d8ada790721d66b_42159_1024x0_resize_box_3.png 1024w"
+loading="lazy"
+alt="16位 超前进位加法器"
+class="gallery-image"
+data-flex-grow="368"
+data-flex-basis="883px"
+>&lt;/p>
+&lt;p>延时计算如下：&lt;/p>
+&lt;p>$$
+t_{cla} = t_{pg} + t_{pg(n)}+[(n-1)+(k-1)]t_{AO}+t_{\rm xor}
+$$&lt;/p>
+&lt;ul>
+&lt;li>$t_{pg}$ 是计算出 $P,G$ 的延时&lt;/li>
+&lt;li>$t_{pg(b)}$ 是那一堆与门与或门的延时&lt;/li>
+&lt;li>$t_{AO}$ 是下图中黑色方块的延时&lt;/li>
+&lt;li>$t_{\rm xor}$ 是求 $S$ 的延时&lt;/li>
+&lt;li>把 $N$ bits 的加法器分为 $k$ 份，每份 $n$ bits&lt;/li>
+&lt;/ul>
+&lt;p>中间的 $[(n-1)+(k-1)]$ 是怎么来的？是因为尽管 $C_{3:0}$ 提前算出来了，但是 $G_{3:-1},G_{2:-1}$ 还没算出来（也就是下图里的黑色方块）。&lt;/p>
+&lt;p>&lt;img src="https://todd.scuteee.com/digitalic/%E6%95%B0%E5%AD%97%E9%9B%86%E6%88%90%E7%94%B5%E8%B7%AF/11-%E7%AE%97%E6%9C%AF%E5%8D%95%E5%85%83/%E5%8A%A0%E6%B3%95/images/carry-lookahead-adder-pg-network.png"
+width="800"
+height="480"
+srcset="https://todd.scuteee.com/digitalic/%E6%95%B0%E5%AD%97%E9%9B%86%E6%88%90%E7%94%B5%E8%B7%AF/11-%E7%AE%97%E6%9C%AF%E5%8D%95%E5%85%83/%E5%8A%A0%E6%B3%95/images/carry-lookahead-adder-pg-network_hu32e438430838d8e63cbba6642e406607_34420_480x0_resize_box_3.png 480w, https://todd.scuteee.com/digitalic/%E6%95%B0%E5%AD%97%E9%9B%86%E6%88%90%E7%94%B5%E8%B7%AF/11-%E7%AE%97%E6%9C%AF%E5%8D%95%E5%85%83/%E5%8A%A0%E6%B3%95/images/carry-lookahead-adder-pg-network_hu32e438430838d8e63cbba6642e406607_34420_1024x0_resize_box_3.png 1024w"
+loading="lazy"
+alt="超前进位加法器 PG 网络"
+class="gallery-image"
+data-flex-grow="166"
+data-flex-basis="400px"
+>&lt;/p>
+&lt;h3 id="进位选择加法器">进位选择加法器&lt;/h3>
+&lt;p>进位选择加法器是对旁路进位加法器的另一种优化。其思想是，进位只有 0 或 1，那么干脆就把两种情况都算出来，然后用一个 2-1 mux 来决定最终结果。&lt;/p>
+&lt;p>&lt;img src="https://todd.scuteee.com/digitalic/%E6%95%B0%E5%AD%97%E9%9B%86%E6%88%90%E7%94%B5%E8%B7%AF/11-%E7%AE%97%E6%9C%AF%E5%8D%95%E5%85%83/%E5%8A%A0%E6%B3%95/images/carry-select-adder.png"
+width="902"
+height="587"
+srcset="https://todd.scuteee.com/digitalic/%E6%95%B0%E5%AD%97%E9%9B%86%E6%88%90%E7%94%B5%E8%B7%AF/11-%E7%AE%97%E6%9C%AF%E5%8D%95%E5%85%83/%E5%8A%A0%E6%B3%95/images/carry-select-adder_hu876fed0972ced4aa98ee6022632c70b0_189068_480x0_resize_box_3.png 480w, https://todd.scuteee.com/digitalic/%E6%95%B0%E5%AD%97%E9%9B%86%E6%88%90%E7%94%B5%E8%B7%AF/11-%E7%AE%97%E6%9C%AF%E5%8D%95%E5%85%83/%E5%8A%A0%E6%B3%95/images/carry-select-adder_hu876fed0972ced4aa98ee6022632c70b0_189068_1024x0_resize_box_3.png 1024w"
+loading="lazy"
+alt="进位选择加法器"
+class="gallery-image"
+data-flex-grow="153"
+data-flex-basis="368px"
+>&lt;/p></description></item><item><title>流水线</title><link>https://todd.scuteee.com/digitalic/%E6%95%B0%E5%AD%97%E9%9B%86%E6%88%90%E7%94%B5%E8%B7%AF/7-%E6%97%B6%E5%BA%8F%E9%80%BB%E8%BE%91%E7%94%B5%E8%B7%AF/%E6%B5%81%E6%B0%B4%E7%BA%BF/</link><pubDate>Mon, 10 Jul 2023 00:00:00 +0000</pubDate><guid>https://todd.scuteee.com/digitalic/%E6%95%B0%E5%AD%97%E9%9B%86%E6%88%90%E7%94%B5%E8%B7%AF/7-%E6%97%B6%E5%BA%8F%E9%80%BB%E8%BE%91%E7%94%B5%E8%B7%AF/%E6%B5%81%E6%B0%B4%E7%BA%BF/</guid><description>&lt;p>简单来说，如果不用流水线，那么：&lt;/p>
+&lt;p>$$
+T_{\min} = t_{c-q} + t_{pd,logic} + t_{setup}
+$$&lt;/p>
+&lt;p>而如果用流水线，把逻辑电路分成多个部分，那么：&lt;/p>
+&lt;p>$$
+T_{\min,pipe} = t_{c-q} + \max [ t_{pd,1},t_{pd,2},\cdots] + t_{setup}
+$$&lt;/p>
+&lt;p>如果有 $N$ 个部分，且延时相同，那么：&lt;/p>
+&lt;p>$$
+T_{\min,pipe} = T_{\min}/N
+$$&lt;/p>
+&lt;p>尽管对于单个数据而言，流水线需要的时间为 $NT_{\min,pipe}$，和不用流水线一样。但是，如果有两个数据，那么处理两个数据所需的时间是 $(N+1)T_{\min,pipe}$，比不用流水线快很多。（也就是增加了吞吐量）&lt;/p></description></item><item><title>延时</title><link>https://todd.scuteee.com/digitalic/%E6%95%B0%E5%AD%97%E9%9B%86%E6%88%90%E7%94%B5%E8%B7%AF/6-%E7%BB%84%E5%90%88%E9%80%BB%E8%BE%91%E7%94%B5%E8%B7%AF/%E5%BB%B6%E6%97%B6%E7%9A%84%E8%AE%A1%E7%AE%97/</link><pubDate>Mon, 10 Jul 2023 00:00:00 +0000</pubDate><guid>https://todd.scuteee.com/digitalic/%E6%95%B0%E5%AD%97%E9%9B%86%E6%88%90%E7%94%B5%E8%B7%AF/6-%E7%BB%84%E5%90%88%E9%80%BB%E8%BE%91%E7%94%B5%E8%B7%AF/%E5%BB%B6%E6%97%B6%E7%9A%84%E8%AE%A1%E7%AE%97/</guid><description>&lt;p>在数字集成电路课程中，老师花了整整三节课讲延时，包括反向器、组合逻辑电路的延时的计算以及优化，听得我头都晕了😵但其实延时并不难，我希望能通过这篇文章讲解清楚延时。&lt;/p>
+&lt;h2 id="电容的延时">电容的延时&lt;/h2>
+&lt;p>我们知道，电容的电流、电压关系为：&lt;/p>
+&lt;p>$$
+I=C\frac{{\rm d}V}{{\rm d} t}
+$$&lt;/p>
+&lt;p>对这个微分方程积分：&lt;/p>
+&lt;p>$$
+\int I {\rm d} t = \int C {\rm d}V
+$$&lt;/p>
+&lt;p>如果电流恒定，那么就有：&lt;/p>
+&lt;p>$$
+I t = C (V_t-V_0)
+$$&lt;/p>
+&lt;p>假如初始电压 $V_0=0$，定义延时为到 $V_{DD}/2$ 的时间，则延时 $t_d$ 为：&lt;/p>
+&lt;p>$$
+t_d = \frac{CV_{DD}}{2I}
+$$&lt;/p>
+&lt;h2 id="rc延时">RC延时&lt;/h2>
+&lt;p>电路中很少有恒定的电流，一般是电源通过一个电阻给电容充电（电容初始电压为 0）。因此根据 KVL，有：&lt;/p>
+&lt;p>$$
+V_{DD} = IR+V_C = RC\frac{{\rm d}V_C}{{\rm d}t}+V_C
+$$&lt;/p>
+&lt;p>可以计算出：&lt;/p>
+&lt;p>$$
+V_C = V_{DD}-V_{DD}e^{-\frac{t}{RC}}
+$$&lt;/p>
+&lt;p>同样的，我们定义延时为充电到到 $V_{DD}/2$ 的时间，则延时 $t_d$ 为：&lt;/p>
+&lt;p>$$
+t_d=\sqrt{2}RC \approx 0.69 RC
+$$&lt;/p>
+&lt;h2 id="利用-rc-延时计算反相器延时">利用 RC 延时计算反相器延时&lt;/h2>
+&lt;p>我们可以将反向器等效为一个RC电路（下图），其电阻为 MOS 管导通的电阻；而电容为自身的漏-衬底电容，以及下一级的栅-漏电容。这些电容电阻的具体大小我们先不管，只需要知道两点：&lt;/p>
+&lt;ol>
+&lt;li>电容和管子尺寸成正比，电阻与管子尺寸成反比。&lt;/li>
+&lt;li>由于空穴的迁移率较差，因此要使 PMOS 的电阻等于 NMOS 的电阻，必须使 PMOS 为 NMOS 的两倍大。两者的电容在同尺寸下是相等的。&lt;/li>
+&lt;/ol>
+&lt;blockquote>
+&lt;p>你可能会疑惑：为什么要让 PMOS 的电阻等于 NMOS 的电阻？因为电阻相同时，充电、放电的时间才一致。只有这样我们才好优化分析。&lt;/p>
+&lt;/blockquote>
+&lt;p>在上述原则下，我们将反向器的尺寸设计为 PMOS = 2，NMOS = 1&lt;/p>
+&lt;p>&lt;img src="https://todd.scuteee.com/digitalic/%E6%95%B0%E5%AD%97%E9%9B%86%E6%88%90%E7%94%B5%E8%B7%AF/6-%E7%BB%84%E5%90%88%E9%80%BB%E8%BE%91%E7%94%B5%E8%B7%AF/%E5%BB%B6%E6%97%B6%E7%9A%84%E8%AE%A1%E7%AE%97/images/%E5%8F%8D%E5%90%91%E5%99%A8%E7%9A%84RC%E7%AD%89%E6%95%88%E6%A8%A1%E5%9E%8B.png"
+width="740"
+height="402"
+srcset="https://todd.scuteee.com/digitalic/%E6%95%B0%E5%AD%97%E9%9B%86%E6%88%90%E7%94%B5%E8%B7%AF/6-%E7%BB%84%E5%90%88%E9%80%BB%E8%BE%91%E7%94%B5%E8%B7%AF/%E5%BB%B6%E6%97%B6%E7%9A%84%E8%AE%A1%E7%AE%97/images/%E5%8F%8D%E5%90%91%E5%99%A8%E7%9A%84RC%E7%AD%89%E6%95%88%E6%A8%A1%E5%9E%8B_hua2f654438698501856f4cbbd65a00523_45872_480x0_resize_box_3.png 480w, https://todd.scuteee.com/digitalic/%E6%95%B0%E5%AD%97%E9%9B%86%E6%88%90%E7%94%B5%E8%B7%AF/6-%E7%BB%84%E5%90%88%E9%80%BB%E8%BE%91%E7%94%B5%E8%B7%AF/%E5%BB%B6%E6%97%B6%E7%9A%84%E8%AE%A1%E7%AE%97/images/%E5%8F%8D%E5%90%91%E5%99%A8%E7%9A%84RC%E7%AD%89%E6%95%88%E6%A8%A1%E5%9E%8B_hua2f654438698501856f4cbbd65a00523_45872_1024x0_resize_box_3.png 1024w"
+loading="lazy"
+alt="反向器的RC等效模型"
+class="gallery-image"
+data-flex-grow="184"
+data-flex-basis="441px"
+>&lt;/p>
+&lt;p>那么根据上面两点，我们可以将反向器驱动一个反向器的延时等效为上图(c)，自身的漏电容为 $3C_D$，下一级的栅电容为 $3C_G$，总电容为 $3C_D+3C_G$。总的延时就是即 $t_p=0.69R\times (3C_D+3C_G)$&lt;/p>
+&lt;h2 id="设计逻辑门的尺寸">设计逻辑门的尺寸&lt;/h2>
+&lt;p>设计的原则就是：我们希望在最坏情况下，充电和放电的时间相等；并且它的电阻能和反相器相同。&lt;/p>
+&lt;p>以下面这个三输入与非门为例，最坏情况下，上面只有一个管子导通，此时要让它的电阻与反相器相同，那么应该为 2. 而下面是三个管子串联，所以它的尺寸应该为 3，这样总电阻才为 1.&lt;/p>
+&lt;p>&lt;img src="https://todd.scuteee.com/digitalic/%E6%95%B0%E5%AD%97%E9%9B%86%E6%88%90%E7%94%B5%E8%B7%AF/6-%E7%BB%84%E5%90%88%E9%80%BB%E8%BE%91%E7%94%B5%E8%B7%AF/%E5%BB%B6%E6%97%B6%E7%9A%84%E8%AE%A1%E7%AE%97/images/3%E8%BE%93%E5%85%A5%E4%B8%8E%E9%9D%9E%E9%97%A8.png"
+width="238"
+height="207"
+srcset="https://todd.scuteee.com/digitalic/%E6%95%B0%E5%AD%97%E9%9B%86%E6%88%90%E7%94%B5%E8%B7%AF/6-%E7%BB%84%E5%90%88%E9%80%BB%E8%BE%91%E7%94%B5%E8%B7%AF/%E5%BB%B6%E6%97%B6%E7%9A%84%E8%AE%A1%E7%AE%97/images/3%E8%BE%93%E5%85%A5%E4%B8%8E%E9%9D%9E%E9%97%A8_hu3f134ec9e68408641e3892ad050f687e_6262_480x0_resize_box_3.png 480w, https://todd.scuteee.com/digitalic/%E6%95%B0%E5%AD%97%E9%9B%86%E6%88%90%E7%94%B5%E8%B7%AF/6-%E7%BB%84%E5%90%88%E9%80%BB%E8%BE%91%E7%94%B5%E8%B7%AF/%E5%BB%B6%E6%97%B6%E7%9A%84%E8%AE%A1%E7%AE%97/images/3%E8%BE%93%E5%85%A5%E4%B8%8E%E9%9D%9E%E9%97%A8_hu3f134ec9e68408641e3892ad050f687e_6262_1024x0_resize_box_3.png 1024w"
+loading="lazy"
+alt="3输入与非门"
+class="gallery-image"
+data-flex-grow="114"
+data-flex-basis="275px"
+>&lt;/p>
+&lt;p>我们可以计算它的电容。对于一个输入端口，它看到的栅电容为 2+3=5。而在输出端 Y，有 (2+2+2)+3=9 的电容。&lt;/p>
+&lt;p>&lt;img src="https://todd.scuteee.com/digitalic/%E6%95%B0%E5%AD%97%E9%9B%86%E6%88%90%E7%94%B5%E8%B7%AF/6-%E7%BB%84%E5%90%88%E9%80%BB%E8%BE%91%E7%94%B5%E8%B7%AF/%E5%BB%B6%E6%97%B6%E7%9A%84%E8%AE%A1%E7%AE%97/images/3%E8%BE%93%E5%85%A5%E4%B8%8E%E9%9D%9E%E9%97%A8%E7%9A%84%E7%94%B5%E5%AE%B9.png"
+width="378"
+height="296"
+srcset="https://todd.scuteee.com/digitalic/%E6%95%B0%E5%AD%97%E9%9B%86%E6%88%90%E7%94%B5%E8%B7%AF/6-%E7%BB%84%E5%90%88%E9%80%BB%E8%BE%91%E7%94%B5%E8%B7%AF/%E5%BB%B6%E6%97%B6%E7%9A%84%E8%AE%A1%E7%AE%97/images/3%E8%BE%93%E5%85%A5%E4%B8%8E%E9%9D%9E%E9%97%A8%E7%9A%84%E7%94%B5%E5%AE%B9_hu9efc4d5f134034f4a49878b42c8b84a5_21968_480x0_resize_box_3.png 480w, https://todd.scuteee.com/digitalic/%E6%95%B0%E5%AD%97%E9%9B%86%E6%88%90%E7%94%B5%E8%B7%AF/6-%E7%BB%84%E5%90%88%E9%80%BB%E8%BE%91%E7%94%B5%E8%B7%AF/%E5%BB%B6%E6%97%B6%E7%9A%84%E8%AE%A1%E7%AE%97/images/3%E8%BE%93%E5%85%A5%E4%B8%8E%E9%9D%9E%E9%97%A8%E7%9A%84%E7%94%B5%E5%AE%B9_hu9efc4d5f134034f4a49878b42c8b84a5_21968_1024x0_resize_box_3.png 1024w"
+loading="lazy"
+alt="3输入与非门的电容"
+class="gallery-image"
+data-flex-grow="127"
+data-flex-basis="306px"
+>&lt;/p>
+&lt;p>因此如果一个三输入的与非门驱动一个相同的与非门，那么延时为 $t_p=0.69\times R \times (9C_D+5C_G)$&lt;/p>
+&lt;h2 id="多个fanout的延时">多个fanout的延时&lt;/h2>
+&lt;p>如果一个反相器接了多个相同的反相器，那么它的延时是多少？显然，因为下一级的栅电容变多了，单个栅电容为 3，那么如果扇出为 f，那么总的栅电容为 3f. 考虑上自身的电容，总的电容为 (3+3f). 所以延时为：$t_p = 0.69 R (3C_D+3C_G f)$&lt;/p>
+&lt;h2 id="延时标准化">延时标准化&lt;/h2>
+&lt;p>我们始终没有求 R、C 的具体数值，一方面是求解过程比较复杂；另一个方面是不同工艺下的 R、C 都不同，换个工艺就要重新算，不利于我们优化。因此，我们不妨把延时标准化：我们将不接任何负载的标准反相器（尺寸最小的反相器）的延时定义为 $t_{p0}$，即：&lt;/p>
+&lt;p>$$
+t_{p0} = 0.69 R\times 3C_D
+$$&lt;/p>
+&lt;p>从而可以对延时标准化：&lt;/p>
+&lt;p>$$
+d=\frac{t_{p}}{t_{p0}}
+$$&lt;/p>
+&lt;p>那么如果一个反相器扇出 1 个反相器，那么它的标准化延时为：&lt;/p>
+&lt;p>$$
+d=\frac{0.69 R\times (3C_D+3C_G)}{0.69 R\times 3C_D}=1+\frac{C_G}{C_D}
+$$&lt;/p>
+&lt;p>我们令 $\frac{C_D}{C_G} = \gamma$，称为 &lt;strong>proportionality factor&lt;/strong>，则 $d=1+1/\gamma$。&lt;/p>
+&lt;p>如果一个反相器扇出 f 个反相器，那么它的标准化延时为：&lt;/p>
+&lt;p>$$
+d=\frac{0.69 R\times (3C_D+3fC_G)}{0.69 R\times 3C_D}=1+\frac{f}{\gamma}
+$$&lt;/p>
+&lt;p>如果一个三输入与非门扇出 f 个三输入与非门，那么它的标准化延时为：&lt;/p>
+&lt;p>$$
+d=\frac{0.69 R\times (9C_D+5fC_G)}{0.69 R\times 3C_D}=3+\frac{5/3f}{\gamma}
+$$&lt;/p>
+&lt;p>我们可以发现，标准化延时会分成两个部分：其自身电容导致的延时（&lt;strong>本征延时 $p$&lt;/strong>，也叫&lt;strong>寄生延迟&lt;/strong>）、外部扇出导致的延时（&lt;strong>努力延时 $h$&lt;/strong>）：&lt;/p>
+&lt;p>$$
+d=p+\frac{h}{\gamma}
+$$&lt;/p>
+&lt;p>本征延时 $p$ 是固定不变的，与扇出无关，甚至与自身尺寸无关，因为当尺寸增大时，$R$ 减小，$C$ 增大，两者恰好抵消。努力延时 $h$ 则与门中MOS管的数量和尺寸有关，并且与扇出的数量有关。&lt;/p>
+&lt;p>$$
+h=gf
+$$&lt;/p>
+&lt;p>&lt;strong>$g$ 是逻辑努力&lt;/strong>，它与门电路结构有关。&lt;strong>$f$ 是扇出&lt;/strong>，有时候也叫&lt;strong>电气努力&lt;/strong>。&lt;/p>
+&lt;p>我希望这些不要把你绕晕了。实际上我们可以用一张图来表示上面的公式，图中横坐标表示扇出，纵坐标表示标准化延时。本征延时决定了在无扇出时的延时（也就是最底下那一部分）；而逻辑努力决定了直线的斜率。&lt;/p>
+&lt;p>&lt;img src="https://todd.scuteee.com/digitalic/%E6%95%B0%E5%AD%97%E9%9B%86%E6%88%90%E7%94%B5%E8%B7%AF/6-%E7%BB%84%E5%90%88%E9%80%BB%E8%BE%91%E7%94%B5%E8%B7%AF/%E5%BB%B6%E6%97%B6%E7%9A%84%E8%AE%A1%E7%AE%97/images/%E6%A0%87%E5%87%86%E5%8C%96%E5%BB%B6%E6%97%B6%E5%92%8C%E6%89%87%E5%87%BA%E7%9A%84%E5%85%B3%E7%B3%BB.png"
+width="626"
+height="535"
+srcset="https://todd.scuteee.com/digitalic/%E6%95%B0%E5%AD%97%E9%9B%86%E6%88%90%E7%94%B5%E8%B7%AF/6-%E7%BB%84%E5%90%88%E9%80%BB%E8%BE%91%E7%94%B5%E8%B7%AF/%E5%BB%B6%E6%97%B6%E7%9A%84%E8%AE%A1%E7%AE%97/images/%E6%A0%87%E5%87%86%E5%8C%96%E5%BB%B6%E6%97%B6%E5%92%8C%E6%89%87%E5%87%BA%E7%9A%84%E5%85%B3%E7%B3%BB_hufbbe9bdd33f6f338f663b9ec621b7891_45775_480x0_resize_box_3.png 480w, https://todd.scuteee.com/digitalic/%E6%95%B0%E5%AD%97%E9%9B%86%E6%88%90%E7%94%B5%E8%B7%AF/6-%E7%BB%84%E5%90%88%E9%80%BB%E8%BE%91%E7%94%B5%E8%B7%AF/%E5%BB%B6%E6%97%B6%E7%9A%84%E8%AE%A1%E7%AE%97/images/%E6%A0%87%E5%87%86%E5%8C%96%E5%BB%B6%E6%97%B6%E5%92%8C%E6%89%87%E5%87%BA%E7%9A%84%E5%85%B3%E7%B3%BB_hufbbe9bdd33f6f338f663b9ec621b7891_45775_1024x0_resize_box_3.png 1024w"
+loading="lazy"
+alt="标准化延时和扇出的关系"
+class="gallery-image"
+data-flex-grow="117"
+data-flex-basis="280px"
+>&lt;/p>
+&lt;p>值得注意的是，上面我们在说扇出时，都是以与自身相同的门为扇出。但在实际中，显然不一定是这样。我们用等效扇出来说明，比如用一个反相器驱动一个三输入与非门，前者的栅电容为 3C，后者的栅电容为 5C，那么等效扇出为 5/3，也就是说等效扇出 $f$：&lt;/p>
+&lt;p>$$
+f = \frac{C_{out}}{C_{in}}
+$$&lt;/p>
+&lt;p>$C_{in}$ 是自身栅电容，$C_{out}$ 是外部总的栅电容，有的书上也记为 $C_{int}$、$C_{ext}$。&lt;/p>
+&lt;blockquote>
+&lt;p>注：有的书上定义了一个路径努力 $B=\frac{C_{out}}{C_{out,path}}$，同时 $f$ 改为 $f=\frac{C_{out,path}}{C_{in}}$。$C_{out,path}$ 表示当前数据路径上的电容。因此 $h=gfb$ 才是完整的努力延时。&lt;/p>
+&lt;/blockquote>
+&lt;h3 id="逻辑努力">逻辑努力&lt;/h3>
+&lt;p>逻辑努力定义为：自身的栅电容与反相器的栅电容之比（当然，要求两者的电阻一致）。常见的逻辑努力：&lt;/p>
+&lt;p>&lt;img src="https://todd.scuteee.com/digitalic/%E6%95%B0%E5%AD%97%E9%9B%86%E6%88%90%E7%94%B5%E8%B7%AF/6-%E7%BB%84%E5%90%88%E9%80%BB%E8%BE%91%E7%94%B5%E8%B7%AF/%E5%BB%B6%E6%97%B6%E7%9A%84%E8%AE%A1%E7%AE%97/images/%E5%B8%B8%E8%A7%81%E7%9A%84%E9%80%BB%E8%BE%91%E5%8A%AA%E5%8A%9B.png"
+width="891"
+height="327"
+srcset="https://todd.scuteee.com/digitalic/%E6%95%B0%E5%AD%97%E9%9B%86%E6%88%90%E7%94%B5%E8%B7%AF/6-%E7%BB%84%E5%90%88%E9%80%BB%E8%BE%91%E7%94%B5%E8%B7%AF/%E5%BB%B6%E6%97%B6%E7%9A%84%E8%AE%A1%E7%AE%97/images/%E5%B8%B8%E8%A7%81%E7%9A%84%E9%80%BB%E8%BE%91%E5%8A%AA%E5%8A%9B_hud5fa1f4bbec99f18df0e1888dfd439f7_40647_480x0_resize_box_3.png 480w, https://todd.scuteee.com/digitalic/%E6%95%B0%E5%AD%97%E9%9B%86%E6%88%90%E7%94%B5%E8%B7%AF/6-%E7%BB%84%E5%90%88%E9%80%BB%E8%BE%91%E7%94%B5%E8%B7%AF/%E5%BB%B6%E6%97%B6%E7%9A%84%E8%AE%A1%E7%AE%97/images/%E5%B8%B8%E8%A7%81%E7%9A%84%E9%80%BB%E8%BE%91%E5%8A%AA%E5%8A%9B_hud5fa1f4bbec99f18df0e1888dfd439f7_40647_1024x0_resize_box_3.png 1024w"
+loading="lazy"
+alt="常见的逻辑努力"
+class="gallery-image"
+data-flex-grow="272"
+data-flex-basis="653px"
+>&lt;/p>
+&lt;p>具体的计算方法和“设计逻辑门的尺寸”是一样的，但是不要忘了除以标准延时（也就是除以3）。&lt;/p>
+&lt;h3 id="本征延迟">本征延迟&lt;/h3>
+&lt;p>本征延迟定义为：自身的漏电容与反相器的漏电容之比（当然，要求两者的电阻一致）。常见的本征延迟：&lt;/p>
+&lt;p>&lt;img src="https://todd.scuteee.com/digitalic/%E6%95%B0%E5%AD%97%E9%9B%86%E6%88%90%E7%94%B5%E8%B7%AF/6-%E7%BB%84%E5%90%88%E9%80%BB%E8%BE%91%E7%94%B5%E8%B7%AF/%E5%BB%B6%E6%97%B6%E7%9A%84%E8%AE%A1%E7%AE%97/images/%E5%B8%B8%E8%A7%81%E7%9A%84%E6%9C%AC%E5%BE%81%E5%BB%B6%E8%BF%9F.png"
+width="900"
+height="306"
+srcset="https://todd.scuteee.com/digitalic/%E6%95%B0%E5%AD%97%E9%9B%86%E6%88%90%E7%94%B5%E8%B7%AF/6-%E7%BB%84%E5%90%88%E9%80%BB%E8%BE%91%E7%94%B5%E8%B7%AF/%E5%BB%B6%E6%97%B6%E7%9A%84%E8%AE%A1%E7%AE%97/images/%E5%B8%B8%E8%A7%81%E7%9A%84%E6%9C%AC%E5%BE%81%E5%BB%B6%E8%BF%9F_hu971608ff56efbc88fdf1de515d9b2954_31900_480x0_resize_box_3.png 480w, https://todd.scuteee.com/digitalic/%E6%95%B0%E5%AD%97%E9%9B%86%E6%88%90%E7%94%B5%E8%B7%AF/6-%E7%BB%84%E5%90%88%E9%80%BB%E8%BE%91%E7%94%B5%E8%B7%AF/%E5%BB%B6%E6%97%B6%E7%9A%84%E8%AE%A1%E7%AE%97/images/%E5%B8%B8%E8%A7%81%E7%9A%84%E6%9C%AC%E5%BE%81%E5%BB%B6%E8%BF%9F_hu971608ff56efbc88fdf1de515d9b2954_31900_1024x0_resize_box_3.png 1024w"
+loading="lazy"
+alt="常见的本征延迟"
+class="gallery-image"
+data-flex-grow="294"
+data-flex-basis="705px"
+>&lt;/p>
+&lt;p>具体的计算方法和“设计逻辑门的尺寸”是一样的，但是不要忘了除以标准延时（也就是除以3）。&lt;/p>
+&lt;h3 id="习题">习题&lt;/h3>
+&lt;p>一个4输入的与非门驱动2个3输入的或非门，问延时多少？&lt;/p>
+&lt;ol>
+&lt;li>先找4输入与非门自身的本征延时。根据表格，为 4&lt;/li>
+&lt;li>然后找或非门的逻辑努力。根据表格，为 7/3&lt;/li>
+&lt;li>有效扇出为 $2\times \frac{6/3}{9/3}=4/3$&lt;/li>
+&lt;li>总的延时为 $4+\frac{4}{3}\cdot \frac{7}{3}=\frac{64}{9}$&lt;/li>
+&lt;/ol>
+&lt;h2 id="尺寸的影响">尺寸的影响&lt;/h2>
+&lt;p>如果我们改变尺寸，延时会怎么变化？前面说过，本征延时是与尺寸无关的，那么它只会影响努力延时。我们通过两个例子来说明。&lt;/p>
+&lt;p>第一个例子：一个反相器扇出另一个反相器，两者的尺寸都增大两倍，延时是多少？显然，本征延时还是 1，努力延时等于逻辑努力乘以有效扇出，$h=gf$，$g=1$，$f=1$，也就是说总延时为 $1+\gamma$，与放大前的一致。&lt;/p>
+&lt;p>我们也可以用老方法算，电阻为 $R/2$，本征电容为 $6C_D$，下一级的栅电容为 $6C_G$，因此总的延时为 $0.69\cdot R(3C_D+3C_G)$，和之前算的一样。&lt;/p>
+&lt;hr>
+&lt;p>第二个例子：一个反相器扇出另一个反相器，前者的尺寸增大两倍，延时是多少？显然，本征延时还是 1，努力延时等于逻辑努力乘以有效扇出，$h=gf$，$g=1$，$f=0.5$，也就是说总延时为 $1+0.5/\gamma$，比放大前快。&lt;/p>
+&lt;p>我们也可以用老方法算，电阻为 $R/2$，本征电容为 $6C_D$，下一级的栅电容为 $3C_G$，因此总的延时为 $0.69\cdot R(3C_D+1.5C_G)$，除以 $0.69\cdot 3RC_D$ 得到标准化延时恰好是 $1+0.5/\gamma$。&lt;/p>
+&lt;hr>
+&lt;p>通过上面两个例子，我们可以发现，尺寸唯一影响的就是有效扇出 $f$ 。因此今后，我们讨论扇出时就是在讨论尺寸。&lt;/p>
+&lt;h2 id="延时的优化">延时的优化&lt;/h2>
+&lt;p>延时怎么优化？首先，从上面尺寸的讨论可以看出，在只有一级的情况下，如果能将尺寸增大无穷多倍，那么等效扇出将为 0，从而延时可以取最小值，也就是本征延时。&lt;/p>
+&lt;p>如果是多级该怎么办？可以想象，对于中间级来说，如果加大尺寸，那么前面的延时会增大，后面的延时会减小，因此存在一个最优解。&lt;/p>
+&lt;p>对于一个 $N$ 级的组合逻辑电路，总的延时可以表示为：&lt;/p>
+&lt;p>$$
+t_p=t_{p0}\sum_{j=1}^N (p_j + \frac{f_j g_j}{\gamma})
+$$&lt;/p>
+&lt;p>前面说过，$p,g,\gamma$ 都是固定的，改变尺寸实际上改变的的是 $f$. 如果第 i 级的尺寸增大，那么第 $i-1$ 级的等效扇出变大，第 $i$ 级的等效扇出减小。为了分析，我们将 $f$ 用 $C_{g,i+1}/C_{g,i}$ 替代：&lt;/p>
+&lt;p>$$
+t_p = \cdots + \frac{C_{g,i}}{C_{g,i-1}}\frac{g_{i-1}}{\gamma}+\frac{C_{g,i+1}}{C_{g,i}}\frac{g_i}{\gamma}+\cdots
+$$&lt;/p>
+&lt;p>当 $C_{g,i}$ 取什么时，这个延时最小？根据基本不等式：&lt;/p>
+&lt;p>$$
+a+b \geq \sqrt{2ab}\
+当且仅当 a=b 时取最小值
+$$&lt;/p>
+&lt;p>因此当 $\frac{C_{g,i}}{C_{g,i-1}}\frac{g_{i-1}}{\gamma} = \frac{C_{g,i+1}}{C_{g,i}}\frac{g_i}{\gamma}$，也就是 $f_{i-1}g_{i-1}=f_{i}g_{i}$ 时 延时最小。这个结论可以推广到 $N$ 级：&lt;/p>
+&lt;p>$$
+f_1 g_1 = f_2 g_2 = \cdots f_N g_N
+$$&lt;/p>
+&lt;p>那么这个 $h = f_i g_i$ 具体等于多少呢？我们定义&lt;strong>路径的等效扇出&lt;/strong>、&lt;strong>路径的逻辑努力&lt;/strong>：&lt;/p>
+&lt;p>$$
+F = f_1f_2\cdots f_N = C_L/C_{G1}\
+G = g_1g_2\cdots g_N
+$$&lt;/p>
+&lt;p>因此&lt;strong>路径努力&lt;/strong>为：$H=FG$&lt;/p>
+&lt;p>因此我们有：&lt;/p>
+&lt;p>$$
+h = \sqrt[N]{\prod_{j=1}^N f_j g_j} = \sqrt[N]{FG} = \sqrt[N]{H}
+$$&lt;/p>
+&lt;p>也就是每一级的 $fg$ 都应该等于 $h$，此时有最小延迟：&lt;/p>
+&lt;p>$$
+D=t_{p0} \left(\sum_{j=1}^N p_j + \frac{N(\sqrt[N]{H})}{\gamma} \right)
+$$&lt;/p></description></item><item><title>组合逻辑电路实现</title><link>https://todd.scuteee.com/digitalic/%E6%95%B0%E5%AD%97%E9%9B%86%E6%88%90%E7%94%B5%E8%B7%AF/6-%E7%BB%84%E5%90%88%E9%80%BB%E8%BE%91%E7%94%B5%E8%B7%AF/%E7%BB%84%E5%90%88%E9%80%BB%E8%BE%91%E7%94%B5%E8%B7%AF%E5%AE%9E%E7%8E%B0/</link><pubDate>Mon, 10 Jul 2023 00:00:00 +0000</pubDate><guid>https://todd.scuteee.com/digitalic/%E6%95%B0%E5%AD%97%E9%9B%86%E6%88%90%E7%94%B5%E8%B7%AF/6-%E7%BB%84%E5%90%88%E9%80%BB%E8%BE%91%E7%94%B5%E8%B7%AF/%E7%BB%84%E5%90%88%E9%80%BB%E8%BE%91%E7%94%B5%E8%B7%AF%E5%AE%9E%E7%8E%B0/</guid><description>&lt;p>本节介绍组合逻辑电路有多种实现方式，下面主要分析各种实现方式的优缺点。&lt;/p>
+&lt;blockquote>
+&lt;p>如果我没有写完，那么可以去看：&lt;a class="link" href="https://www.cnblogs.com/lyc-seu/p/12832029.html" target="_blank" rel="noopener"
+>专用集成电路 &amp;ndash; CMOS组合逻辑设计&lt;/a>&lt;/p>
+&lt;/blockquote>
+&lt;h2 id="无比电路">无比电路&lt;/h2>
+&lt;h2 id="有比电路">有比电路&lt;/h2>
+&lt;p>基本原理：把上拉网络换成一个“电阻”，其输出电压为：$V_{DD}$ 或 $\frac{R_{PDN}}{R_{PDN}+R_L}$。&lt;/p>
+&lt;p>&lt;img src="https://todd.scuteee.com/digitalic/%E6%95%B0%E5%AD%97%E9%9B%86%E6%88%90%E7%94%B5%E8%B7%AF/6-%E7%BB%84%E5%90%88%E9%80%BB%E8%BE%91%E7%94%B5%E8%B7%AF/%E7%BB%84%E5%90%88%E9%80%BB%E8%BE%91%E7%94%B5%E8%B7%AF%E5%AE%9E%E7%8E%B0/images/ratioed_logic.png"
+width="946"
+height="432"
+srcset="https://todd.scuteee.com/digitalic/%E6%95%B0%E5%AD%97%E9%9B%86%E6%88%90%E7%94%B5%E8%B7%AF/6-%E7%BB%84%E5%90%88%E9%80%BB%E8%BE%91%E7%94%B5%E8%B7%AF/%E7%BB%84%E5%90%88%E9%80%BB%E8%BE%91%E7%94%B5%E8%B7%AF%E5%AE%9E%E7%8E%B0/images/ratioed_logic_hu6c390ccab9206740996140e7e9efb2d0_46801_480x0_resize_box_3.png 480w, https://todd.scuteee.com/digitalic/%E6%95%B0%E5%AD%97%E9%9B%86%E6%88%90%E7%94%B5%E8%B7%AF/6-%E7%BB%84%E5%90%88%E9%80%BB%E8%BE%91%E7%94%B5%E8%B7%AF/%E7%BB%84%E5%90%88%E9%80%BB%E8%BE%91%E7%94%B5%E8%B7%AF%E5%AE%9E%E7%8E%B0/images/ratioed_logic_hu6c390ccab9206740996140e7e9efb2d0_46801_1024x0_resize_box_3.png 1024w"
+loading="lazy"
+alt="有比逻辑"
+class="gallery-image"
+data-flex-grow="218"
+data-flex-basis="525px"
+>&lt;/p>
+&lt;p>“电阻”也可以用一个耗尽型的NMOS或增强型的PMOS（也叫pseudo-NMOS）来实现，这两者的面积都比电阻小（优点，记！）；同时pseudo-NMOS比NMOS好，因为PMOS没有body effect，并且电流更大（也就是等效电阻更小）&lt;/p>
+&lt;p>相比与无比电路的优缺点：&lt;/p>
+&lt;ul>
+&lt;li>优点：
+&lt;ul>
+&lt;li>管子数量少&lt;/li>
+&lt;li>逻辑努力更少，速度更快&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>缺点：
+&lt;ul>
+&lt;li>存在静态功耗&lt;/li>
+&lt;li>输出电压取决于管子比例&lt;/li>
+&lt;li>鲁棒性更差&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;p>要改进有比逻辑，有两个方向：&lt;/p>
+&lt;ul>
+&lt;li>使得输出为 VDD~0：差分串联电压开关逻辑（Differential Cascode Voltage Switch Logic），注意这依然是有比逻辑
+&lt;ul>
+&lt;li>优势：
+&lt;ul>
+&lt;li>消除静态电流&lt;/li>
+&lt;li>提供轨到轨输出&lt;/li>
+&lt;li>同时产生了输出和其反信号，节省了额外的反相器，避免使用反相器引起的时差问题。这实际上受益于差分逻辑。&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>缺陷：
+&lt;ul>
+&lt;li>增加开关的活动性&lt;/li>
+&lt;li>增加动态功耗&lt;/li>
+&lt;li>布线增多&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>使得静态功耗减小：动态逻辑（后面会讲）&lt;/li>
+&lt;/ul>
+&lt;h2 id="动态逻辑">动态逻辑&lt;/h2>
+&lt;h2 id="基于传输门的实现">基于传输门的实现&lt;/h2>
+&lt;p>优点&lt;/p>
+&lt;p>缺点&lt;/p></description></item><item><title>寄存器的实现</title><link>https://todd.scuteee.com/digitalic/%E6%95%B0%E5%AD%97%E9%9B%86%E6%88%90%E7%94%B5%E8%B7%AF/7-%E6%97%B6%E5%BA%8F%E9%80%BB%E8%BE%91%E7%94%B5%E8%B7%AF/%E5%AF%84%E5%AD%98%E5%99%A8%E7%9A%84%E5%AE%9E%E7%8E%B0/</link><pubDate>Tue, 04 Jul 2023 00:00:00 +0000</pubDate><guid>https://todd.scuteee.com/digitalic/%E6%95%B0%E5%AD%97%E9%9B%86%E6%88%90%E7%94%B5%E8%B7%AF/7-%E6%97%B6%E5%BA%8F%E9%80%BB%E8%BE%91%E7%94%B5%E8%B7%AF/%E5%AF%84%E5%AD%98%E5%99%A8%E7%9A%84%E5%AE%9E%E7%8E%B0/</guid><description>&lt;p>本文主要将 latch 和 flip-flop 的实现方法。&lt;/p>
+&lt;p>存储单元可以分类为：&lt;/p>
+&lt;ul>
+&lt;li>静态存储：靠正反馈来保持数据&lt;/li>
+&lt;li>动态存储：靠电容保持数据&lt;/li>
+&lt;/ul>
+&lt;h2 id="静态存储">静态存储&lt;/h2>
+&lt;p>静态存储靠正反馈来保持数据。最简单的正反馈就是两个首尾相连的反相器，只要&lt;strong>中间增益大于1&lt;/strong>，那么它就会向两边靠拢，达到稳态。（中间还有个亚稳态，不过只要有一点扰动，它就会变成稳态）&lt;/p>
+&lt;p>&lt;img src="https://todd.scuteee.com/digitalic/%E6%95%B0%E5%AD%97%E9%9B%86%E6%88%90%E7%94%B5%E8%B7%AF/7-%E6%97%B6%E5%BA%8F%E9%80%BB%E8%BE%91%E7%94%B5%E8%B7%AF/%E5%AF%84%E5%AD%98%E5%99%A8%E7%9A%84%E5%AE%9E%E7%8E%B0/images/bi-stability.png"
+width="888"
+height="612"
+srcset="https://todd.scuteee.com/digitalic/%E6%95%B0%E5%AD%97%E9%9B%86%E6%88%90%E7%94%B5%E8%B7%AF/7-%E6%97%B6%E5%BA%8F%E9%80%BB%E8%BE%91%E7%94%B5%E8%B7%AF/%E5%AF%84%E5%AD%98%E5%99%A8%E7%9A%84%E5%AE%9E%E7%8E%B0/images/bi-stability_hu7098d4e7a4b33759352415ace8c52f55_67288_480x0_resize_box_3.png 480w, https://todd.scuteee.com/digitalic/%E6%95%B0%E5%AD%97%E9%9B%86%E6%88%90%E7%94%B5%E8%B7%AF/7-%E6%97%B6%E5%BA%8F%E9%80%BB%E8%BE%91%E7%94%B5%E8%B7%AF/%E5%AF%84%E5%AD%98%E5%99%A8%E7%9A%84%E5%AE%9E%E7%8E%B0/images/bi-stability_hu7098d4e7a4b33759352415ace8c52f55_67288_1024x0_resize_box_3.png 1024w"
+loading="lazy"
+alt="双稳态"
+class="gallery-image"
+data-flex-grow="145"
+data-flex-basis="348px"
+>&lt;/p>
+&lt;p>那么我们如何向这个存储写入值呢？有两种方法：&lt;/p>
+&lt;ol>
+&lt;li>断开反馈（D锁存器）&lt;/li>
+&lt;li>强制改变状态（D锁存器）&lt;/li>
+&lt;li>将反相器换成或非门（SR锁存器）&lt;/li>
+&lt;/ol>
+&lt;p>&lt;img src="https://todd.scuteee.com/digitalic/%E6%95%B0%E5%AD%97%E9%9B%86%E6%88%90%E7%94%B5%E8%B7%AF/7-%E6%97%B6%E5%BA%8F%E9%80%BB%E8%BE%91%E7%94%B5%E8%B7%AF/%E5%AF%84%E5%AD%98%E5%99%A8%E7%9A%84%E5%AE%9E%E7%8E%B0/images/writing_into_a_static_latch.png"
+width="1075"
+height="532"
+srcset="https://todd.scuteee.com/digitalic/%E6%95%B0%E5%AD%97%E9%9B%86%E6%88%90%E7%94%B5%E8%B7%AF/7-%E6%97%B6%E5%BA%8F%E9%80%BB%E8%BE%91%E7%94%B5%E8%B7%AF/%E5%AF%84%E5%AD%98%E5%99%A8%E7%9A%84%E5%AE%9E%E7%8E%B0/images/writing_into_a_static_latch_hufcf8501d733ccf18d653817d5e88d34d_75426_480x0_resize_box_3.png 480w, https://todd.scuteee.com/digitalic/%E6%95%B0%E5%AD%97%E9%9B%86%E6%88%90%E7%94%B5%E8%B7%AF/7-%E6%97%B6%E5%BA%8F%E9%80%BB%E8%BE%91%E7%94%B5%E8%B7%AF/%E5%AF%84%E5%AD%98%E5%99%A8%E7%9A%84%E5%AE%9E%E7%8E%B0/images/writing_into_a_static_latch_hufcf8501d733ccf18d653817d5e88d34d_75426_1024x0_resize_box_3.png 1024w"
+loading="lazy"
+alt="向静态latch写入值"
+class="gallery-image"
+data-flex-grow="202"
+data-flex-basis="484px"
+>&lt;/p>
+&lt;p>上面就是最简单的 D-latch，根据时钟的不同，可以分为 positive latch（在clk=1时锁存）和negative latch（在clk=0时锁存）。&lt;/p>
+&lt;p>&lt;img src="https://todd.scuteee.com/digitalic/%E6%95%B0%E5%AD%97%E9%9B%86%E6%88%90%E7%94%B5%E8%B7%AF/7-%E6%97%B6%E5%BA%8F%E9%80%BB%E8%BE%91%E7%94%B5%E8%B7%AF/%E5%AF%84%E5%AD%98%E5%99%A8%E7%9A%84%E5%AE%9E%E7%8E%B0/images/mux-based-latches.png"
+width="1033"
+height="634"
+srcset="https://todd.scuteee.com/digitalic/%E6%95%B0%E5%AD%97%E9%9B%86%E6%88%90%E7%94%B5%E8%B7%AF/7-%E6%97%B6%E5%BA%8F%E9%80%BB%E8%BE%91%E7%94%B5%E8%B7%AF/%E5%AF%84%E5%AD%98%E5%99%A8%E7%9A%84%E5%AE%9E%E7%8E%B0/images/mux-based-latches_hu385ee588be6d93264500011b9edc6203_70008_480x0_resize_box_3.png 480w, https://todd.scuteee.com/digitalic/%E6%95%B0%E5%AD%97%E9%9B%86%E6%88%90%E7%94%B5%E8%B7%AF/7-%E6%97%B6%E5%BA%8F%E9%80%BB%E8%BE%91%E7%94%B5%E8%B7%AF/%E5%AF%84%E5%AD%98%E5%99%A8%E7%9A%84%E5%AE%9E%E7%8E%B0/images/mux-based-latches_hu385ee588be6d93264500011b9edc6203_70008_1024x0_resize_box_3.png 1024w"
+loading="lazy"
+alt="基于选择器的latch"
+class="gallery-image"
+data-flex-grow="162"
+data-flex-basis="391px"
+>&lt;/p>
+&lt;p>&lt;img src="https://todd.scuteee.com/digitalic/%E6%95%B0%E5%AD%97%E9%9B%86%E6%88%90%E7%94%B5%E8%B7%AF/7-%E6%97%B6%E5%BA%8F%E9%80%BB%E8%BE%91%E7%94%B5%E8%B7%AF/%E5%AF%84%E5%AD%98%E5%99%A8%E7%9A%84%E5%AE%9E%E7%8E%B0/images/master-slave-flip-flop.png"
+width="677"
+height="336"
+srcset="https://todd.scuteee.com/digitalic/%E6%95%B0%E5%AD%97%E9%9B%86%E6%88%90%E7%94%B5%E8%B7%AF/7-%E6%97%B6%E5%BA%8F%E9%80%BB%E8%BE%91%E7%94%B5%E8%B7%AF/%E5%AF%84%E5%AD%98%E5%99%A8%E7%9A%84%E5%AE%9E%E7%8E%B0/images/master-slave-flip-flop_hu3cc144549cfd7bdb39d505e83e3e35cc_34846_480x0_resize_box_3.png 480w, https://todd.scuteee.com/digitalic/%E6%95%B0%E5%AD%97%E9%9B%86%E6%88%90%E7%94%B5%E8%B7%AF/7-%E6%97%B6%E5%BA%8F%E9%80%BB%E8%BE%91%E7%94%B5%E8%B7%AF/%E5%AF%84%E5%AD%98%E5%99%A8%E7%9A%84%E5%AE%9E%E7%8E%B0/images/master-slave-flip-flop_hu3cc144549cfd7bdb39d505e83e3e35cc_34846_1024x0_resize_box_3.png 1024w"
+loading="lazy"
+alt="主从寄存器"
+class="gallery-image"
+data-flex-grow="201"
+data-flex-basis="483px"
+>&lt;/p>
+&lt;p>一正一反两个锁存器组合在一起，就是一个 flip-flop。前面的叫 master，后面叫 slave.其工作过程如下：&lt;/p>
+&lt;ol>
+&lt;li>clk=0，master 对 D 进行采样&lt;/li>
+&lt;li>clk=1，master 保持刚刚采样得到的数据，slave 对 QM 采样并输出 Q&lt;/li>
+&lt;/ol>
+&lt;p>结合具体的电路图，我们就可以将 $t_{setup}$ 和 $t_{c-q}$ 计算出来：&lt;/p>
+&lt;p>&lt;img src="https://todd.scuteee.com/digitalic/%E6%95%B0%E5%AD%97%E9%9B%86%E6%88%90%E7%94%B5%E8%B7%AF/7-%E6%97%B6%E5%BA%8F%E9%80%BB%E8%BE%91%E7%94%B5%E8%B7%AF/%E5%AF%84%E5%AD%98%E5%99%A8%E7%9A%84%E5%AE%9E%E7%8E%B0/images/flip-flop-time-contraint.png"
+width="984"
+height="577"
+srcset="https://todd.scuteee.com/digitalic/%E6%95%B0%E5%AD%97%E9%9B%86%E6%88%90%E7%94%B5%E8%B7%AF/7-%E6%97%B6%E5%BA%8F%E9%80%BB%E8%BE%91%E7%94%B5%E8%B7%AF/%E5%AF%84%E5%AD%98%E5%99%A8%E7%9A%84%E5%AE%9E%E7%8E%B0/images/flip-flop-time-contraint_hue5f29ccc4f831dd70928b7e200538005_123177_480x0_resize_box_3.png 480w, https://todd.scuteee.com/digitalic/%E6%95%B0%E5%AD%97%E9%9B%86%E6%88%90%E7%94%B5%E8%B7%AF/7-%E6%97%B6%E5%BA%8F%E9%80%BB%E8%BE%91%E7%94%B5%E8%B7%AF/%E5%AF%84%E5%AD%98%E5%99%A8%E7%9A%84%E5%AE%9E%E7%8E%B0/images/flip-flop-time-contraint_hue5f29ccc4f831dd70928b7e200538005_123177_1024x0_resize_box_3.png 1024w"
+loading="lazy"
+alt="flip-flop 时序约束"
+class="gallery-image"
+data-flex-grow="170"
+data-flex-basis="409px"
+>&lt;/p>
+&lt;p>也就是说，$t_{setup}$ 是第一个锁存器形成“正反馈”的时间；而 $t_{c-q}$ 则是第二个锁存器的传输门的输入到 Q 所需的时间。&lt;/p>
+&lt;p>由于传输门关闭需要一定时间，在这个时间内，D 需要保持一段 $t_{hold}$ 时间，否则新数据就会破坏“正反馈”所存储的值。&lt;/p>
+&lt;p>更准确的定义见下图：当 D 的上升沿与时钟上升沿靠得很近得时候，由于反相器未输出强 0，所以就需要一段从非稳态到稳态的时间（也就是本文第一张图），因此就会导致 $t_{c-q}$ 加长。类似的，如果 D 在时钟上升沿后变化，也会导致 $t_{c-q}$ 加长。取 $1.05t_{c-q}$ 作为“阈值”，这段时间就是 $t_{setup}$ 和 $t_{hold}$&lt;/p>
+&lt;p>&lt;img src="https://todd.scuteee.com/digitalic/%E6%95%B0%E5%AD%97%E9%9B%86%E6%88%90%E7%94%B5%E8%B7%AF/7-%E6%97%B6%E5%BA%8F%E9%80%BB%E8%BE%91%E7%94%B5%E8%B7%AF/%E5%AF%84%E5%AD%98%E5%99%A8%E7%9A%84%E5%AE%9E%E7%8E%B0/images/setup_time_illustration.png"
+width="667"
+height="614"
+srcset="https://todd.scuteee.com/digitalic/%E6%95%B0%E5%AD%97%E9%9B%86%E6%88%90%E7%94%B5%E8%B7%AF/7-%E6%97%B6%E5%BA%8F%E9%80%BB%E8%BE%91%E7%94%B5%E8%B7%AF/%E5%AF%84%E5%AD%98%E5%99%A8%E7%9A%84%E5%AE%9E%E7%8E%B0/images/setup_time_illustration_hufa4ff152b9bd7979b2ddf4b763e10371_43566_480x0_resize_box_3.png 480w, https://todd.scuteee.com/digitalic/%E6%95%B0%E5%AD%97%E9%9B%86%E6%88%90%E7%94%B5%E8%B7%AF/7-%E6%97%B6%E5%BA%8F%E9%80%BB%E8%BE%91%E7%94%B5%E8%B7%AF/%E5%AF%84%E5%AD%98%E5%99%A8%E7%9A%84%E5%AE%9E%E7%8E%B0/images/setup_time_illustration_hufa4ff152b9bd7979b2ddf4b763e10371_43566_1024x0_resize_box_3.png 1024w"
+loading="lazy"
+alt="建立时间示意图"
+class="gallery-image"
+data-flex-grow="108"
+data-flex-basis="260px"
+>&lt;/p>
+&lt;p>flip-flop 是工艺库中的标准单元（有不同大小的），这些时序约束由工艺库给出。值得注意的是，其中有些 $t_{hold}$ 是负的，也就是说，在上升沿之前，D 可以变化（不需要保持）。&lt;/p>
+&lt;p>&lt;img src="https://todd.scuteee.com/digitalic/%E6%95%B0%E5%AD%97%E9%9B%86%E6%88%90%E7%94%B5%E8%B7%AF/7-%E6%97%B6%E5%BA%8F%E9%80%BB%E8%BE%91%E7%94%B5%E8%B7%AF/%E5%AF%84%E5%AD%98%E5%99%A8%E7%9A%84%E5%AE%9E%E7%8E%B0/images/real_timing_constraints.png"
+width="701"
+height="312"
+srcset="https://todd.scuteee.com/digitalic/%E6%95%B0%E5%AD%97%E9%9B%86%E6%88%90%E7%94%B5%E8%B7%AF/7-%E6%97%B6%E5%BA%8F%E9%80%BB%E8%BE%91%E7%94%B5%E8%B7%AF/%E5%AF%84%E5%AD%98%E5%99%A8%E7%9A%84%E5%AE%9E%E7%8E%B0/images/real_timing_constraints_huf2fb92bec9d251582b000f5f4085d6a9_103287_480x0_resize_box_3.png 480w, https://todd.scuteee.com/digitalic/%E6%95%B0%E5%AD%97%E9%9B%86%E6%88%90%E7%94%B5%E8%B7%AF/7-%E6%97%B6%E5%BA%8F%E9%80%BB%E8%BE%91%E7%94%B5%E8%B7%AF/%E5%AF%84%E5%AD%98%E5%99%A8%E7%9A%84%E5%AE%9E%E7%8E%B0/images/real_timing_constraints_huf2fb92bec9d251582b000f5f4085d6a9_103287_1024x0_resize_box_3.png 1024w"
+loading="lazy"
+alt="工艺库"
+class="gallery-image"
+data-flex-grow="224"
+data-flex-basis="539px"
+>&lt;/p>
+&lt;p>下面是一道简单的习题。我们只需要记住：$t_{hold}$ 的 D 和 Q 的波形是相同的；而 $t_{setup}$ 的 D 和 Q 波形是相反的。$t_{ccq}$ 是最早的，$t_{pcq}$ 是最慢的。&lt;/p>
+&lt;p>&lt;img src="https://todd.scuteee.com/digitalic/%E6%95%B0%E5%AD%97%E9%9B%86%E6%88%90%E7%94%B5%E8%B7%AF/7-%E6%97%B6%E5%BA%8F%E9%80%BB%E8%BE%91%E7%94%B5%E8%B7%AF/%E5%AF%84%E5%AD%98%E5%99%A8%E7%9A%84%E5%AE%9E%E7%8E%B0/images/exercise_find_t.png"
+width="700"
+height="630"
+srcset="https://todd.scuteee.com/digitalic/%E6%95%B0%E5%AD%97%E9%9B%86%E6%88%90%E7%94%B5%E8%B7%AF/7-%E6%97%B6%E5%BA%8F%E9%80%BB%E8%BE%91%E7%94%B5%E8%B7%AF/%E5%AF%84%E5%AD%98%E5%99%A8%E7%9A%84%E5%AE%9E%E7%8E%B0/images/exercise_find_t_hu3533abeda7f96ed94f74f92466eb733e_277156_480x0_resize_box_3.png 480w, https://todd.scuteee.com/digitalic/%E6%95%B0%E5%AD%97%E9%9B%86%E6%88%90%E7%94%B5%E8%B7%AF/7-%E6%97%B6%E5%BA%8F%E9%80%BB%E8%BE%91%E7%94%B5%E8%B7%AF/%E5%AF%84%E5%AD%98%E5%99%A8%E7%9A%84%E5%AE%9E%E7%8E%B0/images/exercise_find_t_hu3533abeda7f96ed94f74f92466eb733e_277156_1024x0_resize_box_3.png 1024w"
+loading="lazy"
+alt="练习题"
+class="gallery-image"
+data-flex-grow="111"
+data-flex-basis="266px"
+>&lt;/p>
+&lt;h2 id="动态存储">动态存储&lt;/h2>
+&lt;p>动态存储就是靠电容来存储值。&lt;/p>
+&lt;p>&lt;img src="https://todd.scuteee.com/digitalic/%E6%95%B0%E5%AD%97%E9%9B%86%E6%88%90%E7%94%B5%E8%B7%AF/7-%E6%97%B6%E5%BA%8F%E9%80%BB%E8%BE%91%E7%94%B5%E8%B7%AF/%E5%AF%84%E5%AD%98%E5%99%A8%E7%9A%84%E5%AE%9E%E7%8E%B0/images/dynamic_transmission_gate_register.png"
+width="642"
+height="472"
+srcset="https://todd.scuteee.com/digitalic/%E6%95%B0%E5%AD%97%E9%9B%86%E6%88%90%E7%94%B5%E8%B7%AF/7-%E6%97%B6%E5%BA%8F%E9%80%BB%E8%BE%91%E7%94%B5%E8%B7%AF/%E5%AF%84%E5%AD%98%E5%99%A8%E7%9A%84%E5%AE%9E%E7%8E%B0/images/dynamic_transmission_gate_register_hu1c69abf98ceb6dd75ef51f0434147106_60788_480x0_resize_box_3.png 480w, https://todd.scuteee.com/digitalic/%E6%95%B0%E5%AD%97%E9%9B%86%E6%88%90%E7%94%B5%E8%B7%AF/7-%E6%97%B6%E5%BA%8F%E9%80%BB%E8%BE%91%E7%94%B5%E8%B7%AF/%E5%AF%84%E5%AD%98%E5%99%A8%E7%9A%84%E5%AE%9E%E7%8E%B0/images/dynamic_transmission_gate_register_hu1c69abf98ceb6dd75ef51f0434147106_60788_1024x0_resize_box_3.png 1024w"
+loading="lazy"
+alt="动态flip-flop"
+class="gallery-image"
+data-flex-grow="136"
+data-flex-basis="326px"
+>&lt;/p>
+&lt;p>动态存储的缺点是：&lt;/p>
+&lt;ol>
+&lt;li>对噪声敏感&lt;/li>
+&lt;li>存在漏电流&lt;/li>
+&lt;li>节点不跟随电源电压变化&lt;/li>
+&lt;/ol>
+&lt;p>解决方法是加一个弱的反馈反相器。&lt;/p>
+&lt;p>&lt;img src="https://todd.scuteee.com/digitalic/%E6%95%B0%E5%AD%97%E9%9B%86%E6%88%90%E7%94%B5%E8%B7%AF/7-%E6%97%B6%E5%BA%8F%E9%80%BB%E8%BE%91%E7%94%B5%E8%B7%AF/%E5%AF%84%E5%AD%98%E5%99%A8%E7%9A%84%E5%AE%9E%E7%8E%B0/images/pseudo_static_latch.png"
+width="744"
+height="535"
+srcset="https://todd.scuteee.com/digitalic/%E6%95%B0%E5%AD%97%E9%9B%86%E6%88%90%E7%94%B5%E8%B7%AF/7-%E6%97%B6%E5%BA%8F%E9%80%BB%E8%BE%91%E7%94%B5%E8%B7%AF/%E5%AF%84%E5%AD%98%E5%99%A8%E7%9A%84%E5%AE%9E%E7%8E%B0/images/pseudo_static_latch_hu6d5ca77b728d18ca7553d018909326d9_84127_480x0_resize_box_3.png 480w, https://todd.scuteee.com/digitalic/%E6%95%B0%E5%AD%97%E9%9B%86%E6%88%90%E7%94%B5%E8%B7%AF/7-%E6%97%B6%E5%BA%8F%E9%80%BB%E8%BE%91%E7%94%B5%E8%B7%AF/%E5%AF%84%E5%AD%98%E5%99%A8%E7%9A%84%E5%AE%9E%E7%8E%B0/images/pseudo_static_latch_hu6d5ca77b728d18ca7553d018909326d9_84127_1024x0_resize_box_3.png 1024w"
+loading="lazy"
+alt="伪静态"
+class="gallery-image"
+data-flex-grow="139"
+data-flex-basis="333px"
+>&lt;/p>
+&lt;h2 id="时钟重叠">时钟重叠&lt;/h2>
+&lt;p>无论是静态存储还是动态存储，它们都会受时钟交叠的影响。以静态存储为例，时钟交叠时，整个寄存器都是“透明的”，因此为了避免交叠对数据的影响，必须满足：&lt;/p>
+&lt;p>&lt;img src="https://todd.scuteee.com/digitalic/%E6%95%B0%E5%AD%97%E9%9B%86%E6%88%90%E7%94%B5%E8%B7%AF/7-%E6%97%B6%E5%BA%8F%E9%80%BB%E8%BE%91%E7%94%B5%E8%B7%AF/%E5%AF%84%E5%AD%98%E5%99%A8%E7%9A%84%E5%AE%9E%E7%8E%B0/images/overlapping_clocks.png"
+width="728"
+height="466"
+srcset="https://todd.scuteee.com/digitalic/%E6%95%B0%E5%AD%97%E9%9B%86%E6%88%90%E7%94%B5%E8%B7%AF/7-%E6%97%B6%E5%BA%8F%E9%80%BB%E8%BE%91%E7%94%B5%E8%B7%AF/%E5%AF%84%E5%AD%98%E5%99%A8%E7%9A%84%E5%AE%9E%E7%8E%B0/images/overlapping_clocks_hu3c09c9759e69e79e0606df53e52d1fc1_72217_480x0_resize_box_3.png 480w, https://todd.scuteee.com/digitalic/%E6%95%B0%E5%AD%97%E9%9B%86%E6%88%90%E7%94%B5%E8%B7%AF/7-%E6%97%B6%E5%BA%8F%E9%80%BB%E8%BE%91%E7%94%B5%E8%B7%AF/%E5%AF%84%E5%AD%98%E5%99%A8%E7%9A%84%E5%AE%9E%E7%8E%B0/images/overlapping_clocks_hu3c09c9759e69e79e0606df53e52d1fc1_72217_1024x0_resize_box_3.png 1024w"
+loading="lazy"
+alt="交叠时钟"
+class="gallery-image"
+data-flex-grow="156"
+data-flex-basis="374px"
+>&lt;/p>
+&lt;p>而 ${\rm C^2MOS}$ 就是一种解决方法。${\rm C^2MOS}$ 表示 Clocked CMOS，也就是在组合逻辑门中，加入时钟（把时钟当作逻辑的一部分）&lt;/p>
+&lt;p>&lt;img src="https://todd.scuteee.com/digitalic/%E6%95%B0%E5%AD%97%E9%9B%86%E6%88%90%E7%94%B5%E8%B7%AF/7-%E6%97%B6%E5%BA%8F%E9%80%BB%E8%BE%91%E7%94%B5%E8%B7%AF/%E5%AF%84%E5%AD%98%E5%99%A8%E7%9A%84%E5%AE%9E%E7%8E%B0/images/C2MOS.png"
+width="777"
+height="495"
+srcset="https://todd.scuteee.com/digitalic/%E6%95%B0%E5%AD%97%E9%9B%86%E6%88%90%E7%94%B5%E8%B7%AF/7-%E6%97%B6%E5%BA%8F%E9%80%BB%E8%BE%91%E7%94%B5%E8%B7%AF/%E5%AF%84%E5%AD%98%E5%99%A8%E7%9A%84%E5%AE%9E%E7%8E%B0/images/C2MOS_hu7eab26c092665e892d90109d9322b6cd_138551_480x0_resize_box_3.png 480w, https://todd.scuteee.com/digitalic/%E6%95%B0%E5%AD%97%E9%9B%86%E6%88%90%E7%94%B5%E8%B7%AF/7-%E6%97%B6%E5%BA%8F%E9%80%BB%E8%BE%91%E7%94%B5%E8%B7%AF/%E5%AF%84%E5%AD%98%E5%99%A8%E7%9A%84%E5%AE%9E%E7%8E%B0/images/C2MOS_hu7eab26c092665e892d90109d9322b6cd_138551_1024x0_resize_box_3.png 1024w"
+loading="lazy"
+alt="C2MOS"
+class="gallery-image"
+data-flex-grow="156"
+data-flex-basis="376px"
+>&lt;/p>
+&lt;p>当存在时钟交叠时，C2MOS 中不存在一条从 D 到 Q 的路径。比如 0-0 交叠时，如果 D=1，那么 M2 断开；如果 D=0，那么 M6 断开，Q始终不受影响。&lt;/p>
+&lt;p>&lt;img src="https://todd.scuteee.com/digitalic/%E6%95%B0%E5%AD%97%E9%9B%86%E6%88%90%E7%94%B5%E8%B7%AF/7-%E6%97%B6%E5%BA%8F%E9%80%BB%E8%BE%91%E7%94%B5%E8%B7%AF/%E5%AF%84%E5%AD%98%E5%99%A8%E7%9A%84%E5%AE%9E%E7%8E%B0/images/c2mos_insensitive_to_clock_overlap.png"
+width="753"
+height="462"
+srcset="https://todd.scuteee.com/digitalic/%E6%95%B0%E5%AD%97%E9%9B%86%E6%88%90%E7%94%B5%E8%B7%AF/7-%E6%97%B6%E5%BA%8F%E9%80%BB%E8%BE%91%E7%94%B5%E8%B7%AF/%E5%AF%84%E5%AD%98%E5%99%A8%E7%9A%84%E5%AE%9E%E7%8E%B0/images/c2mos_insensitive_to_clock_overlap_hufe9ac708866b8add7b1ad7eb965e803e_130879_480x0_resize_box_3.png 480w, https://todd.scuteee.com/digitalic/%E6%95%B0%E5%AD%97%E9%9B%86%E6%88%90%E7%94%B5%E8%B7%AF/7-%E6%97%B6%E5%BA%8F%E9%80%BB%E8%BE%91%E7%94%B5%E8%B7%AF/%E5%AF%84%E5%AD%98%E5%99%A8%E7%9A%84%E5%AE%9E%E7%8E%B0/images/c2mos_insensitive_to_clock_overlap_hufe9ac708866b8add7b1ad7eb965e803e_130879_1024x0_resize_box_3.png 1024w"
+loading="lazy"
+alt="C2MOS对交叠不敏感"
+class="gallery-image"
+data-flex-grow="162"
+data-flex-basis="391px"
+>&lt;/p>
+&lt;p>另一种解决方法是：只采用一个时钟。这种电路称为：真单相时钟寄存器（True Single-Phase Clocked Register）&lt;/p>
+&lt;p>&lt;img src="https://todd.scuteee.com/digitalic/%E6%95%B0%E5%AD%97%E9%9B%86%E6%88%90%E7%94%B5%E8%B7%AF/7-%E6%97%B6%E5%BA%8F%E9%80%BB%E8%BE%91%E7%94%B5%E8%B7%AF/%E5%AF%84%E5%AD%98%E5%99%A8%E7%9A%84%E5%AE%9E%E7%8E%B0/images/TSPC_register.png"
+width="793"
+height="438"
+srcset="https://todd.scuteee.com/digitalic/%E6%95%B0%E5%AD%97%E9%9B%86%E6%88%90%E7%94%B5%E8%B7%AF/7-%E6%97%B6%E5%BA%8F%E9%80%BB%E8%BE%91%E7%94%B5%E8%B7%AF/%E5%AF%84%E5%AD%98%E5%99%A8%E7%9A%84%E5%AE%9E%E7%8E%B0/images/TSPC_register_hu526fa0cbeb12c764374994870d46a1dd_32757_480x0_resize_box_3.png 480w, https://todd.scuteee.com/digitalic/%E6%95%B0%E5%AD%97%E9%9B%86%E6%88%90%E7%94%B5%E8%B7%AF/7-%E6%97%B6%E5%BA%8F%E9%80%BB%E8%BE%91%E7%94%B5%E8%B7%AF/%E5%AF%84%E5%AD%98%E5%99%A8%E7%9A%84%E5%AE%9E%E7%8E%B0/images/TSPC_register_hu526fa0cbeb12c764374994870d46a1dd_32757_1024x0_resize_box_3.png 1024w"
+loading="lazy"
+alt="真单相时钟锁存器"
+class="gallery-image"
+data-flex-grow="181"
+data-flex-basis="434px"
+>&lt;/p>
+&lt;p>它的工作原理和 C2MOS 类似。这里就不多说。上图两类锁存器结合，就得到 flip-flop&lt;/p>
+&lt;p>&lt;img src="https://todd.scuteee.com/digitalic/%E6%95%B0%E5%AD%97%E9%9B%86%E6%88%90%E7%94%B5%E8%B7%AF/7-%E6%97%B6%E5%BA%8F%E9%80%BB%E8%BE%91%E7%94%B5%E8%B7%AF/%E5%AF%84%E5%AD%98%E5%99%A8%E7%9A%84%E5%AE%9E%E7%8E%B0/images/TSPC_flip_flop.png"
+width="746"
+height="398"
+srcset="https://todd.scuteee.com/digitalic/%E6%95%B0%E5%AD%97%E9%9B%86%E6%88%90%E7%94%B5%E8%B7%AF/7-%E6%97%B6%E5%BA%8F%E9%80%BB%E8%BE%91%E7%94%B5%E8%B7%AF/%E5%AF%84%E5%AD%98%E5%99%A8%E7%9A%84%E5%AE%9E%E7%8E%B0/images/TSPC_flip_flop_hufd3d392b5a285b3e7fc75ab297ff90a6_42023_480x0_resize_box_3.png 480w, https://todd.scuteee.com/digitalic/%E6%95%B0%E5%AD%97%E9%9B%86%E6%88%90%E7%94%B5%E8%B7%AF/7-%E6%97%B6%E5%BA%8F%E9%80%BB%E8%BE%91%E7%94%B5%E8%B7%AF/%E5%AF%84%E5%AD%98%E5%99%A8%E7%9A%84%E5%AE%9E%E7%8E%B0/images/TSPC_flip_flop_hufd3d392b5a285b3e7fc75ab297ff90a6_42023_1024x0_resize_box_3.png 1024w"
+loading="lazy"
+alt="真单相时钟flip-flop"
+class="gallery-image"
+data-flex-grow="187"
+data-flex-basis="449px"
+>&lt;/p>
+&lt;p>我们可以将中间两级合并，从而减少中间晶体管的数量：&lt;/p>
+&lt;p>&lt;img src="https://todd.scuteee.com/digitalic/%E6%95%B0%E5%AD%97%E9%9B%86%E6%88%90%E7%94%B5%E8%B7%AF/7-%E6%97%B6%E5%BA%8F%E9%80%BB%E8%BE%91%E7%94%B5%E8%B7%AF/%E5%AF%84%E5%AD%98%E5%99%A8%E7%9A%84%E5%AE%9E%E7%8E%B0/images/TSPC_flip_flop_with_fewer_devices.png"
+width="635"
+height="416"
+srcset="https://todd.scuteee.com/digitalic/%E6%95%B0%E5%AD%97%E9%9B%86%E6%88%90%E7%94%B5%E8%B7%AF/7-%E6%97%B6%E5%BA%8F%E9%80%BB%E8%BE%91%E7%94%B5%E8%B7%AF/%E5%AF%84%E5%AD%98%E5%99%A8%E7%9A%84%E5%AE%9E%E7%8E%B0/images/TSPC_flip_flop_with_fewer_devices_huc5931c1b9540485eb110cee8bd7d330d_46249_480x0_resize_box_3.png 480w, https://todd.scuteee.com/digitalic/%E6%95%B0%E5%AD%97%E9%9B%86%E6%88%90%E7%94%B5%E8%B7%AF/7-%E6%97%B6%E5%BA%8F%E9%80%BB%E8%BE%91%E7%94%B5%E8%B7%AF/%E5%AF%84%E5%AD%98%E5%99%A8%E7%9A%84%E5%AE%9E%E7%8E%B0/images/TSPC_flip_flop_with_fewer_devices_huc5931c1b9540485eb110cee8bd7d330d_46249_1024x0_resize_box_3.png 1024w"
+loading="lazy"
+alt="简化的真单相时钟flip-flop"
+class="gallery-image"
+data-flex-grow="152"
+data-flex-basis="366px"
+>&lt;/p>
+&lt;ul>
+&lt;li>CLK=0，X采样D，Y=1，Q保持&lt;/li>
+&lt;li>CLK=1，
+&lt;ul>
+&lt;li>如果 D=1，那么 X=0，Y=1，输出 0&lt;/li>
+&lt;li>如果 D=0，那么 X=1，Y=0，输出 1&lt;/li>
+&lt;li>如果 D=0→1，那么 X=1→0，但 Y 会先放电，所以只能输出 Y=0，输出 1&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul></description></item><item><title>SymPy教程</title><link>https://todd.scuteee.com/posts/2023/203-06-22-sympy-tutorial.md/</link><pubDate>Thu, 22 Jun 2023 15:13:00 +0800</pubDate><guid>https://todd.scuteee.com/posts/2023/203-06-22-sympy-tutorial.md/</guid><description>&lt;h2 id="简介">简介&lt;/h2>
+&lt;p>&lt;a class="link" href="https://docs.sympy.org/latest/index.html" target="_blank" rel="noopener"
+>SymPy&lt;/a> 是一个符号计算Python库。什么是符号计算？举个例子：如果有个这样的方程：&lt;/p>
+&lt;p>$$
+\begin{cases}
+x+y=5\
+x-y=1
+\end{cases}
+$$&lt;/p>
+&lt;p>我们可以用计算器的“解多元方程”来算出来。但是如果有这么一个方程：&lt;/p>
+&lt;p>$$
+\begin{cases}
+x+y=a\
+x-y=b
+\end{cases}
+$$&lt;/p>
+&lt;p>$a,b$ 是常数。那么，计算器就算不出来了。这时就需要符号计算。&lt;/p>
+&lt;h2 id="安装">安装&lt;/h2>
+&lt;p>直接用 &lt;code>conda install sympy&lt;/code> 安装。&lt;/p>
+&lt;h2 id="定义符号">定义符号&lt;/h2>
+&lt;p>为了方便，我们直接全部导入：&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-python" data-lang="python">&lt;span class="line">&lt;span class="cl">&lt;span class="kn">from&lt;/span> &lt;span class="nn">sympy&lt;/span> &lt;span class="kn">import&lt;/span> &lt;span class="o">*&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>首先是定义符号：&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-python" data-lang="python">&lt;span class="line">&lt;span class="cl">&lt;span class="n">x&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">y&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="n">symbols&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s1">&amp;#39;x y&amp;#39;&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="n">x1&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">x2&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="n">symbols&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s1">&amp;#39;x_1 x_2&amp;#39;&lt;/span>&lt;span class="p">)&lt;/span> &lt;span class="c1"># 支持 latex 的写法&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>定义好后，可以用符号来书写表达式。&lt;/p>
+&lt;p>如果表达式中有很多符号，则一个一个定义太麻烦。可以用 &lt;code>sympify()&lt;/code> 将字符串直接转化为表达式。&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;span class="lnt">5
+&lt;/span>&lt;span class="lnt">6
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-python" data-lang="python">&lt;span class="line">&lt;span class="cl">&lt;span class="n">str_expr&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="s1">&amp;#39;x_1**2 + 2*x_2 + 1&amp;#39;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="n">expr&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="n">sympify&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">str_expr&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">#等效于&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="n">x1&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">x2&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="n">symbols&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s1">&amp;#39;x_1 x_2&amp;#39;&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="n">expr&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="n">x1&lt;/span>&lt;span class="o">**&lt;/span>&lt;span class="mi">2&lt;/span> &lt;span class="o">+&lt;/span> &lt;span class="mi">2&lt;/span>&lt;span class="o">*&lt;/span>&lt;span class="n">x2&lt;/span> &lt;span class="o">+&lt;/span> &lt;span class="mi">1&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h2 id="求解方程组">求解方程组&lt;/h2>
+&lt;p>解线性方程组：&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;/span>&lt;span class="lnt"> 2
+&lt;/span>&lt;span class="lnt"> 3
+&lt;/span>&lt;span class="lnt"> 4
+&lt;/span>&lt;span class="lnt"> 5
+&lt;/span>&lt;span class="lnt"> 6
+&lt;/span>&lt;span class="lnt"> 7
+&lt;/span>&lt;span class="lnt"> 8
+&lt;/span>&lt;span class="lnt"> 9
+&lt;/span>&lt;span class="lnt">10
+&lt;/span>&lt;span class="lnt">11
+&lt;/span>&lt;span class="lnt">12
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-python" data-lang="python">&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># 定义符号&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="n">x&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">y&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="n">symbols&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s1">&amp;#39;x y&amp;#39;&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="n">a&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">b&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="n">symbols&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s1">&amp;#39;a b&amp;#39;&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># 定义方程&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="n">f1&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="n">x&lt;/span>&lt;span class="o">+&lt;/span>&lt;span class="n">y&lt;/span>&lt;span class="o">-&lt;/span>&lt;span class="n">a&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="n">f2&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="n">x&lt;/span>&lt;span class="o">-&lt;/span>&lt;span class="n">y&lt;/span>&lt;span class="o">-&lt;/span>&lt;span class="n">b&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">#求解&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="n">result&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="n">solve&lt;/span>&lt;span class="p">([&lt;/span>&lt;span class="n">f1&lt;/span>&lt;span class="p">,&lt;/span>&lt;span class="n">f2&lt;/span>&lt;span class="p">],&lt;/span> &lt;span class="p">[&lt;/span>&lt;span class="n">x&lt;/span>&lt;span class="p">,&lt;/span>&lt;span class="n">y&lt;/span>&lt;span class="p">])&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nb">print&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">latex&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">result&lt;/span>&lt;span class="p">))&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="n">result&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">get&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">x&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>得到的结果如下：&lt;/p>
+&lt;p>$$
+\left{\left( \frac{a + b}{2}, \ \frac{a - b}{2}\right)\right}
+$$&lt;/p>
+&lt;p>如果是非线性的，只需要将上面的 &lt;code>solve()&lt;/code> 换成 &lt;code>nonlinsolve()&lt;/code> 即可。&lt;/p>
+&lt;h2 id="化简">化简&lt;/h2>
+&lt;p>参考 &lt;a class="link" href="https://zhuanlan.zhihu.com/p/111573239" target="_blank" rel="noopener"
+>SymPy 符号计算基本教程&lt;/a>&lt;/p></description></item><item><title>机械键盘</title><link>https://todd.scuteee.com/posts/2023/2023-06-20-mechanical-keyboard/</link><pubDate>Tue, 20 Jun 2023 20:32:00 +0800</pubDate><guid>https://todd.scuteee.com/posts/2023/2023-06-20-mechanical-keyboard/</guid><description>&lt;p>工欲善其事必先利其器，一把好的键盘，可以让我们在打字、玩游戏的时候更加畅快。清脆的键盘声，软弹的手感，让再痛苦的文字输入也是一种享受。&lt;/p>
+&lt;p>我们最常用的键盘是薄膜键盘（比如笔记本上的键盘），它的电路只是薄薄的一层膜，上面是一层导电橡胶，通过按下橡胶使得电路导通，从而产生输入。&lt;/p>
+&lt;p>&lt;img src="https://todd.scuteee.com/posts/2023/2023-06-20-mechanical-keyboard/images/%E8%96%84%E8%86%9C%E9%94%AE%E7%9B%98.jpg"
+width="1000"
+height="562"
+srcset="https://todd.scuteee.com/posts/2023/2023-06-20-mechanical-keyboard/images/%E8%96%84%E8%86%9C%E9%94%AE%E7%9B%98_hu701cef2a510f870dc4e00b6916650ad2_138285_480x0_resize_q75_box.jpg 480w, https://todd.scuteee.com/posts/2023/2023-06-20-mechanical-keyboard/images/%E8%96%84%E8%86%9C%E9%94%AE%E7%9B%98_hu701cef2a510f870dc4e00b6916650ad2_138285_1024x0_resize_q75_box.jpg 1024w"
+loading="lazy"
+alt="薄膜键盘"
+class="gallery-image"
+data-flex-grow="177"
+data-flex-basis="427px"
+>&lt;/p></description></item><item><title>时序约束</title><link>https://todd.scuteee.com/digitalic/%E6%95%B0%E5%AD%97%E9%9B%86%E6%88%90%E7%94%B5%E8%B7%AF/7-%E6%97%B6%E5%BA%8F%E9%80%BB%E8%BE%91%E7%94%B5%E8%B7%AF/%E6%97%B6%E5%BA%8F%E7%BA%A6%E6%9D%9F/</link><pubDate>Sat, 17 Jun 2023 23:11:00 +0800</pubDate><guid>https://todd.scuteee.com/digitalic/%E6%95%B0%E5%AD%97%E9%9B%86%E6%88%90%E7%94%B5%E8%B7%AF/7-%E6%97%B6%E5%BA%8F%E9%80%BB%E8%BE%91%E7%94%B5%E8%B7%AF/%E6%97%B6%E5%BA%8F%E7%BA%A6%E6%9D%9F/</guid><description>&lt;blockquote>
+&lt;p>老师ppt上花了近50页讲这个，但我还是听不懂……&lt;/p>
+&lt;/blockquote>
+&lt;h2 id="时序约束">时序约束&lt;/h2>
+&lt;p>时序逻辑电路的时序约束有点像照相，如果在快门按下的瞬间动了，那么拍出来的照片就会模糊。寄存器就像照相机，时钟上升沿就是快门按下的瞬间，为了正确“拍照”，必须满足以下条件：&lt;/p>
+&lt;ul>
+&lt;li>为了正确采样输入，
+&lt;ul>
+&lt;li>时钟变化前，输入必须稳定一段时间 $t_{setup}$&lt;/li>
+&lt;li>时钟变化后，输入必须稳定一段时间 $t_{hold}$&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>时钟变化后
+&lt;ul>
+&lt;li>到输出开始变化的间隔（最快路径）：clock-to-Q contamination delay, $t_{ccq}$&lt;/li>
+&lt;li>到输出稳定的间隔（最慢路径）：clock-to-Q propagation delay, $t_{pcq}$&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;p>&lt;img src="https://todd.scuteee.com/digitalic/%E6%95%B0%E5%AD%97%E9%9B%86%E6%88%90%E7%94%B5%E8%B7%AF/7-%E6%97%B6%E5%BA%8F%E9%80%BB%E8%BE%91%E7%94%B5%E8%B7%AF/%E6%97%B6%E5%BA%8F%E7%BA%A6%E6%9D%9F/images/timing_specification.png"
+width="669"
+height="195"
+srcset="https://todd.scuteee.com/digitalic/%E6%95%B0%E5%AD%97%E9%9B%86%E6%88%90%E7%94%B5%E8%B7%AF/7-%E6%97%B6%E5%BA%8F%E9%80%BB%E8%BE%91%E7%94%B5%E8%B7%AF/%E6%97%B6%E5%BA%8F%E7%BA%A6%E6%9D%9F/images/timing_specification_hud11166ca9fd58a049efe29a06620d43b_25375_480x0_resize_box_3.png 480w, https://todd.scuteee.com/digitalic/%E6%95%B0%E5%AD%97%E9%9B%86%E6%88%90%E7%94%B5%E8%B7%AF/7-%E6%97%B6%E5%BA%8F%E9%80%BB%E8%BE%91%E7%94%B5%E8%B7%AF/%E6%97%B6%E5%BA%8F%E7%BA%A6%E6%9D%9F/images/timing_specification_hud11166ca9fd58a049efe29a06620d43b_25375_1024x0_resize_box_3.png 1024w"
+loading="lazy"
+alt="时序约束中的量"
+class="gallery-image"
+data-flex-grow="343"
+data-flex-basis="823px"
+>&lt;/p>
+&lt;p>以上条件主要针对时序逻辑电路中的 flip-flop 和 latch，除此之外，时序逻辑电路中也有组合逻辑的部分，其中与时间有关的量列举如下：&lt;/p>
+&lt;p>&lt;img src="https://todd.scuteee.com/digitalic/%E6%95%B0%E5%AD%97%E9%9B%86%E6%88%90%E7%94%B5%E8%B7%AF/7-%E6%97%B6%E5%BA%8F%E9%80%BB%E8%BE%91%E7%94%B5%E8%B7%AF/%E6%97%B6%E5%BA%8F%E7%BA%A6%E6%9D%9F/images/timing_specification2.png"
+width="644"
+height="589"
+srcset="https://todd.scuteee.com/digitalic/%E6%95%B0%E5%AD%97%E9%9B%86%E6%88%90%E7%94%B5%E8%B7%AF/7-%E6%97%B6%E5%BA%8F%E9%80%BB%E8%BE%91%E7%94%B5%E8%B7%AF/%E6%97%B6%E5%BA%8F%E7%BA%A6%E6%9D%9F/images/timing_specification2_hu038402acd3ebd6aa27eb7980de57ace6_68530_480x0_resize_box_3.png 480w, https://todd.scuteee.com/digitalic/%E6%95%B0%E5%AD%97%E9%9B%86%E6%88%90%E7%94%B5%E8%B7%AF/7-%E6%97%B6%E5%BA%8F%E9%80%BB%E8%BE%91%E7%94%B5%E8%B7%AF/%E6%97%B6%E5%BA%8F%E7%BA%A6%E6%9D%9F/images/timing_specification2_hu038402acd3ebd6aa27eb7980de57ace6_68530_1024x0_resize_box_3.png 1024w"
+loading="lazy"
+alt="时序约束中的量"
+class="gallery-image"
+data-flex-grow="109"
+data-flex-basis="262px"
+>&lt;/p>
+&lt;p>flip-flop 和 latch 需要配合组合逻辑电路来组成完整的时序逻辑电路，如下图。要让电路正常工作，需要满足一些约束条件。&lt;/p>
+&lt;p>&lt;img src="https://todd.scuteee.com/digitalic/%E6%95%B0%E5%AD%97%E9%9B%86%E6%88%90%E7%94%B5%E8%B7%AF/7-%E6%97%B6%E5%BA%8F%E9%80%BB%E8%BE%91%E7%94%B5%E8%B7%AF/%E6%97%B6%E5%BA%8F%E7%BA%A6%E6%9D%9F/images/path_between_registers_and_timing_diagram.png"
+width="749"
+height="161"
+srcset="https://todd.scuteee.com/digitalic/%E6%95%B0%E5%AD%97%E9%9B%86%E6%88%90%E7%94%B5%E8%B7%AF/7-%E6%97%B6%E5%BA%8F%E9%80%BB%E8%BE%91%E7%94%B5%E8%B7%AF/%E6%97%B6%E5%BA%8F%E7%BA%A6%E6%9D%9F/images/path_between_registers_and_timing_diagram_hu5049a58c63e283b1da9e77b6143e15a4_22981_480x0_resize_box_3.png 480w, https://todd.scuteee.com/digitalic/%E6%95%B0%E5%AD%97%E9%9B%86%E6%88%90%E7%94%B5%E8%B7%AF/7-%E6%97%B6%E5%BA%8F%E9%80%BB%E8%BE%91%E7%94%B5%E8%B7%AF/%E6%97%B6%E5%BA%8F%E7%BA%A6%E6%9D%9F/images/path_between_registers_and_timing_diagram_hu5049a58c63e283b1da9e77b6143e15a4_22981_1024x0_resize_box_3.png 1024w"
+loading="lazy"
+alt="时序逻辑电路与时序图"
+class="gallery-image"
+data-flex-grow="465"
+data-flex-basis="1116px"
+>&lt;/p>
+&lt;h3 id="建立时间约束周期约束">建立时间约束（周期约束）&lt;/h3>
+&lt;p>在第一个时钟沿时，数据从 R1 输入，经过组合逻辑电路，在第二个时钟沿从 R2 输出。在这期间，有三个延时：&lt;/p>
+&lt;ol>
+&lt;li>时钟沿上升，数据从 Q1 输出的时间 $t_{pcq}$&lt;/li>
+&lt;li>组合逻辑电路处理的时间 $t_{pd}$&lt;/li>
+&lt;li>R2 输入保持的时间 $t_{setup}$&lt;/li>
+&lt;/ol>
+&lt;p>因此时钟周期必须大于三者之和：&lt;/p>
+&lt;p>$$
+T_c \geq t_{pcq}+t_{pd}+t_{setup}
+$$&lt;/p>
+&lt;p>&lt;img src="https://todd.scuteee.com/digitalic/%E6%95%B0%E5%AD%97%E9%9B%86%E6%88%90%E7%94%B5%E8%B7%AF/7-%E6%97%B6%E5%BA%8F%E9%80%BB%E8%BE%91%E7%94%B5%E8%B7%AF/%E6%97%B6%E5%BA%8F%E7%BA%A6%E6%9D%9F/images/maximum_delay_for_setup_time_constraint.png"
+width="729"
+height="261"
+srcset="https://todd.scuteee.com/digitalic/%E6%95%B0%E5%AD%97%E9%9B%86%E6%88%90%E7%94%B5%E8%B7%AF/7-%E6%97%B6%E5%BA%8F%E9%80%BB%E8%BE%91%E7%94%B5%E8%B7%AF/%E6%97%B6%E5%BA%8F%E7%BA%A6%E6%9D%9F/images/maximum_delay_for_setup_time_constraint_huaa76ac1e9e689704a8400ff91c8bd4bb_27927_480x0_resize_box_3.png 480w, https://todd.scuteee.com/digitalic/%E6%95%B0%E5%AD%97%E9%9B%86%E6%88%90%E7%94%B5%E8%B7%AF/7-%E6%97%B6%E5%BA%8F%E9%80%BB%E8%BE%91%E7%94%B5%E8%B7%AF/%E6%97%B6%E5%BA%8F%E7%BA%A6%E6%9D%9F/images/maximum_delay_for_setup_time_constraint_huaa76ac1e9e689704a8400ff91c8bd4bb_27927_1024x0_resize_box_3.png 1024w"
+loading="lazy"
+alt="maximum delay for setup time constraint"
+class="gallery-image"
+data-flex-grow="279"
+data-flex-basis="670px"
+>&lt;/p>
+&lt;p>其中，flip-flop 的 $t_{pcq}$ 和 $t_{setup}$ 都是取决于工艺，因此只能改变 $T_c$ 和 $t_{pd}$。而 $T_c$ 一般是设计之初就定好的，所以只能改变 $t_{pd}$. 所以将上式改写为：&lt;/p>
+&lt;p>$$
+t_{pd}&amp;lt;T_c - (t_{pcq}+t_{setup})
+$$&lt;/p>
+&lt;p>也就是说组合逻辑的延迟不能超过一定值。总的周期 $T_c$ 是固定的，减去&lt;strong>时序开销（sequencing overhead）&lt;/strong>$(t_{pcq}+t_{setup})$ 后，剩下的就是留给组合逻辑的时间。&lt;/p>
+&lt;h3 id="保持时间约束">保持时间约束&lt;/h3>
+&lt;p>前面说的是数据最慢的情况，那么是不是可以无限快呢？显然不是，我们要确保在第一个时钟沿时，数据不会从 R2 跑出来，否则 R2 就采不到上一个时钟的数据。因此：&lt;/p>
+&lt;p>$$
+t_{ccq}+t_{cd}&amp;lt;t_{hold}
+$$&lt;/p>
+&lt;p>&lt;img src="https://todd.scuteee.com/digitalic/%E6%95%B0%E5%AD%97%E9%9B%86%E6%88%90%E7%94%B5%E8%B7%AF/7-%E6%97%B6%E5%BA%8F%E9%80%BB%E8%BE%91%E7%94%B5%E8%B7%AF/%E6%97%B6%E5%BA%8F%E7%BA%A6%E6%9D%9F/images/min_delay_constraint.png"
+width="681"
+height="447"
+srcset="https://todd.scuteee.com/digitalic/%E6%95%B0%E5%AD%97%E9%9B%86%E6%88%90%E7%94%B5%E8%B7%AF/7-%E6%97%B6%E5%BA%8F%E9%80%BB%E8%BE%91%E7%94%B5%E8%B7%AF/%E6%97%B6%E5%BA%8F%E7%BA%A6%E6%9D%9F/images/min_delay_constraint_hu3d85ce9fdf4d410bee42cb5f676e6b12_32248_480x0_resize_box_3.png 480w, https://todd.scuteee.com/digitalic/%E6%95%B0%E5%AD%97%E9%9B%86%E6%88%90%E7%94%B5%E8%B7%AF/7-%E6%97%B6%E5%BA%8F%E9%80%BB%E8%BE%91%E7%94%B5%E8%B7%AF/%E6%97%B6%E5%BA%8F%E7%BA%A6%E6%9D%9F/images/min_delay_constraint_hu3d85ce9fdf4d410bee42cb5f676e6b12_32248_1024x0_resize_box_3.png 1024w"
+loading="lazy"
+alt="最小延时限制"
+class="gallery-image"
+data-flex-grow="152"
+data-flex-basis="365px"
+>&lt;/p>
+&lt;h2 id="非理想因素">非理想因素&lt;/h2>
+&lt;h3 id="clock-skew-时钟偏差-与-clock-jitter-时钟抖动">Clock Skew 时钟偏差 与 Clock Jitter 时钟抖动&lt;/h3>
+&lt;p>两者的区别在于：&lt;/p>
+&lt;ul>
+&lt;li>时钟偏差比较的是两个寄存器的时钟，且只是相位变化，但周期不变&lt;/li>
+&lt;li>时钟抖动则是同一个寄存器时钟不同时刻，且是随机变化，周期会改变&lt;/li>
+&lt;/ul>
+&lt;p>产生的原因：&lt;/p>
+&lt;ul>
+&lt;li>系统性错误：生产造成芯片与芯片不同&lt;/li>
+&lt;li>时钟产生错误：VCO受噪声、电源等影响&lt;/li>
+&lt;li>器件错误：时钟通路上的buffers&lt;/li>
+&lt;li>互连线错误：互连线的电阻、电容&lt;/li>
+&lt;li>环境影响：温度和电源的影响&lt;/li>
+&lt;li>电容耦合的影响：时钟通路受信号通路的影响&lt;/li>
+&lt;/ul>
+&lt;p>时钟偏差分为正时钟偏差（时钟方向和数据方向一致，后面的时钟慢一点）和负时钟偏差（时钟方向和数据方向相反，前面的时钟慢一点）&lt;/p>
+&lt;p>&lt;img src="https://todd.scuteee.com/digitalic/%E6%95%B0%E5%AD%97%E9%9B%86%E6%88%90%E7%94%B5%E8%B7%AF/7-%E6%97%B6%E5%BA%8F%E9%80%BB%E8%BE%91%E7%94%B5%E8%B7%AF/%E6%97%B6%E5%BA%8F%E7%BA%A6%E6%9D%9F/images/positive_and_negative_skew.png"
+width="968"
+height="655"
+srcset="https://todd.scuteee.com/digitalic/%E6%95%B0%E5%AD%97%E9%9B%86%E6%88%90%E7%94%B5%E8%B7%AF/7-%E6%97%B6%E5%BA%8F%E9%80%BB%E8%BE%91%E7%94%B5%E8%B7%AF/%E6%97%B6%E5%BA%8F%E7%BA%A6%E6%9D%9F/images/positive_and_negative_skew_huf4e076cc831c242ffb4d50e3e76f1324_96428_480x0_resize_box_3.png 480w, https://todd.scuteee.com/digitalic/%E6%95%B0%E5%AD%97%E9%9B%86%E6%88%90%E7%94%B5%E8%B7%AF/7-%E6%97%B6%E5%BA%8F%E9%80%BB%E8%BE%91%E7%94%B5%E8%B7%AF/%E6%97%B6%E5%BA%8F%E7%BA%A6%E6%9D%9F/images/positive_and_negative_skew_huf4e076cc831c242ffb4d50e3e76f1324_96428_1024x0_resize_box_3.png 1024w"
+loading="lazy"
+alt="正时钟偏差和负时钟偏差"
+class="gallery-image"
+data-flex-grow="147"
+data-flex-basis="354px"
+>&lt;/p>
+&lt;p>正时钟偏差会导致等效周期变为 $T+\delta$；负时钟偏差会导致等效周期变为 $T-\delta$&lt;/p>
+&lt;p>&lt;img src="https://todd.scuteee.com/digitalic/%E6%95%B0%E5%AD%97%E9%9B%86%E6%88%90%E7%94%B5%E8%B7%AF/7-%E6%97%B6%E5%BA%8F%E9%80%BB%E8%BE%91%E7%94%B5%E8%B7%AF/%E6%97%B6%E5%BA%8F%E7%BA%A6%E6%9D%9F/images/positive_skew.png"
+width="963"
+height="464"
+srcset="https://todd.scuteee.com/digitalic/%E6%95%B0%E5%AD%97%E9%9B%86%E6%88%90%E7%94%B5%E8%B7%AF/7-%E6%97%B6%E5%BA%8F%E9%80%BB%E8%BE%91%E7%94%B5%E8%B7%AF/%E6%97%B6%E5%BA%8F%E7%BA%A6%E6%9D%9F/images/positive_skew_hu073be0e5be81e13f8ff059becc4a6833_82417_480x0_resize_box_3.png 480w, https://todd.scuteee.com/digitalic/%E6%95%B0%E5%AD%97%E9%9B%86%E6%88%90%E7%94%B5%E8%B7%AF/7-%E6%97%B6%E5%BA%8F%E9%80%BB%E8%BE%91%E7%94%B5%E8%B7%AF/%E6%97%B6%E5%BA%8F%E7%BA%A6%E6%9D%9F/images/positive_skew_hu073be0e5be81e13f8ff059becc4a6833_82417_1024x0_resize_box_3.png 1024w"
+loading="lazy"
+alt="正时钟偏差"
+class="gallery-image"
+data-flex-grow="207"
+data-flex-basis="498px"
+>&lt;/p>
+&lt;p>&lt;img src="https://todd.scuteee.com/digitalic/%E6%95%B0%E5%AD%97%E9%9B%86%E6%88%90%E7%94%B5%E8%B7%AF/7-%E6%97%B6%E5%BA%8F%E9%80%BB%E8%BE%91%E7%94%B5%E8%B7%AF/%E6%97%B6%E5%BA%8F%E7%BA%A6%E6%9D%9F/images/negative_skew.png"
+width="1036"
+height="536"
+srcset="https://todd.scuteee.com/digitalic/%E6%95%B0%E5%AD%97%E9%9B%86%E6%88%90%E7%94%B5%E8%B7%AF/7-%E6%97%B6%E5%BA%8F%E9%80%BB%E8%BE%91%E7%94%B5%E8%B7%AF/%E6%97%B6%E5%BA%8F%E7%BA%A6%E6%9D%9F/images/negative_skew_hu4b88eb0b437466c1bbc9f3a61a3e23a1_84109_480x0_resize_box_3.png 480w, https://todd.scuteee.com/digitalic/%E6%95%B0%E5%AD%97%E9%9B%86%E6%88%90%E7%94%B5%E8%B7%AF/7-%E6%97%B6%E5%BA%8F%E9%80%BB%E8%BE%91%E7%94%B5%E8%B7%AF/%E6%97%B6%E5%BA%8F%E7%BA%A6%E6%9D%9F/images/negative_skew_hu4b88eb0b437466c1bbc9f3a61a3e23a1_84109_1024x0_resize_box_3.png 1024w"
+loading="lazy"
+alt="负时钟偏差"
+class="gallery-image"
+data-flex-grow="193"
+data-flex-basis="463px"
+>&lt;/p>
+&lt;ul>
+&lt;li>正时钟偏差
+&lt;ul>
+&lt;li>更容易满足建立时间约束 $T+\delta = t_{c-q}+t_{su}+t_{logic,max}$&lt;/li>
+&lt;li>但可能会违反保持时间约束 $t_{hold}+\delta&amp;lt;t_{c-q}+t_{logic,min}$&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>负时钟偏差
+&lt;ul>
+&lt;li>可能会违反建立时间约束 $T-\delta = t_{c-q}+t_{su}+t_{logic,max}$&lt;/li>
+&lt;li>更容易满足保持时间约束 $t_{hold}-\delta&amp;lt;t_{c-q}+t_{logic,min}$&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;p>而时钟抖动则考虑最坏情况，即：&lt;/p>
+&lt;ul>
+&lt;li>$T-2\delta = t_{c-q}+t_{su}+t_{logic,max}$&lt;/li>
+&lt;li>$t_{hold}+2\delta&amp;lt;t_{c-q}+t_{logic,min}$&lt;/li>
+&lt;/ul>
+&lt;h2 id="时间借用-time-borrowing">时间借用 Time Borrowing&lt;/h2>
+&lt;p>对于 flip-flop，数据不能太晚也不能太早，因为 flip-flop 只在上升沿的瞬间导通数据，所以必须在上升沿之前准备好数据。&lt;/p>
+&lt;p>但是，对于 Latch 则不同，它在整个高电平都可以导通数据。因此 Latch 的时钟通常是个 pulse（这样它就和flip-flop一样，在那个瞬间导通数据），数据必须在上升沿之前准备好。&lt;/p>
+&lt;p>但如果 Latch 的时钟不是 pulse，而是维持一段时间，那么就不需要在上升沿前准备好数据，而是在高电平结束前准备好数据就行。这就叫 Time Borrowing，上个周期没没处理完的数据，可以在下个周期继续处理。&lt;/p>
+&lt;p>下面是一个例子，有一个两相时钟的 latch 电路。正常情况下，在时钟2的上升沿前，数据要准备好，因此用于处理数据的时间只有 $T_c/2$. 有了 Time Borrowing，就可以多处理 $T_{\phi_2,high}-t_{setup}$，也就是下面所说的 $t_{borrow}\leq \frac{T_c}{2}-(t_{setup}+t_{nonoverlap})$&lt;/p>
+&lt;p>&lt;img src="https://todd.scuteee.com/digitalic/%E6%95%B0%E5%AD%97%E9%9B%86%E6%88%90%E7%94%B5%E8%B7%AF/7-%E6%97%B6%E5%BA%8F%E9%80%BB%E8%BE%91%E7%94%B5%E8%B7%AF/%E6%97%B6%E5%BA%8F%E7%BA%A6%E6%9D%9F/images/time-borrowing-of-2-phase-latch.png"
+width="827"
+height="691"
+srcset="https://todd.scuteee.com/digitalic/%E6%95%B0%E5%AD%97%E9%9B%86%E6%88%90%E7%94%B5%E8%B7%AF/7-%E6%97%B6%E5%BA%8F%E9%80%BB%E8%BE%91%E7%94%B5%E8%B7%AF/%E6%97%B6%E5%BA%8F%E7%BA%A6%E6%9D%9F/images/time-borrowing-of-2-phase-latch_hub0a635fd2008e6f4586b661dbeaa0990_80683_480x0_resize_box_3.png 480w, https://todd.scuteee.com/digitalic/%E6%95%B0%E5%AD%97%E9%9B%86%E6%88%90%E7%94%B5%E8%B7%AF/7-%E6%97%B6%E5%BA%8F%E9%80%BB%E8%BE%91%E7%94%B5%E8%B7%AF/%E6%97%B6%E5%BA%8F%E7%BA%A6%E6%9D%9F/images/time-borrowing-of-2-phase-latch_hub0a635fd2008e6f4586b661dbeaa0990_80683_1024x0_resize_box_3.png 1024w"
+loading="lazy"
+alt="两相latch"
+class="gallery-image"
+data-flex-grow="119"
+data-flex-basis="287px"
+>&lt;/p>
+&lt;p>为了使可以借用的时间最大，显然 $\phi_1$ 和 $\phi_2$ 应该反相，也就是像下图这样。此时最多可以借半个周期。&lt;/p>
+&lt;p>但这个只考虑了两个 latch，如果有三个 latch，前面借了时间，那么后面就少了时间，也就是参考下图：&lt;/p>
+&lt;p>&lt;img src="https://todd.scuteee.com/digitalic/%E6%95%B0%E5%AD%97%E9%9B%86%E6%88%90%E7%94%B5%E8%B7%AF/7-%E6%97%B6%E5%BA%8F%E9%80%BB%E8%BE%91%E7%94%B5%E8%B7%AF/%E6%97%B6%E5%BA%8F%E7%BA%A6%E6%9D%9F/images/slack_borrowing.png"
+width="996"
+height="667"
+srcset="https://todd.scuteee.com/digitalic/%E6%95%B0%E5%AD%97%E9%9B%86%E6%88%90%E7%94%B5%E8%B7%AF/7-%E6%97%B6%E5%BA%8F%E9%80%BB%E8%BE%91%E7%94%B5%E8%B7%AF/%E6%97%B6%E5%BA%8F%E7%BA%A6%E6%9D%9F/images/slack_borrowing_hu4a916683f47f582152d45df984b6ba0a_92460_480x0_resize_box_3.png 480w, https://todd.scuteee.com/digitalic/%E6%95%B0%E5%AD%97%E9%9B%86%E6%88%90%E7%94%B5%E8%B7%AF/7-%E6%97%B6%E5%BA%8F%E9%80%BB%E8%BE%91%E7%94%B5%E8%B7%AF/%E6%97%B6%E5%BA%8F%E7%BA%A6%E6%9D%9F/images/slack_borrowing_hu4a916683f47f582152d45df984b6ba0a_92460_1024x0_resize_box_3.png 1024w"
+loading="lazy"
+alt="slack borrowing"
+class="gallery-image"
+data-flex-grow="149"
+data-flex-basis="358px"
+>&lt;/p>
+&lt;p>当然啦，后面少的时间也可以继续向下一级借。&lt;/p>
+&lt;p>那么就有个问题，最小时钟周期是多少？为了简化分析，我们假设 $t_{c-q}$ 和 $t_{setup}$ 等于 0. 我们要确保数据在时钟有效时进行“交接”，如下图所示：&lt;/p>
+&lt;p>&lt;img src="https://todd.scuteee.com/digitalic/%E6%95%B0%E5%AD%97%E9%9B%86%E6%88%90%E7%94%B5%E8%B7%AF/7-%E6%97%B6%E5%BA%8F%E9%80%BB%E8%BE%91%E7%94%B5%E8%B7%AF/%E6%97%B6%E5%BA%8F%E7%BA%A6%E6%9D%9F/images/latch_based_pipeline.png"
+width="807"
+height="386"
+srcset="https://todd.scuteee.com/digitalic/%E6%95%B0%E5%AD%97%E9%9B%86%E6%88%90%E7%94%B5%E8%B7%AF/7-%E6%97%B6%E5%BA%8F%E9%80%BB%E8%BE%91%E7%94%B5%E8%B7%AF/%E6%97%B6%E5%BA%8F%E7%BA%A6%E6%9D%9F/images/latch_based_pipeline_hu3b2b63de5572a612001dcbbc243e7368_98973_480x0_resize_box_3.png 480w, https://todd.scuteee.com/digitalic/%E6%95%B0%E5%AD%97%E9%9B%86%E6%88%90%E7%94%B5%E8%B7%AF/7-%E6%97%B6%E5%BA%8F%E9%80%BB%E8%BE%91%E7%94%B5%E8%B7%AF/%E6%97%B6%E5%BA%8F%E7%BA%A6%E6%9D%9F/images/latch_based_pipeline_hu3b2b63de5572a612001dcbbc243e7368_98973_1024x0_resize_box_3.png 1024w"
+loading="lazy"
+alt="latch based pipeline"
+class="gallery-image"
+data-flex-grow="209"
+data-flex-basis="501px"
+>&lt;/p>
+&lt;p>如何确保呢？如果考虑一级，那么它用于处理数据的时间最多为 $1T$（向下一级借 $0.5T$）；如果考虑二级，那么它用于处理数据的时间最多为 $1.5T$（向下一级借 $0.5T$）。以此类推，对于 N 级，处理数据的时间最多为 $N\times 0.5T+0.5$。因此，我们需要从 1 级考虑到 N 级，从中选择最大延迟 $T_{\max} = T_{1}+T_{2}+\cdots $（${1,2,\cdots}$ 是相邻的级），那么时钟就必须大于 $T_{\max}/(N\times 0.5+0.5)$&lt;/p>
+&lt;p>以上面的电路为例，我们来求最小时钟：&lt;/p>
+&lt;ul>
+&lt;li>一级：$T_{clk}&amp;gt;75/1=75$&lt;/li>
+&lt;li>二级：$T_{clk}&amp;gt;(75+50)/1.5=83.3$&lt;/li>
+&lt;li>三级：$T_{clk}&amp;gt;(75+50+75)/2=100$&lt;/li>
+&lt;li>四级：$T_{clk}&amp;gt;(75+50+75+50)/2.5=100$&lt;/li>
+&lt;/ul>
+&lt;p>因此最小时钟为 100ns（和图中一致）&lt;/p></description></item><item><title>WSL手册</title><link>https://todd.scuteee.com/posts/2023/2023-06-13-wsl-manual.md/</link><pubDate>Tue, 13 Jun 2023 19:24:00 +0800</pubDate><guid>https://todd.scuteee.com/posts/2023/2023-06-13-wsl-manual.md/</guid><description>&lt;h2 id="wsl-简介">WSL 简介&lt;/h2>
+&lt;p>WSL（Windows Subsystem for Linux），中文为“适用于 Linux 的 Windows 子系统”，是 Windows 自带的虚拟机，利用这个我们可以方便地在 Windows 上安装 Linux 系统。&lt;/p>
+&lt;h2 id="安装">安装&lt;/h2>
+&lt;p>安装过程可以参考 &lt;a class="link" href="https://learn.microsoft.com/zh-cn/windows/wsl/install" target="_blank" rel="noopener"
+>使用 WSL 在 Windows 上安装 Linux&lt;/a>，简单来说就是打开 Hyper-V（在“启用或关闭 Windows 功能”里），然后运行&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-powershell" data-lang="powershell">&lt;span class="line">&lt;span class="cl">&lt;span class="n">wsl&lt;/span> &lt;span class="p">-&lt;/span>&lt;span class="n">-install&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>默认情况下安装 Ubuntu，也可以指定特定的 Linux 发行版：&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-powershell" data-lang="powershell">&lt;span class="line">&lt;span class="cl">&lt;span class="n">wsl&lt;/span> &lt;span class="p">-&lt;/span>&lt;span class="n">-install&lt;/span> &lt;span class="n">-d&lt;/span> &lt;span class="p">&amp;lt;&lt;/span>&lt;span class="n">Distribution&lt;/span> &lt;span class="n">Name&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>&lt;code>&amp;lt;&amp;lt;Distribution Name&amp;gt;&lt;/code> 可以用 &lt;code>wsl --list --online&lt;/code> 来查看，目前可用的系统为：&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;/span>&lt;span class="lnt"> 2
+&lt;/span>&lt;span class="lnt"> 3
+&lt;/span>&lt;span class="lnt"> 4
+&lt;/span>&lt;span class="lnt"> 5
+&lt;/span>&lt;span class="lnt"> 6
+&lt;/span>&lt;span class="lnt"> 7
+&lt;/span>&lt;span class="lnt"> 8
+&lt;/span>&lt;span class="lnt"> 9
+&lt;/span>&lt;span class="lnt">10
+&lt;/span>&lt;span class="lnt">11
+&lt;/span>&lt;span class="lnt">12
+&lt;/span>&lt;span class="lnt">13
+&lt;/span>&lt;span class="lnt">14
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-powershell" data-lang="powershell">&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="n">NAME&lt;/span> &lt;span class="n">FRIENDLY&lt;/span> &lt;span class="n">NAME&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="n">Ubuntu&lt;/span> &lt;span class="n">Ubuntu&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="n">Debian&lt;/span> &lt;span class="n">Debian&lt;/span> &lt;span class="n">GNU&lt;/span>&lt;span class="p">/&lt;/span>&lt;span class="n">Linux&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nb">kali-linux&lt;/span> &lt;span class="n">Kali&lt;/span> &lt;span class="n">Linux&lt;/span> &lt;span class="n">Rolling&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="n">Ubuntu&lt;/span>&lt;span class="p">-&lt;/span>&lt;span class="mf">18.04&lt;/span> &lt;span class="n">Ubuntu&lt;/span> &lt;span class="mf">18.04&lt;/span> &lt;span class="n">LTS&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="n">Ubuntu&lt;/span>&lt;span class="p">-&lt;/span>&lt;span class="mf">20.04&lt;/span> &lt;span class="n">Ubuntu&lt;/span> &lt;span class="mf">20.04&lt;/span> &lt;span class="n">LTS&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="n">Ubuntu&lt;/span>&lt;span class="p">-&lt;/span>&lt;span class="mf">22.04&lt;/span> &lt;span class="n">Ubuntu&lt;/span> &lt;span class="mf">22.04&lt;/span> &lt;span class="n">LTS&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="n">OracleLinux_7_9&lt;/span> &lt;span class="n">Oracle&lt;/span> &lt;span class="n">Linux&lt;/span> &lt;span class="mf">7.9&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="n">OracleLinux_8_7&lt;/span> &lt;span class="n">Oracle&lt;/span> &lt;span class="n">Linux&lt;/span> &lt;span class="mf">8.7&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="n">OracleLinux_9_1&lt;/span> &lt;span class="n">Oracle&lt;/span> &lt;span class="n">Linux&lt;/span> &lt;span class="mf">9.1&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nb">SUSE-Linux&lt;/span>&lt;span class="n">-Enterprise-Server&lt;/span>&lt;span class="p">-&lt;/span>&lt;span class="mf">15&lt;/span>&lt;span class="n">-SP4&lt;/span> &lt;span class="n">SUSE&lt;/span> &lt;span class="n">Linux&lt;/span> &lt;span class="n">Enterprise&lt;/span> &lt;span class="n">Server&lt;/span> &lt;span class="mf">15&lt;/span> &lt;span class="n">SP4&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nb">openSUSE-Leap&lt;/span>&lt;span class="p">-&lt;/span>&lt;span class="mf">15.4&lt;/span> &lt;span class="n">openSUSE&lt;/span> &lt;span class="n">Leap&lt;/span> &lt;span class="mf">15.4&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nb">openSUSE-Tumbleweed&lt;/span> &lt;span class="n">openSUSE&lt;/span> &lt;span class="n">Tumbleweed&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>可以同时安装不同的发行版，但每个发行版都只能安装一个，如果想安装多个，需要一些特殊手段，并且或多或少都存在问题，在此不再介绍。不同发行版会有自己的 Terminal，因此无需担心切换问题。&lt;/p>
+&lt;h2 id="关闭与卸载">关闭与卸载&lt;/h2>
+&lt;p>关闭所有虚拟机：&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-powershell" data-lang="powershell">&lt;span class="line">&lt;span class="cl">&lt;span class="n">wsl&lt;/span> &lt;span class="p">-&lt;/span>&lt;span class="n">-shutdown&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>关闭特定的发行版：&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-powershell" data-lang="powershell">&lt;span class="line">&lt;span class="cl">&lt;span class="n">wsl&lt;/span> &lt;span class="p">-&lt;/span>&lt;span class="n">-terminate&lt;/span> &lt;span class="p">&amp;lt;&lt;/span>&lt;span class="n">Distribution&lt;/span> &lt;span class="n">Name&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>卸载特定发行版：&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-powershell" data-lang="powershell">&lt;span class="line">&lt;span class="cl">&lt;span class="n">wsl&lt;/span> &lt;span class="p">-&lt;/span>&lt;span class="n">-unregister&lt;/span> &lt;span class="p">&amp;lt;&lt;/span>&lt;span class="n">DistributionName&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h2 id="开机自启">开机自启&lt;/h2>
+&lt;p>WSL 默认是开机不自启的，若需要开机自启，可以参考：&lt;a class="link" href="https://zhuanlan.zhihu.com/p/471272756" target="_blank" rel="noopener"
+>WSL2及服务自启动&lt;/a>&lt;/p>
+&lt;h2 id="gui程序">GUI程序&lt;/h2>
+&lt;p>现在 WSL 直接就支持 GUI 程序，直接安装应用程序即可，比如 &lt;code>sudo apt install VLC&lt;/code>&lt;/p></description></item><item><title>更换固态</title><link>https://todd.scuteee.com/posts/2023/2023-06-06-change-ssd/</link><pubDate>Fri, 02 Jun 2023 12:27:00 +0800</pubDate><guid>https://todd.scuteee.com/posts/2023/2023-06-06-change-ssd/</guid><description>&lt;p>美美在618送了我一个固态硬盘（致钛的TiPlus7100），我把原来的 TiPlus5000 换下来给她。&lt;/p>
 &lt;h2 id="1-备份文件">1. 备份文件&lt;/h2>
 &lt;p>更换固态之前，确保重要文件都已经备份了，并且记录下有用的软件的名字。&lt;/p>
 &lt;h2 id="2-制作系统安装u盘">2. 制作系统安装U盘&lt;/h2>
@@ -71,7 +1947,296 @@
 &lt;li>开始菜单：&lt;a class="link" href="https://github.com/wwwwwhj/ExplorerPatcher-" target="_blank" rel="noopener"
 >https://github.com/wwwwwhj/ExplorerPatcher-&lt;/a> 或者直接使用 &lt;a class="link" href="https://github.com/coodesker/coodesker-desktop/releases" target="_blank" rel="noopener"
 >Coodesker&lt;/a>&lt;/li>
-&lt;/ul></description></item><item><title>LaTeX OCR（截图转LaTeX）软件</title><link>https://todd.scuteee.com/posts/2023/2023-02-04-latex-ocr/</link><pubDate>Sat, 04 Feb 2023 10:26:00 +0800</pubDate><guid>https://todd.scuteee.com/posts/2023/2023-02-04-latex-ocr/</guid><description>&lt;p>已经有这类的软件：&lt;a class="link" href="https://mathpix.com/" target="_blank" rel="noopener"
+&lt;/ul></description></item><item><title>第5章 反相器</title><link>https://todd.scuteee.com/digitalic/%E6%95%B0%E5%AD%97%E9%9B%86%E6%88%90%E7%94%B5%E8%B7%AF/5-%E5%8F%8D%E7%9B%B8%E5%99%A8/</link><pubDate>Fri, 10 Mar 2023 19:52:00 +0800</pubDate><guid>https://todd.scuteee.com/digitalic/%E6%95%B0%E5%AD%97%E9%9B%86%E6%88%90%E7%94%B5%E8%B7%AF/5-%E5%8F%8D%E7%9B%B8%E5%99%A8/</guid><description>&lt;p>反相器由一个 PMOS+NMOS 组成。理想的反相器有如下特点：&lt;/p>
+&lt;ol>
+&lt;li>晶体管具有有限的导通电阻和无限的关断电阻&lt;/li>
+&lt;li>输出的高、低电平为 VDD 和 GND，因此具有很高的噪声容限&lt;/li>
+&lt;li>低输出电阻，使得其不容易受噪声影响&lt;/li>
+&lt;li>高输入电阻，因此理论上可以有无穷大的扇出&lt;/li>
+&lt;li>稳定时 VDD 和 GND 之间没有通路，因此静态功耗为 0.&lt;/li>
+&lt;/ol>
+&lt;p>但实际的反相器并非如此。其电压传输特性（VTC）可以从 PMOS、NMOS 的转移特性曲线中推导出来，只需要令：&lt;/p>
+&lt;p>$$
+I_{DSp} = -I_{DSn}
+$$&lt;/p>
+&lt;h2 id="静态特性">静态特性&lt;/h2>
+&lt;h3 id="switching-threshold">Switching Threshold&lt;/h3>
+&lt;p>Switching Threshold $V_M$ 定义为 $V_{in}=V_{out}$ 的点，此时 NMOS、PMOS 都在饱和区，因此：&lt;/p>
+&lt;p>$$
+K_n (V_{M}-V_{thn})^2 = K_p (V_{M}-V_{DD}-V_{thp})^2
+$$&lt;/p>
+&lt;p>整理后得到：&lt;/p>
+&lt;p>$$
+\begin{aligned}
+V_{M} =&amp;amp; \frac{\sqrt{K_p}(V_{DD}+V_{thp})+\sqrt{K_n}V_{thn}}{\sqrt{K_p}+\sqrt{K_n}}\
+=&amp;amp; \frac{r(V_{DD}+V_{thp})+V_{thn}}{1+r}\
+\approx &amp;amp; \frac{ r V_{DD}}{1+r}
+\end{aligned}
+$$&lt;/p>
+&lt;p>其中，$r=\sqrt{\frac{K_p}{K_n}}$。当 $r\rightarrow \infty$ 时，$V_M = V_{DD}$&lt;/p>
+&lt;p>以上是长沟道的情况，对于短沟道器件，由于存在速度饱和效应，$V_M$ 的表达式应该如下（推导过程类似）：&lt;/p>
+&lt;p>$$
+V_M=\frac{(V_{thn}+\frac{V_{Dsatn}}{2})+r(V_{DD}+V_{thp}+\frac{V_{Dsatp}}{2})}{1+r}\
+r = \frac{K_p V_{Dsatp}}{K_n V_{Dsatn}}=\frac{v_{satp}W_p}{v_{satn}W_n}
+$$&lt;/p>
+&lt;p>该式说明，增大 $W_p$ 或 $W_n$ 会使得 $V_M$ 向 $V_{DD}$ 或 ${\rm GND}$ 移动。&lt;/p>
+&lt;p>除此之外，器件的好坏也会影响 $V_M$ 的位置（见下图），好的器件等效于更大的 $K$（或更大的 $W$）&lt;/p>
+&lt;h3 id="噪声容限">噪声容限&lt;/h3>
+&lt;p>为了方便计算，我们用下图来近似反相器的 VTC.&lt;/p>
+&lt;p>图中，&lt;/p>
+&lt;p>$$
+V_{IH}=V_M - \frac{V_M}{g}
+$$&lt;/p>
+&lt;p>$$
+V_{IL} = V_M + \frac{V_{DD}-V_M}{g}
+$$&lt;/p>
+&lt;p>$g$ 是曲线在 $V_M$ 处的斜率，其计算过程比较繁琐，这里直接给出：&lt;/p>
+&lt;p>$$
+\begin{aligned}
+g &amp;amp;= \frac{1}{I_D(V_M)} \frac{k_n V_{Dsatn}+k_p V_{Dsatp}}{\lambda_n-\lambda_p}\
+&amp;amp;\approx \frac{1+r}{(V_M-V_{thn}-V_{Dsatn/2})(\lambda_n-\lambda_p)}
+\end{aligned}
+$$&lt;/p>
+&lt;p>最终可以得到噪声容限为：&lt;/p>
+&lt;p>$$
+NM_H=V_{DD}-V_{IH}\
+NM_L=V_{IL}
+$$&lt;/p>
+&lt;h3 id="降低电压的影响">降低电压的影响&lt;/h3>
+&lt;ul>
+&lt;li>提高增益（斜率），但过小也会使得增益下降&lt;/li>
+&lt;li>减小功耗，但降低性能&lt;/li>
+&lt;li>直流特性更容易受器件参数影响&lt;/li>
+&lt;li>减小摆幅，故减小内部噪声；但更容易受外部噪声影响&lt;/li>
+&lt;/ul>
+&lt;h2 id="动态性能">动态性能&lt;/h2>
+&lt;h3 id="电容">电容&lt;/h3>
+&lt;p>考虑两个反相器级联，在第一个反相器的输出/第二个反相器的输入节点处，存在着很多电容，包括：&lt;/p>
+&lt;ul>
+&lt;li>第一个反相器的电容
+&lt;ul>
+&lt;li>$C_{gd,p}$ 和 $C_{gd,n}$：由于Miller效应，等效为一个接地的2倍容值的电容&lt;/li>
+&lt;li>$C_{db,p}$ 和 $C_{db,n}$&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>导线电容
+&lt;ul>
+&lt;li>$C_w$&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>第二个反相器的电容
+&lt;ul>
+&lt;li>$C_{g,p}$ 和 $C_{g,n}$&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;p>这一堆电容看得我头都大了，而且它们在晶体管不同工作区的容值也不同。所幸我们一般会用一些近似处理，包括：&lt;/p>
+&lt;ol>
+&lt;li>将所有的电容都接地（或VDD），并且忽略 Miller 效应&lt;/li>
+&lt;li>假设电容在反相器工作过程中恒定不变&lt;/li>
+&lt;/ol>
+&lt;h3 id="传播延时propagation-delay">传播延时（Propagation Delay）&lt;/h3>
+&lt;p>电容充放电的时间可以表示为：&lt;/p>
+&lt;p>$$
+t_p = \int_{v_1}^{v_2} \frac{C_L(v)}{i(v)} {\rm d}v
+$$&lt;/p>
+&lt;p>反相器的延时可以用 RC 网络来近似，其从低到高、从高到低的延时可以表示为：&lt;/p>
+&lt;p>$$
+t_{pHL} = \ln(2) R_{eqn} C_L\
+t_{pLH} = \ln(2) R_{eqp} C_L
+$$&lt;/p>
+&lt;p>总的延时可以认为是两者均值：&lt;/p>
+&lt;p>$$
+t_p = \frac{t_{pHL}+t_{pLH}}{2} = 0.69 C_L (\frac{R_{eqn}+R_{eqp}}{2})
+$$&lt;/p>
+&lt;p>其中，$R_{eq}\approx \frac{3}{4} \frac{V_{DD}}{I_{Dsat}}(1-\frac{7}{9}\lambda V_{DD}) \approx \frac{3}{4}\frac{V_{DD}}{I_{Dsat}}$&lt;/p>
+&lt;p>从以上简化的分析中可以得出一些结论，要减小传播延时，有三种方法：&lt;/p>
+&lt;ol>
+&lt;li>减小 $C_L$&lt;/li>
+&lt;li>增大 $W/L$，但增大到一定程度的话，会增大 $C_L$&lt;/li>
+&lt;li>增大 $V_{DD}$&lt;/li>
+&lt;/ol>
+&lt;p>下面我们将详细分析这些方法。&lt;/p>
+&lt;h4 id="优化nmospmos比例">优化NMOS/PMOS比例&lt;/h4>
+&lt;p>我们将 $C_L$ 写成：&lt;/p>
+&lt;p>$$
+C_L = (C_{dp1}+C_{dn1})+(C_{gp2}+C_{gn2})+C_w
+$$&lt;/p>
+&lt;p>如果 $\frac{(W/L)_p}{(W/L)_n}=\beta$，那么 $C_p=\beta C_n$，上式可以改写成：&lt;/p>
+&lt;p>$$
+C_L = (1+\beta)(C_{dn1}+C_{gn2})+C_w
+$$&lt;/p>
+&lt;p>另外对于电阻，我们有：&lt;/p>
+&lt;p>$$
+R_{eqp}=R_{eqn}\cdot \frac{r}{\beta}
+$$&lt;/p>
+&lt;p>$r$ 是指当PMOS、NMOS的尺寸一致时的电阻比（$R_{eqp}/R_{eqn}$）&lt;/p>
+&lt;p>从而传播延时为：&lt;/p>
+&lt;p>$$
+t_p = \frac{0.69}{2} [(1+\beta)(C_{dn1}+C_{gn2})+C_w]\cdot R_{eqn}\cdot \frac{r}{\beta}
+$$&lt;/p>
+&lt;p>要使得该延时最小，则 $\beta=\sqrt{r(1+\dfrac{C_w}{C_{dn1}+C_{gn2}})}$，因此如果我们对 $V_M$ 或噪声容限无要求，那么我们可以该值来优化NMOS/PMOS的比例。&lt;/p>
+&lt;h4 id="优化尺寸">优化尺寸&lt;/h4>
+&lt;p>上面只是优化了比例，但我们还是不知道最优的尺寸是什么。我们将延时改写为：&lt;/p>
+&lt;p>$$
+\begin{aligned}
+t_p &amp;amp;= 0.69 R_{eq}(C_{\rm int}+C_{\rm ext})\
+&amp;amp;=0.69 R_{eq}C_{\rm int}(1+\frac{C_{\rm ext}}{C_{\rm int}})\
+&amp;amp;=t_{p0}(1+\frac{C_{\rm ext}}{C_{\rm int}})
+\end{aligned}
+$$&lt;/p>
+&lt;p>$C_{\rm int}$ 是反相器自身的电容，$C_{\rm ext}$ 是外部的电容。$t_{p0}$ 是本征延时，即无任何外加电容时的延时。假设 $R_{\rm eq},C_{\rm int}$ 与尺寸的关系为：&lt;/p>
+&lt;p>$$
+C_{\rm int}=SC_{\rm iref}\
+R_{\rm eq}=R_{\rm ref}/S
+$$&lt;/p>
+&lt;p>$C_{\rm iref},R_{\rm ref}$ 为最小尺寸时的电容、电阻。则传播延时与尺寸的关系：&lt;/p>
+&lt;p>$$
+t_p = t_{p0}(1+\frac{C_{ext}}{SC_{iref}})\
+t_{p0} = 0.69 (R_{\rm ref}/S)(SC_{\rm iref})=0.69 R_{\rm ref} C_{\rm iref}
+$$&lt;/p>
+&lt;p>可见，增大尺寸 $S$，可以将延时减小为 $t_{p0}$；另外改变尺寸不会影响本征延时。&lt;/p>
+&lt;h4 id="优化反相器链">优化反相器链&lt;/h4>
+&lt;p>如果一个反相器链包含 $N$ 个反相器，我们该如何优化尺寸使得其延时最小呢？我们不能盲目增加尺寸，因为增加尺寸虽然可以减小本级延时，但却会增大上一级的延时。我们假设某一级的漏电容、栅电容之间满足：$C_{int}=\gamma C_g$，$\gamma$ 是一个与尺寸无关的固定值；并且下一级的栅电容是该级栅电容的 $f$ 倍，$C_{ext}=f C_g$，即下一级的尺寸增大 f 倍. 则单级延时可以表示为：&lt;/p>
+&lt;p>$$
+t_p = t_{p0} (1+f/\gamma)
+$$&lt;/p>
+&lt;p>多级延时可以表示为：&lt;/p>
+&lt;p>$$
+t_p = t_{p0} \sum_{j=1}^N (1+\frac{f_j}{\gamma}) = t_{p0} \sum_{j=1}^N (1+\frac{C_{g,j+1}}{\gamma C_{g}})
+$$&lt;/p>
+&lt;p>这是一个多元函数，其最小值处满足 $\partial t_p/\partial C_{g,j} = 0$（$j=1,2,\cdots,N$），即：&lt;/p>
+&lt;p>$$
+\partial t_p/\partial C_{g,j} = t_{p0} (\frac{1}{\gamma C_{g,j-1}}-\frac{C_{g,j+1}}{\gamma C_{g,j}^2})=0\
+\Rightarrow \frac{C_{g,j}}{C_{g,j-1}} = \frac{C_{g,j+1}}{C_{g,j}}
+$$&lt;/p>
+&lt;p>从而 $C_{g,j}=\sqrt{C_{g,j-1}C_{g,j+1}}$，也就是本级电容是上一级和下一级的几何平均。如果第一级和最后一级的电容都已知，那么有：&lt;/p>
+&lt;p>$$
+\prod_{j=1}^N \frac{C_{g,j+1}}{C_{g,j}} = \frac{C_L}{C_{g,1}} = F
+$$&lt;/p>
+&lt;p>$F$ 为整个电路的总扇出，从而单级的扇出应该为 $f = \sqrt[N]{F}$，最小延时为：&lt;/p>
+&lt;p>$$
+t_{p0} = N t_{p0} (1+\sqrt[N]{F}/\gamma)
+$$&lt;/p>
+&lt;p>上式说明，如果给定 $F$，则 $t_{p0}$ 与 $N$，有关，这就引出下一个问题：多少级反相器的延时最小。对上式求导，可得：&lt;/p>
+&lt;p>$$
+\gamma + \sqrt[N]{F}-\frac{\sqrt[N]{F} \ln F}{N} = 0\
+\text{等价于} f=e^{1+\gamma/f}
+$$&lt;/p>
+&lt;p>当 $\gamma=0$，也就是反相器自身的电容可以忽略时，$N=\ln F$，且每级扇出应该为 $f=e$；当 $\gamma\neq 0$ 时，无数值解。&lt;/p>
+&lt;h2 id="功耗">功耗&lt;/h2></description></item><item><title>第一章</title><link>https://todd.scuteee.com/digitalic/%E6%95%B0%E5%AD%97%E9%9B%86%E6%88%90%E7%94%B5%E8%B7%AF/1-%E7%BB%AA%E8%AE%BA/</link><pubDate>Fri, 10 Mar 2023 12:24:00 +0800</pubDate><guid>https://todd.scuteee.com/digitalic/%E6%95%B0%E5%AD%97%E9%9B%86%E6%88%90%E7%94%B5%E8%B7%AF/1-%E7%BB%AA%E8%AE%BA/</guid><description>&lt;h2 id="评价指标">评价指标&lt;/h2>
+&lt;p>评价一个数字电路的好坏的标准有很多，比如：&lt;/p>
+&lt;ul>
+&lt;li>成本 Cost&lt;/li>
+&lt;li>速度 Speed&lt;/li>
+&lt;li>可靠性 Reliability&lt;/li>
+&lt;li>功耗 Power&lt;/li>
+&lt;/ul>
+&lt;h3 id="成本">成本&lt;/h3>
+&lt;p>产品的成本可分为两个部分：&lt;/p>
+&lt;ul>
+&lt;li>固定成本（Fixed Cost/Non-recurring Expenses）：与销量无关的成本。比如：研发费用、生产设备、市场营销等费用。&lt;/li>
+&lt;li>可变成本（Variable Cost/Recurring Expenses）：用于制造产品的费用。&lt;/li>
+&lt;/ul>
+&lt;p>👇公式轰炸!!!👇&lt;/p>
+&lt;p>$$
+单个芯片的成本 = 单个芯片的可变成本 + \frac{固定成本}{产量}
+$$&lt;/p>
+&lt;p>$$
+可变成本 = \frac{芯片成本+测试成本+封装成本}{最终成品率}
+$$&lt;/p>
+&lt;p>$$
+芯片成本=\frac{晶圆成本}{芯片数 \times 成品率}
+$$&lt;/p>
+&lt;p>$$
+成品率 = (1+\frac{单位面积缺陷\times 芯片面积}{\alpha})^{-\alpha}\
+\alpha 与芯片复杂度正相关，一般取3
+$$&lt;/p>
+&lt;p>$$
+单个晶圆的芯片数 = \frac{\pi \times (圆片直径/2)^2}{芯片面积}-\frac{\pi \times 圆片直径}{\sqrt{2\times 芯片面积}}
+$$&lt;/p>
+&lt;p>前三个很好理解；成品率那个要背一下；最后一个实际上是（总面积/单个面积-总周长/对角线），也很好记。&lt;/p>
+&lt;p>综合上面公式，可以得出一个结论：芯片成本与面积的四次方成正比。因此我们希望芯片面积小。面积小的门的总电容也更小，消耗的能量也更小，速度更快。&lt;/p>
+&lt;h3 id="稳定性可靠性">稳定性（可靠性）&lt;/h3>
+&lt;h4 id="噪声容限">噪声容限&lt;/h4>
+&lt;p>下图是一个反相器的电压传输特性曲线，其中斜率为 -1 的点在横纵坐标中对应四个电压，分别是：&lt;/p>
+&lt;ul>
+&lt;li>$V_{IH}$ = minimum HIGH input voltage&lt;/li>
+&lt;li>$V_{IL}$ = maximum LOW input voltage&lt;/li>
+&lt;li>$V_{OH}$ = minimum HIGH output voltage&lt;/li>
+&lt;li>$V_{OL}$ = maximum LOW output voltage&lt;/li>
+&lt;/ul>
+&lt;p>&lt;img src="https://todd.scuteee.com/images/CMOS%20inverter%20noise%20margins.png"
+loading="lazy"
+alt="CMOS inverter noise margins"
+>&lt;/p>
+&lt;p>输出信号在传输的过程中会因为噪声而有偏差，允许的最大偏差就叫&lt;strong>噪声容限（Noise Margin）&lt;/strong>，定义为：&lt;/p>
+&lt;p>$$
+NM_L = V_{IL} - V_{OL}
+$$&lt;/p>
+&lt;p>$$
+NM_H = V_{OH} - V_{IH}
+$$&lt;/p>
+&lt;p>&lt;img src="https://todd.scuteee.com/images/Noise%20margin%20definitions.png"
+loading="lazy"
+alt="Noise margin definitions"
+>&lt;/p>
+&lt;p>中间的区域叫做&lt;strong>不确定区&lt;/strong>或&lt;strong>过渡宽度（Transition Width，TW）&lt;/strong>。&lt;/p>
+&lt;hr>
+&lt;p>为什么 $V_{IL},V_{IH}$ 要取斜率为 1？因为这个值可以令噪声容限最大。总的噪声容限等于：&lt;/p>
+&lt;p>$$
+\begin{aligned}
+NM = NM_L+NM_H &amp;amp;= V_{IL} - V_{OL} + V_{OH} - V_{IH}\
+&amp;amp;=V_{IL}-f(V_{IH})+f(V_{IL}) - V_{IH}
+\end{aligned}
+$$&lt;/p>
+&lt;p>对上式求导，并取导数为 0.&lt;/p>
+&lt;p>$$
+\frac{{\rm d} NM}{{\rm d}V_{IL}} = 1+f&amp;rsquo;(V_{IL}) = 0
+$$&lt;/p>
+&lt;p>$$
+\frac{{\rm d} NM}{{\rm d}V_{IH}} = 1+f&amp;rsquo;(V_{IH}) = 0
+$$&lt;/p>
+&lt;p>整理后有 $f&amp;rsquo;(V_{IL}) = -1$ 和 $f&amp;rsquo;(V_{IH}) = -1$&lt;/p>
+&lt;h4 id="再生性">再生性&lt;/h4>
+&lt;p>噪声容限只能保证一次传输的可靠性，而多次传输后后信号的可靠性则取决于再生性。再生性指的是受到干扰的信号经过逻辑门后依然能收敛回额定电平。考虑一条反相器链，输入的电平在不确定区，经过多次反向后，信号有可能出现两种情况：&lt;/p>
+&lt;ol>
+&lt;li>信号重回额定电平（即高或低电平）&lt;/li>
+&lt;li>信号远离额定电平（即中间电平）&lt;/li>
+&lt;/ol>
+&lt;p>&lt;img src="https://todd.scuteee.com/images/A%20chain%20of%20inverters.png"
+loading="lazy"
+alt="A chain of inverters"
+>&lt;/p>
+&lt;p>我们可以根据传输函数来区分这两种情况。我们将 $V_{\rm out}=f(V_{\rm in})$ 和 $V_{\rm in} = finv(V_{\rm out})$ 画在同一个坐标系中，传输过程可以参考图中的箭头。&lt;/p>
+&lt;p>&lt;img src="https://todd.scuteee.com/images/Conditions%20for%20regeneration.png"
+loading="lazy"
+alt="Conditions for regeneration"
+>&lt;/p>
+&lt;p>这两种差异源自于两者的传输特性，一个具有增益大于 1 不确定区，而一个没有。前者由于增益大于1，所以就会向高/低电平靠拢。&lt;/p>
+&lt;h3 id="性能延迟">性能（延迟）&lt;/h3>
+&lt;p>性能通常由每秒执行的指令数来衡量，而这又取决于传输延时 $t_p$，定义为：&lt;/p>
+&lt;p>$$
+t_p = \frac{t_{pLH}+t_{pHL}}{2}
+$$&lt;/p>
+&lt;p>具体 $t_{pLH},t_{pHL}$ 的定义见下图。&lt;/p>
+&lt;p>&lt;img src="https://todd.scuteee.com/images/Definition%20of%20propagation%20delays%20and%20rise%20and%20fall%20times.png"
+loading="lazy"
+alt="Definition of propagation delays and rise and fall times"
+>&lt;/p>
+&lt;p>延迟受电路结构、工艺、环境等因素影响。如果想比较哪种电路结构的延迟最小（排除因素），可以通过 &lt;strong>Fanout of Four(FO4) Delay&lt;/strong>：将一个电路驱动4个它自己，记为 $t_{FO4}$&lt;/p>
+&lt;p>如果想比较工艺对延迟的影响，可以用 Ring Oscillator（环形振荡器），振荡周期越小（频率越高），延迟越小。&lt;/p>
+&lt;h3 id="功耗">功耗&lt;/h3>
+&lt;p>主要考虑峰值功耗 $P_{\rm peak} $ 和平均功耗 $P_{av}$，定义为：&lt;/p>
+&lt;p>$$
+P_{\rm peak}=i_{\rm peak}V_{\rm supply}=\max[p(t)]
+$$&lt;/p>
+&lt;p>$$
+P_{\rm av}=\frac{1}{T}\int\limits_{0}^{T}p(t)dt=\frac{V_{\rm supply}}{T}\int\limits_{0}^{T}i_{\rm supply}(t)dt
+$$&lt;/p>
+&lt;p>另外功耗还可以分为静态功耗和动态功耗。后者发生在门开关的瞬间，是由电容充电以及电源和地存在通路造成的。&lt;/p>
+&lt;p>功耗和传输延时存在一定关系，一般来说功耗越大，延迟越小。对于给定的工艺和门的结构，&lt;strong>功耗-延时积（$PDP=P_{av}\cdot t_p$）&lt;/strong> 为一常数。我们优化时也是希望 PDP 越小越好。&lt;/p>
+&lt;p>另一个与 PDP 类似的是 &lt;strong>能量-延迟积（$EDP=(P_{av}\cdot t_p)\cdot t_p$）&lt;/strong>，其公式为&lt;/p></description></item><item><title>LaTeX OCR（截图转LaTeX）软件</title><link>https://todd.scuteee.com/posts/2023/2023-02-04-latex-ocr/</link><pubDate>Sat, 04 Feb 2023 10:26:00 +0800</pubDate><guid>https://todd.scuteee.com/posts/2023/2023-02-04-latex-ocr/</guid><description>&lt;p>已经有这类的软件：&lt;a class="link" href="https://mathpix.com/" target="_blank" rel="noopener"
 >Mathpix&lt;/a>，但教育用户（用教育邮箱注册）每月只能识别 100 张图片，pro用户可以识别 5000 张（一年340RMB）。目前找到两个替代品。&lt;/p>
 &lt;h2 id="simpletex">SimpleTex&lt;/h2>
 &lt;p>&lt;a class="link" href="https://simpletex.cn/" target="_blank" rel="noopener"
@@ -17202,7 +19367,111 @@ alt="宜家桌子"
 &lt;ul>
 &lt;li>&lt;a class="link" href="https://www.zhihu.com/question/21562137/answer/253200876" target="_blank" rel="noopener"
 >为什么品牌衣柜的主材多是实木颗粒？ - 装小蜜监理王志峰的回答 - 知乎&lt;/a> 该文介绍了胶合板、大芯板、指接板、密度板、刨花板、欧松板（OSB板）的制作方法与优缺点&lt;/li>
-&lt;/ul></description></item><item><title>Strip Return</title><link>https://todd.scuteee.com/strip_return/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://todd.scuteee.com/strip_return/</guid><description>
+&lt;/ul></description></item><item><title/><link>https://todd.scuteee.com/digitalic/%E6%95%B0%E5%AD%97%E9%9B%86%E6%88%90%E7%94%B5%E8%B7%AF/6-%E7%BB%84%E5%90%88%E9%80%BB%E8%BE%91%E7%94%B5%E8%B7%AF/%E4%BD%9C%E4%B8%9A/%E7%AD%94%E6%A1%88/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://todd.scuteee.com/digitalic/%E6%95%B0%E5%AD%97%E9%9B%86%E6%88%90%E7%94%B5%E8%B7%AF/6-%E7%BB%84%E5%90%88%E9%80%BB%E8%BE%91%E7%94%B5%E8%B7%AF/%E4%BD%9C%E4%B8%9A/%E7%AD%94%E6%A1%88/</guid><description>&lt;h2 id="answers">Answers&lt;/h2>
+&lt;blockquote>
+&lt;p>微电子学院 202221061221 周镇峰&lt;/p>
+&lt;/blockquote>
+&lt;h3 id="problem-1">Problem 1&lt;/h3>
+&lt;p>&lt;img src="https://todd.scuteee.com/images/%e9%a2%98%e7%9b%ae%e4%b8%80.png"
+loading="lazy"
+alt="题目一"
+>&lt;/p>
+&lt;h4 id="1">1)&lt;/h4>
+&lt;p>The output load is an inverter with size=120, so $C_L = 3\times 120=360$&lt;/p>
+&lt;p>Using the formula: $D=t_{p0} \left(P + \frac{N(\sqrt[N]{FG})}{\gamma} \right)$, we can calculate the minimum delay of each circuit.&lt;/p>
+&lt;ul>
+&lt;li>
+&lt;p>For circuit (a),&lt;/p>
+&lt;ul>
+&lt;li>$P = 1+2+2+2+1 = 8$&lt;/li>
+&lt;li>$F=C_L/C_{G1} = 360/3 = 120$&lt;/li>
+&lt;li>$G = 1\times 4/3\times 5/3\times 4/3\times 1=80/27$&lt;/li>
+&lt;li>$D=t_{p0}(8+\frac{5\times \sqrt[5]{120\times 80/27}}{\gamma})=t_{p0}(8+\frac{16.2}{\gamma})$&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>
+&lt;p>For circuit (b),&lt;/p>
+&lt;ul>
+&lt;li>$P = 1+8+1 = 10$&lt;/li>
+&lt;li>$F=C_L/C_{G1} = 360/3 = 120$&lt;/li>
+&lt;li>$G = 1\times 10/3\times 1=10/3$&lt;/li>
+&lt;li>$D=t_{p0}(10+\frac{3\times \sqrt[3]{120\times 10/3}}{\gamma})=t_{p0}(10+\frac{22.1}{\gamma})$&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>
+&lt;p>For circuit (c),&lt;/p>
+&lt;ul>
+&lt;li>$P = 1+4+2 = 7$&lt;/li>
+&lt;li>$F=C_L/C_{G1} = 360/3 = 120$&lt;/li>
+&lt;li>$G = 1\times 2\times 5/3=10/3$&lt;/li>
+&lt;li>$D=t_{p0}(7+\frac{3\times \sqrt[3]{120\times 10/3}}{\gamma})=t_{p0}(7+\frac{22.1}{\gamma})$&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;p>If $\gamma &amp;lt;5.9$, circuit (a) has the smallest delay, or else circuit (c) has the smallest delay.&lt;/p>
+&lt;h4 id="2">2)&lt;/h4>
+&lt;p>Circuit (b) has the smallest energy, because all of them have the same $f_{0\rightarrow 1}$ in the final output, but (a) and (c) have extra switching activity in the intermediate stage.&lt;/p>
+&lt;h4 id="3">3)&lt;/h4>
+&lt;p>With input slope considered, the delay of circuit (a) is re-calculated as follow:&lt;/p>
+&lt;ul>
+&lt;li>$P = 1.2\times (1+2+2+2)+1 = 9.4$&lt;/li>
+&lt;li>$F=C_L/C_{G1} = 360/3 = 120$&lt;/li>
+&lt;li>$G = (1.2\times 1) \times (1.2\times 4/3) \times (1.2\times5/3)\times (1.2\times4/3)\times 1=6.144$&lt;/li>
+&lt;li>$H=FG=737.28$&lt;/li>
+&lt;li>$h = \sqrt[5]{H}\approx 3.75$&lt;/li>
+&lt;/ul>
+&lt;p>The size of each stage should be:&lt;/p>
+&lt;ul>
+&lt;li>$f_1 = \frac{3.75}{1.2 \times 1} = 3.125$&lt;/li>
+&lt;li>$f_2 = f_4 = \frac{3.75}{1.2 \times 4/3} = 2.344$&lt;/li>
+&lt;li>$f_3 = \frac{3.75}{1.2 \times 5/3} = 1.875$&lt;/li>
+&lt;li>$f_5= \frac{3.75}{1} = 3.75$&lt;/li>
+&lt;/ul>
+&lt;h4 id="4">4)&lt;/h4>
+&lt;p>Dynamic logic reduces the logic effort of logic input, so it can reduce the propagation delay. However, the charge/discharge cycles of capacitors introduce additional delay. Therefore only with proper design, can it achieve better speed.&lt;/p>
+&lt;h3 id="problem-2">Problem 2&lt;/h3>
+&lt;h4 id="1-1">1)&lt;/h4>
+&lt;p>&lt;img src="https://todd.scuteee.com/images/%e9%a2%98%e7%9b%ae%e4%ba%8c.png"
+loading="lazy"
+alt="题目二"
+>&lt;/p>
+&lt;h4 id="2-1">2)&lt;/h4>
+&lt;p>For CMOS static logic, logic effort: $g_A=2, g_B=2, g_C=4/3$; intrinsic delay: $p = 10/3$&lt;/p>
+&lt;p>For dynamic logic, logic effort: $g_{CLK}=4/3, g_{A}=1, g_{B}=1, g_C=1$, $g_{HL}=0$; intrinsic delay: $p_{LH}=7/3$, $p_{HL}=0$&lt;/p>
+&lt;h4 id="3-1">3)&lt;/h4>
+&lt;p>&lt;img src="https://todd.scuteee.com/images/%e9%a2%98%e7%9b%ae%e4%ba%8celmore%20delay.png"
+loading="lazy"
+alt="题目二 elmore delay"
+>&lt;/p>
+&lt;p>The worst $t_p$ happens when $(A, B, C)$ goes from $(1,1,0)$ to $(1,0,1)$&lt;/p>
+&lt;p>The elmore delay of static logic can be calculated as $t_p=0.69 R_N(2 C_1+4C_2+4C_3)$. ($R_N$ is the resistor of NMOS with size=1)&lt;/p>
+&lt;p>The elmore delay of static logic can be calculated as $t_p=0.69 R_N(3 C_4+6C_5+9C_6)$.&lt;/p></description></item><item><title/><link>https://todd.scuteee.com/digitalic/%E6%95%B0%E5%AD%97%E9%9B%86%E6%88%90%E7%94%B5%E8%B7%AF/6-%E7%BB%84%E5%90%88%E9%80%BB%E8%BE%91%E7%94%B5%E8%B7%AF/%E4%BD%9C%E4%B8%9A/%E9%A2%98%E7%9B%AE/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://todd.scuteee.com/digitalic/%E6%95%B0%E5%AD%97%E9%9B%86%E6%88%90%E7%94%B5%E8%B7%AF/6-%E7%BB%84%E5%90%88%E9%80%BB%E8%BE%91%E7%94%B5%E8%B7%AF/%E4%BD%9C%E4%B8%9A/%E9%A2%98%E7%9B%AE/</guid><description>&lt;h2 id="digital-integrated-circuit-design">Digital integrated circuit design&lt;/h2>
+&lt;blockquote>
+&lt;p>Deadline: 2023/05/14&lt;/p>
+&lt;/blockquote>
+&lt;ol>
+&lt;li>
+&lt;p>Analysis of propagation delay of combination circuit&lt;/p>
+&lt;p>&lt;img src="https://todd.scuteee.com/images/%e9%a2%98%e7%9b%ae%e4%b8%80.png"
+loading="lazy"
+alt="题目一"
+>&lt;/p>
+&lt;ul>
+&lt;li>Assume each input is driven by an inverter with size=1, and the output load is an inverter with size=120, which one has the minimum delay? (from input of inverter to the output of AND8)&lt;/li>
+&lt;li>Provided the probability that each input node is 1 is 0.25, which one has the smallest energy?&lt;/li>
+&lt;li>Provided input slope should be considered and $t^i_p=t^i_{\rm step}+0.2t^{i-1}_{\rm step}$, determine the size of (a) to minimize propagation delay.&lt;/li>
+&lt;li>Use cascading dynamic logic to implement this logic function. Can propagation delay can be reduced? Give your opinion.&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>
+&lt;p>Given a logic function $Y= \overline{((A+B)C)}$&lt;/p>
+&lt;ul>
+&lt;li>Design a circuit to realize above logic function with CMOS static logic and dynamic logic individually.&lt;/li>
+&lt;li>Compute logical effort per signal input and intrinsic delay for circuits in 1). Pay attentions that $p_{LH}$, $p_{HL}$, $g_{HL}$ and $g_{LH}$ are not necessary the same.&lt;/li>
+&lt;li>Calculate the worst tp with elmore delay formula.&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ol></description></item><item><title>Strip Return</title><link>https://todd.scuteee.com/strip_return/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://todd.scuteee.com/strip_return/</guid><description>
 &lt;div class="text-white text-lg p-4">
 &lt;p class="text-5xl">
 RETURN👉WHITESPACE

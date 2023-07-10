@@ -1,4 +1,204 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>日常 on Todd's Blog</title><link>https://todd.scuteee.com/posts/</link><description>Recent content in 日常 on Todd's Blog</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><lastBuildDate>Wed, 01 Jun 2022 14:30:21 +0800</lastBuildDate><atom:link href="https://todd.scuteee.com/posts/index.xml" rel="self" type="application/rss+xml"/><item><title>更换固态</title><link>https://todd.scuteee.com/posts/2023/2023-06-06-change-ssd/</link><pubDate>Fri, 02 Jun 2023 12:27:00 +0800</pubDate><guid>https://todd.scuteee.com/posts/2023/2023-06-06-change-ssd/</guid><description>&lt;p>美美在618送了我一个固态硬盘（致钛的TiPlus7100），我把原来的 TiPlus5000 换下来给她。&lt;/p>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>日常 on Todd's Blog</title><link>https://todd.scuteee.com/posts/</link><description>Recent content in 日常 on Todd's Blog</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><lastBuildDate>Wed, 01 Jun 2022 14:30:21 +0800</lastBuildDate><atom:link href="https://todd.scuteee.com/posts/index.xml" rel="self" type="application/rss+xml"/><item><title>SymPy教程</title><link>https://todd.scuteee.com/posts/2023/203-06-22-sympy-tutorial.md/</link><pubDate>Thu, 22 Jun 2023 15:13:00 +0800</pubDate><guid>https://todd.scuteee.com/posts/2023/203-06-22-sympy-tutorial.md/</guid><description>&lt;h2 id="简介">简介&lt;/h2>
+&lt;p>&lt;a class="link" href="https://docs.sympy.org/latest/index.html" target="_blank" rel="noopener"
+>SymPy&lt;/a> 是一个符号计算Python库。什么是符号计算？举个例子：如果有个这样的方程：&lt;/p>
+&lt;p>$$
+\begin{cases}
+x+y=5\
+x-y=1
+\end{cases}
+$$&lt;/p>
+&lt;p>我们可以用计算器的“解多元方程”来算出来。但是如果有这么一个方程：&lt;/p>
+&lt;p>$$
+\begin{cases}
+x+y=a\
+x-y=b
+\end{cases}
+$$&lt;/p>
+&lt;p>$a,b$ 是常数。那么，计算器就算不出来了。这时就需要符号计算。&lt;/p>
+&lt;h2 id="安装">安装&lt;/h2>
+&lt;p>直接用 &lt;code>conda install sympy&lt;/code> 安装。&lt;/p>
+&lt;h2 id="定义符号">定义符号&lt;/h2>
+&lt;p>为了方便，我们直接全部导入：&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-python" data-lang="python">&lt;span class="line">&lt;span class="cl">&lt;span class="kn">from&lt;/span> &lt;span class="nn">sympy&lt;/span> &lt;span class="kn">import&lt;/span> &lt;span class="o">*&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>首先是定义符号：&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-python" data-lang="python">&lt;span class="line">&lt;span class="cl">&lt;span class="n">x&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">y&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="n">symbols&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s1">&amp;#39;x y&amp;#39;&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="n">x1&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">x2&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="n">symbols&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s1">&amp;#39;x_1 x_2&amp;#39;&lt;/span>&lt;span class="p">)&lt;/span> &lt;span class="c1"># 支持 latex 的写法&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>定义好后，可以用符号来书写表达式。&lt;/p>
+&lt;p>如果表达式中有很多符号，则一个一个定义太麻烦。可以用 &lt;code>sympify()&lt;/code> 将字符串直接转化为表达式。&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;span class="lnt">5
+&lt;/span>&lt;span class="lnt">6
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-python" data-lang="python">&lt;span class="line">&lt;span class="cl">&lt;span class="n">str_expr&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="s1">&amp;#39;x_1**2 + 2*x_2 + 1&amp;#39;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="n">expr&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="n">sympify&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">str_expr&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">#等效于&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="n">x1&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">x2&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="n">symbols&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s1">&amp;#39;x_1 x_2&amp;#39;&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="n">expr&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="n">x1&lt;/span>&lt;span class="o">**&lt;/span>&lt;span class="mi">2&lt;/span> &lt;span class="o">+&lt;/span> &lt;span class="mi">2&lt;/span>&lt;span class="o">*&lt;/span>&lt;span class="n">x2&lt;/span> &lt;span class="o">+&lt;/span> &lt;span class="mi">1&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h2 id="求解方程组">求解方程组&lt;/h2>
+&lt;p>解线性方程组：&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;/span>&lt;span class="lnt"> 2
+&lt;/span>&lt;span class="lnt"> 3
+&lt;/span>&lt;span class="lnt"> 4
+&lt;/span>&lt;span class="lnt"> 5
+&lt;/span>&lt;span class="lnt"> 6
+&lt;/span>&lt;span class="lnt"> 7
+&lt;/span>&lt;span class="lnt"> 8
+&lt;/span>&lt;span class="lnt"> 9
+&lt;/span>&lt;span class="lnt">10
+&lt;/span>&lt;span class="lnt">11
+&lt;/span>&lt;span class="lnt">12
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-python" data-lang="python">&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># 定义符号&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="n">x&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">y&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="n">symbols&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s1">&amp;#39;x y&amp;#39;&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="n">a&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">b&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="n">symbols&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s1">&amp;#39;a b&amp;#39;&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># 定义方程&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="n">f1&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="n">x&lt;/span>&lt;span class="o">+&lt;/span>&lt;span class="n">y&lt;/span>&lt;span class="o">-&lt;/span>&lt;span class="n">a&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="n">f2&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="n">x&lt;/span>&lt;span class="o">-&lt;/span>&lt;span class="n">y&lt;/span>&lt;span class="o">-&lt;/span>&lt;span class="n">b&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">#求解&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="n">result&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="n">solve&lt;/span>&lt;span class="p">([&lt;/span>&lt;span class="n">f1&lt;/span>&lt;span class="p">,&lt;/span>&lt;span class="n">f2&lt;/span>&lt;span class="p">],&lt;/span> &lt;span class="p">[&lt;/span>&lt;span class="n">x&lt;/span>&lt;span class="p">,&lt;/span>&lt;span class="n">y&lt;/span>&lt;span class="p">])&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nb">print&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">latex&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">result&lt;/span>&lt;span class="p">))&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="n">result&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">get&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">x&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>得到的结果如下：&lt;/p>
+&lt;p>$$
+\left{\left( \frac{a + b}{2}, \ \frac{a - b}{2}\right)\right}
+$$&lt;/p>
+&lt;p>如果是非线性的，只需要将上面的 &lt;code>solve()&lt;/code> 换成 &lt;code>nonlinsolve()&lt;/code> 即可。&lt;/p>
+&lt;h2 id="化简">化简&lt;/h2>
+&lt;p>参考 &lt;a class="link" href="https://zhuanlan.zhihu.com/p/111573239" target="_blank" rel="noopener"
+>SymPy 符号计算基本教程&lt;/a>&lt;/p></description></item><item><title>机械键盘</title><link>https://todd.scuteee.com/posts/2023/2023-06-20-mechanical-keyboard/</link><pubDate>Tue, 20 Jun 2023 20:32:00 +0800</pubDate><guid>https://todd.scuteee.com/posts/2023/2023-06-20-mechanical-keyboard/</guid><description>&lt;p>工欲善其事必先利其器，一把好的键盘，可以让我们在打字、玩游戏的时候更加畅快。清脆的键盘声，软弹的手感，让再痛苦的文字输入也是一种享受。&lt;/p>
+&lt;p>我们最常用的键盘是薄膜键盘（比如笔记本上的键盘），它的电路只是薄薄的一层膜，上面是一层导电橡胶，通过按下橡胶使得电路导通，从而产生输入。&lt;/p>
+&lt;p>&lt;img src="https://todd.scuteee.com/posts/2023/2023-06-20-mechanical-keyboard/images/%E8%96%84%E8%86%9C%E9%94%AE%E7%9B%98.jpg"
+width="1000"
+height="562"
+srcset="https://todd.scuteee.com/posts/2023/2023-06-20-mechanical-keyboard/images/%E8%96%84%E8%86%9C%E9%94%AE%E7%9B%98_hu701cef2a510f870dc4e00b6916650ad2_138285_480x0_resize_q75_box.jpg 480w, https://todd.scuteee.com/posts/2023/2023-06-20-mechanical-keyboard/images/%E8%96%84%E8%86%9C%E9%94%AE%E7%9B%98_hu701cef2a510f870dc4e00b6916650ad2_138285_1024x0_resize_q75_box.jpg 1024w"
+loading="lazy"
+alt="薄膜键盘"
+class="gallery-image"
+data-flex-grow="177"
+data-flex-basis="427px"
+>&lt;/p></description></item><item><title>WSL手册</title><link>https://todd.scuteee.com/posts/2023/2023-06-13-wsl-manual.md/</link><pubDate>Tue, 13 Jun 2023 19:24:00 +0800</pubDate><guid>https://todd.scuteee.com/posts/2023/2023-06-13-wsl-manual.md/</guid><description>&lt;h2 id="wsl-简介">WSL 简介&lt;/h2>
+&lt;p>WSL（Windows Subsystem for Linux），中文为“适用于 Linux 的 Windows 子系统”，是 Windows 自带的虚拟机，利用这个我们可以方便地在 Windows 上安装 Linux 系统。&lt;/p>
+&lt;h2 id="安装">安装&lt;/h2>
+&lt;p>安装过程可以参考 &lt;a class="link" href="https://learn.microsoft.com/zh-cn/windows/wsl/install" target="_blank" rel="noopener"
+>使用 WSL 在 Windows 上安装 Linux&lt;/a>，简单来说就是打开 Hyper-V（在“启用或关闭 Windows 功能”里），然后运行&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-powershell" data-lang="powershell">&lt;span class="line">&lt;span class="cl">&lt;span class="n">wsl&lt;/span> &lt;span class="p">-&lt;/span>&lt;span class="n">-install&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>默认情况下安装 Ubuntu，也可以指定特定的 Linux 发行版：&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-powershell" data-lang="powershell">&lt;span class="line">&lt;span class="cl">&lt;span class="n">wsl&lt;/span> &lt;span class="p">-&lt;/span>&lt;span class="n">-install&lt;/span> &lt;span class="n">-d&lt;/span> &lt;span class="p">&amp;lt;&lt;/span>&lt;span class="n">Distribution&lt;/span> &lt;span class="n">Name&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>&lt;code>&amp;lt;&amp;lt;Distribution Name&amp;gt;&lt;/code> 可以用 &lt;code>wsl --list --online&lt;/code> 来查看，目前可用的系统为：&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;/span>&lt;span class="lnt"> 2
+&lt;/span>&lt;span class="lnt"> 3
+&lt;/span>&lt;span class="lnt"> 4
+&lt;/span>&lt;span class="lnt"> 5
+&lt;/span>&lt;span class="lnt"> 6
+&lt;/span>&lt;span class="lnt"> 7
+&lt;/span>&lt;span class="lnt"> 8
+&lt;/span>&lt;span class="lnt"> 9
+&lt;/span>&lt;span class="lnt">10
+&lt;/span>&lt;span class="lnt">11
+&lt;/span>&lt;span class="lnt">12
+&lt;/span>&lt;span class="lnt">13
+&lt;/span>&lt;span class="lnt">14
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-powershell" data-lang="powershell">&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="n">NAME&lt;/span> &lt;span class="n">FRIENDLY&lt;/span> &lt;span class="n">NAME&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="n">Ubuntu&lt;/span> &lt;span class="n">Ubuntu&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="n">Debian&lt;/span> &lt;span class="n">Debian&lt;/span> &lt;span class="n">GNU&lt;/span>&lt;span class="p">/&lt;/span>&lt;span class="n">Linux&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nb">kali-linux&lt;/span> &lt;span class="n">Kali&lt;/span> &lt;span class="n">Linux&lt;/span> &lt;span class="n">Rolling&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="n">Ubuntu&lt;/span>&lt;span class="p">-&lt;/span>&lt;span class="mf">18.04&lt;/span> &lt;span class="n">Ubuntu&lt;/span> &lt;span class="mf">18.04&lt;/span> &lt;span class="n">LTS&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="n">Ubuntu&lt;/span>&lt;span class="p">-&lt;/span>&lt;span class="mf">20.04&lt;/span> &lt;span class="n">Ubuntu&lt;/span> &lt;span class="mf">20.04&lt;/span> &lt;span class="n">LTS&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="n">Ubuntu&lt;/span>&lt;span class="p">-&lt;/span>&lt;span class="mf">22.04&lt;/span> &lt;span class="n">Ubuntu&lt;/span> &lt;span class="mf">22.04&lt;/span> &lt;span class="n">LTS&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="n">OracleLinux_7_9&lt;/span> &lt;span class="n">Oracle&lt;/span> &lt;span class="n">Linux&lt;/span> &lt;span class="mf">7.9&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="n">OracleLinux_8_7&lt;/span> &lt;span class="n">Oracle&lt;/span> &lt;span class="n">Linux&lt;/span> &lt;span class="mf">8.7&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="n">OracleLinux_9_1&lt;/span> &lt;span class="n">Oracle&lt;/span> &lt;span class="n">Linux&lt;/span> &lt;span class="mf">9.1&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nb">SUSE-Linux&lt;/span>&lt;span class="n">-Enterprise-Server&lt;/span>&lt;span class="p">-&lt;/span>&lt;span class="mf">15&lt;/span>&lt;span class="n">-SP4&lt;/span> &lt;span class="n">SUSE&lt;/span> &lt;span class="n">Linux&lt;/span> &lt;span class="n">Enterprise&lt;/span> &lt;span class="n">Server&lt;/span> &lt;span class="mf">15&lt;/span> &lt;span class="n">SP4&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nb">openSUSE-Leap&lt;/span>&lt;span class="p">-&lt;/span>&lt;span class="mf">15.4&lt;/span> &lt;span class="n">openSUSE&lt;/span> &lt;span class="n">Leap&lt;/span> &lt;span class="mf">15.4&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nb">openSUSE-Tumbleweed&lt;/span> &lt;span class="n">openSUSE&lt;/span> &lt;span class="n">Tumbleweed&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>可以同时安装不同的发行版，但每个发行版都只能安装一个，如果想安装多个，需要一些特殊手段，并且或多或少都存在问题，在此不再介绍。不同发行版会有自己的 Terminal，因此无需担心切换问题。&lt;/p>
+&lt;h2 id="关闭与卸载">关闭与卸载&lt;/h2>
+&lt;p>关闭所有虚拟机：&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-powershell" data-lang="powershell">&lt;span class="line">&lt;span class="cl">&lt;span class="n">wsl&lt;/span> &lt;span class="p">-&lt;/span>&lt;span class="n">-shutdown&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>关闭特定的发行版：&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-powershell" data-lang="powershell">&lt;span class="line">&lt;span class="cl">&lt;span class="n">wsl&lt;/span> &lt;span class="p">-&lt;/span>&lt;span class="n">-terminate&lt;/span> &lt;span class="p">&amp;lt;&lt;/span>&lt;span class="n">Distribution&lt;/span> &lt;span class="n">Name&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>卸载特定发行版：&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-powershell" data-lang="powershell">&lt;span class="line">&lt;span class="cl">&lt;span class="n">wsl&lt;/span> &lt;span class="p">-&lt;/span>&lt;span class="n">-unregister&lt;/span> &lt;span class="p">&amp;lt;&lt;/span>&lt;span class="n">DistributionName&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h2 id="开机自启">开机自启&lt;/h2>
+&lt;p>WSL 默认是开机不自启的，若需要开机自启，可以参考：&lt;a class="link" href="https://zhuanlan.zhihu.com/p/471272756" target="_blank" rel="noopener"
+>WSL2及服务自启动&lt;/a>&lt;/p>
+&lt;h2 id="gui程序">GUI程序&lt;/h2>
+&lt;p>现在 WSL 直接就支持 GUI 程序，直接安装应用程序即可，比如 &lt;code>sudo apt install VLC&lt;/code>&lt;/p></description></item><item><title>更换固态</title><link>https://todd.scuteee.com/posts/2023/2023-06-06-change-ssd/</link><pubDate>Fri, 02 Jun 2023 12:27:00 +0800</pubDate><guid>https://todd.scuteee.com/posts/2023/2023-06-06-change-ssd/</guid><description>&lt;p>美美在618送了我一个固态硬盘（致钛的TiPlus7100），我把原来的 TiPlus5000 换下来给她。&lt;/p>
 &lt;h2 id="1-备份文件">1. 备份文件&lt;/h2>
 &lt;p>更换固态之前，确保重要文件都已经备份了，并且记录下有用的软件的名字。&lt;/p>
 &lt;h2 id="2-制作系统安装u盘">2. 制作系统安装U盘&lt;/h2>
