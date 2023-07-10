@@ -2166,9 +2166,15 @@ $$&lt;/p>
 &lt;li>$V_{OH}$ = minimum HIGH output voltage&lt;/li>
 &lt;li>$V_{OL}$ = maximum LOW output voltage&lt;/li>
 &lt;/ul>
-&lt;p>&lt;img src="https://todd.scuteee.com/images/CMOS%20inverter%20noise%20margins.png"
+&lt;p>&lt;img src="https://todd.scuteee.com/digitalic/%E6%95%B0%E5%AD%97%E9%9B%86%E6%88%90%E7%94%B5%E8%B7%AF/1-%E7%BB%AA%E8%AE%BA/images/CMOS_inverter_noise_margins.png"
+width="397"
+height="388"
+srcset="https://todd.scuteee.com/digitalic/%E6%95%B0%E5%AD%97%E9%9B%86%E6%88%90%E7%94%B5%E8%B7%AF/1-%E7%BB%AA%E8%AE%BA/images/CMOS_inverter_noise_margins_hu13ea3f7ea2ffd0761ef1969a7c69e53f_23103_480x0_resize_box_3.png 480w, https://todd.scuteee.com/digitalic/%E6%95%B0%E5%AD%97%E9%9B%86%E6%88%90%E7%94%B5%E8%B7%AF/1-%E7%BB%AA%E8%AE%BA/images/CMOS_inverter_noise_margins_hu13ea3f7ea2ffd0761ef1969a7c69e53f_23103_1024x0_resize_box_3.png 1024w"
 loading="lazy"
 alt="CMOS inverter noise margins"
+class="gallery-image"
+data-flex-grow="102"
+data-flex-basis="245px"
 >&lt;/p>
 &lt;p>输出信号在传输的过程中会因为噪声而有偏差，允许的最大偏差就叫&lt;strong>噪声容限（Noise Margin）&lt;/strong>，定义为：&lt;/p>
 &lt;p>$$
@@ -2177,9 +2183,15 @@ $$&lt;/p>
 &lt;p>$$
 NM_H = V_{OH} - V_{IH}
 $$&lt;/p>
-&lt;p>&lt;img src="https://todd.scuteee.com/images/Noise%20margin%20definitions.png"
+&lt;p>&lt;img src="https://todd.scuteee.com/digitalic/%E6%95%B0%E5%AD%97%E9%9B%86%E6%88%90%E7%94%B5%E8%B7%AF/1-%E7%BB%AA%E8%AE%BA/images/Noise_margin_definitions.png"
+width="626"
+height="315"
+srcset="https://todd.scuteee.com/digitalic/%E6%95%B0%E5%AD%97%E9%9B%86%E6%88%90%E7%94%B5%E8%B7%AF/1-%E7%BB%AA%E8%AE%BA/images/Noise_margin_definitions_hu2fd099f82e6f37945f186d13c0971790_34682_480x0_resize_box_3.png 480w, https://todd.scuteee.com/digitalic/%E6%95%B0%E5%AD%97%E9%9B%86%E6%88%90%E7%94%B5%E8%B7%AF/1-%E7%BB%AA%E8%AE%BA/images/Noise_margin_definitions_hu2fd099f82e6f37945f186d13c0971790_34682_1024x0_resize_box_3.png 1024w"
 loading="lazy"
 alt="Noise margin definitions"
+class="gallery-image"
+data-flex-grow="198"
+data-flex-basis="476px"
 >&lt;/p>
 &lt;p>中间的区域叫做&lt;strong>不确定区&lt;/strong>或&lt;strong>过渡宽度（Transition Width，TW）&lt;/strong>。&lt;/p>
 &lt;hr>
@@ -2204,14 +2216,26 @@ $$&lt;/p>
 &lt;li>信号重回额定电平（即高或低电平）&lt;/li>
 &lt;li>信号远离额定电平（即中间电平）&lt;/li>
 &lt;/ol>
-&lt;p>&lt;img src="https://todd.scuteee.com/images/A%20chain%20of%20inverters.png"
+&lt;p>&lt;img src="https://todd.scuteee.com/digitalic/%E6%95%B0%E5%AD%97%E9%9B%86%E6%88%90%E7%94%B5%E8%B7%AF/1-%E7%BB%AA%E8%AE%BA/images/A_chain_of_inverters.png"
+width="907"
+height="127"
+srcset="https://todd.scuteee.com/digitalic/%E6%95%B0%E5%AD%97%E9%9B%86%E6%88%90%E7%94%B5%E8%B7%AF/1-%E7%BB%AA%E8%AE%BA/images/A_chain_of_inverters_hu3fab449f2d63a0f0066dc7b616c4aaa5_18836_480x0_resize_box_3.png 480w, https://todd.scuteee.com/digitalic/%E6%95%B0%E5%AD%97%E9%9B%86%E6%88%90%E7%94%B5%E8%B7%AF/1-%E7%BB%AA%E8%AE%BA/images/A_chain_of_inverters_hu3fab449f2d63a0f0066dc7b616c4aaa5_18836_1024x0_resize_box_3.png 1024w"
 loading="lazy"
 alt="A chain of inverters"
+class="gallery-image"
+data-flex-grow="714"
+data-flex-basis="1714px"
 >&lt;/p>
 &lt;p>我们可以根据传输函数来区分这两种情况。我们将 $V_{\rm out}=f(V_{\rm in})$ 和 $V_{\rm in} = finv(V_{\rm out})$ 画在同一个坐标系中，传输过程可以参考图中的箭头。&lt;/p>
-&lt;p>&lt;img src="https://todd.scuteee.com/images/Conditions%20for%20regeneration.png"
+&lt;p>&lt;img src="https://todd.scuteee.com/digitalic/%E6%95%B0%E5%AD%97%E9%9B%86%E6%88%90%E7%94%B5%E8%B7%AF/1-%E7%BB%AA%E8%AE%BA/images/Conditions_for_regeneration.png"
+width="885"
+height="418"
+srcset="https://todd.scuteee.com/digitalic/%E6%95%B0%E5%AD%97%E9%9B%86%E6%88%90%E7%94%B5%E8%B7%AF/1-%E7%BB%AA%E8%AE%BA/images/Conditions_for_regeneration_hu6ff788488b99bee206a99c11f4f6aeb2_39604_480x0_resize_box_3.png 480w, https://todd.scuteee.com/digitalic/%E6%95%B0%E5%AD%97%E9%9B%86%E6%88%90%E7%94%B5%E8%B7%AF/1-%E7%BB%AA%E8%AE%BA/images/Conditions_for_regeneration_hu6ff788488b99bee206a99c11f4f6aeb2_39604_1024x0_resize_box_3.png 1024w"
 loading="lazy"
 alt="Conditions for regeneration"
+class="gallery-image"
+data-flex-grow="211"
+data-flex-basis="508px"
 >&lt;/p>
 &lt;p>这两种差异源自于两者的传输特性，一个具有增益大于 1 不确定区，而一个没有。前者由于增益大于1，所以就会向高/低电平靠拢。&lt;/p>
 &lt;h3 id="性能延迟">性能（延迟）&lt;/h3>
@@ -2220,9 +2244,15 @@ alt="Conditions for regeneration"
 t_p = \frac{t_{pLH}+t_{pHL}}{2}
 $$&lt;/p>
 &lt;p>具体 $t_{pLH},t_{pHL}$ 的定义见下图。&lt;/p>
-&lt;p>&lt;img src="https://todd.scuteee.com/images/Definition%20of%20propagation%20delays%20and%20rise%20and%20fall%20times.png"
+&lt;p>&lt;img src="https://todd.scuteee.com/digitalic/%E6%95%B0%E5%AD%97%E9%9B%86%E6%88%90%E7%94%B5%E8%B7%AF/1-%E7%BB%AA%E8%AE%BA/images/Definition_of_propagation_delays_and_rise_and_fall_times.png"
+width="553"
+height="446"
+srcset="https://todd.scuteee.com/digitalic/%E6%95%B0%E5%AD%97%E9%9B%86%E6%88%90%E7%94%B5%E8%B7%AF/1-%E7%BB%AA%E8%AE%BA/images/_hu2a98436cf8167976217a4b3da92e35a1_24861_ed1f997dd1809a7558fb44a4f03e3056.png 480w, https://todd.scuteee.com/digitalic/%E6%95%B0%E5%AD%97%E9%9B%86%E6%88%90%E7%94%B5%E8%B7%AF/1-%E7%BB%AA%E8%AE%BA/images/_hu2a98436cf8167976217a4b3da92e35a1_24861_36db29e7a1926522a3f0ddb34b51e654.png 1024w"
 loading="lazy"
 alt="Definition of propagation delays and rise and fall times"
+class="gallery-image"
+data-flex-grow="123"
+data-flex-basis="297px"
 >&lt;/p>
 &lt;p>延迟受电路结构、工艺、环境等因素影响。如果想比较哪种电路结构的延迟最小（排除因素），可以通过 &lt;strong>Fanout of Four(FO4) Delay&lt;/strong>：将一个电路驱动4个它自己，记为 $t_{FO4}$&lt;/p>
 &lt;p>如果想比较工艺对延迟的影响，可以用 Ring Oscillator（环形振荡器），振荡周期越小（频率越高），延迟越小。&lt;/p>
