@@ -57,7 +57,7 @@ $$
 - $V_{OH}$ = minimum HIGH output voltage
 - $V_{OL}$ = maximum LOW output voltage
 
-![CMOS inverter noise margins](images/CMOS%20inverter%20noise%20margins.png)
+![CMOS inverter noise margins](images/CMOS_inverter_noise_margins.png)
 
 输出信号在传输的过程中会因为噪声而有偏差，允许的最大偏差就叫**噪声容限（Noise Margin）**，定义为：
 
@@ -69,7 +69,7 @@ $$
 NM_H = V_{OH} - V_{IH}
 $$
 
-![Noise margin definitions](images/Noise%20margin%20definitions.png)
+![Noise margin definitions](images/Noise_margin_definitions.png)
 
 中间的区域叫做**不确定区**或**过渡宽度（Transition Width，TW）**。
 
@@ -103,11 +103,11 @@ $$
 1. 信号重回额定电平（即高或低电平）
 2. 信号远离额定电平（即中间电平）
 
-![A chain of inverters](images/A%20chain%20of%20inverters.png)
+![A chain of inverters](images/A_chain_of_inverters.png)
 
 我们可以根据传输函数来区分这两种情况。我们将 $V_{\rm out}=f(V_{\rm in})$ 和 $V_{\rm in} = finv(V_{\rm out})$ 画在同一个坐标系中，传输过程可以参考图中的箭头。
 
-![Conditions for regeneration](images/Conditions%20for%20regeneration.png)
+![Conditions for regeneration](images/Conditions_for_regeneration.png)
 
 这两种差异源自于两者的传输特性，一个具有增益大于 1 不确定区，而一个没有。前者由于增益大于1，所以就会向高/低电平靠拢。
 
@@ -121,7 +121,7 @@ $$
 
 具体 $t_{pLH},t_{pHL}$ 的定义见下图。
 
-![Definition of propagation delays and rise and fall times](images/Definition%20of%20propagation%20delays%20and%20rise%20and%20fall%20times.png)
+![Definition of propagation delays and rise and fall times](images/Definition_of_propagation_delays_and_rise_and_fall_times.png)
 
 延迟受电路结构、工艺、环境等因素影响。如果想比较哪种电路结构的延迟最小（排除因素），可以通过 **Fanout of Four(FO4) Delay**：将一个电路驱动4个它自己，记为 $t_{FO4}$
 
