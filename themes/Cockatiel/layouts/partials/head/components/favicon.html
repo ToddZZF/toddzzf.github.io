@@ -1,0 +1,10 @@
+<!-- head/favicon -->
+<!-- refer to https://realfavicongenerator.net/ -->
+{{ with $.Site.Params.favicon }}
+{{ with (resources.Get .) }}
+{{ $favicon := $favicon.Resize "100x" . }}
+<link rel="icon"
+    type="image"
+    href="{{ $favicon.Permalink }}">
+{{ end }}
+{{ end }}

@@ -1,6 +1,7 @@
 ---
 title: LaTeX OCR（截图转LaTeX）软件
 date: 2023-02-04 10:26:00 +0800
+image: latex_ocr.png
 ---
 
 已经有这类的软件：[Mathpix](https://mathpix.com/)，但教育用户（用教育邮箱注册）每月只能识别 100 张图片，pro用户可以识别 5000 张（一年340RMB）。目前找到两个替代品。

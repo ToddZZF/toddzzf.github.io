@@ -1,0 +1,170 @@
+{{ define "main" }}
+    <div class="max-w-screen-lg w-full mx-auto py-8 px-4">
+
+        {{/*  最近更新  */}}
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+            {{ range $index, $elem :=  first 5 (sort $.Site.RegularPages "Type" "desc") }}
+                {{ if eq $index 0 }}
+                    <div class="w-full aspect-[5/3] overflow-hidden rounded shadow-sm">
+                        {{/*  <img class="w-full h-full object-cover" src="https://api.paugram.com/wallpaper/" alt="">  */}}
+                        {{ with $image := .Resources.GetMatch .Params.image }}
+                        {{ $image := $image.Fill "640x400" }}
+                        <img class="h-full w-full object-cover" src="{{ $image.RelPermalink }}" alt="">
+                        {{ else }}
+                        <img class="w-full h-full object-cover" src="https://api.paugram.com/wallpaper/" alt="">
+                        {{ end }}
+                    </div>
+                    <div class="w-full flex flex-col gap-2">
+                        <div class="text-3xl tracking-wide">
+                            <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+                        </div>
+                        <div class="flex gap-2 text-sm">
+                            <span class="post-date">
+                                {{ if .Date }}
+                                {{ .Date.Format ($.Site.Params.DateFormatList | default "2006-01-02") }}
+                                {{ end }}
+                            </span>
+                            <a href="{{ .FirstSection.RelPermalink }}">📂{{ .FirstSection.Title }}</a>
+                        </div>
+                        <div class="leading-8 border-l-4 pl-4 line-clamp-5 text-lg">
+                            {{ .Summary }}
+                        </div>
+                    </div>
+                {{ else }}
+                    <div class="flex h-24">
+                        <div class="flex-grow flex flex-col">
+                            <div class="text-xl">
+                                <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+                            </div>
+                            <div class="flex gap-2 text-sm">
+                                <span class="post-date">
+                                    {{ if .Date }}
+                                    {{ .Date.Format ($.Site.Params.DateFormatList | default "2006-01-02") }}
+                                    {{ end }}
+                                </span>
+                                <a href="{{ .FirstSection.RelPermalink }}">📂{{ .FirstSection.Title }}</a>
+                            </div>
+                            
+                        </div>
+                        <div class="flex-shrink-0 aspect-square rounded overflow-hidden shadow-sm">
+                            {{ with $image := .Resources.GetMatch .Params.image }}
+                        {{ $image := $image.Fill "192x192" }}
+                        <img class="h-full w-full object-cover" src="{{ $image.RelPermalink }}" alt="">
+                        {{ else }}
+                        <img class="w-full h-full object-cover" src="https://api.paugram.com/wallpaper/" alt="">
+                        {{ end }}
+                        </div>
+                    </div>
+                {{ end }}
+            {{ end }}
+        </div>
+        
+        {{/*  {{ $sections := $.Site.Sections }}
+        {{ range $sections }}
+            <div class="flex w-full align-bottom items-center mt-8 mb-2">
+                <a href="{{ .RelPermalink }}" class="font-semibold text-lg tracking-wider text-gray-700 text-center">
+                    {{ .Title }}
+                </a>
+                <div class="flex-grow border border-dashed h-0 mx-4"></div>
+                <a href="{{ .RelPermalink }}" class="h-8 w-12  p-1 bg-white text-center shadow rounded-lg">
+                    更多
+                </a>
+            </div>
+        {{ end }}  */}}
+
+        <div class="flex w-full align-bottom items-center mt-8 mb-2">
+            <div class="p-2">
+                <a href="{{ .RelPermalink }}" class="font-semibold text-lg tracking-wider text-gray-700 text-center">
+                分类
+                </a>
+            </div>
+            
+            <div class="flex-grow border border-dashed h-0 mx-4"></div>
+            {{/*  <a href="{{ .RelPermalink }}" class="h-8 w-12  p-1 bg-white text-center shadow rounded-lg">
+                更多
+            </a>  */}}
+        </div>
+
+        <div class="relative w-full flex gap-6 snap-x overflow-x-auto p-1">
+            {{ range first 6 .Sections }}
+            <a href="{{ .RelPermalink }}" class="w-36 aspect-[3/4] bg-white snap-start flex-shrink-0 flex flex-col overflow-hidden rounded-lg shadow relative">
+                <div class="flew-grow-0 w-full h-full overflow-hidden">
+                    {{ with $image := .Resources.GetMatch .Params.image }}
+                        {{ $image := $image.Fill "192x192" }}
+                        <img class="h-full w-full object-cover" src="{{ $image.RelPermalink }}" alt="">
+                    {{ else }}
+                        {{ range .RegularPages }}
+                            {{ with $image := .Resources.GetMatch .Params.image }}
+                            {{ $image := $image.Fill "192x192" }}
+                            <img class="h-full w-full object-cover" src="{{ $image.RelPermalink }}" alt="">
+                            {{ end }}
+                            {{ break }}
+                        {{ end }}
+                    {{ end }}
+                </div>
+                <div class="p-2 absolute -bottom-2 -left-2 -right-1 top-24 bg-gray-100/80 backdrop-blur-sm rotate-6">
+                </div>
+                <div class="p-2 absolute bottom-0 left-0 right-0 top-24 tracking-wider flex flex-col justify-between">
+                    <div class="text-xl" href="{{ .RelPermalink }}">
+                        📂{{ .Title }}
+                    </div>
+                    <span class="text-sm">
+                        {{ len ( where .Site.RegularPages "Section" .Section ) }}    
+                        篇文章
+                    </span>
+                </div>
+            </a>
+            {{ end }}
+        </div>
+
+
+        <div class="flex w-full align-bottom items-center mt-8 mb-2">
+            <div class="p-2">
+                <a href="{{ .RelPermalink }}" class="font-semibold text-lg tracking-wider text-gray-700 text-center">
+                好物
+                </a>
+            </div>
+            
+            <div class="flex-grow border border-dashed h-0 mx-4"></div>
+            {{/*  <a href="{{ .RelPermalink }}" class="h-8 w-12  p-1 bg-white text-center shadow rounded-lg">
+                更多
+            </a>  */}}
+        </div>
+
+        <div class="relative w-full flex gap-6 snap-x overflow-x-auto p-1">
+            {{ range first 5 (where $.Site.RegularPages "Section" "GoodStuffs") }}
+            <div class="w-48 aspect-[3/4] bg-white snap-start flex-shrink-0 flex flex-col overflow-hidden rounded-lg shadow relative">
+                <div class="w-48 aspect-[4/3] overflow-hidden flex-shrink-0 relative p-1">
+                    <a class="rounded overflow-hidden" href="{{ .RelPermalink }}">
+                        {{ with $image := .Resources.GetMatch .Params.image }}
+                            {{ $image := $image.Fill "368x272" }}
+                            <img class="h-full w-full rounded object-cover object-center" src="{{ $image.RelPermalink }}" alt="">
+                        {{ end }}
+                    </a>
+                    <span class="absolute left-2 bottom-2 p-1 bg-gray-100/80 text-sm rounded leading-4">{{ .Params.shop }}</span>
+                </div>
+                <div class="p-2 pt-0 flex flex-col justify-between flex-grow">
+                    <a href="{{ .RelPermalink }}">
+                        {{ .Title }}
+                    </a>
+                    <div class="text-sm line-clamp-2">
+                        {{ .Summary }}
+                    </div>
+                    <div class="flex justify-between text-sm">
+                        <span class="text-red-600">
+                            {{ .Params.price }}
+                        </span>
+                        <span class="text-gray-600">
+                            {{ if .Date }}
+                                {{ .Date.Format ($.Site.Params.DateFormatList | default "2006-01") }}
+                            {{ end }}
+                        </span>
+                    </div>
+                    
+                </div>
+            </div>
+            {{ end }}
+        </div>
+
+    </div>
+{{ end }}

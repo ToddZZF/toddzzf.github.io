@@ -1,0 +1,14 @@
+<div class="relative w-full flex gap-6 snap-x overflow-x-auto p-1">
+    {{ range first 6 .}}
+    <div class="w-36 aspect-[0.618] bg-white snap-start flex-shrink-0 flex flex-col overflow-hidden rounded-lg shadow relative">
+        <div class="flew-grow-0 w-full h-full overflow-hidden">
+            <img class="h-full w-full object-cover" src="https://api.r10086.com/%E6%A8%B1%E9%81%93%E9%9A%8F%E6%9C%BA%E5%9B%BE%E7%89%87api%E6%8E%A5%E5%8F%A3.php?%E5%9B%BE%E7%89%87%E7%B3%BB%E5%88%97=%E5%8A%A8%E6%BC%AB%E7%BB%BC%E5%90%882" alt="" nocache>
+        </div>
+        <div class="p-2 absolute -bottom-3 -left-3 -right-2 top-36 bg-gray-200/80 rotate-6">
+        </div>
+        <div class="p-2 absolute bottom-0 left-0 right-0 top-36 tracking-wider">
+            <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+        </div>
+    </div>
+    {{ end }}
+</div>

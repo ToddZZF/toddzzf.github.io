@@ -1,0 +1,45 @@
+<div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+    {{ $month := "2000-08" }}
+    {{ range . }}
+        
+        {{ $newmonth := .Date.Format "2006-01" }}
+        {{ if eq $newmonth $month }}
+        {{ else }}
+            {{ $month = $newmonth }}
+            <div class="md:col-span-2 -m-2">
+                <span class="text-gray-700">#</span>{{ $month }}
+            </div>
+        {{ end }}
+
+        <div class="flex h-24">
+            <div class="flex-grow flex flex-col">
+                <div class="text-xl">
+                    <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+                </div>
+                <div class="flex gap-2 text-sm flex-wrap">
+                    <span class="post-date">
+                        {{ if .Date }}
+                        {{ .Date.Format "2006-01-02" }}
+                        {{ end }}
+                    </span>
+                    <a href="{{ .FirstSection.RelPermalink }}">📂{{ .FirstSection.Title }}</a>
+                    {{ $taxonomy := "tags" }}
+                    {{ with .GetTerms $taxonomy }}
+                    {{/*  {{ (site.GetPage $taxonomy).LinkTitle }}:  */}}
+                    {{ range $k, $_ := . -}}
+                    {{/*  {{ if $k }}, {{ end }}  */}}
+                    <a href="{{ .RelPermalink }}">🏷️{{ .LinkTitle }}</a>
+                    {{- end }}
+                    {{ end }}
+                </div>
+                
+            </div>
+            <div class="flex-shrink-0 aspect-square rounded overflow-hidden shadow-sm">
+                {{ with $image := .Resources.GetMatch .Params.image }}
+                    {{ $image := $image.Fill "192x192" }}
+                    <img class="h-full w-full object-cover object-center bg-white" src="{{ $image.RelPermalink }}" alt="">
+                {{ end }}
+            </div>
+        </div>
+    {{ end }}
+</div>

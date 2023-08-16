@@ -3,7 +3,7 @@ layout: post
 title: 顺德旅游计划
 date: 2022-06-08 13:36:00 +0800
 category: document
-thumbnail: rainbow_dash.png
+image: rainbow_dash.png
 image: images/炸牛奶.jpg
 summary: " "
 indent: True

@@ -1,7 +1,10 @@
 ---
 title: WSL手册
 date: 2023-06-13 19:24:00 +0800
+image: wsl.jpg
 ---
+
+
 
 ## WSL 简介
 

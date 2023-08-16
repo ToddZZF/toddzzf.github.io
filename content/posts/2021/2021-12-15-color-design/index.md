@@ -3,8 +3,7 @@ layout: post
 title: 简明色彩理论与样式
 date: 2021-12-15 20:34:00 +0800
 category: work
-thumbnail: fluttershy.png
-icon: note
+image: images/my_blue_1.jpg
 summary: 在设计中更好地使用颜色
 mathjax: true
 ---

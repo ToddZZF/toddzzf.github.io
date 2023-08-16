@@ -1,0 +1,236 @@
+@charset "UTF-8";
+.mdstyle {
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 1.6em;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  hyphens: auto; }
+  .mdstyle h1,
+  .mdstyle h2,
+  .mdstyle h3,
+  .mdstyle h4,
+  .mdstyle h5,
+  .mdstyle h6 {
+    letter-spacing: 0.05em;
+    margin: 0;
+    margin-block-start: 1em;
+    margin-block-end: 0.5em;
+    font-weight: 600;
+    line-height: 1.8em; }
+  .mdstyle h1 {
+    font-size: 36px; }
+  .mdstyle h2 {
+    font-size: 32px; }
+  .mdstyle h3 {
+    font-size: 28px; }
+  .mdstyle h4 {
+    font-size: 25px; }
+  .mdstyle h5 {
+    font-size: 22px; }
+  .mdstyle h6 {
+    font-size: 20px; }
+  .mdstyle h1 + h2,
+  .mdstyle h2 + h3,
+  .mdstyle h3 + h4,
+  .mdstyle h4 + h5,
+  .mdstyle h5 + h6 {
+    margin-block-start: 0.5em; }
+  .mdstyle p {
+    line-height: 1.6em;
+    margin-block-start: 1em;
+    margin-block-end: 1.5em; }
+  .mdstyle.p-indent > p {
+    text-indent: 2em; }
+  .mdstyle hr {
+    display: block;
+    margin-block-start: 1.5em;
+    margin-block-end: 1.5em;
+    margin-inline-start: auto;
+    margin-inline-end: auto;
+    border: 0;
+    width: 61.8%;
+    height: 1px;
+    background: black; }
+  .mdstyle b,
+  .mdstyle strong {
+    font-weight: 600;
+    text-decoration: double underline;
+    text-underline-offset: 3px;
+    
+  }
+  .mdstyle em,
+  .mdstyle i {
+    font-style: italic; }
+  .mdstyle a {
+    display: inline;
+    color: blue;
+    text-decoration: none;
+    transition: all 250ms ease-in;
+    box-shadow: 0 0px rgba(0, 0, 255, 0.5) inset;
+    background-color: transparent; }
+  .mdstyle a:not(:visited)::after {
+    content: "↩"; }
+  .mdstyle a:hover {
+    color: white;
+    box-shadow: 0 -1.6em rgba(0, 0, 255, 0.5) inset; }
+  .mdstyle a:visited:not(:hover) {
+    color: #551AB8; }
+  .mdstyle a:visited::after {
+    content: "✓"; }
+  .mdstyle del {
+    text-decoration: line-through solid currentColor; }
+  .mdstyle ul,
+  .mdstyle ol {
+    margin-block-start: 0.5em;
+    margin-block-end: 1em;
+    padding-inline-start: 0;
+    display: table; }
+  .mdstyle li {
+    counter-increment: list-item;
+    display: table-row; }
+    .mdstyle li::before {
+      display: table-cell;
+      text-align: right;
+      font-family: sans-serif;
+      height: 1em;
+      min-width: 2em;
+      white-space: nowrap; }
+  .mdstyle ol > li::before {
+    content: counter(list-item) ". "; }
+  .mdstyle ul > li::before {
+    content: "● "; }
+  .mdstyle ul ul > li::before {
+    content: "○ "; }
+  .mdstyle ul ul ul > li::before {
+    content: "◾ "; }
+  .mdstyle ul ul ul ul > li::before {
+    content: "◽ "; }
+  .mdstyle ul ul ul ul ul > li::before {
+    content: "• "; }
+  .mdstyle ul ul,
+  .mdstyle ul ol,
+  .mdstyle ol ul,
+  .mdstyle ol ol {
+    margin-block-start: 0;
+    margin-block-end: 0; }
+  .mdstyle li input[type="checkbox"] {
+    font: inherit;
+    appearance: none;
+    margin-inline-start: -2em;
+    margin-inline-end: -0.3em;
+    margin-block-start: auto;
+    margin-block-end: auto;
+    width: 2em;
+    height: 1em;
+    display: inline-flex;
+    place-content: center;
+    border: 0;
+    padding: 0; }
+    .mdstyle li input[type="checkbox"]::before {
+      height: 1em;
+      width: 1em;
+      border: 1px solid black;
+      line-height: 1em;
+      background: white;
+      text-align: center; }
+    .mdstyle li input[type="checkbox"]:not(:checked)::before {
+      content: " "; }
+    .mdstyle li input[type="checkbox"]:checked::before {
+      content: "✔"; }
+  .mdstyle li p {
+    margin-top: 0.5em;
+    margin-bottom: 0em;
+  }
+  .mdstyle table {
+    display: block;
+    max-width: fit-content;
+    table-layout: auto;
+    caption-side: top;
+    margin-block-start: 0.5em;
+    margin-block-end: 1em;
+    margin-inline-start: auto;
+    margin-inline-end: auto;
+    border-collapse: collapse;
+    word-break: break-word; }
+  .mdstyle td,
+  .mdstyle th {
+    padding-block-start: 0.5em;
+    padding-block-end: 0.5em;
+    padding-inline-start: 1em;
+    padding-inline-end: 1em;
+    border: 1px solid black;
+    min-width: 3em; }
+  .mdstyle th {
+    font-weight: 600;
+    border-top: 2px solid black;
+    border-bottom: 2px solid black; }
+  .mdstyle tr:last-child {
+    border-bottom: 2px solid black; }
+  .mdstyle th:first-child,
+  .mdstyle td:first-child {
+    border-left: none; }
+  .mdstyle th:last-child,
+  .mdstyle td:last-child {
+    border-right: none; }
+  .mdstyle tr:hover {
+    background-color: #e9f0f5;
+    transition: background 150ms ease; }
+  .mdstyle img {
+    display: block;
+    max-width: 100%;
+    max-height: 50vh;
+    object-fit: scale-down;
+    margin-inline-start: auto;
+    margin-inline-end: auto;
+    margin-block-start: 0.5em;
+    margin-block-end: 1.5em;
+    page-break-before: auto;
+    page-break-after: auto;
+    page-break-inside: avoid; }
+  .mdstyle p > code {
+    font-family: Monaco, Consolas, "Courier New", monospace;
+    font-size: 0.9em;
+    padding-inline-start: 0.5em;
+    padding-inline-end: 0.5em;
+    padding-block-start: 1px;
+    padding-block-end: 1px;
+    border-radius: 0.2em;
+    border: 1px solid #eee;
+    background-color: #f2f2f2;
+    word-wrap: break-word; }
+  .mdstyle pre {
+    margin-block-start: 1em;
+    margin-block-end: 1.5em;
+    margin-inline-start: 0;
+    margin-inline-end: 0;
+    padding-block-start: 0.5em;
+    padding-block-end: 0.5em;
+    overflow: auto;
+    white-space: pre;
+    word-wrap: normal;
+    border-radius: 0.2em; }
+    .mdstyle pre code {
+      font-family: Monaco, Consolas, "Courier New", monospace;
+      margin: 0;
+      padding: 0;
+      border: 0;
+      border-radius: 0; }
+  .mdstyle blockquote {
+    margin-block-start: 0.5em;
+    margin-block-end: 1em;
+    margin-inline-start: 0;
+    margin-inline-end: 0;
+    padding-inline-start: 1.7em;
+    padding-inline-end: 0;
+    border-left: 0.3em solid gray; }
+  .mdstyle a.footnote-ref::before {
+    content: "[" !important; }
+  .mdstyle a.footnote-ref::after {
+    content: "]" !important; }
+  .mdstyle .footnotes a::after {
+    content: "" !important; }
+  .mdstyle .footnotes li p {
+    margin: 0; }
+  .mdstyle .footnotes ol > li::before {
+    content: "[" counter(list-item) "] "; }

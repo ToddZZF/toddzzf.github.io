@@ -1,0 +1,11 @@
+{{/*  Replace `\\` at the end of each line with `\\\\`, so that the math can break line properly*/}}
+
+{{ $content := (replaceRE "(\\\\)\n" "\\\\\\" .) }}
+
+{{/*  Replace `\{` with `\\{`  */}}
+{{ $content = (replaceRE "(\\\\{)" "\\\\{" $content) }}
+
+{{/*  Replace `\}` with `\\}`  */}}
+{{ $content = (replaceRE "(\\\\})" "\\\\}" $content) }}
+
+{{ return $content }}
