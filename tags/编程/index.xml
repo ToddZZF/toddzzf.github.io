@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>编程 on Todd's Blog</title><link>http://example.org/tags/%E7%BC%96%E7%A8%8B/</link><description>Recent content in 编程 on Todd's Blog</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Thu, 22 Jun 2023 15:13:00 +0800</lastBuildDate><atom:link href="http://example.org/tags/%E7%BC%96%E7%A8%8B/index.xml" rel="self" type="application/rss+xml"/><item><title>SymPy教程</title><link>http://example.org/posts/2023/2023-06-22-sympy-tutorial.md/</link><pubDate>Thu, 22 Jun 2023 15:13:00 +0800</pubDate><guid>http://example.org/posts/2023/2023-06-22-sympy-tutorial.md/</guid><description>简介 SymPy 是一个符号计算Python库。什么是符号计算？举个例子：如果有个这样的方程：
+$$ \begin{cases} x+y=5\ x-y=1 \end{cases} $$
+我们可以用计算器的“解多元方程”来算出来。但是如果有这么一个方程：
+$$ \begin{cases} x+y=a\ x-y=b \end{cases} $$
+$a,b$ 是常数。那么，计算器就算不出来了。这时就需要符号计算。
+安装 直接用 conda install sympy 安装。
+定义符号 为了方便，我们直接全部导入：
+from sympy import * 首先是定义符号：
+x, y = symbols(&amp;#39;x y&amp;#39;) x1, x2 = symbols(&amp;#39;x_1 x_2&amp;#39;) # 支持 latex 的写法 定义好后，可以用符号来书写表达式。
+如果表达式中有很多符号，则一个一个定义太麻烦。可以用 sympify() 将字符串直接转化为表达式。
+str_expr = &amp;#39;x_1**2 + 2*x_2 + 1&amp;#39; expr = sympify(str_expr) #等效于 x1, x2 = symbols(&amp;#39;x_1 x_2&amp;#39;) expr = x1**2 + 2*x2 + 1 求解方程组 解线性方程组：</description></item></channel></rss>
