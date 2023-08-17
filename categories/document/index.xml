@@ -1,88 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>主页 on Todd's Blog</title><link>http://example.org/</link><description>Recent content in 主页 on Todd's Blog</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Tue, 15 Aug 2023 11:19:00 +0800</lastBuildDate><atom:link href="http://example.org/index.xml" rel="self" type="application/rss+xml"/><item><title>新博客</title><link>http://example.org/posts/2023/2023-08-15-new-blog/</link><pubDate>Tue, 15 Aug 2023 11:19:00 +0800</pubDate><guid>http://example.org/posts/2023/2023-08-15-new-blog/</guid><description>又又又一个新的博客😦</description></item><item><title>RK R75(钢铁轴)</title><link>http://example.org/goodstuffs/rkr75/</link><pubDate>Wed, 09 Aug 2023 00:00:00 +0000</pubDate><guid>http://example.org/goodstuffs/rkr75/</guid><description>75配列的 Gasket 结构的机械键盘</description></item><item><title>SymPy教程</title><link>http://example.org/posts/2023/2023-06-22-sympy-tutorial.md/</link><pubDate>Thu, 22 Jun 2023 15:13:00 +0800</pubDate><guid>http://example.org/posts/2023/2023-06-22-sympy-tutorial.md/</guid><description>简介 SymPy 是一个符号计算Python库。什么是符号计算？举个例子：如果有个这样的方程：
-$$ \begin{cases} x+y=5\ x-y=1 \end{cases} $$
-我们可以用计算器的“解多元方程”来算出来。但是如果有这么一个方程：
-$$ \begin{cases} x+y=a\ x-y=b \end{cases} $$
-$a,b$ 是常数。那么，计算器就算不出来了。这时就需要符号计算。
-安装 直接用 conda install sympy 安装。
-定义符号 为了方便，我们直接全部导入：
-from sympy import * 首先是定义符号：
-x, y = symbols(&amp;#39;x y&amp;#39;) x1, x2 = symbols(&amp;#39;x_1 x_2&amp;#39;) # 支持 latex 的写法 定义好后，可以用符号来书写表达式。
-如果表达式中有很多符号，则一个一个定义太麻烦。可以用 sympify() 将字符串直接转化为表达式。
-str_expr = &amp;#39;x_1**2 + 2*x_2 + 1&amp;#39; expr = sympify(str_expr) #等效于 x1, x2 = symbols(&amp;#39;x_1 x_2&amp;#39;) expr = x1**2 + 2*x2 + 1 求解方程组 解线性方程组：</description></item><item><title>机械键盘</title><link>http://example.org/posts/2023/2023-06-20-mechanical-keyboard/</link><pubDate>Tue, 20 Jun 2023 20:32:00 +0800</pubDate><guid>http://example.org/posts/2023/2023-06-20-mechanical-keyboard/</guid><description>工欲善其事必先利其器，一把好的键盘，可以让我们在打字、玩游戏的时候更加畅快。清脆的键盘声，软弹的手感，让再痛苦的文字输入也是一种享受。
-我们最常用的键盘是薄膜键盘（比如笔记本上的键盘），它的电路只是薄薄的一层膜，上面是一层导电橡胶，通过按下橡胶使得电路导通，从而产生输入。橡胶软绵绵的，手感想必也不会好，唯一的优点就是静音。
-而机械键盘，则是通过机械结构来使得电路导通：当按键按下去时，滑块滑落，使得两个金属弹片接触，从而导通。通过合理设计机械结构，我们可以得到不同的手感/声音。并且机械键盘的寿命很高，每个按键可以按几千万次（至少有5年的寿命）。
-下面，我将介绍一下机械键盘中的“术语”，方便选购。
-配列 配列指的是键盘的尺寸，用按键数量来描述，有时也用比例。常见的配列有：
-61配列：主键盘区+方向键 75配列：主键盘区+F区+方向键 87配列：主键盘区+F区+方向键+控制键区 98配列：主键盘区+F区+方向键+数字区 104配列：主键盘区+F区+方向键+数字区+控制键区（也就是完整的键盘） 具体各个键盘长什么样，可以去看这篇知乎文章：「科普」机械键盘配列（布局）
-一般而言，按键数越多，价格就越贵，所以要根据自己的打字需求选择。当然，就算缺少某些区也没所谓，因为网上有很多独立的小键盘（比如单独的小数字区），我们可以组合使用。
-连接方式 一般键盘和电脑有以下几种连接方式：
-有线 蓝牙 2.4G接收器 厂商会宣传自己的键盘是“几模”的，表示有几种连接方式，比如单模就是只有一种。
-轴体 我们先不去区分什么红、黑、茶、青轴，而是先了解一下如何评判一颗轴。
-首先最明显的，就是按下去的手感。有的轴按下去和按动圆珠笔一样，咔——哒，咔——哒，这种轴叫做“段落轴”。而有的轴按下去就和自动铅笔一样，这种轴就叫做“线性轴”。
-其次，是按下去的力度，称作“触发压力”或“导通压力”，也就是你需要多大的力才能打出字。有时候商品介绍里会放出“行程图”，它的横轴是按下去的距离，而纵轴则是力度，两条线一条是按下去的，另一条是抬起来的。比如下面的茶轴，从图中我们可以得知：
-按下去需要 40g 的力 在 1.3mm 处有一个 50g 的峰，然后力会骤减，说明有段落感 在 2mm 处触发（这个叫触发行程，operating position） 回弹时也会有段落感 总行程是 4mm 下面这个是银轴，可以发现它与茶轴有很大不同：
-按下去只需要 30g 的力 线是直的，说明没有段落感 在 1.3mm 处就触发了 总行程是 3.4mm 从行程图中我们基本上就可以得知这个轴的完整手感，这时候就可以根据个人喜好来选轴了，力气小的（或打字多的）就选力度小的轴，喜欢段落的就选段落轴，等等。当然，最好还是能亲自上手感受一下（可以借别人/或运费险）。
-不同轴的外形也有区别。比如三脚轴和五脚轴，五脚轴多两个脚所以会稳一点。可以插五脚轴的键盘，必然也可以插三脚轴，但是反过来就不一定。
-简单介绍一下轴的生产厂家。很早之前，还是以外国的樱桃的轴为主，不过近几年国产厂商也开始崛起了，比如 TTC、凯华、高特、佳达隆、九紫、环诺等等。国产厂商在轴的材质、结构上有很多创新，这个就不一一列举了，如果遇到没听过名字的轴，就去 B站上搜一下测评。
-键帽 键帽主要是以材质和高度区分。材质分为 PBT 和 ABS 两种塑料材质，前者比较干爽，后者则比较容易打油，因此 PBT 好于 ABS。但有的键帽虽然宣传使用了 PBT，但可能含量只有 30% 甚至更低，这种就不怎么好。
-另外键帽高度也有很大区别。常见的高度有：原厂（Cherry）、OEM、SA、MDA、XDA等，可以参考下面这张图。带弧度的键帽打起字来更舒服，而平键帽则看起来更好看。
-另外键帽的上色工艺也有很大区别，常见的有二色注塑和热升华，后者可以画更复杂的图案，但有可能会出现图案不清晰的情况。这里就不详细说了。总而言之，图案好看、清晰，打起字来顺手，就是好键帽。
-键盘结构 机械键盘有很多结构，如下图。现在市面上常见的是 Tray mount（船壳）和Gasket mount（垫片），后者高级一点。</description></item><item><title>WSL手册</title><link>http://example.org/posts/2023/2023-06-13-wsl-manual.md/</link><pubDate>Tue, 13 Jun 2023 19:24:00 +0800</pubDate><guid>http://example.org/posts/2023/2023-06-13-wsl-manual.md/</guid><description>WSL 简介 WSL（Windows Subsystem for Linux），中文为“适用于 Linux 的 Windows 子系统”，是 Windows 自带的虚拟机，利用这个我们可以方便地在 Windows 上安装 Linux 系统。
-安装 安装过程可以参考 使用 WSL 在 Windows 上安装 Linux，简单来说就是打开 Hyper-V（在“启用或关闭 Windows 功能”里），然后运行
-wsl --install 默认情况下安装 Ubuntu，也可以指定特定的 Linux 发行版：
-wsl --install -d &amp;lt;Distribution Name&amp;gt; &amp;lt;&amp;lt;Distribution Name&amp;gt; 可以用 wsl --list --online 来查看，目前可用的系统为：
-NAME FRIENDLY NAME Ubuntu Ubuntu Debian Debian GNU/Linux kali-linux Kali Linux Rolling Ubuntu-18.04 Ubuntu 18.04 LTS Ubuntu-20.04 Ubuntu 20.04 LTS Ubuntu-22.04 Ubuntu 22.04 LTS OracleLinux_7_9 Oracle Linux 7.</description></item><item><title>更换固态</title><link>http://example.org/posts/2023/2023-06-06-change-ssd/</link><pubDate>Fri, 02 Jun 2023 12:27:00 +0800</pubDate><guid>http://example.org/posts/2023/2023-06-06-change-ssd/</guid><description>美美在618送了我一个固态硬盘（致钛的TiPlus7100），我把原来的 TiPlus5000 换下来给她。
-1. 备份文件 更换固态之前，确保重要文件都已经备份了，并且记录下有用的软件的名字。
-2. 制作系统安装U盘 下载系统文件（以.iso结尾），很多高校都有微软正版化网站，上面就有系统文件；或者使用下面的磁力链接。根据自己需要选择 11 或 10（我选择 11） Windows 11 (business editions), version 22H2：magnet:?xt=urn:btih:bdfd6c7500a4726870c4d5214250657f6d00015c&amp;amp;dn=zh-cn_windows_11_business_editions_version_22h2_updated_may_2023_x64_dvd_76248ab3.iso&amp;amp;xl=5757857792 Windows 10 (business editions), version 22H2：magnet:?xt=urn:btih:41f65f6a113077a9c5b6b1f160fd862be545cce4&amp;amp;dn=zh-cn_windows_10_business_editions_version_22h2_updated_may_2023_x64_dvd_b7e877b8.iso&amp;amp;xl=5975597056 下载 Rufus 软件，去 官网 下载就行 将一个空闲的U盘插到电脑上，注意备份里面的资料 打开 Rufus，选择 U 盘，选择 iso 文件，然后点开始就行。选项都保持默认就行。 3. 更换固态 关机 把后盖的螺丝拧下来，并放到一个小盒子里，避免丢失。 然后用卡片或吸盘把后盖打开，注意不要用蛮力，避免卡扣断裂（虽然断裂也可以用螺丝固定，但心里还是会膈应的） 断开电池排线（嫌麻烦可不做） 确保手上没有静电 把固态螺丝拧下来，放到另一个小盒子里，避免与后盖螺丝混淆 把旧固态斜向上拔出来 把新固态斜着插进去，然后再放平 用螺丝将固态固定住 将盖子掩盖上，不要盖严，以免后续有问题又要打开。 4. 安装系统 将前面的 U 盘插上 开机 正常来说会进到安装系统的界面，如果进到 Bios，说明 U 盘有问题，请重新制作 U 盘 然后根据提示安装系统就行 系统安装好后，会自动联网安装驱动（在设置的 Windows 更新里），需要手动重启一两次。如果有驱动没安装，去电脑厂商的官网里找对应驱动。 5. 激活系统 关闭 Windows 安全中心的实时保护（在病毒和威胁防护，“病毒和威胁防护”设置，管理设置，实时保护） 下载 HEU KMS Activator 然后点“开始”就行 这个软件也可以激活 Office 6.</description></item><item><title>Switch</title><link>http://example.org/goodstuffs/switch/</link><pubDate>Thu, 01 Jun 2023 00:00:00 +0000</pubDate><guid>http://example.org/goodstuffs/switch/</guid><description>「Nintendo Switch」是一部可配合不同场合切换形态的游戏机，随时随地畅玩任天堂出品的高品质游戏。</description></item><item><title>LaTeX OCR（截图转LaTeX）软件</title><link>http://example.org/posts/2023/2023-02-04-latex-ocr/</link><pubDate>Sat, 04 Feb 2023 10:26:00 +0800</pubDate><guid>http://example.org/posts/2023/2023-02-04-latex-ocr/</guid><description>已经有这类的软件：Mathpix，但教育用户（用教育邮箱注册）每月只能识别 100 张图片，pro用户可以识别 5000 张（一年340RMB）。目前找到两个替代品。
-SimpleTex SimpleTex 是学生开发的，目前用起来速度不错（使用的是他们的服务器），可以识别多行公式，但不清楚未来会不会限制次数。目前推荐使用。
-pix2tex Github 上开源免费的软件 pix2tex - LaTeX OCR，本地运行无需联网，但安装复杂。
-安装过程 为了更好的管理 Python，我们先安装 Miniconda，直接到 https://docs.conda.io/en/latest/miniconda.html 安装最新的 Windows 64-bit 版本。全点确定即可。
-安装好后，会弹出 Getting started with conda 的网页，这里简单介绍了 Miniconda 的用法，建议简要过一遍。然后我们开始为软件配置环境。
-打开 Anaconda Prompt 软件，然后输入下面的命令（可能需要）
-新建一个环境：
-conda create --name latex_ocr 激活环境
-conda activate latex_ocr 安装 pytorth （人工智能框架）
-conda install pytorch torchvision torchaudio cpuonly -c pytorch 然后会出现一堆要安装的软件包，按 y 来确认。如果速度太慢或出现 CondaError，可以尝试挂代理或 换源。这一步是比较慢的，得有耐心。
-安装 pix2tex
-pip install pix2tex[gui] 输入 latexocr 来启动软件。如果出现：ImportError: DLL load failed while importing _imaging: 找不到指定的模块。，可以尝试升级 PIllow：pip install --upgrade Pillow。第一次启动需要下载模型文件。</description></item><item><title>关于电容悖论的讨论</title><link>http://example.org/posts/2022/2022-11-19-a-dicussion-of-capacitor/</link><pubDate>Sat, 19 Nov 2022 10:14:00 +0800</pubDate><guid>http://example.org/posts/2022/2022-11-19-a-dicussion-of-capacitor/</guid><description>介绍 在浏览开关电容的相关内容时看到这个很有意思的电容悖论 ，内容如下：
-有两个相同的电容并联，中间有一个开关。其中一个电容被 $V_i$ 的电压源充满电，另一个则未充电。当开关闭合时，前者的电荷 $Q=CV_i$ 会被平分到两个电容上，而电压会变为 $V_f=\frac{Q}{2C}=\frac{V_i}{2}$. 开始时的能量为：$W_i=\frac{1}{2}C V_i^2$，而结束时的能量为 $W_f=2\cdot \frac{1}{2} C V_f^2=\frac{1}{4}C V_i^2=\frac{1}{2} W_i$. 也就是说有一半的能量消失了？
-这个问题最早提出于1995年，在知乎上有一定的讨论，我在此也搬运一些观点。
-解释 首先，该悖论是由“理想电路”导致的。我们假设了导线上没有任何电感或电阻，这就导致开关闭合瞬间，电流无穷大（而这是不被允许的）。因此我们必须让导线有电感/电阻。
-如果导线有电感，那么电路就会振荡，能量在LC中交替存储，无能量损耗。 如果导线有电感，并且导线长度不为0，那么振荡会产生电磁波，从而损失能量。这就像有电阻一样，我们称为“辐射电阻”。由于电荷没有损失，因此最终的电压与悖论中的情况一致，能量通过电磁辐射损失。 如果导线有电阻，那么这就是一个 RC电路，电流以 $e^{-t/\tau}$ 的形式减小到 0. 最终的电压与悖论中的情况一致，能量通过电阻热耗散损失。 如果导线同时存在电感与电阻，那么能量通过电磁辐射与电阻热耗散损失。 这个解释很好理解。但我还是不太理解“电流不能无穷大”（无穷大时可能有某些物理定律失效吧，具体是什么呢？），有一种解释是（开关闭合瞬间）无穷大的电流会产生无穷大的电磁波，同样会损失能量；另一种解释是（趋于）无穷大的电流通过（趋于）0电阻的功率不是0。
-为了加深理解，我想进一步讨论一下有电阻时的情况。根据KVL与KCL，有：
-$$ \begin{cases} U_1 = U_2 + IR\ I=-C\dfrac{{\rm d} U_1}{{\rm d}t} = C\dfrac{{\rm d} U_2}{{\rm d}t}\ U_{1,o}=U_i, U_{2,o}=0 \end{cases} $$
-算出来：
-$$ I = \frac{U_i}{R} e^{-2t/RC} $$
-电阻上耗散的功率为：$P_R=\frac{U_i^2}{R}e^{-4t/RC}$，也就是说 $R$ 越大，初始电流越小，初始功率越小，耗散速度（时间常数）越大。但总体积分恒为 $\frac{1}{4}CV^2$
-知乎上有答主分析了另外两种情况：为何将一满电理想电容与一相同无电电容以理想导线并联会损失一半能量？ - 一尘的回答 - 知乎，我简单摘录一下：
-如果 $L\neq 0, R=0$，那么是理想的LC振荡。</description></item><item><title>战痘</title><link>http://example.org/posts/2022/2022-10-10-face-care/</link><pubDate>Mon, 10 Oct 2022 16:22:00 +0800</pubDate><guid>http://example.org/posts/2022/2022-10-10-face-care/</guid><description>2022-10-10 早上去了广东省皮肤病医院，挂了激光美肤中心-痤疮专科的林飞燕医生的号。开了一些口服药和外涂药，还刷了果酸。刷果酸时有点刺痛感，在长痘的额头处更加明显。大概8分钟后就把酸中和掉掉了，然后敷了冰袋，涂了维生素E乳。刷完酸后的一周要注意物理防晒和保湿，不能出汗，不能游泳，可能会爆痘，但一周内会缓解。
-加了医生的微信，医生给我发了注意事项：https://www.meipian.cn/4bs4tw4h，
-口服 盐酸多西环素片（强力霉素）：14片，餐后口服，每天2次，每次1片。（用于消炎）
-知乎上的注意事项：
-吃的时候要准备一杯的温热水，这药对咽喉这些地方有腐蚀作用，很多人吃这药不注意然后去医院检查喉咙管，所以喝的时候一定要把他打下去。 要在饭后吃，半小时都可以，千万千万不要空腹吃，我试过两次，真的是头晕、恶心、还想吐。 再者就是服药期间要注意防晒，看见外面太阳大了，选择不出去或者物理防晒（有轻度光敏性，容易晒黑，服用期间注意防晒。） 维生素B6片：42片，餐后口服，每天3次，每次1片。
-外涂 （5天后，即10月15号开始涂）过氧苯甲酰凝胶（班赛）：大颗的痘痘可以点涂，每天2次
-针清/火针/电离子或者刷酸之后皮肤比较脆弱或者有针眼，前三天不能用自来水洗脸，也先不着急用刺激性的外用药，比如氯霉素酊、过氧化苯甲酰、壬二酸，通常3~5天以后再开始用。
-剩下的闭口粉刺和黑痘印可以点涂壬二酸，大颗的痘痘可以点涂过氧化苯甲酰
-知乎上的注意事项：早上出门前半小时或者晚上睡前1小时洁面后少量点涂，每日1-2次。以点涂方式用起，只能取少量在指尖，揉成薄薄一层，点在痘痘的部位。初次使用时，最好半小时后洗掉，用几次后，逐步增加药物停留时间，可以让班赛在痘痘上保至少留2小时，千万不要涂到正常皮肤和粘膜部位。
-复方黄柏液涂剂：外用，每天2次，每次适量。（抗菌消炎）
-复方黄柏液在针清或者刷酸后的皮肤屏障修复期，可以替代面膜、无菌湿敷，清洁创面、消炎杀菌还可以促进修复，便宜又好用，建议一天2~3次。
-说明书上说：浸泡纱布条外敷于感染伤口内
-酮康唑洗剂：隔天外洗1次，洗后用清水冲洗干净（广谱的抗真菌药）
-出油出汗多的时候，晚上洗澡时可以用酮康唑洗剂，当洗面奶/洗发水/沐浴露都行，去油的同时还可以杀菌。出油不多的时候，可以用自己的洗面奶，皮肤完整/干燥清爽的时候可以只用清水洗脸。痘痘肌跟出油密切相关，所以一天只洗两次脸是不够的哦。
-熊果苷凝胶：每晚外涂1次（抑制黑色素，减少皮肤色素沉淀）
-到了后面留下黑色痘印的时候可以外用熊果苷凝胶，这个药很温和，可以在睡觉前抹全脸当美白晚霜，但是要记得避光使用。
-盐酸克林霉素凝胶：局部外用，每日2次（克林霉素对痤疮致病菌——痤疮丙酸杆菌有直接抑制或杀灭作用，从而起到治疗痤疮的作用）
-然后可以大面积外用克林霉素，没有刺激性、有伤口和破损也可以直接用。这个药不油腻，可以保湿，避免皮肤紧绷干燥，所以就不需要另外再用乳液和保湿霜了。如果脓肿、脓疱比较大个，炎症比较深，可以涂复方多粘菌素B或者夫西地酸乳膏，这两个可以渗透得比较深。
-总结一下用药顺序：
-早晚餐后：盐酸多西环素片（强力霉素） 早中晚餐后：维生素B6片 早上：敷“复方黄柏液涂剂”，涂“盐酸克林霉素凝胶” 晚上：洗澡时用“酮康唑洗剂”当洗面奶（隔天用），用完后洗干净。然后敷“复方黄柏液涂剂”，涂“盐酸克林霉素凝胶”。睡前涂“熊果苷凝胶”。 特殊：有大的痘痘涂“过氧苯甲酰凝胶” 花费：西药38.87，中成药46.71，刷酸640，检查费10，一共735.6</description></item><item><title>国际校区生存指南</title><link>http://example.org/posts/2022/2022-09-12-gics-guide/</link><pubDate>Mon, 12 Sep 2022 22:18:03 +0800</pubDate><guid>http://example.org/posts/2022/2022-09-12-gics-guide/</guid><description>课表 上学期 节次 时间 周一 周二 周三 周四 周五 第一节课 8:50-9:35 项目管理概论 (13-16周) 余建军 F3-b111 自然辩证(3-10周) 刘金玉 F3-b101 微电子器件物理(3-17周) 李斌 周绍林 F3-b310 第二节课 9:40-10:25 第三节课 10:40-11:25 新时代中特 郭厚佳 F3-d117 宽禁带半导体（3-17周） 耿魁伟 F3-b209 第四节课 11:30-12:15 午饭 第五节课 14:00-14:45 电路分析与综合(3-14周) 余卫宇 F3-b203 可靠性(7-17周) 李斌 F3-a512 第六节课 14:50-15:35 第七节课 15:45-16:30 第八节课 16:35-17:20 晚饭 第九节课 19:00-19:45 论文写作与学术规范（9-12周3节 13-14周2节） 贾奎 赵建 D1-b110 C1-b115 第十节课 19:55-20:40 第十一节课 20:50-21:35 下学期 节次 时间 周一 周二 周三 周四 周五 第一节课 8:50-9:35 数理统计理论与方法（3-20周）朱锋锋 F3-b101 第二节课 9:40-10:25 第三节课 10:40-11:25 电子系统EDA设计（3-18周）贺小勇 F3-a313 第四节课 11:30-12:15 午饭 第五节课 14:00-14:45 模拟集成电路分析与设计（3-18周）秦培 F3-c403 第六节课 14:50-15:35 第七节课 15:45-16:30 工程伦理（3-10周）郭忆薇 F3-b208 第八节课 16:35-17:20 晚饭 第九节课 19:00-19:45 射频集成电路理论与设计（3-18周）陈志坚 F3-a512 数字集成电路理论与设计（3-18周）姚恩义 F3-a512 第十节课 19:55-20:40 第十一节课 20:50-21:35 培养方案 专业学位硕士研究生主要采取课程学习、专业实践和学位（毕业）论文相结合的方式进行培养。专业实践累计时间一般应不少于6个月（不具有2年企业工作经历的工程类专业学位硕士研究生专业实践时间应不少于1年）。学位论文一般不少于1年。 专业学位研究生培养实行校内外双导师制。以校内导师指导为主，校外导师参与实践过程、项目研究、课程与论文等多个环节的指导工作。专业学位研究生应在导师指导下于入学后两周内指定出培养计划。 总学分不少于32学分 课程学习不少于26学分 公共必修课不少于10学分 专业基础课不少于12学分 专业选修课不少于3学分 公共选修课不少于1学分 校外专业实践6学分 除满足学校规定的最低要求外，符合下列标准之一可申请答辩：</description></item><item><title>顺德旅游计划</title><link>http://example.org/posts/2022/2022-06-08-shunde-trip/</link><pubDate>Wed, 08 Jun 2022 13:36:00 +0800</pubDate><guid>http://example.org/posts/2022/2022-06-08-shunde-trip/</guid><description/></item><item><title>尝试Hugo</title><link>http://example.org/posts/2022/2022-05-25-try-out-hugo/</link><pubDate>Wed, 25 May 2022 14:34:00 +0800</pubDate><guid>http://example.org/posts/2022/2022-05-25-try-out-hugo/</guid><description/></item><item><title>教育网ip地址</title><link>http://example.org/posts/2022/2022-05-24-cernet-ip/</link><pubDate>Tue, 24 May 2022 15:59:00 +0800</pubDate><guid>http://example.org/posts/2022/2022-05-24-cernet-ip/</guid><description/></item><item><title>视频编码器</title><link>http://example.org/posts/2022/2022-05-21-video-encoders/</link><pubDate>Sat, 21 May 2022 13:36:00 +0800</pubDate><guid>http://example.org/posts/2022/2022-05-21-video-encoders/</guid><description/></item><item><title>Setup Ubuntu</title><link>http://example.org/posts/2022/2022-05-16-setup-ubuntu/</link><pubDate>Mon, 16 May 2022 15:49:00 +0800</pubDate><guid>http://example.org/posts/2022/2022-05-16-setup-ubuntu/</guid><description/></item><item><title>Windows to Go</title><link>http://example.org/posts/2022/2022-05-07-windows-to-go/</link><pubDate>Sat, 07 May 2022 10:08:00 +0800</pubDate><guid>http://example.org/posts/2022/2022-05-07-windows-to-go/</guid><description>可随身携带的Windows系统</description></item><item><title>游戏玩后感</title><link>http://example.org/posts/2022/2022-04-04-games-i-palyed/</link><pubDate>Mon, 04 Apr 2022 10:38:00 +0800</pubDate><guid>http://example.org/posts/2022/2022-04-04-games-i-palyed/</guid><description>对已完游戏的总结</description></item><item><title>北京旅游计划</title><link>http://example.org/posts/2022/2022-01-02-beijing-trip-plan/</link><pubDate>Sun, 02 Jan 2022 00:43:00 +0800</pubDate><guid>http://example.org/posts/2022/2022-01-02-beijing-trip-plan/</guid><description/></item><item><title>数据结构：B&amp;B+树</title><link>http://example.org/posts/2021/2021-12-30-data-structure-b-b+-tree/</link><pubDate>Thu, 30 Dec 2021 15:22:00 +0800</pubDate><guid>http://example.org/posts/2021/2021-12-30-data-structure-b-b+-tree/</guid><description>B&amp;amp;B+树是2-3树的扩展</description></item><item><title>数据结构：堆 Heap</title><link>http://example.org/posts/2021/2021-12-28-data-structure-heap/</link><pubDate>Tue, 28 Dec 2021 20:34:00 +0800</pubDate><guid>http://example.org/posts/2021/2021-12-28-data-structure-heap/</guid><description>堆是一种特殊的完全二叉树</description></item><item><title>数据结构一周速成</title><link>http://example.org/posts/2021/2021-12-23-data-structure-flash-review/</link><pubDate>Thu, 23 Dec 2021 20:34:00 +0800</pubDate><guid>http://example.org/posts/2021/2021-12-23-data-structure-flash-review/</guid><description/></item><item><title>简明色彩理论与样式</title><link>http://example.org/posts/2021/2021-12-15-color-design/</link><pubDate>Wed, 15 Dec 2021 20:34:00 +0800</pubDate><guid>http://example.org/posts/2021/2021-12-15-color-design/</guid><description/></item><item><title>关于字体的二三事（未完）</title><link>http://example.org/posts/2021/2021-11-29-font-design/</link><pubDate>Mon, 29 Nov 2021 20:34:00 +0800</pubDate><guid>http://example.org/posts/2021/2021-11-29-font-design/</guid><description/></item><item><title>形势与政策论文</title><link>http://example.org/posts/2021/2021-11-20-politics-essay/</link><pubDate>Sat, 20 Nov 2021 10:31:00 +0800</pubDate><guid>http://example.org/posts/2021/2021-11-20-politics-essay/</guid><description/></item><item><title>Jekyll开发规划</title><link>http://example.org/posts/2021/2021-11-16-jekyll-development-plan/</link><pubDate>Tue, 16 Nov 2021 15:28:00 +0800</pubDate><guid>http://example.org/posts/2021/2021-11-16-jekyll-development-plan/</guid><description/></item><item><title>论电子产品的购买</title><link>http://example.org/posts/2021/2021-11-10-electric-device/</link><pubDate>Wed, 10 Nov 2021 11:16:00 +0800</pubDate><guid>http://example.org/posts/2021/2021-11-10-electric-device/</guid><description/></item><item><title>作息合同书</title><link>http://example.org/posts/2021/2021-10-31-sleep-time-contract/</link><pubDate>Sun, 31 Oct 2021 16:36:00 +0800</pubDate><guid>http://example.org/posts/2021/2021-10-31-sleep-time-contract/</guid><description/></item><item><title>git教程</title><link>http://example.org/posts/2021/2021-10-30-git-tutorial/</link><pubDate>Sat, 30 Oct 2021 13:01:00 +0800</pubDate><guid>http://example.org/posts/2021/2021-10-30-git-tutorial/</guid><description/></item><item><title>NBTI寿命测试</title><link>http://example.org/posts/2021/2021-10-20-nbti-test/</link><pubDate>Wed, 20 Oct 2021 10:12:00 +0800</pubDate><guid>http://example.org/posts/2021/2021-10-20-nbti-test/</guid><description>&lt;p>在此不对NBTI机理进行解释，仅展示实验数据的处理过程。&lt;/p></description></item><item><title>MOSFET阈值电压的提取</title><link>http://example.org/posts/2021/2021-10-18-extract-mosfet-theshold-voltage/</link><pubDate>Mon, 18 Oct 2021 10:12:00 +0800</pubDate><guid>http://example.org/posts/2021/2021-10-18-extract-mosfet-theshold-voltage/</guid><description>&lt;p>一些提取阈值电压的实验方法。&lt;/p></description></item><item><title>论平板</title><link>http://example.org/posts/2021/2021-10-16-about-pad/</link><pubDate>Sat, 16 Oct 2021 22:20:00 +0800</pubDate><guid>http://example.org/posts/2021/2021-10-16-about-pad/</guid><description>&lt;p>我的平板使用史，与下一部平板的选择。&lt;/p></description></item><item><title>旅行物品清单</title><link>http://example.org/posts/2021/2021-10-01-travel-package/</link><pubDate>Fri, 01 Oct 2021 23:26:00 +0800</pubDate><guid>http://example.org/posts/2021/2021-10-01-travel-package/</guid><description/></item><item><title>广州旅游指南（多图预警）</title><link>http://example.org/posts/2021/2021-09-15-guangzhou-trip/</link><pubDate>Thu, 16 Sep 2021 11:36:00 +0800</pubDate><guid>http://example.org/posts/2021/2021-09-15-guangzhou-trip/</guid><description>&lt;p>国庆出游计划&lt;/p></description></item><item><title>叉烧</title><link>http://example.org/posts/2021/2021-09-04-%E5%8F%89%E7%83%A7/</link><pubDate>Sat, 04 Sep 2021 09:15:00 +0800</pubDate><guid>http://example.org/posts/2021/2021-09-04-%E5%8F%89%E7%83%A7/</guid><description>&lt;p>叉烧不就是猪肉烧烤嘛~&lt;/p></description></item><item><title>木与桌子</title><link>http://example.org/posts/2021/2021-08-20-wood-desk/</link><pubDate>Thu, 19 Aug 2021 20:16:00 +0800</pubDate><guid>http://example.org/posts/2021/2021-08-20-wood-desk/</guid><description>&lt;p>做一张木制桌子需要了解的知识。&lt;/p></description></item><item><title>如何成为一个老司机</title><link>http://example.org/posts/2020/2020-07-03-learn-to-drive/</link><pubDate>Fri, 03 Jul 2020 07:56:00 +0800</pubDate><guid>http://example.org/posts/2020/2020-07-03-learn-to-drive/</guid><description>终于开始考驾照。
-虽然已经有各种考驾照的 app，知乎上也有很多教程，但总觉得有点懵……所以写一下我考驾照的经历。
-体检&amp;amp;报名 驾校肯定是选有熟人的驾校最好，我的教练是我母亲的同事的亲戚（这关系有点远），而且他之前教过我母亲，口碑也不错，所以我的运气还是挺好的。费用大概是四千五，不高不低。
-找好驾校后，先去拍照，尺寸我忘了，反正你去到照相馆说“拍考驾照的相片”就行了。一般需要一天的时间才能拿到照片。
-然后去体检，医院一般都会有专门给考驾照体检的地方。体检主要看你有没有手/脚，（矫正后）视力是否正常，是否色盲。只要戴上眼镜看得清，视力就 ok。体检时会问你考哪种驾驶证，我考的是 C1（手动挡），一般考的都是这个。体检完有体检表，拿着体检表和照片去驾校的报名点，签几张合同，然后工作人员会帮你注册考驾照，然后就可以开始在手机上看科目一的视频。
-于是就正式开始学习开车。
-关于考驾照的基本知识 我报名的时候完全没做任何的准备工作，感觉自己有点懵，还是要扫扫盲才行。
-驾驶证有不同的准驾车型（见下表），我们主要考的是 C1（手动挡），考了 C1 就可以开 C1、C2 的车。
-代号 准驾车型 其他准驾车型 A1 大型客车 A3、B1、B2、C1、C2、C3、C4、M A2 牵引车 B1、B2、C1、C2、C3、C4、M A3 城市公交车 C1、C2、C3、C4 B1 中型客车 C1、C2、C3、C4、M B2 大型货车 C1、C2、C3、C4、M C1 小型汽车 C2、C3、C4 C2 小型自动挡汽车 无 C3 低速载货汽车 C4 C4 三轮汽车 无 C5 残疾人专用汽车 无 M 轮式自行机械车 无 D 普通三轮摩托车 E、F E 普通二轮摩托车 F F 轻便摩托车 无 N 无轨电车 无 P 有轨电车 无 考驾照主要考科目一二三，其中科三分为路考和笔试，所以又将最后的笔试称为“科四”。科一就是考交通法律法规（笔试），科二就是考一些场地的驾驶技能，科三就是考一些道路的驾驶技能（路考），科四就是考法律法规（笔试）。每科满分100，90分以上合格。</description></item><item><title>我的Android必备应用</title><link>http://example.org/posts/2020/2020-05-12-android-app/</link><pubDate>Tue, 12 May 2020 18:01:00 +0800</pubDate><guid>http://example.org/posts/2020/2020-05-12-android-app/</guid><description>&lt;blockquote>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>document on Todd's Blog</title><link>http://example.org/categories/document/</link><description>Recent content in document on Todd's Blog</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Tue, 12 May 2020 18:01:00 +0800</lastBuildDate><atom:link href="http://example.org/categories/document/index.xml" rel="self" type="application/rss+xml"/><item><title>我的Android必备应用</title><link>http://example.org/posts/2020/2020-05-12-android-app/</link><pubDate>Tue, 12 May 2020 18:01:00 +0800</pubDate><guid>http://example.org/posts/2020/2020-05-12-android-app/</guid><description>&lt;blockquote>
 &lt;p>这几天翻出了我的小米5s与红米note4x，打算充分利用这些设备的余温，于是刷了一下机。不得不说现在刷机还是蛮简单的，一点都不麻烦。&lt;/p>
 &lt;/blockquote></description></item><item><title>操作系统总结</title><link>http://example.org/posts/2019/2019-10-28-summary-of-os/</link><pubDate>Mon, 28 Oct 2019 23:00:00 +0800</pubDate><guid>http://example.org/posts/2019/2019-10-28-summary-of-os/</guid><description>现代操作系统总结
 书写规范 定义与定理的格式如下：
@@ -182,16 +98,7 @@ CREATE TABLE IF NOT EXISTS `runoob_tbl`( `runoob_id` INT UNSIGNED AUTO_INCREMENT
 获得完善的需求规约是非常困难的； 难以适应快速变化需求； 快速原型模型 特点：
 快速原型模型是不带反馈环的，软件产品的开发基本上是按线性顺序进行的。 原型系统已经通过与用户交互而得到验证，据此产生的规格说明正确地描述了用户需求，因此，在开发过程的后续阶段不会因为发现了规格说明文档的错误而进行较大的返工。 开发人员通过建立原型系统已经学到了许多东西（至少知道了“系统不应该做什么，以及怎么不去做不该做的事情”），因此，在设计和编码阶段发生错误的可能性也比较小，这自然减少了在后续阶段需要改正前面阶段所犯错误的可能性。 缺点：
 所选用的开发技术和工具不一定符合主流的发展；快速建立起来的系统结构加上连续的修改可能会导致产品质量低下。 增量模型 特点：
-能在较短时间内向用户提交可完成一些有用的工作的产品 逐步增加产品功能可以使用户有较充裕的时间学习和适应新产品，从而减少一个全新的软件可能给客户组织带来的冲击。 缺点：</description></item><item><title>openwrt搭建宿舍无线网</title><link>http://example.org/posts/2019/2019-08-26-openwrt-scut-wifi/</link><pubDate>Mon, 26 Aug 2019 18:42:00 +0800</pubDate><guid>http://example.org/posts/2019/2019-08-26-openwrt-scut-wifi/</guid><description>之前已经有用树莓派搭过路由器了，为了追求更快的网速，这次决定用 OpenWrt 系统的路由器来试试。
-准备 一台装有 OpenWrt 的路由器（任何 OpenWrt 版本都行，我买的是 NetGear 的） 校园网账号 网线 一台装有 Linux 的 x86_64 设备（电脑/虚拟机/服务器，我在教程中用的是9元的阿里云服务器，如果你都没有，可以通过E-mail：todd310378072@outlook.com 联系一下我） ssh软件（如果没有，文末有推荐软件） 一点预备知识 SSH ssh 是一种协议，我们可以通过ssh软件登录到路由器，然后通过输入命令来操作路由器。
-WAN WAN，Wide Area Network的缩写，即代表广域网。通过这个连接到学校的网络。
-LAN LAN，Local Area Network的缩写，即局域网。手机等通过这个连接到路由器。
-交叉编译 交叉编译是在一个平台上生成另一个平台上的可执行代码（软件）。
-交叉编译and部署 由于 OpenWrt 路由器并没有 cmake 和 make，所以需要先在 Linux服务器上编译好后，再部署到路由器上。
-先通过 ssh 连接路由器，然后输入：
-cat /etc/openwrt_release 然后会显示一些信息，这是我的：
-DISTRIB_ID=&amp;#39;OpenWrt&amp;#39; DISTRIB_RELEASE=&amp;#39;18.06.1&amp;#39; #重要！ DISTRIB_TARGET=&amp;#39;ar71xx/nand&amp;#39; #重要！ DISTRIB_ARCH=&amp;#39;mips_24kc&amp;#39; DISTRIB_TAINTS=&amp;#39;no-all&amp;#39; DISTRIB_REVISION=&amp;#39;R8.1.11 By Lean&amp;#39; DISTRIB_DESCRIPTION=&amp;#39;OpenWrt&amp;#39; 如果版本不是 18.06.1，或者不是ar71xx，那你需要自行找相应的 target 来编译；如果是，ssh 切换到 Linux服务器，输入：
-wget https://downloads.openwrt.org/snapshots/targets/ar71xx/generic/openwrt-sdk-ar71xx-generic_gcc-7.4.0_musl.Linux-x86_64.tar.xz 注：由于 openwrt每年都会更新，所以上面那个文件不存在的话，去 https://downloads.</description></item><item><title>Arduino库之IRremote</title><link>http://example.org/posts/2019/2019-08-22-ir-remote/</link><pubDate>Thu, 22 Aug 2019 15:10:00 +0800</pubDate><guid>http://example.org/posts/2019/2019-08-22-ir-remote/</guid><description>IRremote的wiki的中文翻译
+能在较短时间内向用户提交可完成一些有用的工作的产品 逐步增加产品功能可以使用户有较充裕的时间学习和适应新产品，从而减少一个全新的软件可能给客户组织带来的冲击。 缺点：</description></item><item><title>Arduino库之IRremote</title><link>http://example.org/posts/2019/2019-08-22-ir-remote/</link><pubDate>Thu, 22 Aug 2019 15:10:00 +0800</pubDate><guid>http://example.org/posts/2019/2019-08-22-ir-remote/</guid><description>IRremote的wiki的中文翻译
 介绍 IRremote 可以让你用标准的红外遥控器控制 Arduino，也可以用 Arduino 控制其他设备（电视、音箱等）
 下载安装请见Arduino-IRremote github page
 这份文档包括：
@@ -317,25 +224,7 @@ class Base{ public: int a; }; class Derived: private Base{ public: Base::a;//外
 赋值=、下标[]、调用()、成员访问箭头-&amp;gt;运算符必须是成员函数 具有对称性的运算符应该是非成员（比如加减乘除、相等性、关系、位运算符） 改变对象状态的运算符应该是成员（比如递增、递减、解引用） 具体的运算符 输入输出运算符(&amp;laquo;、&amp;raquo;) 考虑&amp;lt;&amp;lt;的使用方法：cout&amp;lt;&amp;lt;类类型，所以第一个对象是ostream，第二个对象是我们的类，故我们声明为非成员函数，并且声明为类的友元：
 class Sales_data{ private: std::string bookNo; unsigned units_sold = 0; double revenue = 0.0; public: friend ostream&amp;amp; operator&amp;lt;&amp;lt;(ostream &amp;amp;, const Sales_data); }; 由于ostream无法被复制，所以它的形参和返回值都是引用；而由于我们一般不改变类的数据，所以类用const修饰。
 考虑&amp;gt;&amp;gt;的用法：cin&amp;gt;&amp;gt;类类型，所以第一个对象为istream，第二个对象是我们的类，故和&amp;lt;&amp;lt;的重载方法差不多：
-class Sales_data{ private: std::string bookNo; unsigned units_sold = 0; double revenue = 0.0; public: friend istream&amp;amp; operator&amp;gt;&amp;gt;(istream &amp;amp;, Sales_data &amp;amp;); }; 同样，istream不能被复制，故形参和返回值也都是引用；而我们需要改变原类类型的值，故类的形参是引用。特别的，我们在定义输入重载函数时，需要考虑输入失败的情况，并要从失败中恢复，并将流状态设置为failbit（见《C++ Pimer》496页）</description></item><item><title>像使用Arduino一样使用STM32f103</title><link>http://example.org/posts/2019/2019-05-12-stm32duino/</link><pubDate>Sun, 12 May 2019 11:38:00 +0800</pubDate><guid>http://example.org/posts/2019/2019-05-12-stm32duino/</guid><description>用 Arduino 的 IDE 来玩 STM
-Why Arduino烧录方便，库又多，为何还要折腾STM32f103呢？原因如下：
-某些比赛禁止使用Arduino Arduino价格较贵，最便宜的nano也要7.8元（均价一般10元），而STM32f103只需6.7元（均价8元）。 STM32f103性能比Arduino好很多很多&amp;hellip; 但有个问题，就是STM32需要配置很多东西（寄存器什么的），要是可以像用Arduino一样，使用STM32f103就好了。我在网上找了一些资料，参考的是这个Arduino IDE 烧录 STM32单片机，但上面的方法还是太复杂了，我在一个不存在的网站上搜了一些资料，搬运到这里。
-准备 首先，stm32f103是必不可少的。我用的是淘宝上常见的蓝色板：（附上一张管脚图，方便以后查看）
-当然，还有另一种黑色板，也适用于本教程，某些地方要微微修改一下，我可能会写出来。
-还有就是USB转TTL，这个应该都有吧，PL2303、CH340和FT232都行。（PL2303太老了，别用）
-软件就是Arduino IDE，待会还要下载几个驱动。
-烧录程序 安装开发板支持 打开Arduino IDE，进入“文件-首选项”，下面有一个“附加开发板管理器网址”，添加http://dan.drown.org/stm32duino/package_STM32duino_index.json，保存设置。然后再进入“工具-开发板-开发板管理器”，搜索并安装stm32f1xx。
-连接硬件 把USB转TTL串口连接到STM32，连接方式如下：
-3.3V&amp;mdash;&amp;ndash;&amp;gt;3.3（或VCC&amp;mdash;&amp;ndash;&amp;gt;5V） GND&amp;mdash;&amp;ndash;&amp;gt;G TXD&amp;mdash;&amp;mdash;&amp;gt;A10 RXD&amp;mdash;&amp;mdash;&amp;gt;A9 顺便说一句，一般我们是只连后三个的，Vcc则是另外接，防止电压不够或烧板。不过电脑的电压不大，为了方便可以连上。
-烧录程序 把stm32上的跳线帽boot0置1（对于蓝色板就是靠近排针的那个，黑色板则是标注BT0的那个脚），再把USB转TTL插到电脑上（请确保你的电脑可以识别，如果你之前折腾过51，那装了相应的驱动），然后按一下stm32的RESET按钮。
-打开Arduino IDE，在“文件-示例”中有一个“A_STM32_Examples”，在“Digital”的分类下找到“Blink”，打开它。把程序中的“PB1”改为“PC13”（因为我们的板载LED接在PC13脚上，见第一张图）。然后”工具-开发板“，选择“Generic STM32F103C series”，“Upload Method”选择“Serial”。
-点击上传。上传成功后，把stm32拿下来，把跳线帽boot0置0，连接micro usb电源，即可看到黄灯闪烁。
-烧录bootloader 按道理，上面以及可以用Arduino IDE烧录stm32f103了，但每次都要连接USB转TTL多不方便啊，我的目标是像Arduino nano一样直接用USB连接到电脑。
-原理 （个人理解）你有没有想过，为什么电脑需要安装驱动才能识别USB转TTL，而stm32f103则可以直接识别USB转TTL呢？其实，stm32f103内部也有“驱动”，由于它的内存太小，所以只装一个“驱动”，而它默认的是串口的“驱动”，要是我们能把“驱动”换成mini USB，那么就可以直接连到电脑。下面为步骤。
-安装软件 首先先下载几个东西：
-Flash Loader 改Flash软件，免费但需要注册。下载好之后安装。 Drivers 驱动，使电脑可以识别stm32f103c。下载后运行bat文件 Binaries 我们要写入Flash的东西，下载有“PC13”的那个（对应板子上的LED） 改写bootloader 像刚才那样，将stm32f103的跳线帽boot0置1，然后通过USB转TTL连接到电脑。打开刚才安装的flash loader（安装后显示的名字是Demonstrator GUI），它会进入下面几个页面：
-像刚才那样，将stm32f103的跳线帽boot0置1，然后通过USB转TTL连接到电脑。
-第一个页面，即“Select the communication port and set settings”，将Port Name选为对应的USB口，点击next。如果卡在next那里，检查一下连线，实在不行重新拔插USB转TTL； 第二个页面，即“Target is readable.</description></item><item><title>对C++类的整理(1)——类基础</title><link>http://example.org/posts/2019/2019-04-20-summary-class-of-c++/</link><pubDate>Sat, 20 Apr 2019 21:03:00 +0800</pubDate><guid>http://example.org/posts/2019/2019-04-20-summary-class-of-c++/</guid><description>想象我们经营一家书店，需要对每本书的销售数据进行统计，我们将编写一个Sales_data，来完成这件事，并过一次类的基础知识。
+class Sales_data{ private: std::string bookNo; unsigned units_sold = 0; double revenue = 0.0; public: friend istream&amp;amp; operator&amp;gt;&amp;gt;(istream &amp;amp;, Sales_data &amp;amp;); }; 同样，istream不能被复制，故形参和返回值也都是引用；而我们需要改变原类类型的值，故类的形参是引用。特别的，我们在定义输入重载函数时，需要考虑输入失败的情况，并要从失败中恢复，并将流状态设置为failbit（见《C++ Pimer》496页）</description></item><item><title>对C++类的整理(1)——类基础</title><link>http://example.org/posts/2019/2019-04-20-summary-class-of-c++/</link><pubDate>Sat, 20 Apr 2019 21:03:00 +0800</pubDate><guid>http://example.org/posts/2019/2019-04-20-summary-class-of-c++/</guid><description>想象我们经营一家书店，需要对每本书的销售数据进行统计，我们将编写一个Sales_data，来完成这件事，并过一次类的基础知识。
 类的简介 类的本质上是一种自定义的数据类型，它基本组成为(D, S, P)，D为数据对象，S为D上的关系集，P为对D的基本操作。简单来讲，就是：类=数据+操作。
 类的声明以关键字struct开始（也可以用class，区别后面会讲。），紧跟着类名和类体（类体可为空）：
 struct Sales_data{ //类体 }; //不要漏了分号！ 每个类内部是一个新的作用域，所以其内部定义的名字可以和外部重复。
@@ -352,16 +241,7 @@ struct Sales_data{ std::string isbn() const {return bookNo;}//返回isbn码 //�
 sudo nano /etc/apt/sources.list 注释官方源，然后在下面选一个输进去：
 #清华大学 deb http://mirrors.tuna.tsinghua.edu.cn/raspbian/raspbian/ stretch main contrib non-free rpi deb-src http://mirrors.tuna.tsinghua.edu.cn/raspbian/raspbian/ stretch main contrib non-free rpi #中国科技大学 deb http://mirrors.ustc.edu.cn/raspbian/raspbian/ stretch main contrib non-free rpi deb-src http://mirrors.ustc.edu.cn/raspbian/raspbian/ stretch main contrib non-free rpi #阿里云 deb http://mirrors.aliyun.com/raspbian/raspbian/ stretch main contrib non-free rpi deb-src http://mirrors.aliyun.com/raspbian/raspbian/ stretch main contrib non-free rpi 修改系统更新源：
 sudo nano /etc/apt/sources.list.d/raspi.list 同样，注释掉官方源，换成下面这个：
-#中国科技大学 deb http://mirrors.ustc.edu.cn/archive.raspberrypi.org/debian/ stretch main ui 然后执行：</description></item><item><title>Raspbian版SCUT树莓派搭建宿舍无线网</title><link>http://example.org/posts/2019/2019-03-27-raspberrypi-scut-wifi/</link><pubDate>Wed, 27 Mar 2019 16:26:00 +0800</pubDate><guid>http://example.org/posts/2019/2019-03-27-raspberrypi-scut-wifi/</guid><description>自己动手，丰衣足食。
-首先我要特别感谢 象牙塔塔主，ta 的文章是我在网上查到的唯一资料，为了向 ta 致敬，我决定沿用 ta 的主标题（希望这不要被认为是蹭热度&amp;hellip;&amp;hellip;），并且我这篇教程只允许他转载。希望各位同学去 ta 的 简书 关注并点赞。
-同时感谢 scutclient，他们才是真正的大神。
-有任何问题，请联系我：201830260422@mail.scut.edu.cn，如果是小姐姐，直接加我的微信好了
-为什么“多此一举”？ 网上已经有相关教程了：SCUT树莓派宿舍搭建无线网，那个教程写得很好，但我在实践的过程中遇到了问题：
-Ubuntu 对树莓派 3B+ 的支持不是很好，官网上提供的系统根本用不了。 Ubuntu 太过于臃肿，树莓派孱弱的性能不是很够，而且 Ubuntu 耗电貌似大一点。 于是我结合那个教程，把其中 Ubuntu 换成 Debian
-另外，如果你想用路由器，可以看我这个教程 openwrt搭建宿舍无线网
-准备 校园网账号（有线网可用，如果是黑市买的账号，要向卖家拿相关设置） 安装好 Debian 的树莓派（以及屏幕、键盘、鼠标、电源，不要用 ssh） 网线 网络（我们需要下载一些东西） 连接SCUT有线网 Step 1 首先安装 cmake，输入下面命令：
-sudo apt-get install cmake 按Ctrl+Alt+t打开命令行，依次输入以下命令：
-git clone https://github.com/scutclient/scutclient.git cd scutclient mkdir build &amp;amp;&amp;amp; cd build sudo cmake .. sudo make 然后右键点击右上角的WiFI图标，点第一个Wireless &amp;amp; Wired Network Setting，会弹出下面界面：</description></item><item><title>Arduino与I2C总线协议</title><link>http://example.org/posts/2019/2019-03-18-i2c-bus/</link><pubDate>Mon, 18 Mar 2019 22:16:00 +0800</pubDate><guid>http://example.org/posts/2019/2019-03-18-i2c-bus/</guid><description>为了参加学院的电信杯，好好学一下 I2C
+#中国科技大学 deb http://mirrors.ustc.edu.cn/archive.raspberrypi.org/debian/ stretch main ui 然后执行：</description></item><item><title>Arduino与I2C总线协议</title><link>http://example.org/posts/2019/2019-03-18-i2c-bus/</link><pubDate>Mon, 18 Mar 2019 22:16:00 +0800</pubDate><guid>http://example.org/posts/2019/2019-03-18-i2c-bus/</guid><description>为了参加学院的电信杯，好好学一下 I2C
 I2C总线协议入门 I2C总线协议（ 全称：Inter Integrated Circuit，又叫 I^2^C，IIC）是一种连接低速设备的通信协议，是由 Philips 在80年代设计的。它有如下几个优点：
 只需要两条数据线； 没有严格的波特率（baud rate）限制 主/从关系简单 多主控，但任何时间点只能有一个主控。 缺点也有：
 传输速度比SPI慢 每个数据字节都只能是8位 硬件要求比SPI更高 硬件结构 下面这幅图展示了单个主/从机之间的电路连接：
@@ -381,14 +261,4 @@ VCC 为I2C提供电压，范围为1.2V~5.5V GND 共地接线 SDA Serial data 串
 这种结构虽然效率较低，但其驱动电流/电压较小，很适合驱动能力差的微处理器和传感器。
 I2C操作 I2C可以在主/从机之间的双向通信。为了分辨每个设备，每个设备都有一个独一的地址，这样主机就能通过地址和指定的从机通信。下面是一个大概的流程：
 假如主机想要给从机发送数据： 主机发送起始条件和从机寄存器的地址 主机发送数据 主机发送终止条件 假如主机想要接收读取从机数据： 主机发送起始条件和从机寄存器地址 主机发送读指令 主机从从机接收数据 主机发送终止条件 下面我们来详细讲解一下。
-起始条件和终止条件 开始条件：当SCL为高电平时，SDA从高电平变为低电平；终止条件：当SCL为高电平时，SDA从低电平变为高电平。</description></item><item><title>初次尝试用Github搭建博客</title><link>http://example.org/posts/2019/2019-03-17-first-try-with-github-blog/</link><pubDate>Sun, 17 Mar 2019 14:00:00 +0800</pubDate><guid>http://example.org/posts/2019/2019-03-17-first-try-with-github-blog/</guid><description>记录我第一次搭建博客的过程
-为什么要搭博客？ ​ 博客就是QQ空间、微博、朋友圈、公众号的祖宗，但这些晚辈大多太零碎，如果你希望自己的文章能够保持连贯性，那么还是得用回1995年发明得博客。别觉得博客老土。把它看作一个网站，专属于你的网站。你可以自由地编辑网站的样式，在网页上添加各种动画图片，把它弄成你的风格。这样一想，博客貌似挺cool的。
-​ 传统搭博客的方法一般是去新浪博客或其他网站申请一个账号，然后往里面添加文章。但它的版式就那几种，不能自己定制，特难看。而GIthub的博客是全定制的（但限于静态博客），如果你厉害，可以自己写网页；又或者，如果你嫌麻烦，可以用别人编好的主题。这些主题来自于全世界，数量也很多，总有一款是适合你的。对了，虽然功能很强大，但Github的博客依然是免费的。
-顺便一句，博客还是用自己的域名比较好，我以后还是学学怎么建站吧。
-如何用Github搭博客 ​ 首先申请Github账号，然后创建一个“账号名+github.io”的repo，然后设置里就会出现相关设置，按它的步骤写就行了。具体步骤请看傻瓜都可以利用github pages建博客，我就是照着上面来做的。前面这些过程花费不到半小时。
-​ 然后特别操蛋的来了，下载了jekyll主题后，你需要一个一个修改页面上的文字（不然它还保留着别人博客的字），有时候根本找不到要修改的文件，这个花了我一个中午的时间去找&amp;hellip;&amp;hellip;这里有一个特别的技巧，就是用浏览器打开博客，然后在空白处点击右键，选则“检查”，这样就可以找到相关文件了。
-​ 修改好后，把它提交到Github仓库，然后去setting检查一下，如果你的内容有错，它会在setting那里指示出来，按提示修改就行了。如果没问题，过1~2分钟后就可以看到自己的博客了。
-Github博客有一定的限制，尽管普通人很难达到这个限制，但我还是写一下：
-仓库空间不大于1G （文字与多媒体分开，1G的文字都可以出书了吧） 每个月的流量不超过100G （有这么多人访问，应该有能力弄服务器了吧） 每小时更新不超过 10 次 （一天一更就不错了） 记录我使用的博客主题 第一个主题 ​ 我用的是LessOrMore主题，是由国人编写的，对中文支持很好，版式很简洁。大部分修改要修改的文件在根目录和_includes文件夹里。我把原作者的一些链接改成了我社交媒体的链接（其实就只有Github和B站）。根目录的_config.yml修改格式如下：
-name: 博客名称 email: 邮箱地址 author: 作者名 url: 个人网站 ### baseurl修改为项目名，如果项目是&amp;#39;***.github.io&amp;#39;，则设置为空&amp;#39;&amp;#39; baseurl: &amp;#34;/LessOrMore&amp;#34; resume_site: 个人简历网站 github: github地址 github_username: github用户名称 FB: comments : provider : duoshuo duoshuo: short_name : 多说账户 disqus : short_name : Disqus账户 ​ 每次新写文章，都要在开头加上：
---- layout: post #标题配置 title: 标题 #时间配置 date: 2019-08-27 01:08:00 +0800 #大类配置 categories: document #小类配置 tag: 教程 #网易云音乐，只能播放无版权保护的 music-id: 465675773 --- * content {:toc} 我是正文。我是正文。我是正文。我是正文。我是正文。我是正文。 如果想要在文章里插入图片，可以这样写（路径为github内的路径）：</description></item></channel></rss>
+起始条件和终止条件 开始条件：当SCL为高电平时，SDA从高电平变为低电平；终止条件：当SCL为高电平时，SDA从低电平变为高电平。</description></item></channel></rss>

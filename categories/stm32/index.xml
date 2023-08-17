@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>STM32 on Todd's Blog</title><link>http://example.org/categories/stm32/</link><description>Recent content in STM32 on Todd's Blog</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Sun, 12 May 2019 11:38:00 +0800</lastBuildDate><atom:link href="http://example.org/categories/stm32/index.xml" rel="self" type="application/rss+xml"/><item><title>像使用Arduino一样使用STM32f103</title><link>http://example.org/posts/2019/2019-05-12-stm32duino/</link><pubDate>Sun, 12 May 2019 11:38:00 +0800</pubDate><guid>http://example.org/posts/2019/2019-05-12-stm32duino/</guid><description>用 Arduino 的 IDE 来玩 STM
+Why Arduino烧录方便，库又多，为何还要折腾STM32f103呢？原因如下：
+某些比赛禁止使用Arduino Arduino价格较贵，最便宜的nano也要7.8元（均价一般10元），而STM32f103只需6.7元（均价8元）。 STM32f103性能比Arduino好很多很多&amp;hellip; 但有个问题，就是STM32需要配置很多东西（寄存器什么的），要是可以像用Arduino一样，使用STM32f103就好了。我在网上找了一些资料，参考的是这个Arduino IDE 烧录 STM32单片机，但上面的方法还是太复杂了，我在一个不存在的网站上搜了一些资料，搬运到这里。
+准备 首先，stm32f103是必不可少的。我用的是淘宝上常见的蓝色板：（附上一张管脚图，方便以后查看）
+当然，还有另一种黑色板，也适用于本教程，某些地方要微微修改一下，我可能会写出来。
+还有就是USB转TTL，这个应该都有吧，PL2303、CH340和FT232都行。（PL2303太老了，别用）
+软件就是Arduino IDE，待会还要下载几个驱动。
+烧录程序 安装开发板支持 打开Arduino IDE，进入“文件-首选项”，下面有一个“附加开发板管理器网址”，添加http://dan.drown.org/stm32duino/package_STM32duino_index.json，保存设置。然后再进入“工具-开发板-开发板管理器”，搜索并安装stm32f1xx。
+连接硬件 把USB转TTL串口连接到STM32，连接方式如下：
+3.3V&amp;mdash;&amp;ndash;&amp;gt;3.3（或VCC&amp;mdash;&amp;ndash;&amp;gt;5V） GND&amp;mdash;&amp;ndash;&amp;gt;G TXD&amp;mdash;&amp;mdash;&amp;gt;A10 RXD&amp;mdash;&amp;mdash;&amp;gt;A9 顺便说一句，一般我们是只连后三个的，Vcc则是另外接，防止电压不够或烧板。不过电脑的电压不大，为了方便可以连上。
+烧录程序 把stm32上的跳线帽boot0置1（对于蓝色板就是靠近排针的那个，黑色板则是标注BT0的那个脚），再把USB转TTL插到电脑上（请确保你的电脑可以识别，如果你之前折腾过51，那装了相应的驱动），然后按一下stm32的RESET按钮。
+打开Arduino IDE，在“文件-示例”中有一个“A_STM32_Examples”，在“Digital”的分类下找到“Blink”，打开它。把程序中的“PB1”改为“PC13”（因为我们的板载LED接在PC13脚上，见第一张图）。然后”工具-开发板“，选择“Generic STM32F103C series”，“Upload Method”选择“Serial”。
+点击上传。上传成功后，把stm32拿下来，把跳线帽boot0置0，连接micro usb电源，即可看到黄灯闪烁。
+烧录bootloader 按道理，上面以及可以用Arduino IDE烧录stm32f103了，但每次都要连接USB转TTL多不方便啊，我的目标是像Arduino nano一样直接用USB连接到电脑。
+原理 （个人理解）你有没有想过，为什么电脑需要安装驱动才能识别USB转TTL，而stm32f103则可以直接识别USB转TTL呢？其实，stm32f103内部也有“驱动”，由于它的内存太小，所以只装一个“驱动”，而它默认的是串口的“驱动”，要是我们能把“驱动”换成mini USB，那么就可以直接连到电脑。下面为步骤。
+安装软件 首先先下载几个东西：
+Flash Loader 改Flash软件，免费但需要注册。下载好之后安装。 Drivers 驱动，使电脑可以识别stm32f103c。下载后运行bat文件 Binaries 我们要写入Flash的东西，下载有“PC13”的那个（对应板子上的LED） 改写bootloader 像刚才那样，将stm32f103的跳线帽boot0置1，然后通过USB转TTL连接到电脑。打开刚才安装的flash loader（安装后显示的名字是Demonstrator GUI），它会进入下面几个页面：
+像刚才那样，将stm32f103的跳线帽boot0置1，然后通过USB转TTL连接到电脑。
+第一个页面，即“Select the communication port and set settings”，将Port Name选为对应的USB口，点击next。如果卡在next那里，检查一下连线，实在不行重新拔插USB转TTL； 第二个页面，即“Target is readable.</description></item></channel></rss>
