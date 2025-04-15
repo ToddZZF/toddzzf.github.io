@@ -2,7 +2,7 @@ baseURL = 'http://example.org/'
 languageCode = 'en-us'
 title = "Todd's Blog"
 theme = 'Cockatiel'
-paginate = 10 
+pagination.pagerSize = 10
 
 [markup.goldmark.renderer]
 unsafe = true
