@@ -1,0 +1,15 @@
+<footer class="mt-6 bg-gray-200 py-6 text-gray-800">
+  <div class="mx-auto flex max-w-7xl flex-col items-center justify-between px-6 md:flex-row">
+    <p class="text-center md:text-left">Copyright &copy; {{ now.Year }}. All rights reserved.</p>
+
+    <!-- 社交媒体链接 -->
+    <div class="mt-3 flex gap-4 md:mt-0">
+      {{ range .Site.Params.social }}
+        <a href="{{ .link }}" class="hover:text-primary" target="_blank" rel="noopener noreferrer">
+          <i class="{{ .icon }} text-xl"></i>
+          <!-- 动态加载图标 -->
+        </a>
+      {{ end }}
+    </div>
+  </div>
+</footer>

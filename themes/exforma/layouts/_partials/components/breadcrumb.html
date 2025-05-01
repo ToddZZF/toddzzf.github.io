@@ -1,0 +1,197 @@
+<div class="breadcrumb relative z-10 w-full">
+  <ul class="flex flex-wrap items-center gap-x-2 text-sm">
+    {{ template "breadcrumbnav" (dict "p1" . "p2" .) }}
+  </ul>
+</div>
+
+{{ define "breadcrumbnav" }}
+  {{ if .p1.Parent }}
+    {{ template "breadcrumbnav" (dict "p1" .p1.Parent "p2" .p2 ) }}
+  {{ else if not .p1.IsHome }}
+    {{ template "breadcrumbnav" (dict "p1" .p1.Site.Home "p2" .p2 ) }}
+  {{ end }}
+
+
+  <li class="group relative flex items-center">
+    <div class="relative inline-flex items-center">
+      <!-- Title and Dropdown Indicator -->
+      <a href="{{ .p1.Permalink }}" id="breadcrumb-title" class="{{ if eq .p1 .p2 }}text-gray-900{{ else }}text-gray-500{{ end }} inline-block cursor-pointer px-2 py-2 hover:bg-gray-100">
+        {{ .p1.Title }}
+      </a>
+      {{ if and (.p1.Parent) (gt (len .p1.Parent.Pages) 1) }}
+        <span class="dropdown-toggle flex cursor-pointer items-center justify-center rounded-full p-2 text-gray-400 hover:text-black">
+          <i class="ti ti-chevron-down text-lg"></i>
+        </span>
+
+        <!-- Dropdown Menu -->
+        <ul
+          class="dropdown-menu transition-max-height absolute top-full left-0 z-50 mt-2 hidden max-h-0 w-max max-w-3xs min-w-32 flex-col overflow-hidden overflow-y-auto overscroll-contain rounded border border-[#e8e7e8] bg-[#faf9fa] break-words whitespace-normal text-gray-800 shadow-lg duration-300 ease-in-out sm:max-w-xs"
+          data-open="false"
+        >
+          {{ $pages := .p1.Parent.Pages }}
+          {{ if or (eq .p1.Section "tags") (eq .p1.Section "categories") }}
+            <!-- Sorting by title (alphabetically) is handled by JS -->
+          {{ else }}
+            <!-- Sort by Date in descending order for other cases -->
+            {{ $pages = (sort $pages "Date" "desc") }}
+          {{ end }}
+
+
+          <div class="dropdown-items">
+            {{ range $pages }}
+              {{ if ne .RelPermalink $.p1.RelPermalink }}
+                <div class="dropdown-item" data-title="{{ .Title }}" data-permalink="{{ .Permalink }}" data-section="{{ .Section }}">
+                  <a href="{{ .Permalink }}" class="inline-block w-full px-4 py-2 hover:bg-gray-100">{{ .Title }}</a>
+                </div>
+              {{ end }}
+            {{ end }}
+          </div>
+        </ul>
+      {{ end }}
+    </div>
+
+    {{ if not (eq .p1 .p2) }}
+      <span class="mx-1 text-gray-400">/</span>
+    {{ end }}
+  </li>
+{{ end }}
+
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    // 关闭所有打开的菜单，并重置箭头旋转状态
+    function closeAllDropdowns() {
+      document.querySelectorAll(".breadcrumb .dropdown-menu").forEach((m) => {
+        m.dataset.open = "false";
+        m.classList.add("hidden");
+        m.classList.remove("flex");
+        m.style.maxHeight = "0"; // 保持折叠状态
+        m.style.transform = "none"; // 重置 transform
+      });
+
+      document.querySelectorAll(".breadcrumb .dropdown-toggle i").forEach((arrow) => {
+        arrow.style.transform = "rotate(0deg)"; // 重置所有箭头的旋转
+      });
+    }
+
+    // 通用的点击事件处理函数
+    function toggleDropdown(event, element) {
+      event.stopPropagation(); // 防止事件冒泡
+      const menu = element.closest("li").querySelector(".dropdown-menu");
+      const arrow = element.querySelector("i");
+
+      const isOpen = menu.dataset.open === "true";
+
+      if (isOpen) {
+        // 如果已经打开了，就直接收回
+        menu.dataset.open = "false";
+        menu.classList.add("hidden");
+        menu.classList.remove("flex");
+        menu.style.maxHeight = "0";
+        menu.style.transform = "none";
+        arrow.style.transform = "rotate(0deg)";
+      } else {
+        // 如果没打开，先关闭其他，再打开自己
+        closeAllDropdowns();
+
+        menu.dataset.open = "true";
+        menu.classList.remove("hidden");
+        menu.classList.add("flex");
+        menu.style.maxHeight = "50vh";
+        arrow.style.transform = "rotate(180deg)";
+
+        // 重新计算并应用偏移量
+        const triggerRect = element.getBoundingClientRect();
+        const menuRect = menu.getBoundingClientRect();
+        const windowWidth = document.documentElement.clientWidth;
+
+        let leftOffset = 0;
+        if (menuRect.right > windowWidth) {
+          const overflowRight = menuRect.right - windowWidth;
+          leftOffset = -overflowRight;
+        }
+
+        if (triggerRect.left + leftOffset < 0) {
+          leftOffset = 0;
+        }
+
+        menu.style.transition = "none";
+        menu.style.transform = `translateX(${leftOffset}px)`;
+
+        setTimeout(() => {
+          menu.style.transition = "max-height 0.3s ease-in-out";
+        }, 10);
+      }
+    }
+
+    // 给包含下拉菜单的元素绑定事件
+    const dropdowns = document.querySelectorAll(".breadcrumb .dropdown-toggle");
+    dropdowns.forEach((element) => {
+      element.addEventListener("click", function (event) {
+        toggleDropdown(event, this);
+      });
+    });
+
+    // 点击空白区域关闭菜单
+    document.addEventListener("click", function (event) {
+      if (!event.target.closest(".breadcrumb")) {
+        closeAllDropdowns();
+      }
+    });
+  });
+</script>
+
+<script src="https://unpkg.com/pinyin-pro"></script>
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    // 检查 pinyinPro.pinyin 是否定义且为函数
+    if (!pinyinPro || typeof pinyinPro.pinyin !== "function") {
+      console.error("pinyinPro.pinyin 未加载或不是函数，当前值：", window.pinyinPro);
+      return;
+    }
+
+    const dropdownMenus = document.querySelectorAll(".breadcrumb .dropdown-menu");
+
+    dropdownMenus.forEach((menu) => {
+      const dropdownItems = menu.querySelectorAll(".dropdown-item");
+      if (!dropdownItems.length) return;
+
+      const firstItem = dropdownItems[0];
+      const section = firstItem.getAttribute("data-section");
+      const isCategoryPage = section === "tags" || section === "categories";
+
+      if (!isCategoryPage) return;
+
+      const itemsArray = Array.from(dropdownItems);
+
+      const sortedItems = itemsArray.sort((a, b) => {
+        const titleA = a.getAttribute("data-title") || "";
+        const titleB = b.getAttribute("data-title") || "";
+
+        // 获取拼音声母（返回字符串，如 'b j'）
+        const getPinyin = (title) => {
+          if (!title) return "";
+          const result = pinyinPro.pinyin(title, { pattern: "initial" });
+          // 确保是字符串，移除多余空格
+          return typeof result === "string" ? result.trim() : "";
+        };
+
+        const pinyinA = getPinyin(titleA);
+        const pinyinB = getPinyin(titleB);
+
+        // 按拼音声母排序，退回到标题排序
+        return pinyinA.localeCompare(pinyinB) || titleA.localeCompare(titleB);
+      });
+
+      const dropdownItemsContainer = menu.querySelector(".dropdown-items");
+      if (dropdownItemsContainer) {
+        dropdownItemsContainer.innerHTML = "";
+        sortedItems.forEach((item) => {
+          dropdownItemsContainer.appendChild(item);
+        });
+      } else {
+        console.error("未找到下拉菜单容器:", menu);
+      }
+    });
+  });
+</script>

@@ -1,0 +1,59 @@
+/* toc.css - 极简版本 */
+@import "tailwindcss";
+
+#TableOfContents {
+  @apply text-gray-700; /* 默认文字颜色 */
+}
+
+#TableOfContents ul {
+  @apply m-0 list-none p-0; /* 移除默认列表样式 */
+}
+
+#TableOfContents > ul {
+  @apply space-y-2; /* 一级列表项之间的间距 */
+}
+
+#TableOfContents li {
+  @apply m-0; /* 移除默认外边距 */
+  @apply w-fit;
+}
+
+#TableOfContents a {
+  @apply block w-fit rounded px-2 py-1 text-sm transition-colors duration-200 hover:bg-gray-100; /* 链接样式 */
+}
+
+#TableOfContents > ul > li > a {
+  @apply font-medium; /* 一级标题更大更粗 */
+}
+
+#TableOfContents ul ul {
+  @apply ml-4 space-y-1; /* 二级列表缩进和间距 */
+}
+
+#TableOfContents ul ul a {
+  @apply text-sm; /* 二级标题稍小 */
+}
+
+/* 解决固定header遮挡问题 */
+:target::before {
+  content: "";
+  display: block;
+  height: 4rem; /* 根据实际header高度调整 */
+  margin-top: -4rem; /* 负值偏移，与height一致 */
+  visibility: hidden;
+}
+
+/* 响应式调整 */
+@media (max-width: 640px) {
+  #TableOfContents a {
+    @apply px-1 py-0.5 text-xs; /* 小屏幕上缩小文字和内边距 */
+  }
+
+  #TableOfContents > ul > li > a {
+    @apply text-sm; /* 一级标题调整 */
+  }
+
+  #TableOfContents ul ul {
+    @apply ml-2; /* 缩小缩进 */
+  }
+}

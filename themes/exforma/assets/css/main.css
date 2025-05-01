@@ -1,0 +1,47 @@
+@import "tailwindcss";
+@source "hugo_stats.json";
+
+@theme {
+  --color-background: #faf9fa;
+  --color-primary: oklch(0.7 0.1653 244.06);
+
+  --font-lxwk: "LXGW WenKai", -apple-system, BlinkMacSystemFont, Roboto, Segoe UI, Helvetica, Arial, sans-serif;
+  --font-sypxzs: "Source Han Serif CN for Display", -apple-system, BlinkMacSystemFont, Roboto, Segoe UI, Helvetica, Arial, sans-serif;
+  --font-lxxzs: "LXGW Neo ZhiSong", -apple-system, BlinkMacSystemFont, Roboto, Segoe UI, Helvetica, Arial, sans-serif;
+  --font-lxpm: "LXGW WenKai Mono Screen", -apple-system, BlinkMacSystemFont, Roboto, Segoe UI, Helvetica, Arial, sans-serif;
+}
+
+body {
+  @apply bg-background font-lxpm flex min-h-screen flex-col;
+  color: #222;
+}
+
+@layer utilities {
+  .text-outline {
+    text-shadow:
+      -1px -1px 0 rgba(0, 0, 0, 0.2),
+      1px -1px 0 rgba(0, 0, 0, 0.2),
+      -1px 1px 0 rgba(0, 0, 0, 0.2),
+      1px 1px 0 rgba(0, 0, 0, 0.2),
+      0 0 6px rgba(0, 0, 0, 0.4);
+  }
+}
+
+a.animated {
+  @apply relative no-underline;
+
+  &::before {
+    @apply bg-primary dark:bg-primary absolute bottom-0 left-0 z-50 block h-[3px] w-full;
+    content: "";
+    transform: scaleX(0);
+    transform-origin: top left;
+    transition: transform 0.3s ease;
+  }
+
+  &:hover::before {
+    transform: scaleX(1);
+  }
+}
+
+@import "./components/prose.css";
+@import "./components/toc.css";

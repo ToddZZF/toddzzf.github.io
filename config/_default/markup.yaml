@@ -1,0 +1,29 @@
+goldmark:
+  renderer:
+    unsafe: true # 默认值，通常不需要修改
+  extensions:
+    extras:
+      delete:
+        enable: true
+      mark:
+        enable: true
+    passthrough:
+      delimiters:
+        block:
+          - - \[
+            - \]
+          - - $$
+            - $$
+        inline:
+          - - \(
+            - \)
+          - - $
+            - $
+      enable: true
+highlight:
+  style: monokailight
+  lineNos: true
+tableOfContents:
+  endLevel: 4
+  ordered: false
+  startLevel: 2

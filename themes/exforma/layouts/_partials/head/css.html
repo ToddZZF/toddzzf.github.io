@@ -1,0 +1,34 @@
+{{/* 思源屏显臻宋 */}}
+<link rel="stylesheet" href="https://chinese-fonts-cdn.deno.dev/packages/sypxzs/dist/%E6%80%9D%E6%BA%90%E5%B1%8F%E6%98%BE%E8%87%BB%E5%AE%8B/result.css" />
+{{/* 霞鹜文楷 */}}
+<link rel="stylesheet" href="https://chinese-fonts-cdn.deno.dev/packages/lxgwwenkai/dist/LXGWWenKai-Regular/result.css" />
+{{/* 霞鹜新致宋 */}}
+<link rel="stylesheet" href="https://chinese-fonts-cdn.deno.dev/packages/LxgwNeoZhiSong/dist/LXGWNeoZhiSong/result.css" />
+{{/* 霞鹜文楷屏幕阅读版 */}}
+<link rel="stylesheet" href="https://chinese-fonts-cdn.deno.dev/packages/lywkpmydb/dist/LXGWWenKaiMonoScreen/result.css" />
+<!-- 引入 Tabler 图标 -->
+<link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/tabler-icons/3.28.1/tabler-icons-outline.min.css"
+  integrity="sha512-0Vmxqv2smIZc9Ek0rInNJgljyCPod6ncH9F/WR4PrWADFildSvFM8AqFb7k7+uwc9cmkV2RicLsHS0KUgw32LA=="
+  crossorigin="anonymous"
+  referrerpolicy="no-referrer"
+/>
+
+{{ if eq hugo.Environment "dev" }}
+  {{ with resources.Get "css/main.css" }}
+    {{ $opts := dict
+      "minify" false
+      "inlineImports" true
+    }}
+    {{ with . | css.TailwindCSS $opts }}
+      <link rel="stylesheet" href="{{ .RelPermalink }}" />
+    {{ end }}
+  {{ end }}
+{{ else }}
+  {{ with resources.Get "css/style.css" }}
+    {{ with . | fingerprint }}
+      <link rel="stylesheet" href="{{ .RelPermalink }}" integrity="{{ .Data.Integrity }}" crossorigin="anonymous" />
+    {{ end }}
+  {{ end }}
+{{ end }}

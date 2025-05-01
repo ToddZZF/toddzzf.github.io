@@ -1,0 +1,7 @@
+{{ $caption := or .Title .Text }}
+<figure>
+  <img src="{{ .Destination | safeURL }}" alt="{{ .Text }}" />
+  {{ if $caption }}
+    <figcaption>{{ $caption }}</figcaption>
+  {{ end }}
+</figure>

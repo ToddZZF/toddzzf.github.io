@@ -1,0 +1,172 @@
+@import "tailwindcss";
+
+@layer components {
+  .prose {
+    @apply mx-auto max-w-3xl text-[16.5px] leading-[1.75] break-words text-gray-800 dark:text-gray-200;
+
+    & > * + * {
+      @apply mt-5;
+    }
+
+    h1 {
+      @apply mt-8 mb-3 text-2xl font-bold tracking-tight;
+    }
+
+    h2 {
+      @apply mt-6 mb-2 text-2xl font-semibold tracking-tight;
+    }
+
+    h3 {
+      @apply mt-5 mb-2 text-xl font-semibold tracking-tight;
+    }
+
+    h4 {
+      @apply mt-4 mb-1 text-lg font-semibold tracking-tight;
+    }
+
+    p {
+      .katex {
+        font-size: 1.1em !important;
+      }
+    }
+
+    a {
+      @apply text-blue-600 underline underline-offset-2 hover:text-blue-800 dark:text-blue-400;
+    }
+
+    strong {
+      @apply font-semibold text-gray-900 dark:text-white;
+    }
+
+    em {
+      @apply italic;
+    }
+
+    ul,
+    ol {
+      @apply mb-4 pl-6;
+    }
+
+    ul {
+      @apply list-disc;
+    }
+
+    ol {
+      @apply list-decimal;
+    }
+
+    li {
+      @apply mb-1 pl-1;
+    }
+
+    li > ul,
+    li > ol {
+      @apply mt-1 mb-0 ml-5;
+    }
+
+    blockquote {
+      @apply border-l-4 border-gray-300 pl-4 text-gray-600 italic dark:border-gray-600 dark:text-gray-400;
+    }
+
+    code {
+      @apply rounded bg-gray-100 px-1 py-0.5 font-mono text-[15px] text-pink-600 dark:bg-gray-800;
+    }
+
+    div.highlight {
+      @apply border border-gray-200;
+    }
+
+    pre:not(.chroma) {
+      @apply overflow-x-auto rounded-md bg-gray-100 p-2 text-[14px] dark:bg-gray-900;
+    }
+
+    pre code:not(.chroma) {
+      @apply bg-transparent p-0 text-inherit;
+    }
+
+    img {
+      @apply mx-auto my-6 max-h-[80vh] rounded-md object-contain shadow-sm;
+    }
+
+    hr {
+      @apply my-8 border-t border-gray-300 dark:border-gray-600;
+    }
+
+    table:not(.lntable) {
+      @apply my-4 w-full border border-gray-200 text-left text-sm dark:border-gray-700;
+    }
+
+    th {
+      @apply border-b border-gray-300 bg-gray-50 px-4 py-2 font-semibold dark:border-gray-600 dark:bg-gray-800;
+    }
+
+    td {
+      @apply border-b border-gray-200 px-4 py-2 dark:border-gray-700;
+    }
+
+    details {
+      @apply mt-4 overflow-hidden rounded-md border border-gray-200 bg-white p-4 transition-all duration-200 ease-in-out dark:border-gray-700 dark:bg-gray-900;
+    }
+
+    summary {
+      @apply flex cursor-pointer list-none items-center font-medium text-gray-700 outline-none select-none hover:bg-gray-50 dark:text-gray-200 dark:hover:bg-gray-800;
+    }
+
+    summary::before {
+      content: "▸";
+      @apply mr-2 flex-shrink-0 text-gray-500 transition-transform duration-200 ease-in-out dark:text-gray-400;
+    }
+
+    details[open] > summary::before {
+      @apply rotate-90;
+      content: "▾";
+    }
+
+    /* 默认隐藏内容块 */
+    details > *:not(summary) {
+      @apply max-h-0 overflow-hidden opacity-0 transition-all duration-200 ease-in-out;
+    }
+
+    /* 展开时显示内容块 */
+    details[open] > *:not(summary) {
+      @apply max-h-[1000px] px-3 pb-2 opacity-100; /* max-h 可根据需要调整 */
+    }
+
+    /* 隐藏默认标记 */
+    summary::-webkit-details-marker {
+      @apply hidden;
+    }
+
+    figure {
+      @apply my-6 text-center;
+    }
+
+    figcaption {
+      @apply mt-2 text-sm text-gray-500 italic dark:text-gray-400;
+    }
+
+    dl {
+      @apply my-6;
+    }
+
+    dt {
+      @apply relative mb-1 pl-8 font-semibold text-gray-900 dark:text-white;
+    }
+
+    dt::before {
+      content: "";
+      @apply absolute top-1/2 left-2.5 -translate-x-1/2 -translate-y-1/2;
+      @apply h-1 w-1 rounded-full bg-gray-600 dark:bg-gray-300;
+    }
+
+    dd {
+      @apply relative mb-4 pl-8; /* 移除 ml-2，避免内容右移 */
+    }
+
+    dd::before {
+      content: "";
+      @apply absolute top-0 left-2.5 -translate-x-1/2;
+      @apply h-full w-0.5 bg-gray-600 dark:bg-gray-300;
+    }
+  }
+}

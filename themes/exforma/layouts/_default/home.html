@@ -1,0 +1,80 @@
+{{ define "main" }}
+  <!-- Hero Section -->
+  <section id="hero" class="relative h-[60vh] max-h-[100vw] overflow-hidden">
+    <div id="hero-bg1" class="absolute inset-0 bg-cover bg-center opacity-100 transition-opacity duration-1000"></div>
+    <div id="hero-bg2" class="absolute inset-0 bg-cover bg-center opacity-0 transition-opacity duration-1000"></div>
+
+    <div class="relative z-10 flex h-full flex-col items-center justify-center px-6 text-center text-white">
+      <h1 class="text-outline text-5xl leading-tight font-semibold tracking-tight">Todd's Blog</h1>
+      <p class="text-outline mt-4 text-lg leading-relaxed">Usefulness lies in what is not.</p>
+    </div>
+  </section>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const images = {{ .Params.hero_images | jsonify | safeJS }};
+      const bg1 = document.getElementById("hero-bg1");
+      const bg2 = document.getElementById("hero-bg2");
+
+      let current = 0;
+      let isBg1Active = true;
+
+      bg1.style.backgroundImage = `url('${images[current]}')`;
+
+      function switchBackground() {
+        const next = (current + 1) % images.length;
+        const img = new Image();
+        img.src = images[next];
+        img.onload = () => {
+          const [fadeOut, fadeIn] = isBg1Active ? [bg1, bg2] : [bg2, bg1];
+          fadeIn.style.backgroundImage = `url('${images[next]}')`;
+
+          fadeIn.classList.remove("opacity-0");
+          fadeIn.classList.add("opacity-100");
+          fadeOut.classList.remove("opacity-100");
+          fadeOut.classList.add("opacity-0");
+
+          isBg1Active = !isBg1Active;
+          current = next;
+        };
+      }
+
+      setInterval(switchBackground, 5000);
+    });
+  </script>
+
+  <section class="mx-auto my-16 max-w-5xl px-6">
+    {{ range .Site.Sections }}
+      <div class="mb-16">
+        <!-- 分割线 + 居中标题带图标 -->
+        <div class="relative my-12 flex items-center">
+          <div class="flex-grow border-t border-gray-300"></div>
+
+          <a href="{{ .RelPermalink }}" class="bg-background relative z-10 mx-4 inline-flex items-center px-4 text-2xl font-semibold text-gray-500 hover:text-gray-700">
+            {{ with .Params.icon }}
+              <i class="ti ti-{{ . }} mr-2 text-2xl"></i>
+            {{ end }}
+            {{ .Title }}
+          </a>
+
+          <div class="flex-grow border-t border-gray-300"></div>
+        </div>
+
+        <!-- 最新3篇文章 -->
+        <div class="space-y-4">
+          {{ range first 3 .Pages.ByDate.Reverse }}
+            {{ partial "components/article-item.html" . }}
+          {{ end }}
+
+
+          <!-- 更多链接按钮 -->
+          <div class="mt-4 text-right">
+            <a href="{{ .RelPermalink }}" class="inline-flex items-center gap-1 text-sm text-gray-500 hover:text-gray-700 hover:underline">
+              更多文章 <i class="ti ti-arrow-narrow-right text-base"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+    {{ end }}
+  </section>
+{{ end }}

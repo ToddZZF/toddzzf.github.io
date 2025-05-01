@@ -1,0 +1,16 @@
+social:
+  twitter:
+    link: "https://twitter.com/yourprofile"
+    icon: "ti ti-brand-twitter"
+  github:
+    link: "https://github.com/yourprofile"
+    icon: "ti ti-brand-github"
+  linkedin:
+    link: "https://linkedin.com/in/yourprofile"
+    icon: "ti ti-brand-linkedin"
+  facebook:
+    link: "https://facebook.com/yourprofile"
+    icon: "ti ti-brand-facebook"
+  instagram:
+    link: "https://instagram.com/yourprofile"
+    icon: "ti ti-brand-instagram"

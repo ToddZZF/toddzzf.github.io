@@ -1,0 +1,47 @@
+{{ define "main" }}
+  <div class="mx-auto max-w-3xl px-4">
+    <div class="mx-auto my-6 max-w-3xl">
+      <div class="grid grid-cols-[auto_1fr] gap-4 rounded-lg border border-gray-200 p-4 text-sm text-gray-600">
+        <!-- 标签 -->
+        {{- $page := . }}
+        {{- $taxonomy := "tags" }}
+        {{- with $page.GetTerms $taxonomy }}
+          <div class="self-start">
+            <i class="ti ti-tags h-5 w-5 text-gray-500"></i>
+          </div>
+          <div class="flex flex-wrap gap-2 self-start">
+            {{- range . }}
+              <a href="{{ .RelPermalink }}" class="whitespace-nowrap hover:underline">{{ .LinkTitle }}</a>
+            {{- end }}
+          </div>
+        {{- end }}
+
+
+        <!-- 发布时间 -->
+        <div class="self-start">
+          <i class="ti ti-calendar h-5 w-5 text-gray-500"></i>
+        </div>
+        <div class="self-start">
+          {{ $dateMachine := .Date | time.Format "2006-01-02T15:04:05-07:00" }}
+          {{ $dateHuman := .Date | time.Format "2006年1月2日" }}
+          <time datetime="{{ $dateMachine }}">{{ $dateHuman }}</time>
+        </div>
+
+        <!-- 字数统计 -->
+        <div class="self-start">
+          <i class="ti ti-text-size h-5 w-5 text-gray-500"></i>
+        </div>
+        <div class="self-start">
+          <span>约 {{ .FuzzyWordCount }} 字</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="prose">
+      {{ .Content }}
+    </div>
+  </div>
+
+  <!-- 调用悬浮按钮和目录内容 -->
+  {{ partial "components/toc.html" . }}
+{{ end }}

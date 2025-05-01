@@ -1,0 +1,157 @@
+{{ define "main" }}
+  <div class="prose mx-auto mb-8 px-4">
+    {{ .Content }}
+  </div>
+
+  <!-- 显示子 Sections 为徽章 -->
+  {{ if .Sections }}
+    <div class="mx-auto mb-8 flex max-w-3xl flex-wrap gap-3 px-4">
+      {{ range .Sections }}
+        <a href="{{ .RelPermalink }}" class="inline-flex items-center gap-2 rounded-full border border-gray-300 bg-gray-100 px-3 py-1.5 text-sm text-gray-700 transition hover:bg-gray-200">
+          <!-- 图标 -->
+          {{ with .Params.icon }}
+            <i class="ti ti-{{ . }} text-base"></i>
+          {{ else }}
+            <i class="ti ti-folder text-base"></i>
+          {{ end }}
+          <!-- 标题和数量 -->
+          <span>{{ .Title }} ({{ .Pages | len }})</span>
+        </a>
+      {{ end }}
+    </div>
+  {{ end }}
+
+
+  <!-- 按月份分组显示文章 -->
+  {{ if and .IsNode .Paginator }}
+    <div class="mx-auto max-w-3xl space-y-3 px-4">
+      {{ $currentMonth := "" }}
+      <!-- 用于存储当前月份 -->
+
+      {{ range .Paginator.Pages }}
+        <!-- 遍历分页后的页面 -->
+        {{ $postMonth := .Date.Format "2006-01" }}
+        <!-- 获取当前文章的月份 -->
+
+        <!-- 如果月份不同，显示月份标题 -->
+        {{ if ne $postMonth $currentMonth }}
+          {{ $currentMonth = $postMonth }}
+          <div class="mt-8 text-xl font-bold text-gray-800 md:col-span-2">{{ $postMonth }}</div>
+        {{ end }}
+
+        {{ partial "components/article-item.html" . }}
+      {{ end }}
+    </div>
+
+    <!-- 分页导航 -->
+    {{- with .Paginator }}
+      {{/* If there is only one page, then pagination is not needed. */}}
+      {{- if ne .Last.PageNumber 1 }}
+        {{- $currentPageNumber := .PageNumber }}
+        <div class="pagination mt-8 flex justify-center">
+          <ul class="pagination-list flex space-x-2">
+            {{- with .First }}
+              {{- if and (ne $currentPageNumber .PageNumber) (ne $currentPageNumber .Next.PageNumber) }}
+                <li>
+                  <a href="{{ .URL }}" class="pagination-link rounded-md bg-gray-200 px-4 py-2 hover:bg-gray-300">
+                    1
+                    {{- if gt .Last.PageNumber 5 }}
+                      {{- if gt (sub $currentPageNumber 2) .PageNumber }}
+                        <i class="ti ti-arrow-left-dashed"></i>
+                      {{- end }}
+                    {{- end }}
+                  </a>
+                </li>
+              {{- end }}
+            {{- end }}
+
+            {{- with .Prev }}
+              {{- if gt $currentPageNumber (sub .Last.PageNumber 2) }}
+                {{- with .Prev }}
+                  {{- if eq $currentPageNumber .Last.PageNumber }}
+                    {{- with .Prev }}
+                      {{- if ne .PageNumber 1 }}
+                        <li>
+                          <a href="{{ .URL }}" class="pagination-link rounded-md bg-gray-200 px-4 py-2 hover:bg-gray-300">{{ .PageNumber }}</a>
+                        </li>
+                      {{- end }}
+                    {{- end }}
+                  {{- end }}
+                  {{- if ne .PageNumber 1 }}
+                    <li>
+                      <a href="{{ .URL }}" class="pagination-link rounded-md bg-gray-200 px-4 py-2 hover:bg-gray-300">{{ .PageNumber }}</a>
+                    </li>
+                  {{- end }}
+                {{- end }}
+              {{- end }}
+              <li>
+                <a href="{{ .URL }}" class="pagination-link rounded-md bg-gray-200 px-4 py-2 hover:bg-gray-300">{{ .PageNumber }}</a>
+              </li>
+            {{- end }}
+
+
+            <li>
+              <a href="{{ .URL }}" class="pagination-link bg-gray-100 px-4 py-2 text-gray-600">{{ $currentPageNumber }}</a>
+            </li>
+
+            {{- with .Next }}
+              <li>
+                <a href="{{ .URL }}" class="pagination-link rounded-md bg-gray-200 px-4 py-2 hover:bg-gray-300">{{ .PageNumber }}</a>
+              </li>
+              {{- if lt $currentPageNumber 3 }}
+                {{- with .Next }}
+                  {{- if ne .PageNumber .Last.PageNumber }}
+                    <li>
+                      <a href="{{ .URL }}" class="pagination-link rounded-md bg-gray-200 px-4 py-2 hover:bg-gray-300">{{ .PageNumber }}</a>
+                    </li>
+                    {{- if eq $currentPageNumber 1 }}
+                      {{- with .Next }}
+                        {{- if ne .PageNumber .Last.PageNumber }}
+                          <li>
+                            <a href="{{ .URL }}" class="pagination-link rounded-md bg-gray-200 px-4 py-2 hover:bg-gray-300">{{ .PageNumber }}</a>
+                          </li>
+                        {{- end }}
+                      {{- end }}
+                    {{- end }}
+                  {{- end }}
+                {{- end }}
+              {{- end }}
+            {{- end }}
+
+            {{- with .Last }}
+              {{- if and (ne $currentPageNumber .PageNumber) (ne $currentPageNumber .Prev.PageNumber) }}
+                <li>
+                  <a href="{{ .URL }}" class="pagination-link rounded-md bg-gray-200 px-4 py-2 hover:bg-gray-300">
+                    {{- if gt .Last.PageNumber 5 }}
+                      {{- if lt (add $currentPageNumber 2) .PageNumber }}
+                        <i class="ti ti-arrow-right-dashed"></i>
+                      {{- end }}
+                    {{- end }}
+                    {{ .PageNumber }}
+                  </a>
+                </li>
+              {{- end }}
+            {{- end }}
+          </ul>
+        </div>
+      {{- end }}
+    {{- end }}
+  {{ else }}
+    <!-- For non-list pages or pages without pagination, display content -->
+    <div class="mx-auto max-w-7xl">
+      <article>
+        <h2 class="text-lg font-semibold text-gray-900">
+          {{ .Title }}
+        </h2>
+        {{ with .Date }}
+          <time class="mt-1 text-sm text-gray-500">
+            {{ .Format ($.Site.Params.DateFormatList | default "2006-01-02") }}
+          </time>
+        {{ end }}
+        <div class="mt-4">
+          {{ .Content }}
+        </div>
+      </article>
+    </div>
+  {{ end }}
+{{ end }}

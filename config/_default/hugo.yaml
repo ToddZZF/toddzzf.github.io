@@ -1,0 +1,9 @@
+baseURL: https://example.org/
+languageCode: en-us
+title: Todd's Blog
+theme: exforma
+hasCJKLanguage: true
+pagination:
+  disableAliases: false
+  pagerSize: 10
+  path: page

@@ -1,0 +1,14 @@
+{
+  "scripts": {
+    "dev": "hugo server --environment dev --disableFastRender",
+    "build": "tailwindcss -i themes/exforma/assets/css/main.css -o themes/exforma/assets/css/style.css",
+    "format": "prettier --write ."
+  },
+  "devDependencies": {
+    "@tailwindcss/cli": "^4.1.4",
+    "prettier": "^3.5.3",
+    "prettier-plugin-go-template": "^0.0.15",
+    "prettier-plugin-tailwindcss": "^0.6.11",
+    "tailwindcss": "^4.1.4"
+  }
+}
