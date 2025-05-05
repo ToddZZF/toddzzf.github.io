@@ -24,6 +24,10 @@
       @apply mt-4 mb-1 text-lg font-semibold tracking-tight;
     }
 
+    * > p:not(:last-of-type) {
+      @apply mb-4;
+    }
+
     p {
       .katex {
         font-size: 1.1em !important;
@@ -65,7 +69,7 @@
     }
 
     blockquote {
-      @apply border-l-4 border-gray-300 pl-4 text-gray-600 italic dark:border-gray-600 dark:text-gray-400;
+      @apply border-l-4 border-gray-300 pl-4 text-gray-600 dark:border-gray-600 dark:text-gray-400;
     }
 
     code {
@@ -85,7 +89,8 @@
     }
 
     img {
-      @apply mx-auto my-6 max-h-[80vh] rounded-md object-contain shadow-sm;
+      @apply mx-auto my-6 max-h-[80vh] cursor-zoom-in rounded-md object-contain shadow-sm;
+      transition: transform 0.3s ease;
     }
 
     hr {

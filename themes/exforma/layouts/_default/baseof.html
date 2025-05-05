@@ -4,13 +4,13 @@
     {{ partial "head.html" . }}
   </head>
   <body>
-    <header class="sticky top-0 z-50 border-b border-neutral-200 bg-white/70 backdrop-blur-md">
+    <header class="sticky top-0 z-50 border-b border-neutral-200 bg-white/70 backdrop-blur-md print:hidden">
       {{ partial "header.html" . }}
     </header>
     <main class="flex-grow">
       {{ block "main" . }}{{ end }}
     </main>
-    <footer>
+    <footer class="print:hiden">
       {{ partial "footer.html" . }}
     </footer>
   </body>

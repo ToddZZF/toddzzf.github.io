@@ -5,3 +5,43 @@
     <figcaption>{{ $caption }}</figcaption>
   {{ end }}
 </figure>
+
+{{/* 只插入一次 zoom 脚本，并作用于 .prose img */}}
+{{ if not (.Page.Scratch.Get "mediumZoomIncluded") }}
+  {{ .Page.Scratch.Set "mediumZoomIncluded" true }}
+  <script src="https://cdn.jsdelivr.net/npm/medium-zoom@1.1.0/dist/medium-zoom.min.js" defer></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      // 获取 header 元素的高度
+      const header = document.querySelector("header");
+      const headerHeight = header ? header.getBoundingClientRect().height : 0;
+
+      // 初始化 Medium Zoom
+      const zoom = mediumZoom(".prose img", {
+        margin: 24,
+        container: {
+          top: headerHeight, // 使用 header 高度作为上边距
+          bottom: 0,
+          left: 0,
+          right: 0,
+          width: window.innerWidth, // 初始宽度
+          height: window.innerHeight, // 初始高度
+        },
+      });
+
+      // 监听窗口大小变化，动态更新 container 配置
+      window.addEventListener("resize", function () {
+        zoom.update({
+          container: {
+            top: headerHeight,
+            bottom: 0,
+            left: 0,
+            right: 0,
+            width: window.innerWidth, // 动态更新宽度
+            height: window.innerHeight, // 动态更新高度
+          },
+        });
+      });
+    });
+  </script>
+{{ end }}
