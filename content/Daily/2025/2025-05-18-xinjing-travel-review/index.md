@@ -1,7 +1,7 @@
 ---
 title: 新疆旅游简记
 date: 2025-05-18 13:35:00 +0800
-image: images/赛里木湖湖心景.webp
+image: images/cover.webp
 ---
 
 ## 准备

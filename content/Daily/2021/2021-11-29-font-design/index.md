@@ -1,6 +1,6 @@
 ---
 layout: post
-title: 关于字体的二三事（未完）
+title: 关于字体的二三事
 date: 2021-11-29 20:34:00 +0800
 category: work
 image: images/serif_and_sans_serif.png

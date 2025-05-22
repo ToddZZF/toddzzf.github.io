@@ -42,4 +42,4 @@ indent: True
 
 ## 参考链接
 
-- [https://developer.mozilla.org/zh-CN/docs/Web/Media/Formats/Video_codecs](Web 开发技术 - 视频编码指南)
+- [Web 开发技术 - 视频编码指南](https://developer.mozilla.org/zh-CN/docs/Web/Media/Formats/Video_codecs)

@@ -87,7 +87,7 @@ icon: note
   - [陈子豪随拍系列：带大家参观小蛮腰"广州塔"！](https://www.bilibili.com/video/BV1HJ411C7TQ)
 
 <div style="position: relative; padding: 30% 45%;">
-<iframe style="position: absolute; width: 100%; height: 100%; left: 0; top: 0;" src="//player.bilibili.com/player.html?aid=245132173&bvid=BV1zv41167G5&cid=254694331&page=1&as_wide=1&high_quality=1&danmaku=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"></iframe>
+<iframe style="position: absolute; width: 100%; height: 100%; left: 0; top: 0;" src="//player.bilibili.com/player.html?aid=245132173&bvid=BV1zv41167G5&cid=254694331&page=1&as_wide=1&high_quality=1&danmaku=1&autoplay=0" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"></iframe>
 </div>
 
 ### 沙面
@@ -105,7 +105,7 @@ icon: note
   - [去广州「沙面」有哪些实用攻略和好的建议？ - Anna Christina的回答 - 知乎](https://www.zhihu.com/question/337571679/answer/801341035)
 
 <div style="position: relative; padding: 30% 45%;">
-<iframe style="position: absolute; width: 100%; height: 100%; left: 0; top: 0;" src="//player.bilibili.com/player.html?aid=63195472&bvid=BV1b4411D7YJ&cid=109751929&page=1&as_wide=1&high_quality=1&danmaku=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"></iframe>
+<iframe style="position: absolute; width: 100%; height: 100%; left: 0; top: 0;" src="//player.bilibili.com/player.html?aid=63195472&bvid=BV1b4411D7YJ&cid=109751929&page=1&as_wide=1&high_quality=1&danmaku=1&autoplay=0" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"></iframe>
 </div>
 
 ### 越秀公园
@@ -137,7 +137,7 @@ icon: note
 - 交通：地铁 6 号线到【一德路站】A 出口步行 470 米即到；地铁 2 号线到【海珠广场站】B2 出口步行590米即到。哥特式建筑十分显眼。
 
 <div style="position: relative; padding: 30% 45%;">
-<iframe style="position: absolute; width: 100%; height: 100%; left: 0; top: 0;" src="//player.bilibili.com/player.html?aid=375136830&bvid=BV1Yo4y1f7xA&cid=326822455&page=1&as_wide=1&high_quality=1&danmaku=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"></iframe>
+<iframe style="position: absolute; width: 100%; height: 100%; left: 0; top: 0;" src="//player.bilibili.com/player.html?aid=375136830&bvid=BV1Yo4y1f7xA&cid=326822455&page=1&as_wide=1&high_quality=1&danmaku=1&autoplay=0" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"></iframe>
 </div>
 
 ### 陈家祠
@@ -157,7 +157,7 @@ icon: note
 - 历史：[《陈家祠的故事》](https://www.bilibili.com/video/BV1Kt4y167KH)
 
 <div style="position: relative; padding: 30% 45%;">
-<iframe style="position: absolute; width: 100%; height: 100%; left: 0; top: 0;" src="//player.bilibili.com/player.html?aid=26005578&bvid=BV1hs411G74H&cid=90338879&page=1&as_wide=1&high_quality=1&danmaku=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"></iframe>
+<iframe style="position: absolute; width: 100%; height: 100%; left: 0; top: 0;" src="//player.bilibili.com/player.html?aid=26005578&bvid=BV1hs411G74H&cid=90338879&page=1&as_wide=1&high_quality=1&danmaku=1&autoplay=0" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"></iframe>
 </div>
 
 ### 广东省博物馆
@@ -178,7 +178,7 @@ icon: note
   - [广东省博物馆怎么样？值得去吗？ - 韩德雨的回答 - 知乎](https://www.zhihu.com/question/333885951/answer/1569342398)
 
 <div style="position: relative; padding: 30% 45%;">
-<iframe style="position: absolute; width: 100%; height: 100%; left: 0; top: 0;" src="//player.bilibili.com/player.html?aid=416776290&bvid=BV15V411q7JA&cid=299809370&page=1&as_wide=1&high_quality=1&danmaku=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"></iframe>
+<iframe style="position: absolute; width: 100%; height: 100%; left: 0; top: 0;" src="//player.bilibili.com/player.html?aid=416776290&bvid=BV15V411q7JA&cid=299809370&page=1&as_wide=1&high_quality=1&danmaku=1&autoplay=0" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"></iframe>
 </div>
 
 ### 广州海洋馆
@@ -208,7 +208,7 @@ icon: note
   - [广州正佳极地海洋世界游玩攻略](http://www.mafengwo.cn/gonglve/ziyouxing/242698.html)
 
 <div style="position: relative; padding: 30% 45%;">
-<iframe style="position: absolute; width: 100%; height: 100%; left: 0; top: 0;" src="//player.bilibili.com/player.html?aid=89913504&bvid=BV1S74117713&cid=153564366&page=1&as_wide=1&high_quality=1&danmaku=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"></iframe>
+<iframe style="position: absolute; width: 100%; height: 100%; left: 0; top: 0;" src="//player.bilibili.com/player.html?aid=89913504&bvid=BV1S74117713&cid=153564366&page=1&as_wide=1&high_quality=1&danmaku=1&autoplay=0" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"></iframe>
 </div>
 
 ### 北京路商业步行街
@@ -359,7 +359,7 @@ icon: note
 - [牛威达牛庄](http://www.dianping.com/shop/5142673)
   - 地址：黄埔大道西499号
 
-## 行程安排
+<!-- ## 行程安排
 
 行程可以大致分为三个部分：
 
@@ -407,4 +407,4 @@ B. 去市中心走一下，走一公里就到花城汇了，那边有一大堆�
 
 ### Day 4 (Oct. 6th)
 
-&emsp;&emsp;早起，打车去机场（希望凌晨有车），我会陪同一起去。等上飞机后我再乘地铁回去。
+&emsp;&emsp;早起，打车去机场（希望凌晨有车），我会陪同一起去。等上飞机后我再乘地铁回去。 -->
