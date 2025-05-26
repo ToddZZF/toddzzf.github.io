@@ -3,7 +3,7 @@ title: 摄影艺术创作（1-24）
 date: 2025-04-11 10:22:00 +0800
 ---
 
-> 这是中国传媒大学开设的课程，珠江老师是郭艳民老师。在B站上有 [视频课程](https://www.bilibili.com/video/BV1er4y177k2)，同时也有 [文字版](http://mdedu.cuc.edu.cn/excellentCourse/demo/sheyinggoutu/index.htm)，我在此记录了一些重点，并附加了示例照片。
+> 这是中国传媒大学开设的课程，主讲老师是郭艳民老师。在B站上有 [视频课程](https://www.bilibili.com/video/BV1er4y177k2)，同时也有 [文字版](http://mdedu.cuc.edu.cn/excellentCourse/demo/sheyinggoutu/index.htm)，我在此记录了一些重点，并附加了示例照片。
 
 <!--more-->
 
