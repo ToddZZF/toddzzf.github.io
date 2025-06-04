@@ -161,7 +161,7 @@ icon: texture
 >
 > ![PROIVA示例图三](images/PROVIA示例图三.webp)
 
-### <span class="film-icon"><img src="images/v.svg"/></span> Velvia/鲜艳
+### <span class="film-icon"><img src="images/V.svg"/></span> Velvia/鲜艳
 
 从名字来看，Velvia 来自于 Velvia 50 或 100F，这种胶片的颜色鲜艳、高饱和：
 
@@ -206,7 +206,7 @@ icon: texture
 >
 > ![Velvia示例图四](images/Velvia示例图四.webp)
 
-### <span class="film-icon"><img src="images/s.svg"/></span> ASTIA/柔和
+### <span class="film-icon"><img src="images/S.svg"/></span> ASTIA/柔和
 
 ASTIA 胶片的特点是：宽容度高，反差略低，层次感强，非常适合人像。色彩还原真实，对于人像拍摄来说恰如其分，肤色和场景都不夸张，很自然。颗粒幼细，锐度不错。
 
@@ -239,7 +239,7 @@ ASTIA 胶片模拟同样继承了这些特点，官方的介绍是：
 >
 > ![ASTIA示例图三](images/ASTIA示例图三.webp)
 
-### <span class="film-icon"><img src="images/cc.svg"/></span> Classic Chrome
+### <span class="film-icon"><img src="images/CC.svg"/></span> Classic Chrome
 
 普遍认为这里由于版权问题，富士用Classic Chrome替代柯达著名的 Kodachrome. Kodachrome 发明于 1935，其冲洗极其麻烦，药水剧毒，处理费用昂贵，全球仅仅有十几家专业店才能冲洗，冲洗邮寄过程中还有丢失的危险，因此在业余使用者当中很少普及。
 
@@ -295,7 +295,7 @@ Classic Chrome 的饱和度低，反差适中，色调平衡，整体照片色�
 >
 > ![CC示例图二](images/CC示例图二.webp)
 
-### <span class="film-icon"><img src="images/ra.svg"/></span> REALA ACE
+### <span class="film-icon"><img src="images/RA.svg"/></span> REALA ACE
 
 Reala Ace，这是源自于富士传奇的日系小清新风格负片Reala。
 
@@ -321,7 +321,7 @@ Reala Ace，这是源自于富士传奇的日系小清新风格负片Reala。
 >
 > ![RA示例图二](images/RA示例图二.webp)
 
-### <span class="film-icon"><img src="images/nc.svg"/></span> Classic Negative
+### <span class="film-icon"><img src="images/NC.svg"/></span> Classic Negative
 
 NC 主要模拟了「SUPERIA」这款胶片。「SUPERIA」胶片的设计初衷，主要是为了照顾大众用户，即使拍摄一个平淡的场景时，依然可以提升成片的观感。进一步说，「SUPERIA」胶片的是为了让我们日常生活中随处可见的一般场景，拍出来更有层次、更有质感、更好看。
 
@@ -366,7 +366,7 @@ NC 主要模拟了「SUPERIA」这款胶片。「SUPERIA」胶片的设计初衷
 >
 > ![NC示例图三](images/NC示例图三.webp)
 
-### <span class="film-icon"><img src="images/ns.svg"/></span> PRO Neg. Std
+### <span class="film-icon"><img src="images/NS.svg"/></span> PRO Neg. Std
 
 Pro Neg. Std 这款胶片模拟模式配方是从富士一款专业棚拍人像彩色负片NS160延续而来。富士官方的说法是：
 
@@ -395,7 +395,7 @@ Pro Neg. Std 明暗光影对比柔和，在肤色等中间调色明暗的过渡�
 >
 > ![Pro Neg Std 示例图三](images/ProNegStd示例图三.webp)
 
-### <span class="film-icon"><img src="images/nh.svg"/></span> PRO Neg. Hi
+### <span class="film-icon"><img src="images/NH.svg"/></span> PRO Neg. Hi
 
 该胶片模拟模式基于专业彩色负片PRO160NH，其色调渐变比专业负片标准稍显生硬。富士官方的描述是：
 
@@ -418,7 +418,7 @@ Pro Neg. Std 明暗光影对比柔和，在肤色等中间调色明暗的过渡�
 >
 > ![Pro Neg Hi 示例图二](images/ProNegHi示例图二.webp)
 
-### <span class="film-icon"><img src="images/nn.svg"/></span> Nostalgic Neg
+### <span class="film-icon"><img src="images/NN.svg"/></span> Nostalgic Neg
 
  “Nostalgic Neg.怀旧负片” 胶片模拟模式是基于1970年代美国的 “新彩色摄影” 作品风格，能够给用户带来 “怀旧电影风” 的拍摄体验。通过集合 “柔和色调” 与 “高饱和度” 两种特性，这款胶片模拟模式能够给画面带来一种朦胧的美感，同时保持清晰可辨的细节以及明快的色彩表现。
 
@@ -440,7 +440,7 @@ Pro Neg. Std 明暗光影对比柔和，在肤色等中间调色明暗的过渡�
 >
 > ![NN示例图二](images/NN示例图二.webp)
 
-### <span class="film-icon"><img src="images/a.svg"/></span> Acros 与 <span class="film-icon"><img src="images/b.svg"/></span> 黑白
+### <span class="film-icon"><img src="images/A.svg"/></span> Acros 与 <span class="film-icon"><img src="images/B.svg"/></span> 黑白
 
 ACROS和黑白胶片模拟，都是黑白单色滤镜。但ACROS相比黑白，细节更加丰富，锐度也更高。它们各自还有三个衍生版本：
 
@@ -450,7 +450,7 @@ ACROS和黑白胶片模拟，都是黑白单色滤镜。但ACROS相比黑白，�
 
 ![acros与黑白](images/acros与黑白.webp)
 
-### <span class="film-icon"><img src="images/e.svg"/></span> Eterna/影院
+### <span class="film-icon"><img src="images/E.svg"/></span> Eterna/影院
 
 富士官方的描述是：
 
@@ -488,7 +488,7 @@ ACROS和黑白胶片模拟，都是黑白单色滤镜。但ACROS相比黑白，�
 >
 > ![Eterna示意图三](images/Eterna示意图三.webp)
 
-### <span class="film-icon"><img src="images/e.svg"/></span> Eterna Bleach Bypass
+### <span class="film-icon"><img src="images/EB.svg"/></span> Eterna Bleach Bypass
 
 富士官方的描述是：
 
@@ -507,7 +507,7 @@ EB 模拟了传统的胶片处理技术“漂白效果”，在保持低色彩�
 
 > ![EB示例图二](images/EB示例图二.webp)
 
-### <span class="film-icon"><img src="images/sepia.svg"/></span> SEPIA
+### <span class="film-icon"><img src="images/SEPIA.svg"/></span> SEPIA
 
 模拟怀旧风格的棕褐色调。
 
