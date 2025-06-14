@@ -34,6 +34,10 @@
       }
     }
 
+    > p {
+      @apply indent-8;
+    }
+
     a {
       @apply text-blue-600 underline underline-offset-2 hover:text-blue-800 dark:text-blue-400;
     }
@@ -98,7 +102,7 @@
     }
 
     table:not(.lntable) {
-      @apply my-4 w-full border border-gray-200 text-left text-sm dark:border-gray-700;
+      @apply my-4 w-full border border-gray-200 text-left text-sm dark:border-gray-700 overflow-x-auto;
     }
 
     th {
@@ -148,6 +152,10 @@
 
     figcaption {
       @apply mt-2 text-sm text-gray-500 italic dark:text-gray-400;
+    }
+
+    img[src*="#w-1/2"] {
+      @apply md:w-1/2;
     }
 
     dl {
