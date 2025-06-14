@@ -1292,6 +1292,9 @@ a.animated {
         font-size: 1.1em !important;
       }
     }
+    > p {
+      text-indent: calc(var(--spacing) * 8);
+    }
     a {
       color: var(--color-blue-600);
       text-decoration-line: underline;
@@ -1403,6 +1406,7 @@ a.animated {
     table:not(.lntable) {
       margin-block: calc(var(--spacing) * 4);
       width: 100%;
+      overflow-x: auto;
       border-style: var(--tw-border-style);
       border-width: 1px;
       border-color: var(--color-gray-200);
