@@ -155,7 +155,7 @@
     }
 
     img[src*="#w-1/2"] {
-      @apply md:w-1/2;
+      @apply md:max-w-1/2;
     }
 
     dl {

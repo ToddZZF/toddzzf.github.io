@@ -1551,7 +1551,7 @@ a.animated {
     }
     img[src*="#w-1/2"] {
       @media (width >= 48rem) {
-        width: calc(1/2 * 100%);
+        max-width: calc(1/2 * 100%);
       }
     }
     dl {
