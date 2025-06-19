@@ -1,169 +1,101 @@
-<div class="toc-panel-container fixed right-4 bottom-4 z-50 flex flex-col items-end print:hidden">
-  <div id="toc-panel" class="mb-2 hidden w-72 scale-95 overscroll-contain rounded-lg border border-gray-200 bg-white px-3 py-3 opacity-0 shadow-lg transition-all duration-200 ease-out">
-    <div class="scrollbar-hidden max-h-[50vh] min-h-0 flex-1 overflow-y-auto" id="toc-scroll-container-{{ .Scratch.Get "tocId" }}">
-      <div class="flex gap-1">
-        <div class="relative w-5">
-          <div class="absolute left-1/2 h-full w-px -translate-x-1/2 bg-gray-200"></div>
-          <div id="active-indicator" class="absolute left-1/2 w-px -translate-x-1/2 bg-black transition-all duration-200"></div>
+{{ if in .TableOfContents "<li>" }}
+  <div class="toc-panel-container fixed right-4 bottom-4 z-50 flex flex-col items-end print:hidden">
+    <div id="toc-panel" class="mb-2 hidden w-72 scale-95 overscroll-contain rounded-lg border border-gray-200 bg-white px-3 py-3 opacity-0 shadow-lg transition-all duration-200 ease-out">
+      <div class="scrollbar-hidden max-h-[50vh] min-h-0 flex-1 overflow-y-auto" id="toc-scroll-container-{{ .Scratch.Get "tocId" }}">
+        <div class="flex gap-1">
+          <div class="relative w-5">
+            <div class="absolute left-1/2 h-full w-px -translate-x-1/2 bg-gray-200"></div>
+            <div id="active-indicator" class="absolute left-1/2 w-px -translate-x-1/2 bg-black transition-all duration-200"></div>
+          </div>
+          {{ .TableOfContents }}
         </div>
-        {{ .TableOfContents }}
       </div>
     </div>
+
+    <button id="toc-toggle-btn" class="flex h-12 w-12 items-center justify-center rounded-full bg-gray-800 text-white transition hover:bg-gray-700" aria-label="Toggle Table of Contents">
+      <span id="toc-icon" class="ti ti-menu transition-transform duration-200 ease-in-out"></span>
+    </button>
   </div>
 
-  <button id="toc-toggle-btn" class="flex h-12 w-12 items-center justify-center rounded-full bg-gray-800 text-white transition hover:bg-gray-700" aria-label="Toggle Table of Contents">
-    <span id="toc-icon" class="ti ti-menu transition-transform duration-200 ease-in-out"></span>
-  </button>
-</div>
-
-<style>
-  /* Add CSS to rotate the icon when the panel is open */
-  .toc-panel-container.toc-panel-open #toc-icon {
-    transform: rotate(90deg); /* Adjust angle as needed */
-  }
-</style>
-
-<script>
-  document.addEventListener("DOMContentLoaded", () => {
-    const container = document.querySelector(".toc-panel-container"); // Get the parent container
-    const toggleBtn = document.getElementById("toc-toggle-btn");
-    const tocPanel = document.getElementById("toc-panel");
-    const iconSpan = document.getElementById("toc-icon");
-
-    // Function to check if the panel is currently visually open
-    function isPanelOpen() {
-      return tocPanel.classList.contains("opacity-100");
+  <style>
+    /* Add CSS to rotate the icon when the panel is open */
+    .toc-panel-container.toc-panel-open #toc-icon {
+      transform: rotate(90deg); /* Adjust angle as needed */
     }
+  </style>
 
-    // Close directory panel function
-    function closePanel() {
-      tocPanel.classList.add("hidden"); // Removed hidden class toggle
-      tocPanel.classList.remove("opacity-100", "scale-100"); // Animate out
-      tocPanel.classList.add("opacity-0", "scale-95");
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const container = document.querySelector(".toc-panel-container"); // Get the parent container
+      const toggleBtn = document.getElementById("toc-toggle-btn");
+      const tocPanel = document.getElementById("toc-panel");
+      const iconSpan = document.getElementById("toc-icon");
 
-      container.classList.remove("toc-panel-open"); // Remove indicator class
-
-      iconSpan.classList.remove("ti-x");
-      iconSpan.classList.add("ti-menu");
-    }
-
-    // Toggle directory panel display/hide
-    toggleBtn.addEventListener("click", (e) => {
-      e.stopPropagation(); // Prevent bubbling to body
-      const isOpen = isPanelOpen(); // Check visual state
-
-      if (isOpen) {
-        closePanel();
-      } else {
-        tocPanel.classList.remove("hidden"); // Removed hidden class toggle
-        tocPanel.classList.remove("opacity-0", "scale-95"); // Animate in
-        tocPanel.classList.add("opacity-100", "scale-100");
-
-        container.classList.add("toc-panel-open"); // Add indicator class
-
-        iconSpan.classList.remove("ti-menu");
-        iconSpan.classList.add("ti-x");
+      // Function to check if the panel is currently visually open
+      function isPanelOpen() {
+        return tocPanel.classList.contains("opacity-100");
       }
-    });
 
-    // Close directory panel on click outside
-    document.body.addEventListener("click", (e) => {
-      // Check if panel is visually open
-      if (isPanelOpen()) {
-        const isClickInside = tocPanel.contains(e.target) || toggleBtn.contains(e.target);
-        if (!isClickInside) {
+      // Close directory panel function
+      function closePanel() {
+        tocPanel.classList.add("hidden"); // Removed hidden class toggle
+        tocPanel.classList.remove("opacity-100", "scale-100"); // Animate out
+        tocPanel.classList.add("opacity-0", "scale-95");
+
+        container.classList.remove("toc-panel-open"); // Remove indicator class
+
+        iconSpan.classList.remove("ti-x");
+        iconSpan.classList.add("ti-menu");
+      }
+
+      // Toggle directory panel display/hide
+      toggleBtn.addEventListener("click", (e) => {
+        e.stopPropagation(); // Prevent bubbling to body
+        const isOpen = isPanelOpen(); // Check visual state
+
+        if (isOpen) {
           closePanel();
-        }
-      }
-    });
-
-    // ================= Original TOC Script ====================
-    // The rest of your original TOC script remains the same,
-    // it operates independently of the panel's visibility toggle.
-    const tocContainers = document.querySelectorAll('[id^="toc-scroll-container-"]');
-    tocContainers.forEach((tocContainer) => {
-      const tocId = tocContainer.id;
-      const indicator = document.getElementById(`active-indicator`);
-      const headers = Array.from(document.querySelectorAll(".prose h1, .prose h2, .prose h3, .prose h4, .prose h5, .prose h6"));
-      const tocLinks = Array.from(tocContainer.querySelectorAll("#TableOfContents a"));
-      const SCROLL_THRESHOLD = 10;
-      const OFFSET_ADJUSTMENT = 100; // This variable is defined but not used in the provided handleAutoScroll. You might want to check if it's needed elsewhere or remove it.
-      let lastScrollY = window.scrollY;
-
-      function updateIndicator() {
-        const viewportTop = window.scrollY;
-        const viewportBottom = viewportTop + window.innerHeight;
-        let topVisibleHeader = null;
-        let bottomVisibleHeader = null;
-
-        headers.forEach((header, index) => {
-          const rect = header.getBoundingClientRect();
-          const headerTop = rect.top + window.scrollY;
-          const nextHeader = headers[index + 1];
-          const contentEnd = nextHeader ? nextHeader.getBoundingClientRect().top + window.scrollY : document.documentElement.scrollHeight;
-
-          if (viewportTop >= headerTop && viewportTop < contentEnd) {
-            if (!topVisibleHeader || headerTop > topVisibleHeader.getBoundingClientRect().top + window.scrollY) {
-              topVisibleHeader = header;
-            }
-          }
-          if (viewportBottom > headerTop && viewportBottom <= contentEnd) {
-            bottomVisibleHeader = header;
-          }
-        });
-
-        if (!topVisibleHeader && viewportTop < (headers[0]?.getBoundingClientRect().top + window.scrollY || 0)) {
-          topVisibleHeader = headers[0];
-        }
-        if (!bottomVisibleHeader && viewportBottom > (headers[headers.length - 1]?.getBoundingClientRect().top + window.scrollY || 0)) {
-          bottomVisibleHeader = headers[headers.length - 1];
-        }
-        if (!topVisibleHeader || !bottomVisibleHeader) {
-          let lastHeader = null;
-          headers.forEach((header) => {
-            const headerTop = header.getBoundingClientRect().top + window.scrollY;
-            if (headerTop <= viewportTop) {
-              lastHeader = header;
-            }
-          });
-          if (lastHeader) {
-            if (!topVisibleHeader) topVisibleHeader = lastHeader;
-            if (!bottomVisibleHeader) bottomVisibleHeader = lastHeader;
-          }
-        }
-
-        if (topVisibleHeader && bottomVisibleHeader) {
-          const topLink = tocLinks.find((link) => link.getAttribute("href") === `#${topVisibleHeader.id}`);
-          const bottomLink = tocLinks.find((link) => link.getAttribute("href") === `#${bottomVisibleHeader.id}`);
-          if (topLink && bottomLink) {
-            const tocRect = tocContainer.getBoundingClientRect();
-            const topLinkRect = topLink.getBoundingClientRect();
-            const bottomLinkRect = bottomLink.getBoundingClientRect();
-            const topPosition = topLinkRect.top - tocRect.top + tocContainer.scrollTop;
-            const bottomPosition = bottomLinkRect.top - tocRect.top + tocContainer.scrollTop + bottomLinkRect.height;
-
-            indicator.style.top = `${topPosition}px`;
-            indicator.style.height = `${bottomPosition - topPosition}px`;
-          } else {
-            indicator.style.height = "0";
-          }
         } else {
-          indicator.style.height = "0";
+          tocPanel.classList.remove("hidden"); // Removed hidden class toggle
+          tocPanel.classList.remove("opacity-0", "scale-95"); // Animate in
+          tocPanel.classList.add("opacity-100", "scale-100");
+
+          container.classList.add("toc-panel-open"); // Add indicator class
+
+          iconSpan.classList.remove("ti-menu");
+          iconSpan.classList.add("ti-x");
         }
-      }
+      });
 
-      function handleAutoScroll() {
-        const currentScrollY = window.scrollY;
-        // Only auto-scroll if scrolling significantly or at the very top/bottom of the page
-        // Added checks for tocContainer.scrollTop and currentScrollY being 0
-        if (Math.abs(currentScrollY - lastScrollY) > SCROLL_THRESHOLD || tocContainer.scrollTop === 0 || currentScrollY === 0) {
-          const viewportTop = currentScrollY;
+      // Close directory panel on click outside
+      document.body.addEventListener("click", (e) => {
+        // Check if panel is visually open
+        if (isPanelOpen()) {
+          const isClickInside = tocPanel.contains(e.target) || toggleBtn.contains(e.target);
+          if (!isClickInside) {
+            closePanel();
+          }
+        }
+      });
+
+      // ================= Original TOC Script ====================
+      // The rest of your original TOC script remains the same,
+      // it operates independently of the panel's visibility toggle.
+      const tocContainers = document.querySelectorAll('[id^="toc-scroll-container-"]');
+      tocContainers.forEach((tocContainer) => {
+        const tocId = tocContainer.id;
+        const indicator = document.getElementById(`active-indicator`);
+        const headers = Array.from(document.querySelectorAll(".prose h1, .prose h2, .prose h3, .prose h4, .prose h5, .prose h6"));
+        const tocLinks = Array.from(tocContainer.querySelectorAll("#TableOfContents a"));
+        const SCROLL_THRESHOLD = 10;
+        const OFFSET_ADJUSTMENT = 100; // This variable is defined but not used in the provided handleAutoScroll. You might want to check if it's needed elsewhere or remove it.
+        let lastScrollY = window.scrollY;
+
+        function updateIndicator() {
+          const viewportTop = window.scrollY;
           const viewportBottom = viewportTop + window.innerHeight;
-
-          // Find the headers whose content is currently within the viewport bounds
-          // (Similar logic to updateIndicator for finding the range)
-          let currentSectionTopHeader = null;
-          let currentSectionBottomHeader = null;
+          let topVisibleHeader = null;
+          let bottomVisibleHeader = null;
 
           headers.forEach((header, index) => {
             const rect = header.getBoundingClientRect();
@@ -171,19 +103,23 @@
             const nextHeader = headers[index + 1];
             const contentEnd = nextHeader ? nextHeader.getBoundingClientRect().top + window.scrollY : document.documentElement.scrollHeight;
 
-            // Check if viewport top is within this header's section
             if (viewportTop >= headerTop && viewportTop < contentEnd) {
-              currentSectionTopHeader = header;
+              if (!topVisibleHeader || headerTop > topVisibleHeader.getBoundingClientRect().top + window.scrollY) {
+                topVisibleHeader = header;
+              }
             }
-            // Check if viewport bottom is within this header's section
             if (viewportBottom > headerTop && viewportBottom <= contentEnd) {
-              currentSectionBottomHeader = header;
+              bottomVisibleHeader = header;
             }
           });
 
-          // Fallback: if no headers are strictly "in view" based on the above,
-          // find the last header scrolled past (for top) or the first header below viewport (for bottom)
-          if (!currentSectionTopHeader) {
+          if (!topVisibleHeader && viewportTop < (headers[0]?.getBoundingClientRect().top + window.scrollY || 0)) {
+            topVisibleHeader = headers[0];
+          }
+          if (!bottomVisibleHeader && viewportBottom > (headers[headers.length - 1]?.getBoundingClientRect().top + window.scrollY || 0)) {
+            bottomVisibleHeader = headers[headers.length - 1];
+          }
+          if (!topVisibleHeader || !bottomVisibleHeader) {
             let lastHeader = null;
             headers.forEach((header) => {
               const headerTop = header.getBoundingClientRect().top + window.scrollY;
@@ -191,125 +127,191 @@
                 lastHeader = header;
               }
             });
-            currentSectionTopHeader = lastHeader || headers[0]; // Default to first header if none found
-          }
-
-          if (!currentSectionBottomHeader) {
-            let firstHeaderBelow = null;
-            for (let i = 0; i < headers.length; i++) {
-              const headerTop = headers[i].getBoundingClientRect().top + window.scrollY;
-              if (headerTop >= viewportBottom) {
-                firstHeaderBelow = headers[i];
-                break;
-              }
+            if (lastHeader) {
+              if (!topVisibleHeader) topVisibleHeader = lastHeader;
+              if (!bottomVisibleHeader) bottomVisibleHeader = lastHeader;
             }
-            currentSectionBottomHeader = firstHeaderBelow || headers[headers.length - 1]; // Default to last header
           }
 
-          // If we found at least one header relevant to the current view
-          if (currentSectionTopHeader) {
-            // Find the links corresponding to the top and bottom relevant headers
-            // (The range that the indicator would likely cover)
-            const topLink = tocLinks.find((link) => link.getAttribute("href") === `#${currentSectionTopHeader.id}`);
-            const bottomLink = tocLinks.find((link) => link.getAttribute("href") === `#${currentSectionBottomHeader.id}`);
-
-            if (topLink || bottomLink) {
-              // Need at least one link
+          if (topVisibleHeader && bottomVisibleHeader) {
+            const topLink = tocLinks.find((link) => link.getAttribute("href") === `#${topVisibleHeader.id}`);
+            const bottomLink = tocLinks.find((link) => link.getAttribute("href") === `#${bottomVisibleHeader.id}`);
+            if (topLink && bottomLink) {
               const tocRect = tocContainer.getBoundingClientRect();
-              const containerHeight = tocContainer.clientHeight;
-              let targetScroll = tocContainer.scrollTop;
-              const PADDING = 20; // Add a little padding around the link
+              const topLinkRect = topLink.getBoundingClientRect();
+              const bottomLinkRect = bottomLink.getBoundingClientRect();
+              const topPosition = topLinkRect.top - tocRect.top + tocContainer.scrollTop;
+              const bottomPosition = bottomLinkRect.top - tocRect.top + tocContainer.scrollTop + bottomLinkRect.height;
 
-              // Use the top link if available, otherwise fall back to bottomLink if only one exists
-              const primaryLink = topLink || bottomLink;
-              // Use the bottom link if available, otherwise fall back to topLink if only one exists
-              const secondaryLink = bottomLink || topLink;
-
-              if (primaryLink && secondaryLink) {
-                const primaryLinkRect = primaryLink.getBoundingClientRect();
-                const secondaryLinkRect = secondaryLink.getBoundingClientRect();
-
-                const primaryLinkTopRel = primaryLinkRect.top - tocRect.top; // Top of primaryLink relative to container's top
-                const secondaryLinkBottomRel = secondaryLinkRect.bottom - tocRect.top; // Bottom of secondaryLink relative to container's top
-
-                // Check if the top boundary of the highlighted range is above the container's top edge
-                if (primaryLinkTopRel < PADDING) {
-                  targetScroll = tocContainer.scrollTop + primaryLinkTopRel - PADDING;
-                }
-                // Check if the bottom boundary of the highlighted range is below the container's bottom edge
-                else if (secondaryLinkBottomRel > containerHeight - PADDING) {
-                  targetScroll = tocContainer.scrollTop + (secondaryLinkBottomRel - containerHeight) + PADDING;
-                }
-                // Optional: Add logic to center if the range is smaller than the container and it's outside the padding zone?
-                // This can be complex and might cause jumps, so keeping it simple for now.
-
-                // Clamp the target scroll position to prevent over-scrolling
-                targetScroll = Math.max(0, targetScroll);
-                targetScroll = Math.min(targetScroll, tocContainer.scrollHeight - containerHeight);
-
-                // Only scroll if the target is different from the current scroll position
-                if (targetScroll !== tocContainer.scrollTop) {
-                  tocContainer.scrollTo({
-                    top: targetScroll,
-                    behavior: "smooth",
-                  });
-                }
-              } else if (primaryLink) {
-                // Handle case with only one relevant link found
-                const primaryLinkRect = primaryLink.getBoundingClientRect();
-                const primaryLinkTopRel = primaryLinkRect.top - tocRect.top;
-                const primaryLinkBottomRel = primaryLinkRect.bottom - tocRect.top;
-
-                if (primaryLinkTopRel < PADDING) {
-                  targetScroll = tocContainer.scrollTop + primaryLinkTopRel - PADDING;
-                } else if (primaryLinkBottomRel > containerHeight - PADDING) {
-                  targetScroll = tocContainer.scrollTop + (primaryLinkBottomRel - containerHeight) + PADDING;
-                }
-
-                targetScroll = Math.max(0, targetScroll);
-                targetScroll = Math.min(targetScroll, tocContainer.scrollHeight - containerHeight);
-
-                if (targetScroll !== tocContainer.scrollTop) {
-                  tocContainer.scrollTo({
-                    top: targetScroll,
-                    behavior: "smooth",
-                  });
-                }
-              }
+              indicator.style.top = `${topPosition}px`;
+              indicator.style.height = `${bottomPosition - topPosition}px`;
+            } else {
+              indicator.style.height = "0";
             }
+          } else {
+            indicator.style.height = "0";
           }
         }
-        lastScrollY = currentScrollY;
-      }
-      let scheduled = false;
-      function scheduleUpdate() {
-        if (!scheduled) {
-          scheduled = true;
+
+        function handleAutoScroll() {
+          const currentScrollY = window.scrollY;
+          // Only auto-scroll if scrolling significantly or at the very top/bottom of the page
+          // Added checks for tocContainer.scrollTop and currentScrollY being 0
+          if (Math.abs(currentScrollY - lastScrollY) > SCROLL_THRESHOLD || tocContainer.scrollTop === 0 || currentScrollY === 0) {
+            const viewportTop = currentScrollY;
+            const viewportBottom = viewportTop + window.innerHeight;
+
+            // Find the headers whose content is currently within the viewport bounds
+            // (Similar logic to updateIndicator for finding the range)
+            let currentSectionTopHeader = null;
+            let currentSectionBottomHeader = null;
+
+            headers.forEach((header, index) => {
+              const rect = header.getBoundingClientRect();
+              const headerTop = rect.top + window.scrollY;
+              const nextHeader = headers[index + 1];
+              const contentEnd = nextHeader ? nextHeader.getBoundingClientRect().top + window.scrollY : document.documentElement.scrollHeight;
+
+              // Check if viewport top is within this header's section
+              if (viewportTop >= headerTop && viewportTop < contentEnd) {
+                currentSectionTopHeader = header;
+              }
+              // Check if viewport bottom is within this header's section
+              if (viewportBottom > headerTop && viewportBottom <= contentEnd) {
+                currentSectionBottomHeader = header;
+              }
+            });
+
+            // Fallback: if no headers are strictly "in view" based on the above,
+            // find the last header scrolled past (for top) or the first header below viewport (for bottom)
+            if (!currentSectionTopHeader) {
+              let lastHeader = null;
+              headers.forEach((header) => {
+                const headerTop = header.getBoundingClientRect().top + window.scrollY;
+                if (headerTop <= viewportTop) {
+                  lastHeader = header;
+                }
+              });
+              currentSectionTopHeader = lastHeader || headers[0]; // Default to first header if none found
+            }
+
+            if (!currentSectionBottomHeader) {
+              let firstHeaderBelow = null;
+              for (let i = 0; i < headers.length; i++) {
+                const headerTop = headers[i].getBoundingClientRect().top + window.scrollY;
+                if (headerTop >= viewportBottom) {
+                  firstHeaderBelow = headers[i];
+                  break;
+                }
+              }
+              currentSectionBottomHeader = firstHeaderBelow || headers[headers.length - 1]; // Default to last header
+            }
+
+            // If we found at least one header relevant to the current view
+            if (currentSectionTopHeader) {
+              // Find the links corresponding to the top and bottom relevant headers
+              // (The range that the indicator would likely cover)
+              const topLink = tocLinks.find((link) => link.getAttribute("href") === `#${currentSectionTopHeader.id}`);
+              const bottomLink = tocLinks.find((link) => link.getAttribute("href") === `#${currentSectionBottomHeader.id}`);
+
+              if (topLink || bottomLink) {
+                // Need at least one link
+                const tocRect = tocContainer.getBoundingClientRect();
+                const containerHeight = tocContainer.clientHeight;
+                let targetScroll = tocContainer.scrollTop;
+                const PADDING = 20; // Add a little padding around the link
+
+                // Use the top link if available, otherwise fall back to bottomLink if only one exists
+                const primaryLink = topLink || bottomLink;
+                // Use the bottom link if available, otherwise fall back to topLink if only one exists
+                const secondaryLink = bottomLink || topLink;
+
+                if (primaryLink && secondaryLink) {
+                  const primaryLinkRect = primaryLink.getBoundingClientRect();
+                  const secondaryLinkRect = secondaryLink.getBoundingClientRect();
+
+                  const primaryLinkTopRel = primaryLinkRect.top - tocRect.top; // Top of primaryLink relative to container's top
+                  const secondaryLinkBottomRel = secondaryLinkRect.bottom - tocRect.top; // Bottom of secondaryLink relative to container's top
+
+                  // Check if the top boundary of the highlighted range is above the container's top edge
+                  if (primaryLinkTopRel < PADDING) {
+                    targetScroll = tocContainer.scrollTop + primaryLinkTopRel - PADDING;
+                  }
+                  // Check if the bottom boundary of the highlighted range is below the container's bottom edge
+                  else if (secondaryLinkBottomRel > containerHeight - PADDING) {
+                    targetScroll = tocContainer.scrollTop + (secondaryLinkBottomRel - containerHeight) + PADDING;
+                  }
+                  // Optional: Add logic to center if the range is smaller than the container and it's outside the padding zone?
+                  // This can be complex and might cause jumps, so keeping it simple for now.
+
+                  // Clamp the target scroll position to prevent over-scrolling
+                  targetScroll = Math.max(0, targetScroll);
+                  targetScroll = Math.min(targetScroll, tocContainer.scrollHeight - containerHeight);
+
+                  // Only scroll if the target is different from the current scroll position
+                  if (targetScroll !== tocContainer.scrollTop) {
+                    tocContainer.scrollTo({
+                      top: targetScroll,
+                      behavior: "smooth",
+                    });
+                  }
+                } else if (primaryLink) {
+                  // Handle case with only one relevant link found
+                  const primaryLinkRect = primaryLink.getBoundingClientRect();
+                  const primaryLinkTopRel = primaryLinkRect.top - tocRect.top;
+                  const primaryLinkBottomRel = primaryLinkRect.bottom - tocRect.top;
+
+                  if (primaryLinkTopRel < PADDING) {
+                    targetScroll = tocContainer.scrollTop + primaryLinkTopRel - PADDING;
+                  } else if (primaryLinkBottomRel > containerHeight - PADDING) {
+                    targetScroll = tocContainer.scrollTop + (primaryLinkBottomRel - containerHeight) + PADDING;
+                  }
+
+                  targetScroll = Math.max(0, targetScroll);
+                  targetScroll = Math.min(targetScroll, tocContainer.scrollHeight - containerHeight);
+
+                  if (targetScroll !== tocContainer.scrollTop) {
+                    tocContainer.scrollTo({
+                      top: targetScroll,
+                      behavior: "smooth",
+                    });
+                  }
+                }
+              }
+            }
+          }
+          lastScrollY = currentScrollY;
+        }
+        let scheduled = false;
+        function scheduleUpdate() {
+          if (!scheduled) {
+            scheduled = true;
+            requestAnimationFrame(() => {
+              updateIndicator();
+              handleAutoScroll();
+              scheduled = false;
+            });
+          }
+        }
+
+        const observerOptions = {
+          root: null,
+          threshold: [0, 0.25, 0.5, 0.75, 1.0],
+        };
+        const observer = new IntersectionObserver(scheduleUpdate, observerOptions);
+        headers.forEach((header) => observer.observe(header));
+
+        window.addEventListener("resize", () =>
           requestAnimationFrame(() => {
             updateIndicator();
             handleAutoScroll();
-            scheduled = false;
-          });
-        }
-      }
+          })
+        );
 
-      const observerOptions = {
-        root: null,
-        threshold: [0, 0.25, 0.5, 0.75, 1.0],
-      };
-      const observer = new IntersectionObserver(scheduleUpdate, observerOptions);
-      headers.forEach((header) => observer.observe(header));
-
-      window.addEventListener("resize", () =>
-        requestAnimationFrame(() => {
-          updateIndicator();
-          handleAutoScroll();
-        })
-      );
-
-      // Initial call
-      updateIndicator();
-      handleAutoScroll();
+        // Initial call
+        updateIndicator();
+        handleAutoScroll();
+      });
     });
-  });
-</script>
+  </script>
+{{ end }}

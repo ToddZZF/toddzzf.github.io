@@ -1,6 +1,6 @@
 {
   "scripts": {
-    "dev": "hugo server --environment dev --disableFastRender",
+    "dev": "hugo server --environment dev --disableFastRender --renderToMemory",
     "build": "tailwindcss -i themes/exforma/assets/css/main.css -o themes/exforma/assets/css/style.css",
     "format": "prettier --write ."
   },
