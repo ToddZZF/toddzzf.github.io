@@ -1,5 +1,5 @@
 {{ define "main" }}
-  <div class="prose mx-auto mb-8 px-4">
+  <div class="prose mx-auto mt-8 mb-8 px-4">
     {{ .Content }}
   </div>
 
@@ -15,7 +15,7 @@
             <i class="ti ti-folder text-base"></i>
           {{ end }}
           <!-- 标题和数量 -->
-          <span>{{ .Title }} ({{ .Pages | len }})</span>
+          <span>{{ .Title }} ({{ .RegularPagesRecursive | len }})</span>
         </a>
       {{ end }}
     </div>

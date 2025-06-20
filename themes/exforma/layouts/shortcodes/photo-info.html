@@ -1,29 +1,17 @@
 {{- $metadata := resources.Get "js/image-metadata.js" | js.Build (dict "format" "esm") | fingerprint }}
 {{- $watermark := resources.Get "js/watermark.js" | js.Build (dict "format" "esm") | fingerprint }}
-<div class="max-w-2xl mx-auto p-6">
-  <h2 class="text-2xl font-bold text-center mb-4">📸 图像信息读取工具</h2>
-  <p class="text-gray-600 mb-4">选择一张 JPG / PNG / HEIC 图片：</p>
+<div class="mx-auto max-w-2xl p-6">
+  <h2 class="mb-4 text-center text-2xl font-bold">📸 图像信息读取工具</h2>
+  <p class="mb-4 text-gray-600">选择一张 JPG / PNG / HEIC 图片：</p>
   <input
     type="file"
     accept="image/jpeg,image/png,image/heic"
     id="imageInput"
     class="w-full rounded-lg border border-gray-200 p-2 text-sm file:mr-4 file:rounded file:border-0 file:bg-gray-100 file:px-3 file:py-1.5 file:text-sm file:font-medium file:text-gray-700 hover:file:bg-gray-200"
   />
-  <div class="flex justify-center gap-4 mt-4">
-    <button
-      id="watermarkBtn"
-      class="rounded-lg bg-blue-500 text-white px-4 py-2 text-sm font-medium hover:bg-blue-600 disabled:bg-gray-400 disabled:cursor-not-allowed"
-      disabled
-    >
-      添加水印
-    </button>
-    <button
-      id="downloadBtn"
-      class="rounded-lg bg-green-500 text-white px-4 py-2 text-sm font-medium hover:bg-green-600 disabled:bg-gray-400 disabled:cursor-not-allowed"
-      disabled
-    >
-      下载图片
-    </button>
+  <div class="mt-4 flex justify-center gap-4">
+    <button id="watermarkBtn" class="rounded-lg bg-blue-500 px-4 py-2 text-sm font-medium text-white hover:bg-blue-600 disabled:cursor-not-allowed disabled:bg-gray-400" disabled>添加水印</button>
+    <button id="downloadBtn" class="rounded-lg bg-green-500 px-4 py-2 text-sm font-medium text-white hover:bg-green-600 disabled:cursor-not-allowed disabled:bg-gray-400" disabled>下载图片</button>
   </div>
   <img id="preview" class="mx-auto mb-6 hidden max-h-96 max-w-full rounded border border-gray-200" alt="图像预览" />
   <div id="info" class="min-h-24 rounded-lg bg-gray-50 p-4 whitespace-pre-wrap text-gray-800">请选择图像文件</div>
@@ -102,6 +90,57 @@
     }
   });
 
+  // 支持从剪贴板粘贴图像
+  document.addEventListener('paste', async (event) => {
+    const items = event.clipboardData?.items;
+    if (!items) return;
+
+    for (const item of items) {
+      if (item.type.startsWith('image/')) {
+        const file = item.getAsFile();
+        if (!file) continue;
+
+        // 模拟 fileInput 行为
+        if (currentBlobUrl) {
+          URL.revokeObjectURL(currentBlobUrl);
+        }
+
+        currentBlobUrl = URL.createObjectURL(file);
+        preview.src = currentBlobUrl;
+        preview.classList.remove('hidden');
+        watermarkBtn.disabled = false;
+        downloadBtn.disabled = true;
+        watermarked = false;
+
+        try {
+          info.textContent = '读取中...';
+          currentMetadata = await getImageMetadata(file);
+
+          let output = '';
+          output += renderInfoList('📷 图像概览', currentMetadata.generalInfo);
+          output += renderInfoList('\n📸 基本 EXIF 信息', currentMetadata.basicExif);
+          output += renderInfoList('\n🧪 富士胶片模拟设置', currentMetadata.fujiRecipe);
+
+          info.textContent = output.trim();
+          console.log('Pasted image metadata loaded:', currentMetadata);
+        } catch (err) {
+          console.error('Metadata error:', err);
+          info.textContent = `读取失败：${err.message || err}`;
+          preview.classList.add('hidden');
+          watermarkBtn.disabled = true;
+          downloadBtn.disabled = true;
+          if (currentBlobUrl) {
+            URL.revokeObjectURL(currentBlobUrl);
+            currentBlobUrl = null;
+          }
+        }
+
+        break; // 只处理第一个图片
+      }
+    }
+  });
+
+
   watermarkBtn.addEventListener('click', async () => {
     if (!currentMetadata || !preview.src || !currentBlobUrl) {
       info.textContent = '请先上传有效的图片';
@@ -159,16 +198,16 @@
     // 创建一个临时链接用于下载
     const link = document.createElement('a');
     link.href = currentBlobUrl;
-    
+
     // 从原始文件名生成下载文件名
     const originalFile = fileInput.files[0];
     const originalName = originalFile.name.split('.')[0];
     link.download = `${originalName}_watermarked.jpg`;
-    
+
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
-    
+
     console.log('Download initiated for watermarked image');
   });
 </script>
