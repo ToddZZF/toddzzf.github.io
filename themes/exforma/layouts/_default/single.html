@@ -40,6 +40,8 @@
     <div class="prose">
       {{ .Content }}
     </div>
+
+    {{ partial "comments.html" . }}
   </div>
 
   <!-- 调用悬浮按钮和目录内容 -->
